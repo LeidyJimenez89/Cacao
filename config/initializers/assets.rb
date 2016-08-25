@@ -9,6 +9,7 @@ Rails.application.config.assets.precompile += %w( pace.css)
 Rails.application.config.assets.precompile += %w( style.css )
 
 Rails.application.config.assets.precompile += %w( main.js )
+Rails.application.config.assets.precompile += %w( jquery.dataTables.min.js )
 # Version of your assets, change this if you want to expire all your assets.
 Rails.application.config.assets.version = '1.0'
 
