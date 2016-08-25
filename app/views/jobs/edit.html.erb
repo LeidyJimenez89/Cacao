@@ -1,6 +1,30 @@
 <h1>Editing Job</h1>
+<%= form_for(@job) do |f| %>
+  <% if @job.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@job.errors.count, "error") %> prohibited this job from being saved:</h2>
+      <ul>
+      	<% @job.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+	  <div class="form-group col-md-12">
+	    <%= f.label :name , "Nombre", class:"subtitle"%>
+	    <%= f.text_field :name , class:"form-control"%>
+	  </div>
 
-<%= render 'form' %>
+	  <div class="form-group col-md-12">
+	    <%= f.label :description , "Descripción", class:"subtitle"%>
+	    <%= f.text_area :description , class:"form-control"%>
+	  </div>
+
+	  <div class="col-md-12">
+		<%= link_to 'Cancelar', jobs_path ,:class =>"btn btn-danger" %>
+	    <%= f.submit :class =>"btn btn-success"%>
+	  </div>
 
 <%= link_to 'Show', @job %> |
 <%= link_to 'Back', jobs_path %>
+<% end %>
