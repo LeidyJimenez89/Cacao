@@ -1,0 +1,17 @@
+<p>
+  <strong>Cc:</strong>
+  <%= @operator.cc %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @operator.name %>
+</p>
+
+<p>
+  <strong>Position:</strong>
+  <%= @operator.position %>
+</p>
+
+<%= link_to 'Edit', edit_operator_path(@operator) %> |
+<%= link_to 'Back', operators_path %>
