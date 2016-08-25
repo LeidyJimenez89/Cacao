@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= content_for?(:title) ? yield(:title) : "GentelellaOnRails" %> </title>
+
+
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'css/animate.min', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'css/custom', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'css/icheck/flat/green', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'css/floatexamples', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'css/normalize', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'css/ion.rangeSlider', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'pace', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'style', media: 'all', 'data-turbolinks-track' => true %>
+
+
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'main', 'data-turbolinks-track' => true %>
+
+  <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+
+<body class="nav-md">
+<div class="container body">
+  <% flash.each do |key, value| %>
+      <div align="center" id="flash" class="alert alert-<%= key %>"><%= value %></div>
+  <% end %>
+
+<%= render "partials/sidenav" %>
+<%= render "partials/topnav" %>
+
+<!-- page content -->
+<div class="right_col" role="main" style="height:100vh;">
+    <div class="clearfix"></div>
+    <div class="row">
+      <h1 class="label label-success"><%= notice %></h1>
+      <h1><%= alert %></h1>
+      <%= yield %>
+    </div>
+</div>
+
+
+  <%= render "partials/footer" %>
+  <%= javascript_include_tag 'footermanifest', 'data-turbolinks-track' => true %>
+
+</body>
+</html>
