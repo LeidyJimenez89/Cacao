@@ -1,4 +1,4 @@
-<h1>Editing Job</h1>
+<h1>Editar Cargo</h1>
 <%= form_for(@job) do |f| %>
   <% if @job.errors.any? %>
     <div id="error_explanation">
@@ -24,7 +24,4 @@
 		<%= link_to 'Cancelar', jobs_path ,:class =>"btn btn-danger" %>
 	    <%= f.submit :class =>"btn btn-success"%>
 	  </div>
-
-<%= link_to 'Show', @job %> |
-<%= link_to 'Back', jobs_path %>
 <% end %>
