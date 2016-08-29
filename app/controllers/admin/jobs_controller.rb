@@ -1,4 +1,4 @@
-class JobsController < ApplicationController
+class Admin::JobsController < ApplicationController
   before_action :set_job, only: [:show, :edit, :update, :destroy]
 
   # GET /jobs
@@ -31,20 +31,21 @@ class JobsController < ApplicationController
   def create
     @job = Job.new(job_params)
     if @job.save
-      redirect_to jobs_path, notice: 'Cargo creado satisfactoriamente'
+      redirect_to admin_jobs_path, notice: 'C1argo creado satisfactoriamente'
     else
       render :new , alert: 'Cargo no creado satisfactoriamente' 
     end
   end
+
 
   # PATCH/PUT /jobs/1
   # PATCH/PUT /jobs/1.json
   def update
     respond_to do |format|
       if @job.update(job_params)
-        format.html { redirect_to jobs_path, notice: 'Cargo editado satisfactoriamente' }
+        format.html { redirect_to admin_jobs_path, notice: 'Cargo editado satisfactoriamente' }
       else
-        render :new , alert: 'Cargo no editado satisfactoriamente' 
+        render :edit , alert: 'Cargo no creado satisfactoriamente' 
       end
     end
   end
@@ -54,7 +55,7 @@ class JobsController < ApplicationController
   def destroy
     @job.destroy
     respond_to do |format|
-      format.html { redirect_to jobs_path, notice: 'Cargo eliminado satisfactoriamente' }
+      format.html { redirect_to admin_jobs_path, notice: 'Cargo eliminado satisfactoriamente' }
     end
   end
 

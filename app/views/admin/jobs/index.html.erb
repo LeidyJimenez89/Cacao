@@ -1,13 +1,14 @@
-<%= javascript_include_tag 'index', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag 'jquery.dataTables.min', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag 'bootstrap', 'data-turbolinks-track' => true %>
 
-<h1>Listing Jobs</h1>
-
-<table>
+<h1 class="x_title"><i class="glyphicon glyphicon-leaf titleicon"></i>Listar Cargos</h1>
+<%= link_to 'Crear cargo', new_admin_job_path , :class =>"btn btn-default pull-right"%>
+<table id="datatable" class="display datatable" cellspacing="0" width="100%">
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th colspan="3"></th>
+      <th>Nombre</th>
+      <th>Descripción</th>
+      <th>Acciones</th>
     </tr>
   </thead>
 
@@ -16,21 +17,22 @@
       <tr>
         <td><%= job.name %></td>
         <td><%= job.description %></td>
-        <td><%= link_to 'Show', job %></td>
-        <td><%= link_to 'Edit', edit_job_path(job) %></td>
-        <td><%= link_to 'Destroy', job, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+        <%= link_to 'Ver', admin_job_path(job),:class =>"btn btn-default btn-sm"%>
+        <%= link_to 'Editar', edit_admin_job_path(job),:class =>"btn btn-default btn-sm" %>
+        <%= link_to 'Eliminar', admin_job_path(job),:class =>"btn btn-default btn-sm", method: :delete, data: { confirm: '¿Seguro desea eliminar el cargo?' } %>
+        <%= link_to 'Habilitar', change_job_path(job) ,:class =>"btn btn-default btn-sm"%>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Job', new_job_path %>
-
 <script>
-$(document).ready(function() {
-$('.datatable').DataTable({
+$('#datatable').DataTable({
+              "language": {
+                "url": "../files/spanish"
+            }
   // ajax: ...,
   // autoWidth: false,
   // pagingType: 'full_numbers',
@@ -41,5 +43,16 @@ $('.datatable').DataTable({
   // Check dataTables documentation to learn more about available options.
   // http://datatables.net/reference/option/pagingType
 });
-} );
+</script>
+
+
+<script>
+$(function(){
+  $("#flip-1").on("change", function(){
+    if ($(this).val() == "off"){
+      $("#estado").html("Sistema Apagado");}
+    else{
+      $("#estado").html("Sistema Encendido");}
+  });
+});
 </script>

@@ -20,7 +20,8 @@
         <td>
         <%= link_to 'Ver', job ,:class =>"btn btn-default btn-sm"%>
         <%= link_to 'Editar', edit_job_path(job),:class =>"btn btn-default btn-sm" %>
-        <%= link_to 'Eliminar', job,:class =>"btn btn-default btn-sm", method: :delete, data: { confirm: '¿Seguro desea eliminar el cargo?' } %></td>
+        <%= link_to 'Eliminar', job,:class =>"btn btn-default btn-sm", method: :delete, data: { confirm: '¿Seguro desea eliminar el cargo?' } %>
+        </td>
       </tr>
     <% end %>
   </tbody>
