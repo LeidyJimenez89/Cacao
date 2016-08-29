@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
    root 'plainpage#index'
+   get '/jobs/:id', to: 'jobs#change', as: 'change_job'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
@@ -57,5 +58,9 @@ Rails.application.routes.draw do
   #   end
      namespace :admin do
        resources :operators
+     end
+
+      namespace :admin do
+       resources :jobs
      end
 end

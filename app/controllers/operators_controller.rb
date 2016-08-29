@@ -21,38 +21,30 @@ class OperatorsController < ApplicationController
   def edit
   end
 
-  # POST /operators
-  # POST /operators.json
+
   def create
     @operator = Operator.new(operator_params)
-    if @operator.save
-      redirect_to operator_path(@operator.id), notice: 'Operator was successfully created.'
-    else
-      render :new , alert: 'Operator was error.' 
-    end
+      if @operator.save
+        redirect_to operators_path, notice: 'Operador creado satisfactoriamente'
+      else
+        render :new , alert: 'Operador no creado satisfactoriamente' 
+      end
   end
 
-  # PATCH/PUT /operators/1
-  # PATCH/PUT /operators/1.json
   def update
     respond_to do |format|
       if @operator.update(operator_params)
-        format.html { redirect_to @operator, notice: 'Operator was successfully updated.' }
-        format.json { render :show, status: :ok, location: @operator }
+        format.html { redirect_to operators_path, notice: 'Operator was successfully updated.' }
       else
-        format.html { render :edit }
-        format.json { render json: @operator.errors, status: :unprocessable_entity }
+        render :edit , alert: 'Operador no editado satisfactoriamente' 
       end
     end
   end
 
-  # DELETE /operators/1
-  # DELETE /operators/1.json
   def destroy
     @operator.destroy
     respond_to do |format|
-      format.html { redirect_to operators_url, notice: 'Operator was successfully destroyed.' }
-      format.json { head :no_content }
+      format.html { redirect_to operators_path, notice: 'Operator was successfully destroyed.' }
     end
   end
 
@@ -64,6 +56,6 @@ class OperatorsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def operator_params
-      params.require(:operator).permit(:cc, :name, :position)
+      params.require(:operator).permit(:cc, :name, :position, :dateadmission, :state)
     end
 end
