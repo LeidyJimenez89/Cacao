@@ -68,15 +68,15 @@
 
             <li><a><i class="fa fa-user"></i> Operarios <span class="fa fa-chevron-down"></span></a>
               <ul class="nav child_menu" style="display: none">
-                <li><a href="index.html">Listar Operarios</a></li>
-                <li><a href="index2.html">Crear Operarios</a></li>
+                <li><%= link_to 'Listar operadores', admin_operators_path%></li>
+                <li><%= link_to 'Crear operador', new_admin_operator_path%></li>
               </ul>
             </li>
 
             <li><a><i class="fa fa-user"></i> Supervisores <span class="fa fa-chevron-down"></span></a>
               <ul class="nav child_menu" style="display: none">
-                <li><a href="index.html">Listar Supervisores </a></li>
-                <li><a href="index2.html">Crear Supervisores </a></li>
+                <li><%= link_to 'Listar supervisores', admin_supervisors_path%></li>
+                <li><%= link_to 'Listar supervisor', new_admin_supervisor_path%></li>
               </ul>
             </li>
 
@@ -101,7 +101,7 @@
               </ul>
             </li>
 
-            <li><a><i class="fa fa-cogs"></i> Centro costos <span class="fa fa-chevron-down"></span></a>
+            <li><a><i class="fa fa-cogs"></i> Centro de costos <span class="fa fa-chevron-down"></span></a>
               <ul class="nav child_menu" style="display: none">
                 <li><a href="e_commerce.html">Listar centro de costos</a></li>
                 <li><a href="projects.html">Crear centro de costos</a></li>

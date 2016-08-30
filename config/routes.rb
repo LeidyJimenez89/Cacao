@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :supervisors
   resources :jobs
   resources :operators
   # The priority is based upon order of creation: first created -> highest priority.
@@ -62,5 +63,9 @@ Rails.application.routes.draw do
 
       namespace :admin do
        resources :jobs
+     end
+
+     namespace :admin do
+       resources :supervisors
      end
 end
