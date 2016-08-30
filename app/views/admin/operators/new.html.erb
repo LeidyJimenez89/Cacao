@@ -1,5 +1,44 @@
-<h1>New Operator</h1>
+<h1 class="x_title"><i class="glyphicon glyphicon-leaf titleicon"></i>Crear Operador</h1>
 
-<%= render 'form' %>
+<%= form_for @operator, url:{action: "create"} do |f| %>
+  <% if @operator.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@operator.errors.count, "error") %> prohibited this operator from being saved:</h2>
+      <ul>
+	      <% @operator.errors.full_messages.each do |message| %>
+	        <li><%= message %></li>
+	      <% end %>
+      </ul>
+    </div>
+  <% end %>
 
-<%= link_to 'Back', operators_path %>
+	  <div class="form-group col-md-4">
+	    <%= f.label :cc , "Cédula", class:"subtitle"%>
+	    <%= f.text_field :cc , class:"form-control"%>
+	  </div>
+	  <div class="form-group col-md-4">
+	    <%= f.label :name , "Nombres", class:"subtitle"%>
+	    <%= f.text_field :name, class:"form-control"%>
+	  </div>
+	  <div class="form-group col-md-4">
+	    <%= f.label :lastname , "Apellidos", class:"subtitle"%>
+	    <%= f.text_field :lastname, class:"form-control"%>
+	  </div>
+
+	  <div class="form-group col-md-4">
+	    <%= f.label :position, "Cargo", class:"subtitle"%>
+	    <%= f.select :position, Job.all.map { |j|  [ j.name , j.id ]  } , {prompt: ""} ,class:"form-control"%>
+	  </div>
+	  <div class="form-group col-md-4">
+	    <%= f.label :dateadmission, "Fecha de ingreso", class:"subtitle"%>
+	    <%= f.text_field :dateadmission, class:"form-control"%>
+	  </div>
+	  <div class="form-group col-md-4">
+	    <%= f.label :state, "Estado", class:"subtitle"%>
+	    <%= f.select :state, ["Activo","Inactivo"], {},class:"form-control"%>
+	  </div>
+	  <div class="col-md-12">
+		<%= link_to 'Cancelar', admin_operators_path ,:class =>"btn btn-danger" %>
+	    <%= f.submit :class =>"btn btn-success"%>
+	  </div>
+<% end %>

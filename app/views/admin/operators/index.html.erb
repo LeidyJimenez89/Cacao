@@ -9,6 +9,8 @@
       <th>Cédula</th>
       <th>Nombre</th>
       <th>Cargo</th>
+      <th>Fecha de ingreso</th>
+      <th>Estado</th>
       <th>Acciones</th>
     </tr>
   </thead>
@@ -19,10 +21,12 @@
         <td><%= operator.cc %></td>
         <td><%= operator.name %></td>
         <td><%= operator.position %></td>
+        <td><%= operator.dateadmission %></td>
+        <td><%= operator.state %></td>
         <td>
-        <%= link_to 'Ver', admin_operator_path(operator) ,:class =>"btn btn-default btn-sm"%>
-        <%= link_to 'Editar', edit_admin_operator_path(operator),:class =>"btn btn-default btn-sm" %>
-        <%= link_to 'Eliminar', admin_operator_path(operator),:class =>"btn btn-default btn-sm",  method: :delete, data: { confirm: 'Are you sure?' } %>
+        <%= link_to 'Ver', admin_operator_path(operator),:class =>"btn btn-default btn-sm" %>      
+        <%= link_to 'Editar', edit_admin_operator_path(operator) ,:class =>"btn btn-default btn-sm"%>
+        <%= link_to 'Eliminar', admin_operator_path(operator),:class =>"btn btn-default btn-sm", method: :delete, data: { confirm: 'Are you sure?' } %>
         </td>
       </tr>
     <% end %>

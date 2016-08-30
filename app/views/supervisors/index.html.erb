@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Supervisors</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Name</th>
+      <th>Lastname</th>
+      <th>Cc</th>
+      <th>State</th>
+      <th>Position</th>
+      <th>Dateadmission</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @supervisors.each do |supervisor| %>
+      <tr>
+        <td><%= supervisor.user_id %></td>
+        <td><%= supervisor.name %></td>
+        <td><%= supervisor.lastname %></td>
+        <td><%= supervisor.cc %></td>
+        <td><%= supervisor.state %></td>
+        <td><%= supervisor.position %></td>
+        <td><%= supervisor.dateadmission %></td>
+        <td><%= link_to 'Show', supervisor %></td>
+        <td><%= link_to 'Edit', edit_supervisor_path(supervisor) %></td>
+        <td><%= link_to 'Destroy', supervisor, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Supervisor', new_supervisor_path %>
