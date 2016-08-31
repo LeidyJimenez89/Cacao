@@ -1,10 +1,3 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>User:</strong>
-  <%= @supervisor.user_id %>
-</p>
-
 <p>
   <strong>Name:</strong>
   <%= @supervisor.name %>
@@ -35,5 +28,5 @@
   <%= @supervisor.dateadmission %>
 </p>
 
-<%= link_to 'Edit', edit_supervisor_path(@supervisor) %> |
-<%= link_to 'Back', supervisors_path %>
+<%= link_to 'Editar', edit_supervisor_path(@supervisor),:class =>"btn btn-default" %>
+<%= link_to 'Cancelar', supervisors_path,:class =>"btn btn-default" %>

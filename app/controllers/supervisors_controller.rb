@@ -25,15 +25,10 @@ class SupervisorsController < ApplicationController
   # POST /supervisors.json
   def create
     @supervisor = Supervisor.new(supervisor_params)
-
-    respond_to do |format|
-      if @supervisor.save
-        format.html { redirect_to @supervisor, notice: 'Supervisor was successfully created.' }
-        format.json { render :show, status: :created, location: @supervisor }
-      else
-        format.html { render :new }
-        format.json { render json: @supervisor.errors, status: :unprocessable_entity }
-      end
+    if @supervisor.save
+      redirect_to @supervisor, notice: 'Supervisor creado satisfactoriamente'
+    else
+      render :new , alert: 'Supervisor no creado satisfactoriamente'
     end
   end
 
@@ -42,11 +37,9 @@ class SupervisorsController < ApplicationController
   def update
     respond_to do |format|
       if @supervisor.update(supervisor_params)
-        format.html { redirect_to @supervisor, notice: 'Supervisor was successfully updated.' }
-        format.json { render :show, status: :ok, location: @supervisor }
+        format.html { redirect_to @supervisor, notice: 'Supervisor editado satisfactoriamente' }
       else
-        format.html { render :edit }
-        format.json { render json: @supervisor.errors, status: :unprocessable_entity }
+        render :edit , alert: 'Supervisor no editado satisfactoriamente'
       end
     end
   end
@@ -57,7 +50,6 @@ class SupervisorsController < ApplicationController
     @supervisor.destroy
     respond_to do |format|
       format.html { redirect_to supervisors_url, notice: 'Supervisor was successfully destroyed.' }
-      format.json { head :no_content }
     end
   end
 

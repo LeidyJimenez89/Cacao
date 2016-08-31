@@ -24,12 +24,12 @@
 	  </div>
 
 	  <div class="form-group col-md-4">
-	    <%= f.label :position, "Cargo", class:"subtitle"%>
-	    <%= f.select :position, Job.all.map { |j|  [ j.name , j.id ]  } , {prompt: ""} ,class:"form-control"%>
+	    <%= f.label :job_id, "Cargo", class:"subtitle"%>
+	    <%= f.select :job_id, Job.all.map { |j|  [ j.name , j.id ]  } , {prompt: ""} ,class:"form-control"%>
 	  </div>
 	  <div class="form-group col-md-4">
 	    <%= f.label :dateadmission, "Fecha de ingreso", class:"subtitle"%>
-	    <%= f.text_field :dateadmission, class:"form-control"%>
+	    <%= f.datetime_select :dateadmission , class:"form-control"%>
 	  </div>
 	  <div class="form-group col-md-4">
 	    <%= f.label :state, "Estado", class:"subtitle"%>

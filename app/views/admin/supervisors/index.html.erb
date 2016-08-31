@@ -1,0 +1,53 @@
+<%= javascript_include_tag 'jquery.dataTables.min', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag 'bootstrap', 'data-turbolinks-track' => true %>
+
+<h1 class="x_title"><i class="glyphicon glyphicon-leaf titleicon"></i>Listar Supervisores</h1>
+<%= link_to 'Crear supervisor', new_admin_supervisor_path , :class =>"btn btn-default pull-right"%>
+<table id="datatable" class="display datatable" cellspacing="0" width="100%">
+  <thead>
+    <tr>
+      <th>Cécula</th>
+      <th>Nombre</th>
+      <th>Apellidos</th>
+      <th>State</th>
+      <th>Position</th>
+      <th>Dateadmission</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @supervisors.each do |supervisor| %>
+      <tr>
+        <td><%= supervisor.cc %></td>
+        <td><%= supervisor.name %></td>
+        <td><%= supervisor.lastname %></td>
+        <td><%= supervisor.state %></td>
+        <td><%= supervisor.position %></td>
+        <td><%= supervisor.dateadmission %></td>
+        <td>
+        <%= link_to 'Ver', admin_supervisor_path(supervisor),:class =>"btn btn-default btn-sm"  %>
+        <%= link_to 'Editar', edit_admin_supervisor_path(supervisor),:class =>"btn btn-default btn-sm"  %>
+        <%= link_to 'Eliminar', admin_supervisor_path(supervisor),:class =>"btn btn-default btn-sm" , method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<script>
+$('#datatable').DataTable({
+              "language": {
+                "url": "../files/spanish"
+            }
+  // ajax: ...,
+  // autoWidth: false,
+  // pagingType: 'full_numbers',
+  // processing: true,
+  // serverSide: true,
+
+  // Optional, if you want full pagination controls.
+  // Check dataTables documentation to learn more about available options.
+  // http://datatables.net/reference/option/pagingType
+});
+</script>
