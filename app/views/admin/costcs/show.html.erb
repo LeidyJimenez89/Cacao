@@ -1,0 +1,17 @@
+<p>
+  <strong>Code:</strong>
+  <%= @costc.code %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @costc.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @costc.description %>
+</p>
+
+<%= link_to 'Edit', edit_admin_costc_path(@costc) ,:class =>"btn btn-default"%>
+<%= link_to 'Back', admin_costcs_path ,:class =>"btn btn-default"%>

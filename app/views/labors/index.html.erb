@@ -1,0 +1,49 @@
+<%= javascript_include_tag 'jquery.dataTables.min', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag 'bootstrap', 'data-turbolinks-track' => true %>
+
+<h1 class="x_title"><i class="glyphicon glyphicon-leaf titleicon"></i>Listar Labores</h1>
+<%= link_to 'Crear operador', new_labor_path , :class =>"btn btn-default pull-right"%>
+<table id="datatable" class="display datatable" cellspacing="0" width="100%">
+  <thead>
+    <tr>
+      <th>Código</th>
+      <th>Nombre</th>
+      <th>Unidad de pago</th>
+      <th>Tarifa</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @labors.each do |labor| %>
+      <tr>
+        <td><%= labor.code %></td>
+        <td><%= labor.name %></td>
+        <td><%= labor.paymentunit %></td>
+        <td><%= labor.rate %></td>
+        <td>
+        <%= link_to 'Ver', labor,:class =>"btn btn-default btn-sm" %>
+        <%= link_to 'Editar', edit_labor_path(labor),:class =>"btn btn-default btn-sm" %>
+        <%= link_to 'Eliminar', labor,:class =>"btn btn-default btn-sm", method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<script>
+$('#datatable').DataTable({
+              "language": {
+                "url": "files/spanish"
+            }
+  // ajax: ...,
+  // autoWidth: false,
+  // pagingType: 'full_numbers',
+  // processing: true,
+  // serverSide: true,
+
+  // Optional, if you want full pagination controls.
+  // Check dataTables documentation to learn more about available options.
+  // http://datatables.net/reference/option/pagingType
+});
+</script>

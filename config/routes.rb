@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :costcs
+  resources :labors
   resources :supervisors
   resources :jobs
   resources :operators
@@ -67,5 +69,13 @@ Rails.application.routes.draw do
 
      namespace :admin do
        resources :supervisors
+     end
+
+     namespace :admin do
+       resources :labors
+     end
+
+     namespace :admin do
+       resources :costcs
      end
 end
