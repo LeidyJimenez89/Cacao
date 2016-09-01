@@ -26,6 +26,16 @@ class Admin::CostcsController < ApplicationController
   def create
     @costc = Costc.new(costc_params)
     if @costc.save
+
+      params[:costc][:labors2].each do |labor|
+        if labor.present?
+          nuevo = LaborCostc.new
+          nuevo[:labor_id] = labor
+          nuevo[:costc_id] = @costc.id
+          nuevo.save
+        end
+      end
+
       redirect_to admin_costcs_path, notice: 'Centro de costos creado satisfactoriamente' 
     else
       render :new , alert:'Centro de costos no creado satisfactoriamente'

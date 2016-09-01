@@ -37066,3 +37066,1967 @@ Processing by OperatorsController#index as HTML
   [1m[35mOperator Load (0.3ms)[0m  SELECT `operators`.* FROM `operators`
   Rendered operators/index.html.erb within layouts/application (4.6ms)
 Completed 200 OK in 88ms (Views: 87.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/operators" for 127.0.0.1 at 2016-08-31 20:39:53 -0500
+
+Mysql2::Error (Access denied for user 'root'@'localhost' (using password: YES)):
+  mysql2 (0.3.21) lib/mysql2/client.rb:70:in `connect'
+  mysql2 (0.3.21) lib/mysql2/client.rb:70:in `initialize'
+  activerecord (4.2.4) lib/active_record/connection_adapters/mysql2_adapter.rb:18:in `new'
+  activerecord (4.2.4) lib/active_record/connection_adapters/mysql2_adapter.rb:18:in `mysql2_connection'
+  activerecord (4.2.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:438:in `new_connection'
+  activerecord (4.2.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:448:in `checkout_new_connection'
+  activerecord (4.2.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:422:in `acquire_connection'
+  activerecord (4.2.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:349:in `block in checkout'
+  /home/leidy/.rvm/rubies/ruby-2.2.3/lib/ruby/2.2.0/monitor.rb:211:in `mon_synchronize'
+  activerecord (4.2.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:348:in `checkout'
+  activerecord (4.2.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:263:in `block in connection'
+  /home/leidy/.rvm/rubies/ruby-2.2.3/lib/ruby/2.2.0/monitor.rb:211:in `mon_synchronize'
+  activerecord (4.2.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:262:in `connection'
+  activerecord (4.2.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:571:in `retrieve_connection'
+  activerecord (4.2.4) lib/active_record/connection_handling.rb:113:in `retrieve_connection'
+  activerecord (4.2.4) lib/active_record/connection_handling.rb:87:in `connection'
+  activerecord (4.2.4) lib/active_record/migration.rb:383:in `connection'
+  activerecord (4.2.4) lib/active_record/migration.rb:370:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.4) lib/active_support/callbacks.rb:88:in `__run_callbacks__'
+  activesupport (4.2.4) lib/active_support/callbacks.rb:778:in `_run_call_callbacks'
+  activesupport (4.2.4) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.4) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.4) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.4) lib/rails/engine.rb:518:in `call'
+  railties (4.2.4) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /home/leidy/.rvm/rubies/ruby-2.2.3/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /home/leidy/.rvm/rubies/ruby-2.2.3/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /home/leidy/.rvm/rubies/ruby-2.2.3/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (2.6ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.4ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (18.7ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (52.4ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (78.8ms)
+
+
+Started GET "/operators" for 127.0.0.1 at 2016-08-31 20:40:49 -0500
+
+Mysql2::Error (Access denied for user 'root'@'localhost' (using password: YES)):
+  mysql2 (0.3.21) lib/mysql2/client.rb:70:in `connect'
+  mysql2 (0.3.21) lib/mysql2/client.rb:70:in `initialize'
+  activerecord (4.2.4) lib/active_record/connection_adapters/mysql2_adapter.rb:18:in `new'
+  activerecord (4.2.4) lib/active_record/connection_adapters/mysql2_adapter.rb:18:in `mysql2_connection'
+  activerecord (4.2.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:438:in `new_connection'
+  activerecord (4.2.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:448:in `checkout_new_connection'
+  activerecord (4.2.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:422:in `acquire_connection'
+  activerecord (4.2.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:349:in `block in checkout'
+  /home/leidy/.rvm/rubies/ruby-2.2.3/lib/ruby/2.2.0/monitor.rb:211:in `mon_synchronize'
+  activerecord (4.2.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:348:in `checkout'
+  activerecord (4.2.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:263:in `block in connection'
+  /home/leidy/.rvm/rubies/ruby-2.2.3/lib/ruby/2.2.0/monitor.rb:211:in `mon_synchronize'
+  activerecord (4.2.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:262:in `connection'
+  activerecord (4.2.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:571:in `retrieve_connection'
+  activerecord (4.2.4) lib/active_record/connection_handling.rb:113:in `retrieve_connection'
+  activerecord (4.2.4) lib/active_record/connection_handling.rb:87:in `connection'
+  activerecord (4.2.4) lib/active_record/migration.rb:383:in `connection'
+  activerecord (4.2.4) lib/active_record/migration.rb:370:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.4) lib/active_support/callbacks.rb:88:in `__run_callbacks__'
+  activesupport (4.2.4) lib/active_support/callbacks.rb:778:in `_run_call_callbacks'
+  activesupport (4.2.4) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.4) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.4) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.4) lib/rails/engine.rb:518:in `call'
+  railties (4.2.4) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /home/leidy/.rvm/rubies/ruby-2.2.3/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /home/leidy/.rvm/rubies/ruby-2.2.3/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /home/leidy/.rvm/rubies/ruby-2.2.3/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (2.6ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (19.2ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (14.2ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (30.5ms)
+
+
+Started GET "/operators" for 127.0.0.1 at 2016-08-31 20:41:18 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+	bin/rake db:migrate RAILS_ENV=development
+
+):
+  activerecord (4.2.4) lib/active_record/migration.rb:392:in `check_pending!'
+  activerecord (4.2.4) lib/active_record/migration.rb:373:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.4) lib/active_support/callbacks.rb:88:in `__run_callbacks__'
+  activesupport (4.2.4) lib/active_support/callbacks.rb:778:in `_run_call_callbacks'
+  activesupport (4.2.4) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.4) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.4) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.4) lib/rails/engine.rb:518:in `call'
+  railties (4.2.4) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /home/leidy/.rvm/rubies/ruby-2.2.3/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /home/leidy/.rvm/rubies/ruby-2.2.3/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /home/leidy/.rvm/rubies/ruby-2.2.3/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (2.0ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.3ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (17.7ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.2ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (18.4ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (34.4ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreateSupervisors (20160830141921)
+  [1m[35m (87.7ms)[0m  CREATE TABLE `supervisors` (`id` int(11) auto_increment PRIMARY KEY, `user_id` int(11), `name` varchar(255), `lastname` varchar(255), `cc` float, `state` varchar(255), `position` varchar(255), `dateadmission` datetime, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20160830141921')
+  [1m[36m (32.6ms)[0m  [1mCOMMIT[0m
+Migrating to CreateLabors (20160831162019)
+  [1m[35m (77.2ms)[0m  CREATE TABLE `labors` (`id` int(11) auto_increment PRIMARY KEY, `user_id` int(11), `code` varchar(255), `name` varchar(255), `paymentunit` varchar(255), `rate` float, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20160831162019')
+  [1m[36m (31.9ms)[0m  [1mCOMMIT[0m
+Migrating to CreateCostcs (20160831193609)
+  [1m[35m (77.1ms)[0m  CREATE TABLE `costcs` (`id` int(11) auto_increment PRIMARY KEY, `user_id` int(11), `code` varchar(255), `name` varchar(255), `description` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20160831193609')
+  [1m[36m (32.0ms)[0m  [1mCOMMIT[0m
+Migrating to AddLaboresAsociadasToCostcs (20160831204319)
+  [1m[35m (225.3ms)[0m  ALTER TABLE `costcs` ADD `labors` varchar(255)
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20160831204319')
+  [1m[36m (41.3ms)[0m  [1mCOMMIT[0m
+Migrating to AddPonerjobsIdToOperators (20160831215728)
+  [1m[35m (245.3ms)[0m  ALTER TABLE `operators` ADD `jobs_id` int(11)
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20160831215728')
+  [1m[36m (30.5ms)[0m  [1mCOMMIT[0m
+Migrating to RemoveQuitarToOperators (20160831220641)
+  [1m[35m (223.4ms)[0m  ALTER TABLE `operators` DROP `position`
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20160831220641')
+  [1m[36m (31.7ms)[0m  [1mCOMMIT[0m
+Migrating to RemovePonerjobsIdToOperators (20160831220708)
+  [1m[35m (212.6ms)[0m  ALTER TABLE `operators` DROP `jobs_id`
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20160831220708')
+  [1m[36m (30.9ms)[0m  [1mCOMMIT[0m
+Migrating to AddPonerjobIdToOperators (20160831220737)
+  [1m[35m (235.7ms)[0m  ALTER TABLE `operators` ADD `job_id` int(11)
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20160831220737')
+  [1m[36m (31.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+  [1m[36m (0.3ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'nomina_development'
+  AND fk.table_name = 'costcs'
+[0m
+  [1m[35m (0.2ms)[0m  SHOW CREATE TABLE `costcs`
+  [1m[36m (0.2ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'nomina_development'
+  AND fk.table_name = 'jobs'
+[0m
+  [1m[35m (0.2ms)[0m  SHOW CREATE TABLE `jobs`
+  [1m[36m (0.3ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'nomina_development'
+  AND fk.table_name = 'labors'
+[0m
+  [1m[35m (0.1ms)[0m  SHOW CREATE TABLE `labors`
+  [1m[36m (0.2ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'nomina_development'
+  AND fk.table_name = 'operators'
+[0m
+  [1m[35m (0.1ms)[0m  SHOW CREATE TABLE `operators`
+  [1m[36m (0.2ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'nomina_development'
+  AND fk.table_name = 'supervisors'
+[0m
+  [1m[35m (0.1ms)[0m  SHOW CREATE TABLE `supervisors`
+
+
+Started GET "/operators" for 127.0.0.1 at 2016-08-31 20:41:55 -0500
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+Processing by OperatorsController#index as HTML
+  [1m[36mOperator Load (0.3ms)[0m  [1mSELECT `operators`.* FROM `operators`[0m
+  Rendered operators/index.html.erb within layouts/application (2225.0ms)
+Completed 200 OK in 2910ms (Views: 2836.8ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/assets/dataTables/bootstrap/3/jquery.dataTables.bootstrap.self-db401fae5b21f5b20e5dae1bf4f95cf02ee816a7bfbe7941d4c761c6c108f1c8.css?body=1" for 127.0.0.1 at 2016-08-31 20:41:58 -0500
+
+
+Started GET "/assets/application.self-352b1fae5a8bbee7d138e26aa303f817391e2584e0d8eeb0e2affa56b13a39b4.css?body=1" for 127.0.0.1 at 2016-08-31 20:41:58 -0500
+
+
+Started GET "/assets/style.self-99d5bf07a23320f4730a3b11b31b2d29d455c1fe7fa1d761550da2cf37f319c4.css?body=1" for 127.0.0.1 at 2016-08-31 20:41:58 -0500
+
+
+Started GET "/assets/jquery.dataTables.min.self-f99d6b61adf2b3939d64d51c9391bb941bdbf00d773ab630bdff9df0f7c46874.css?body=1" for 127.0.0.1 at 2016-08-31 20:41:58 -0500
+
+
+Started GET "/assets/jquery.dataTables.min.self-29aadd584b8bcb1133197591de39b62922fc98ec0e1969f55d4cef1fa47bec76.js?body=1" for 127.0.0.1 at 2016-08-31 20:41:58 -0500
+
+
+Started GET "/assets/bootstrap.self-43f2842e069a48f99dcd27fe4e3ebc0988af9b86711ffdee302f4e02964fc54b.js?body=1" for 127.0.0.1 at 2016-08-31 20:41:58 -0500
+
+
+Started GET "/admin/costcs" for 127.0.0.1 at 2016-08-31 20:42:05 -0500
+Processing by Admin::CostcsController#index as HTML
+  [1m[35mCostc Load (0.3ms)[0m  SELECT `costcs`.* FROM `costcs`
+  Rendered admin/costcs/index.html.erb within layouts/application (5.8ms)
+Completed 200 OK in 103ms (Views: 99.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/admin/labors" for 127.0.0.1 at 2016-08-31 20:42:09 -0500
+Processing by Admin::LaborsController#index as HTML
+  [1m[36mLabor Load (0.3ms)[0m  [1mSELECT `labors`.* FROM `labors`[0m
+  Rendered admin/labors/index.html.erb within layouts/application (6.4ms)
+Completed 200 OK in 125ms (Views: 119.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/admin/costcs" for 127.0.0.1 at 2016-08-31 20:42:18 -0500
+Processing by Admin::CostcsController#index as HTML
+  [1m[35mCostc Load (0.2ms)[0m  SELECT `costcs`.* FROM `costcs`
+  Rendered admin/costcs/index.html.erb within layouts/application (11.3ms)
+Completed 200 OK in 138ms (Views: 136.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/admin/operators" for 127.0.0.1 at 2016-08-31 20:42:25 -0500
+Processing by Admin::OperatorsController#index as HTML
+  [1m[36mOperator Load (0.2ms)[0m  [1mSELECT `operators`.* FROM `operators`[0m
+  Rendered admin/operators/index.html.erb within layouts/application (10.6ms)
+Completed 200 OK in 109ms (Views: 107.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/admin/operators/1/edit" for 127.0.0.1 at 2016-08-31 20:42:31 -0500
+Processing by Admin::OperatorsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mOperator Load (0.3ms)[0m  SELECT  `operators`.* FROM `operators` WHERE `operators`.`id` = 1 LIMIT 1
+  [1m[36mJob Load (0.2ms)[0m  [1mSELECT `jobs`.* FROM `jobs`[0m
+  Rendered admin/operators/edit.html.erb within layouts/application (50.8ms)
+Completed 200 OK in 204ms (Views: 141.7ms | ActiveRecord: 1.2ms)
+
+
+Started PATCH "/admin/operators/1" for 127.0.0.1 at 2016-08-31 20:42:36 -0500
+Processing by Admin::OperatorsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"KgsftDKuYkH0NbfVc6A7vg4zoAtoVPpESg4cOkq7mLT/u7eD/CDoiPm9SAHG/+O3UmHyDyKNkqUYz7FMbEyD6g==", "operator"=>{"cc"=>"", "name"=>"", "lastname"=>"", "job_id"=>"3", "dateadmission(1i)"=>"2016", "dateadmission(2i)"=>"9", "dateadmission(3i)"=>"1", "dateadmission(4i)"=>"01", "dateadmission(5i)"=>"42", "state"=>"Activo"}, "commit"=>"Update Operator", "id"=>"1"}
+  [1m[35mOperator Load (0.1ms)[0m  SELECT  `operators`.* FROM `operators` WHERE `operators`.`id` = 1 LIMIT 1
+Unpermitted parameter: lastname
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.0ms)[0m  UPDATE `operators` SET `state` = 'Activo', `job_id` = 3, `dateadmission` = '2016-09-01 01:42:00', `updated_at` = '2016-09-01 01:42:36' WHERE `operators`.`id` = 1
+  [1m[36m (35.6ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/admin/operators
+Completed 302 Found in 43ms (ActiveRecord: 36.8ms)
+
+
+Started GET "/admin/operators" for 127.0.0.1 at 2016-08-31 20:42:36 -0500
+Processing by Admin::OperatorsController#index as HTML
+  [1m[35mOperator Load (0.4ms)[0m  SELECT `operators`.* FROM `operators`
+  Rendered admin/operators/index.html.erb within layouts/application (8.6ms)
+Completed 200 OK in 115ms (Views: 113.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/admin/operators" for 127.0.0.1 at 2016-08-31 20:45:58 -0500
+Processing by Admin::OperatorsController#index as HTML
+  [1m[36mOperator Load (0.1ms)[0m  [1mSELECT `operators`.* FROM `operators`[0m
+  Rendered admin/operators/index.html.erb within layouts/application (6.6ms)
+Completed 200 OK in 96ms (Views: 95.6ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/operators" for 127.0.0.1 at 2016-08-31 20:46:02 -0500
+Processing by OperatorsController#index as HTML
+  [1m[35mOperator Load (0.1ms)[0m  SELECT `operators`.* FROM `operators`
+  [1m[36mJob Load (0.3ms)[0m  [1mSELECT  `jobs`.* FROM `jobs` WHERE `jobs`.`id` = 3 LIMIT 1[0m
+  Rendered operators/index.html.erb within layouts/application (119.8ms)
+Completed 500 Internal Server Error in 123ms (ActiveRecord: 0.4ms)
+
+ActionView::Template::Error (undefined method `name' for nil:NilClass):
+    20:       <tr>
+    21:         <td><%= operator.cc %></td>
+    22:         <td><%= operator.name %></td>
+    23:         <td><%= operator.job.name %></td>
+    24:         <td><%= operator.dateadmission %></td>
+    25:         <td><%= operator.state %></td>
+    26:         <td>
+  app/views/operators/index.html.erb:23:in `block in _app_views_operators_index_html_erb___3620295811439633372_70196912123460'
+  app/views/operators/index.html.erb:19:in `_app_views_operators_index_html_erb___3620295811439633372_70196912123460'
+
+
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.8ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (22.1ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.6ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.2ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (16.0ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (30.4ms)
+
+
+Started GET "/operators" for 127.0.0.1 at 2016-08-31 20:46:06 -0500
+Processing by OperatorsController#index as HTML
+  [1m[35mOperator Load (0.2ms)[0m  SELECT `operators`.* FROM `operators`
+  [1m[36mJob Load (0.1ms)[0m  [1mSELECT  `jobs`.* FROM `jobs` WHERE `jobs`.`id` = 3 LIMIT 1[0m
+  Rendered operators/index.html.erb within layouts/application (15.1ms)
+Completed 500 Internal Server Error in 21ms (ActiveRecord: 1.0ms)
+
+ActionView::Template::Error (undefined method `name' for nil:NilClass):
+    20:       <tr>
+    21:         <td><%= operator.cc %></td>
+    22:         <td><%= operator.name %></td>
+    23:         <td><%= operator.job.name %></td>
+    24:         <td><%= operator.dateadmission %></td>
+    25:         <td><%= operator.state %></td>
+    26:         <td>
+  app/views/operators/index.html.erb:23:in `block in _app_views_operators_index_html_erb___3620295811439633372_70196912123460'
+  app/views/operators/index.html.erb:19:in `_app_views_operators_index_html_erb___3620295811439633372_70196912123460'
+
+
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.1ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (19.1ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (15.2ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (30.6ms)
+
+
+Started GET "/admin/operators" for 127.0.0.1 at 2016-08-31 20:47:42 -0500
+Processing by Admin::OperatorsController#index as HTML
+  [1m[35mOperator Load (0.2ms)[0m  SELECT `operators`.* FROM `operators`
+  Rendered admin/operators/index.html.erb within layouts/application (16.0ms)
+Completed 200 OK in 115ms (Views: 114.0ms | ActiveRecord: 0.2ms)
+
+
+Started DELETE "/admin/operators/1" for 127.0.0.1 at 2016-08-31 20:47:49 -0500
+Processing by Admin::OperatorsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"e2fqwaN2zIpV6F+qC2w8isTNvheVZrok8jzO7zMtBm2u10L2bfhGQ1hgoH6+M+SDmJ/sE9+/0sWg/WOZFdodMw==", "id"=>"1"}
+  [1m[36mOperator Load (0.3ms)[0m  [1mSELECT  `operators`.* FROM `operators` WHERE `operators`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM `operators` WHERE `operators`.`id` = 1[0m
+  [1m[35m (63.6ms)[0m  COMMIT
+Redirected to http://localhost:3000/admin/operators
+Completed 302 Found in 67ms (ActiveRecord: 64.2ms)
+
+
+Started GET "/admin/operators" for 127.0.0.1 at 2016-08-31 20:47:49 -0500
+Processing by Admin::OperatorsController#index as HTML
+  [1m[36mOperator Load (0.6ms)[0m  [1mSELECT `operators`.* FROM `operators`[0m
+  Rendered admin/operators/index.html.erb within layouts/application (13.7ms)
+Completed 200 OK in 130ms (Views: 129.0ms | ActiveRecord: 0.6ms)
+
+
+Started DELETE "/admin/operators/5" for 127.0.0.1 at 2016-08-31 20:47:53 -0500
+Processing by Admin::OperatorsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"es8XdASobZLZZlC6wp7Kw2QpWyaE+ILEJ6RIGHodDJKvf79DyibnW9Tur253wRLKOHsJIs4h6iV1ZeVuXOoXzA==", "id"=>"5"}
+  [1m[35mOperator Load (0.3ms)[0m  SELECT  `operators`.* FROM `operators` WHERE `operators`.`id` = 5 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM `operators` WHERE `operators`.`id` = 5
+  [1m[36m (67.8ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/admin/operators
+Completed 302 Found in 72ms (ActiveRecord: 68.6ms)
+
+
+Started GET "/admin/operators" for 127.0.0.1 at 2016-08-31 20:47:53 -0500
+Processing by Admin::OperatorsController#index as HTML
+  [1m[35mOperator Load (0.2ms)[0m  SELECT `operators`.* FROM `operators`
+  Rendered admin/operators/index.html.erb within layouts/application (6.8ms)
+Completed 200 OK in 99ms (Views: 97.6ms | ActiveRecord: 0.2ms)
+
+
+Started DELETE "/admin/operators/3" for 127.0.0.1 at 2016-08-31 20:47:55 -0500
+Processing by Admin::OperatorsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"u7ovXqigu9e+TKO1ub9gp5IGURSgFet9lNCmdCG8HU9uCodpZi4xHrPEXGEM4LiuzlQDEOrMg5zGEQsCB0sGEQ==", "id"=>"3"}
+  [1m[36mOperator Load (0.3ms)[0m  [1mSELECT  `operators`.* FROM `operators` WHERE `operators`.`id` = 3 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM `operators` WHERE `operators`.`id` = 3[0m
+  [1m[35m (67.0ms)[0m  COMMIT
+Redirected to http://localhost:3000/admin/operators
+Completed 302 Found in 70ms (ActiveRecord: 67.5ms)
+
+
+Started GET "/admin/operators" for 127.0.0.1 at 2016-08-31 20:47:55 -0500
+Processing by Admin::OperatorsController#index as HTML
+  [1m[36mOperator Load (0.3ms)[0m  [1mSELECT `operators`.* FROM `operators`[0m
+  Rendered admin/operators/index.html.erb within layouts/application (5.7ms)
+Completed 200 OK in 104ms (Views: 103.3ms | ActiveRecord: 0.3ms)
+
+
+Started DELETE "/admin/operators/6" for 127.0.0.1 at 2016-08-31 20:47:59 -0500
+Processing by Admin::OperatorsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"6P7FvRd+p6pD5Pbko9aCGDXDl3pSgom7DZnnO9EONEs9Tm2K2fAtY05sCTAWiVoRaZHFfhhb4VpfWEpN9/kvFQ==", "id"=>"6"}
+  [1m[35mOperator Load (1.0ms)[0m  SELECT  `operators`.* FROM `operators` WHERE `operators`.`id` = 6 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM `operators` WHERE `operators`.`id` = 6
+  [1m[36m (50.7ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/admin/operators
+Completed 302 Found in 55ms (ActiveRecord: 51.9ms)
+
+
+Started GET "/admin/operators" for 127.0.0.1 at 2016-08-31 20:47:59 -0500
+Processing by Admin::OperatorsController#index as HTML
+  [1m[35mOperator Load (0.2ms)[0m  SELECT `operators`.* FROM `operators`
+  Rendered admin/operators/index.html.erb within layouts/application (6.1ms)
+Completed 200 OK in 105ms (Views: 104.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/operators" for 127.0.0.1 at 2016-08-31 20:50:05 -0500
+Processing by OperatorsController#index as HTML
+  [1m[36mOperator Load (0.2ms)[0m  [1mSELECT `operators`.* FROM `operators`[0m
+  Rendered operators/index.html.erb within layouts/application (6.8ms)
+Completed 200 OK in 90ms (Views: 89.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/operators/4/edit" for 127.0.0.1 at 2016-08-31 20:50:12 -0500
+Processing by OperatorsController#edit as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mOperator Load (0.4ms)[0m  SELECT  `operators`.* FROM `operators` WHERE `operators`.`id` = 4 LIMIT 1
+  [1m[36mJob Load (0.1ms)[0m  [1mSELECT `jobs`.* FROM `jobs`[0m
+  Rendered operators/edit.html.erb within layouts/application (11.9ms)
+Completed 200 OK in 115ms (Views: 112.1ms | ActiveRecord: 0.5ms)
+
+
+Started PATCH "/operators/4" for 127.0.0.1 at 2016-08-31 20:50:18 -0500
+Processing by OperatorsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"HJQze4H+mGoZeb5dk6/KPQ6aRzn5nQU9TAFEI7VRpYnJJJtMT3ASoxTxQYkm8BI0UsgVPbNEbdwewOlVk6a+1w==", "operator"=>{"cc"=>"mnbmbnmbnm", "name"=>"", "lastname"=>"", "job_id"=>"3", "dateadmission(1i)"=>"2016", "dateadmission(2i)"=>"9", "dateadmission(3i)"=>"1", "dateadmission(4i)"=>"01", "dateadmission(5i)"=>"50", "state"=>"Activo"}, "commit"=>"Update Operator", "id"=>"4"}
+  [1m[35mOperator Load (0.6ms)[0m  SELECT  `operators`.* FROM `operators` WHERE `operators`.`id` = 4 LIMIT 1
+Unpermitted parameter: lastname
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE `operators` SET `state` = 'Activo', `job_id` = 3, `dateadmission` = '2016-09-01 01:50:00', `updated_at` = '2016-09-01 01:50:18' WHERE `operators`.`id` = 4
+  [1m[36m (53.9ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/operators
+Completed 302 Found in 61ms (ActiveRecord: 54.9ms)
+
+
+Started GET "/operators" for 127.0.0.1 at 2016-08-31 20:50:18 -0500
+Processing by OperatorsController#index as HTML
+  [1m[35mOperator Load (0.3ms)[0m  SELECT `operators`.* FROM `operators`
+  [1m[36mJob Load (0.1ms)[0m  [1mSELECT  `jobs`.* FROM `jobs` WHERE `jobs`.`id` = 3 LIMIT 1[0m
+  Rendered operators/index.html.erb within layouts/application (7.1ms)
+Completed 200 OK in 101ms (Views: 100.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/operators" for 127.0.0.1 at 2016-08-31 20:52:13 -0500
+Processing by OperatorsController#index as HTML
+  [1m[35mOperator Load (0.1ms)[0m  SELECT `operators`.* FROM `operators`
+  [1m[36mJob Load (0.1ms)[0m  [1mSELECT  `jobs`.* FROM `jobs` WHERE `jobs`.`id` = 3 LIMIT 1[0m
+  Rendered operators/index.html.erb within layouts/application (7.5ms)
+Completed 200 OK in 105ms (Views: 103.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/operators" for 127.0.0.1 at 2016-08-31 20:52:32 -0500
+Processing by OperatorsController#index as HTML
+  [1m[35mOperator Load (0.3ms)[0m  SELECT `operators`.* FROM `operators`
+  [1m[36mJob Load (0.2ms)[0m  [1mSELECT  `jobs`.* FROM `jobs` WHERE `jobs`.`id` = 3 LIMIT 1[0m
+  Rendered operators/index.html.erb within layouts/application (6.1ms)
+Completed 200 OK in 91ms (Views: 90.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/operators/new" for 127.0.0.1 at 2016-08-31 20:55:29 -0500
+Processing by OperatorsController#new as HTML
+  [1m[35mJob Load (0.1ms)[0m  SELECT `jobs`.* FROM `jobs`
+  Rendered operators/new.html.erb within layouts/application (6.4ms)
+Completed 200 OK in 130ms (Views: 129.2ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/operators" for 127.0.0.1 at 2016-08-31 20:55:38 -0500
+Processing by OperatorsController#index as HTML
+  [1m[36mOperator Load (1.0ms)[0m  [1mSELECT `operators`.* FROM `operators`[0m
+  [1m[35mJob Load (0.1ms)[0m  SELECT  `jobs`.* FROM `jobs` WHERE `jobs`.`id` = 3 LIMIT 1
+  Rendered operators/index.html.erb within layouts/application (11.8ms)
+Completed 200 OK in 130ms (Views: 128.4ms | ActiveRecord: 1.1ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreateLaborCostcs (20160901021551)
+  [1m[35m (80.9ms)[0m  CREATE TABLE `labor_costcs` (`id` int(11) auto_increment PRIMARY KEY, `costc_id` int(11), `labor_id` int(11), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20160901021551')
+  [1m[36m (36.5ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+  [1m[36m (0.2ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'nomina_development'
+  AND fk.table_name = 'costcs'
+[0m
+  [1m[35m (0.1ms)[0m  SHOW CREATE TABLE `costcs`
+  [1m[36m (0.2ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'nomina_development'
+  AND fk.table_name = 'jobs'
+[0m
+  [1m[35m (0.1ms)[0m  SHOW CREATE TABLE `jobs`
+  [1m[36m (0.2ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'nomina_development'
+  AND fk.table_name = 'labor_costcs'
+[0m
+  [1m[35m (0.1ms)[0m  SHOW CREATE TABLE `labor_costcs`
+  [1m[36m (0.2ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'nomina_development'
+  AND fk.table_name = 'labors'
+[0m
+  [1m[35m (0.1ms)[0m  SHOW CREATE TABLE `labors`
+  [1m[36m (0.2ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'nomina_development'
+  AND fk.table_name = 'operators'
+[0m
+  [1m[35m (0.1ms)[0m  SHOW CREATE TABLE `operators`
+  [1m[36m (0.2ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'nomina_development'
+  AND fk.table_name = 'supervisors'
+[0m
+  [1m[35m (0.1ms)[0m  SHOW CREATE TABLE `supervisors`
+
+
+Started GET "/admin/labors/new" for 127.0.0.1 at 2016-08-31 21:20:34 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by Admin::LaborsController#new as HTML
+  Rendered admin/labors/new.html.erb within layouts/application (6.7ms)
+Completed 200 OK in 968ms (Views: 960.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/admin/costcs/new" for 127.0.0.1 at 2016-08-31 21:20:42 -0500
+Processing by Admin::CostcsController#new as HTML
+  [1m[35mLabor Load (0.2ms)[0m  SELECT `labors`.* FROM `labors`
+  Rendered admin/costcs/new.html.erb within layouts/application (55.5ms)
+Completed 200 OK in 165ms (Views: 156.2ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/admin/labors/new" for 127.0.0.1 at 2016-08-31 21:20:47 -0500
+Processing by Admin::LaborsController#new as HTML
+  Rendered admin/labors/new.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 112ms (Views: 111.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/admin/labors" for 127.0.0.1 at 2016-08-31 21:20:55 -0500
+Processing by Admin::LaborsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"k34e35sjfZTQX3TOq8nNEgm/O8nq9LX8Q3S6bJKu6HVGzrboVa33Xd3XixoelhUbVe1pzaAt3R0RtRcatFnzKw==", "labor"=>{"code"=>"12", "name"=>"asdsdasd", "paymentunit"=>"12", "rate"=>"23123"}, "commit"=>"Create Labor"}
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `labors` (`code`, `name`, `paymentunit`, `rate`, `created_at`, `updated_at`) VALUES ('12', 'asdsdasd', '12', 23123.0, '2016-09-01 02:20:55', '2016-09-01 02:20:55')
+  [1m[36m (95.0ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/admin/labors
+Completed 302 Found in 109ms (ActiveRecord: 95.9ms)
+
+
+Started GET "/admin/labors" for 127.0.0.1 at 2016-08-31 21:20:55 -0500
+Processing by Admin::LaborsController#index as HTML
+  [1m[35mLabor Load (0.2ms)[0m  SELECT `labors`.* FROM `labors`
+  Rendered admin/labors/index.html.erb within layouts/application (71.1ms)
+Completed 200 OK in 164ms (Views: 162.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/admin/labors/new" for 127.0.0.1 at 2016-08-31 21:20:58 -0500
+Processing by Admin::LaborsController#new as HTML
+  Rendered admin/labors/new.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 112ms (Views: 111.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/admin/labors" for 127.0.0.1 at 2016-08-31 21:21:05 -0500
+Processing by Admin::LaborsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"EOkwUzNThyHyej7Qg4huKyFD0Ey4Dia1w7WJw2FJ5jjFWZhk/d0N6P/ywQQ217YifRGCSPLXTlSRdCS1R779Zg==", "labor"=>{"code"=>"13", "name"=>"gdfgdfg", "paymentunit"=>"65", "rate"=>"4345"}, "commit"=>"Create Labor"}
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `labors` (`code`, `name`, `paymentunit`, `rate`, `created_at`, `updated_at`) VALUES ('13', 'gdfgdfg', '65', 4345.0, '2016-09-01 02:21:05', '2016-09-01 02:21:05')
+  [1m[36m (57.7ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/admin/labors
+Completed 302 Found in 62ms (ActiveRecord: 58.1ms)
+
+
+Started GET "/admin/labors" for 127.0.0.1 at 2016-08-31 21:21:05 -0500
+Processing by Admin::LaborsController#index as HTML
+  [1m[35mLabor Load (0.3ms)[0m  SELECT `labors`.* FROM `labors`
+  Rendered admin/labors/index.html.erb within layouts/application (6.2ms)
+Completed 200 OK in 144ms (Views: 143.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/admin/costcs/new" for 127.0.0.1 at 2016-08-31 21:21:08 -0500
+Processing by Admin::CostcsController#new as HTML
+  [1m[36mLabor Load (0.2ms)[0m  [1mSELECT `labors`.* FROM `labors`[0m
+  Rendered admin/costcs/new.html.erb within layouts/application (7.4ms)
+Completed 200 OK in 130ms (Views: 128.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/admin/costcs/new" for 127.0.0.1 at 2016-08-31 21:27:04 -0500
+Processing by Admin::CostcsController#new as HTML
+  Rendered admin/costcs/new.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 220ms (Views: 209.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/admin/costcs/new" for 127.0.0.1 at 2016-08-31 21:27:15 -0500
+Processing by Admin::CostcsController#new as HTML
+  Rendered admin/costcs/new.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 99ms (Views: 98.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/admin/costcs/new" for 127.0.0.1 at 2016-08-31 21:27:17 -0500
+Processing by Admin::CostcsController#new as HTML
+  Rendered admin/costcs/new.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 141ms (Views: 140.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/admin/costcs/new" for 127.0.0.1 at 2016-08-31 21:27:56 -0500
+Processing by Admin::CostcsController#new as HTML
+  Rendered admin/costcs/new.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 192ms (Views: 190.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/admin/costcs/new" for 127.0.0.1 at 2016-08-31 21:27:57 -0500
+Processing by Admin::CostcsController#new as HTML
+  Rendered admin/costcs/new.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 96ms (Views: 95.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/operators" for 127.0.0.1 at 2016-08-31 21:28:24 -0500
+Processing by OperatorsController#index as HTML
+  [1m[35mOperator Load (0.1ms)[0m  SELECT `operators`.* FROM `operators`
+  [1m[36mJob Load (0.2ms)[0m  [1mSELECT  `jobs`.* FROM `jobs` WHERE `jobs`.`id` = 3 LIMIT 1[0m
+  Rendered operators/index.html.erb within layouts/application (17.9ms)
+Completed 200 OK in 112ms (Views: 109.1ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/admin/costcs" for 127.0.0.1 at 2016-08-31 21:32:14 -0500
+Processing by Admin::CostcsController#index as HTML
+  [1m[35mCostc Load (0.3ms)[0m  SELECT `costcs`.* FROM `costcs`
+  Rendered admin/costcs/index.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 113ms (Views: 111.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/admin/costcs" for 127.0.0.1 at 2016-08-31 21:36:36 -0500
+Processing by Admin::CostcsController#index as HTML
+  [1m[36mCostc Load (0.2ms)[0m  [1mSELECT `costcs`.* FROM `costcs`[0m
+  [1m[35mLabor Load (0.3ms)[0m  SELECT `labors`.* FROM `labors` INNER JOIN `labor_costcs` ON `labors`.`id` = `labor_costcs`.`labor_id` WHERE `labor_costcs`.`costc_id` = 1
+  Rendered admin/costcs/index.html.erb within layouts/application (66.7ms)
+Completed 200 OK in 157ms (Views: 155.2ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/admin/costcs" for 127.0.0.1 at 2016-08-31 21:37:10 -0500
+Processing by Admin::CostcsController#index as HTML
+  [1m[36mCostc Load (0.1ms)[0m  [1mSELECT `costcs`.* FROM `costcs`[0m
+  [1m[35mLabor Load (0.2ms)[0m  SELECT `labors`.* FROM `labors` INNER JOIN `labor_costcs` ON `labors`.`id` = `labor_costcs`.`labor_id` WHERE `labor_costcs`.`costc_id` = 1
+  Rendered admin/costcs/index.html.erb within layouts/application (9.9ms)
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.3ms)
+
+ActionView::Template::Error (undefined method `html_safes' for "aaaa<br>bbbbb":String):
+    20:         <td><%= costc.code %></td>
+    21:         <td><%= costc.name %></td>
+    22:         <td><%= costc.description %></td>
+    23:         <td><%= costc.labors.map { |e| e.name }.join("<br>").html_safes %></td>
+    24:         <td>
+    25:         <%= link_to 'Ver', admin_costc_path(costc) ,:class =>"btn btn-default btn-sm"%>
+    26:         <%= link_to 'Editar', edit_admin_costc_path(costc) ,:class =>"btn btn-default btn-sm"%>
+  app/views/admin/costcs/index.html.erb:23:in `block in _app_views_admin_costcs_index_html_erb___4446334574273399120_70196815021700'
+  app/views/admin/costcs/index.html.erb:18:in `_app_views_admin_costcs_index_html_erb___4446334574273399120_70196815021700'
+
+
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.2ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.3ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (22.6ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.7ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (15.5ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (1.1ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (43.3ms)
+
+
+Started GET "/admin/costcs" for 127.0.0.1 at 2016-08-31 21:37:20 -0500
+Processing by Admin::CostcsController#index as HTML
+  [1m[36mCostc Load (0.1ms)[0m  [1mSELECT `costcs`.* FROM `costcs`[0m
+  [1m[35mLabor Load (0.1ms)[0m  SELECT `labors`.* FROM `labors` INNER JOIN `labor_costcs` ON `labors`.`id` = `labor_costcs`.`labor_id` WHERE `labor_costcs`.`costc_id` = 1
+  Rendered admin/costcs/index.html.erb within layouts/application (9.7ms)
+Completed 200 OK in 105ms (Views: 104.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/admin/costcs/1/edit" for 127.0.0.1 at 2016-08-31 21:38:20 -0500
+Processing by Admin::CostcsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCostc Load (0.4ms)[0m  [1mSELECT  `costcs`.* FROM `costcs` WHERE `costcs`.`id` = 1 LIMIT 1[0m
+  Rendered admin/costcs/edit.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 142ms (Views: 140.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/admin/jobs" for 127.0.0.1 at 2016-08-31 21:38:28 -0500
+Processing by Admin::JobsController#index as HTML
+  [1m[35mJob Load (0.2ms)[0m  SELECT `jobs`.* FROM `jobs`
+  Rendered admin/jobs/index.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 124ms (Views: 122.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/admin/jobs/new" for 127.0.0.1 at 2016-08-31 21:38:30 -0500
+Processing by Admin::JobsController#new as HTML
+  Rendered admin/jobs/new.html.erb within layouts/application (18.1ms)
+Completed 200 OK in 122ms (Views: 121.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/admin/costcs/new" for 127.0.0.1 at 2016-08-31 21:38:36 -0500
+Processing by Admin::CostcsController#new as HTML
+  Rendered admin/costcs/new.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 96ms (Views: 95.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/admin/costcs/new" for 127.0.0.1 at 2016-08-31 21:39:51 -0500
+Processing by Admin::CostcsController#new as HTML
+  [1m[36mLabor Load (0.3ms)[0m  [1mSELECT `labors`.* FROM `labors`[0m
+  Rendered admin/costcs/new.html.erb within layouts/application (15.1ms)
+Completed 500 Internal Server Error in 25ms (ActiveRecord: 1.9ms)
+
+ActionView::Template::Error (undefined method `labor_id' for #<Costc:0x00000003ac55a0>):
+    26: 
+    27:   <div class="form-group col-md-4">
+    28:     <%= f.label :labor_id , "Labores"%><br>
+    29:     <%= f.select :labor_id , Labor.all.map { |j|  [ j.code + j.name , j.id ]  } , {}, {:multiple => true, class:"form-control"} %>
+    30:   </div>
+    31:   <div class="form-group col-md-12">
+    32:     <%= link_to 'Cancelar', admin_costcs_path ,:class =>"btn btn-danger" %>
+  app/views/admin/costcs/new.html.erb:29:in `block in _app_views_admin_costcs_new_html_erb___3541002567852166964_29265540'
+  app/views/admin/costcs/new.html.erb:3:in `_app_views_admin_costcs_new_html_erb___3541002567852166964_29265540'
+
+
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (9.9ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (5.1ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (30.7ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.8ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (1.1ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (18.7ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.2ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (39.9ms)
+
+
+Started GET "/admin/costcs/new" for 127.0.0.1 at 2016-08-31 21:40:10 -0500
+Processing by Admin::CostcsController#new as HTML
+  [1m[35mLabor Load (0.2ms)[0m  SELECT `labors`.* FROM `labors`
+  Rendered admin/costcs/new.html.erb within layouts/application (16.0ms)
+Completed 200 OK in 116ms (Views: 114.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/admin/costcs/new" for 127.0.0.1 at 2016-08-31 21:40:34 -0500
+Processing by Admin::CostcsController#new as HTML
+  [1m[36mLabor Load (0.2ms)[0m  [1mSELECT `labors`.* FROM `labors`[0m
+  Rendered admin/costcs/new.html.erb within layouts/application (8.1ms)
+Completed 200 OK in 114ms (Views: 112.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/admin/costcs/new" for 127.0.0.1 at 2016-08-31 21:40:55 -0500
+Processing by Admin::CostcsController#new as HTML
+  [1m[35mLabor Load (0.1ms)[0m  SELECT `labors`.* FROM `labors`
+  Rendered admin/costcs/new.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 101ms (Views: 100.7ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/dataTables/bootstrap/3/jquery.dataTables.bootstrap.self-db401fae5b21f5b20e5dae1bf4f95cf02ee816a7bfbe7941d4c761c6c108f1c8.css?body=1" for 127.0.0.1 at 2016-08-31 21:40:55 -0500
+
+
+Started GET "/assets/application.self-352b1fae5a8bbee7d138e26aa303f817391e2584e0d8eeb0e2affa56b13a39b4.css?body=1" for 127.0.0.1 at 2016-08-31 21:40:55 -0500
+
+
+Started GET "/assets/css/floatexamples.self-7a285bfcdd469585fed9fa584c90defd4356633b2f77bade5893a7556076dffe.css?body=1" for 127.0.0.1 at 2016-08-31 21:40:55 -0500
+
+
+Started GET "/assets/css/custom.self-2c8d089dc938fabfe20a2ae7c7a4568b07461a4ff11b8830786148c7282d8268.css?body=1" for 127.0.0.1 at 2016-08-31 21:40:55 -0500
+
+
+Started GET "/assets/css/icheck/flat/green.self-9aab23d491ef2ac6d0d739809c4f9d7a03ba13a60e5de52e9449313198cfb4c3.css?body=1" for 127.0.0.1 at 2016-08-31 21:40:55 -0500
+
+
+Started GET "/assets/css/animate.min.self-ce55568ec016e2bd083b075fa15202542f46a96d7fa1bc0a3d2233096de076fd.css?body=1" for 127.0.0.1 at 2016-08-31 21:40:55 -0500
+
+
+Started GET "/assets/css/normalize.self-45a3426c79ad28d5e271d4f9a1c32f8e5faea9144008d44cc01a6f691158c84b.css?body=1" for 127.0.0.1 at 2016-08-31 21:40:55 -0500
+
+
+Started GET "/assets/css/ion.rangeSlider.self-0de79328bec27d4cb5f3ed539f1be12889ab682ce42058deef7b7842d65465a9.css?body=1" for 127.0.0.1 at 2016-08-31 21:40:55 -0500
+
+
+Started GET "/assets/pace.self-4cac7a0a6e622e399239bc3466769d86c484a27626f1250426d399366e775ccc.css?body=1" for 127.0.0.1 at 2016-08-31 21:40:55 -0500
+
+
+Started GET "/assets/style.self-99d5bf07a23320f4730a3b11b31b2d29d455c1fe7fa1d761550da2cf37f319c4.css?body=1" for 127.0.0.1 at 2016-08-31 21:40:55 -0500
+
+
+Started GET "/assets/jquery.dataTables.min.self-f99d6b61adf2b3939d64d51c9391bb941bdbf00d773ab630bdff9df0f7c46874.css?body=1" for 127.0.0.1 at 2016-08-31 21:40:55 -0500
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2016-08-31 21:40:55 -0500
+
+
+Started GET "/assets/bootstrap/transition.self-6ad2488465135ab731a045a8ebbe3ea2fc501aed286042496eda1664fdd07ba9.js?body=1" for 127.0.0.1 at 2016-08-31 21:40:55 -0500
+
+
+Started GET "/assets/bootstrap/alert.self-742145c5bb847aafdadc6e339be795628f8bc25f177e851f03a8c42278eb0312.js?body=1" for 127.0.0.1 at 2016-08-31 21:40:55 -0500
+
+
+Started GET "/assets/bootstrap/button.self-126ac9bf0e7f2d8568f8da3a00fd5f0fac6eae0946331003370161fbf8d7975e.js?body=1" for 127.0.0.1 at 2016-08-31 21:40:55 -0500
+
+
+Started GET "/assets/bootstrap/carousel.self-e47323f363ceb3dc0bdbce05e36e709ed428e339833a41140a85cb0af24b8127.js?body=1" for 127.0.0.1 at 2016-08-31 21:40:55 -0500
+
+
+Started GET "/assets/bootstrap/collapse.self-2eb697f62b587bb786ff940d82dd4be88cdeeaf13ca128e3da3850c5fcaec301.js?body=1" for 127.0.0.1 at 2016-08-31 21:40:55 -0500
+
+
+Started GET "/assets/bootstrap/dropdown.self-561cca1cbaf67474e01e9536f106bad541594860a6df997004591c1c1957a147.js?body=1" for 127.0.0.1 at 2016-08-31 21:40:55 -0500
+
+
+Started GET "/assets/bootstrap/modal.self-3e78617ade5663314b7ee0ea10375a5b34d59ffbade44939e3f2a4e4ef2019b3.js?body=1" for 127.0.0.1 at 2016-08-31 21:40:55 -0500
+
+
+Started GET "/assets/bootstrap/tab.self-5bf7078b682f8b131332eefa46b45fa5eff2eca745fc0d03e2991450888f7c28.js?body=1" for 127.0.0.1 at 2016-08-31 21:40:55 -0500
+
+
+Started GET "/assets/bootstrap/affix.self-6d6f1a7fc5c8aabf3547fa1b794fab6268f54bc55ad815e55873c71f52513517.js?body=1" for 127.0.0.1 at 2016-08-31 21:40:55 -0500
+
+
+Started GET "/assets/bootstrap/scrollspy.self-969f3c5f48cdf1e439c7fa1154c13b948715f5c689f87837c0b64521d3b46ef6.js?body=1" for 127.0.0.1 at 2016-08-31 21:40:55 -0500
+
+
+Started GET "/assets/bootstrap/tooltip.self-05afb177e08f98997ccfc84fa08a215e4b27d48d5fe4d049080675e9dffd8199.js?body=1" for 127.0.0.1 at 2016-08-31 21:40:55 -0500
+
+
+Started GET "/assets/bootstrap/popover.self-0aa93860b59fe7393f1dd490f54b3cb994f9d6155adffce034d4e14ae361b041.js?body=1" for 127.0.0.1 at 2016-08-31 21:40:55 -0500
+
+
+Started GET "/assets/bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for 127.0.0.1 at 2016-08-31 21:40:55 -0500
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2016-08-31 21:40:55 -0500
+
+
+Started GET "/assets/turbolinks.self-c5acd7a204f5f25ce7a1d8a0e4d92e28d34c9e2df2c7371cd7af88e147e4ad82.js?body=1" for 127.0.0.1 at 2016-08-31 21:40:55 -0500
+
+
+Started GET "/assets/application.self-16c207b3ca1b52afcfc7f4b662487caf1bbe084a6656bb15f693ab9de2d11be7.js?body=1" for 127.0.0.1 at 2016-08-31 21:40:55 -0500
+
+
+Started GET "/assets/js/flot/jquery.flot.self-705d7592a526517fe86a873dd3aa15f58ce66a7953036fe087b44cd70521f0cc.js?body=1" for 127.0.0.1 at 2016-08-31 21:40:55 -0500
+
+
+Started GET "/assets/js/flot/jquery.flot.pie.self-33ca88cc4a7371598cb8fa2d30eeaddcecb19184d16161873c7c1e632447c3b5.js?body=1" for 127.0.0.1 at 2016-08-31 21:40:55 -0500
+
+
+Started GET "/assets/js/flot/jquery.flot.orderBars.self-1310e7cf40dfc527b1828bdfa8e62ba12341da3b0c7bc4883ec3976103c7e790.js?body=1" for 127.0.0.1 at 2016-08-31 21:40:55 -0500
+
+
+Started GET "/assets/js/flot/jquery.flot.time.min.self-42e80da9d580f1cd692913e466a0a35720994cd42aa2bf940d419142bf70ae67.js?body=1" for 127.0.0.1 at 2016-08-31 21:40:55 -0500
+
+
+Started GET "/assets/js/flot/date.self-dd103d36715d4e9beae419cc0328daa08d388182e31fce53e6c95e04c826f014.js?body=1" for 127.0.0.1 at 2016-08-31 21:40:55 -0500
+
+
+Started GET "/assets/js/flot/jquery.flot.spline.self-78f8d0e8dfaa7a73b069749d22fb3f92c7de0cf39198cdd3531184a89c8f44a3.js?body=1" for 127.0.0.1 at 2016-08-31 21:40:55 -0500
+
+
+Started GET "/assets/js/flot/jquery.flot.stack.self-77107f0e9fec22d48d33184fec10aa3335cfb4469305a20d0885662e9c8716f7.js?body=1" for 127.0.0.1 at 2016-08-31 21:40:55 -0500
+
+
+Started GET "/assets/js/flot/curvedLines.self-29a3f7497ffd95027475ad2f947b8a6c57156690e858a8780923864a563532c0.js?body=1" for 127.0.0.1 at 2016-08-31 21:40:55 -0500
+
+
+Started GET "/assets/js/flot/jquery.flot.resize.self-2164419d35ef0c28690426670059965ff17c804b466f57a8cbcc25c479b256c9.js?body=1" for 127.0.0.1 at 2016-08-31 21:40:55 -0500
+
+
+Started GET "/assets/js/progressbar/bootstrap-progressbar.min.self-a9996721a19c173901023b21df854903c6a8e2b406cd93d1464a10327d8b52a5.js?body=1" for 127.0.0.1 at 2016-08-31 21:40:55 -0500
+
+
+Started GET "/assets/js/icheck/icheck.min.self-71402d4bdfd85b52b46ee005d31661013598d0d930d2f195227371538f814ab1.js?body=1" for 127.0.0.1 at 2016-08-31 21:40:55 -0500
+
+
+Started GET "/assets/js/moment/moment.min.self-47f3f0f0f331b237c5584a60bfc321301c0d9a5651dd70c635af1e17be68d5bb.js?body=1" for 127.0.0.1 at 2016-08-31 21:40:55 -0500
+
+
+Started GET "/assets/js/datepicker/daterangepicker.self-ed4efcc595b0d4da2fb398736b7afde3f16d1364d06cf46dad9c4e591d1ea394.js?body=1" for 127.0.0.1 at 2016-08-31 21:40:55 -0500
+
+
+Started GET "/assets/js/chartjs/chart.min.self-ba2063aab36611ff08faf64bffa6a26ec0e486b6d42a732e7ddd29e6190b4f04.js?body=1" for 127.0.0.1 at 2016-08-31 21:40:55 -0500
+
+
+Started GET "/assets/js/pace/pace.min.self-9bf6d667514a59744d5db2c9392aaf5595dec9c131a425ababa1cb8cddb814f2.js?body=1" for 127.0.0.1 at 2016-08-31 21:40:55 -0500
+
+
+Started GET "/assets/js/nprogress.self-ee0af190efcd10748e6f1bde91255ea0bf490342f26389814d76a217f5255ff4.js?body=1" for 127.0.0.1 at 2016-08-31 21:40:55 -0500
+
+
+Started GET "/assets/flash.self-c7b94ce6f778ffa2d56272d0d981967ab27d8ac57a75802e72fcfab9b95d1000.js?body=1" for 127.0.0.1 at 2016-08-31 21:40:55 -0500
+
+
+Started GET "/assets/main.self-a1f856adee1d3ba51b81d3b74bd9904d735257018cb7805f44443777863b2c53.js?body=1" for 127.0.0.1 at 2016-08-31 21:40:55 -0500
+
+
+Started GET "/assets/js/custom.self-4f0ced23cee8da0b88915f10b145d6df88298f210a750017ccb1176aa7fbdd0f.js?body=1" for 127.0.0.1 at 2016-08-31 21:40:55 -0500
+
+
+Started GET "/assets/footermanifest.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js?body=1" for 127.0.0.1 at 2016-08-31 21:40:55 -0500
+
+
+Started GET "/admin/costcs/new" for 127.0.0.1 at 2016-08-31 21:41:02 -0500
+Processing by Admin::CostcsController#new as HTML
+  [1m[36mLabor Load (0.2ms)[0m  [1mSELECT `labors`.* FROM `labors`[0m
+  Rendered admin/costcs/new.html.erb within layouts/application (5.3ms)
+Completed 200 OK in 93ms (Views: 92.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/dataTables/bootstrap/3/jquery.dataTables.bootstrap.self-db401fae5b21f5b20e5dae1bf4f95cf02ee816a7bfbe7941d4c761c6c108f1c8.css?body=1" for 127.0.0.1 at 2016-08-31 21:41:02 -0500
+
+
+Started GET "/assets/css/custom.self-2c8d089dc938fabfe20a2ae7c7a4568b07461a4ff11b8830786148c7282d8268.css?body=1" for 127.0.0.1 at 2016-08-31 21:41:02 -0500
+
+
+Started GET "/assets/css/animate.min.self-ce55568ec016e2bd083b075fa15202542f46a96d7fa1bc0a3d2233096de076fd.css?body=1" for 127.0.0.1 at 2016-08-31 21:41:02 -0500
+
+
+Started GET "/assets/application.self-352b1fae5a8bbee7d138e26aa303f817391e2584e0d8eeb0e2affa56b13a39b4.css?body=1" for 127.0.0.1 at 2016-08-31 21:41:02 -0500
+
+
+Started GET "/assets/css/icheck/flat/green.self-9aab23d491ef2ac6d0d739809c4f9d7a03ba13a60e5de52e9449313198cfb4c3.css?body=1" for 127.0.0.1 at 2016-08-31 21:41:02 -0500
+
+
+Started GET "/assets/css/floatexamples.self-7a285bfcdd469585fed9fa584c90defd4356633b2f77bade5893a7556076dffe.css?body=1" for 127.0.0.1 at 2016-08-31 21:41:02 -0500
+
+
+Started GET "/assets/css/normalize.self-45a3426c79ad28d5e271d4f9a1c32f8e5faea9144008d44cc01a6f691158c84b.css?body=1" for 127.0.0.1 at 2016-08-31 21:41:02 -0500
+
+
+Started GET "/assets/css/ion.rangeSlider.self-0de79328bec27d4cb5f3ed539f1be12889ab682ce42058deef7b7842d65465a9.css?body=1" for 127.0.0.1 at 2016-08-31 21:41:02 -0500
+
+
+Started GET "/assets/pace.self-4cac7a0a6e622e399239bc3466769d86c484a27626f1250426d399366e775ccc.css?body=1" for 127.0.0.1 at 2016-08-31 21:41:02 -0500
+
+
+Started GET "/assets/style.self-99d5bf07a23320f4730a3b11b31b2d29d455c1fe7fa1d761550da2cf37f319c4.css?body=1" for 127.0.0.1 at 2016-08-31 21:41:02 -0500
+
+
+Started GET "/assets/jquery.dataTables.min.self-f99d6b61adf2b3939d64d51c9391bb941bdbf00d773ab630bdff9df0f7c46874.css?body=1" for 127.0.0.1 at 2016-08-31 21:41:02 -0500
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2016-08-31 21:41:02 -0500
+
+
+Started GET "/assets/bootstrap/transition.self-6ad2488465135ab731a045a8ebbe3ea2fc501aed286042496eda1664fdd07ba9.js?body=1" for 127.0.0.1 at 2016-08-31 21:41:02 -0500
+
+
+Started GET "/assets/bootstrap/alert.self-742145c5bb847aafdadc6e339be795628f8bc25f177e851f03a8c42278eb0312.js?body=1" for 127.0.0.1 at 2016-08-31 21:41:02 -0500
+
+
+Started GET "/assets/bootstrap/button.self-126ac9bf0e7f2d8568f8da3a00fd5f0fac6eae0946331003370161fbf8d7975e.js?body=1" for 127.0.0.1 at 2016-08-31 21:41:02 -0500
+
+
+Started GET "/assets/bootstrap/carousel.self-e47323f363ceb3dc0bdbce05e36e709ed428e339833a41140a85cb0af24b8127.js?body=1" for 127.0.0.1 at 2016-08-31 21:41:02 -0500
+
+
+Started GET "/assets/bootstrap/collapse.self-2eb697f62b587bb786ff940d82dd4be88cdeeaf13ca128e3da3850c5fcaec301.js?body=1" for 127.0.0.1 at 2016-08-31 21:41:02 -0500
+
+
+Started GET "/assets/bootstrap/dropdown.self-561cca1cbaf67474e01e9536f106bad541594860a6df997004591c1c1957a147.js?body=1" for 127.0.0.1 at 2016-08-31 21:41:02 -0500
+
+
+Started GET "/assets/bootstrap/modal.self-3e78617ade5663314b7ee0ea10375a5b34d59ffbade44939e3f2a4e4ef2019b3.js?body=1" for 127.0.0.1 at 2016-08-31 21:41:02 -0500
+
+
+Started GET "/assets/bootstrap/tab.self-5bf7078b682f8b131332eefa46b45fa5eff2eca745fc0d03e2991450888f7c28.js?body=1" for 127.0.0.1 at 2016-08-31 21:41:02 -0500
+
+
+Started GET "/assets/bootstrap/affix.self-6d6f1a7fc5c8aabf3547fa1b794fab6268f54bc55ad815e55873c71f52513517.js?body=1" for 127.0.0.1 at 2016-08-31 21:41:02 -0500
+
+
+Started GET "/assets/bootstrap/scrollspy.self-969f3c5f48cdf1e439c7fa1154c13b948715f5c689f87837c0b64521d3b46ef6.js?body=1" for 127.0.0.1 at 2016-08-31 21:41:02 -0500
+
+
+Started GET "/assets/bootstrap/tooltip.self-05afb177e08f98997ccfc84fa08a215e4b27d48d5fe4d049080675e9dffd8199.js?body=1" for 127.0.0.1 at 2016-08-31 21:41:02 -0500
+
+
+Started GET "/assets/bootstrap/popover.self-0aa93860b59fe7393f1dd490f54b3cb994f9d6155adffce034d4e14ae361b041.js?body=1" for 127.0.0.1 at 2016-08-31 21:41:02 -0500
+
+
+Started GET "/assets/bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for 127.0.0.1 at 2016-08-31 21:41:02 -0500
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2016-08-31 21:41:02 -0500
+
+
+Started GET "/assets/turbolinks.self-c5acd7a204f5f25ce7a1d8a0e4d92e28d34c9e2df2c7371cd7af88e147e4ad82.js?body=1" for 127.0.0.1 at 2016-08-31 21:41:02 -0500
+
+
+Started GET "/assets/application.self-16c207b3ca1b52afcfc7f4b662487caf1bbe084a6656bb15f693ab9de2d11be7.js?body=1" for 127.0.0.1 at 2016-08-31 21:41:02 -0500
+
+
+Started GET "/assets/js/flot/jquery.flot.self-705d7592a526517fe86a873dd3aa15f58ce66a7953036fe087b44cd70521f0cc.js?body=1" for 127.0.0.1 at 2016-08-31 21:41:02 -0500
+
+
+Started GET "/assets/js/flot/jquery.flot.orderBars.self-1310e7cf40dfc527b1828bdfa8e62ba12341da3b0c7bc4883ec3976103c7e790.js?body=1" for 127.0.0.1 at 2016-08-31 21:41:02 -0500
+
+
+Started GET "/assets/js/flot/jquery.flot.pie.self-33ca88cc4a7371598cb8fa2d30eeaddcecb19184d16161873c7c1e632447c3b5.js?body=1" for 127.0.0.1 at 2016-08-31 21:41:02 -0500
+
+
+Started GET "/assets/js/flot/jquery.flot.time.min.self-42e80da9d580f1cd692913e466a0a35720994cd42aa2bf940d419142bf70ae67.js?body=1" for 127.0.0.1 at 2016-08-31 21:41:02 -0500
+
+
+Started GET "/assets/js/flot/date.self-dd103d36715d4e9beae419cc0328daa08d388182e31fce53e6c95e04c826f014.js?body=1" for 127.0.0.1 at 2016-08-31 21:41:02 -0500
+
+
+Started GET "/assets/js/flot/jquery.flot.spline.self-78f8d0e8dfaa7a73b069749d22fb3f92c7de0cf39198cdd3531184a89c8f44a3.js?body=1" for 127.0.0.1 at 2016-08-31 21:41:02 -0500
+
+
+Started GET "/assets/js/flot/jquery.flot.stack.self-77107f0e9fec22d48d33184fec10aa3335cfb4469305a20d0885662e9c8716f7.js?body=1" for 127.0.0.1 at 2016-08-31 21:41:02 -0500
+
+
+Started GET "/assets/js/flot/curvedLines.self-29a3f7497ffd95027475ad2f947b8a6c57156690e858a8780923864a563532c0.js?body=1" for 127.0.0.1 at 2016-08-31 21:41:02 -0500
+
+
+Started GET "/assets/js/flot/jquery.flot.resize.self-2164419d35ef0c28690426670059965ff17c804b466f57a8cbcc25c479b256c9.js?body=1" for 127.0.0.1 at 2016-08-31 21:41:02 -0500
+
+
+Started GET "/assets/js/progressbar/bootstrap-progressbar.min.self-a9996721a19c173901023b21df854903c6a8e2b406cd93d1464a10327d8b52a5.js?body=1" for 127.0.0.1 at 2016-08-31 21:41:02 -0500
+
+
+Started GET "/assets/js/icheck/icheck.min.self-71402d4bdfd85b52b46ee005d31661013598d0d930d2f195227371538f814ab1.js?body=1" for 127.0.0.1 at 2016-08-31 21:41:02 -0500
+
+
+Started GET "/assets/js/moment/moment.min.self-47f3f0f0f331b237c5584a60bfc321301c0d9a5651dd70c635af1e17be68d5bb.js?body=1" for 127.0.0.1 at 2016-08-31 21:41:02 -0500
+
+
+Started GET "/assets/js/datepicker/daterangepicker.self-ed4efcc595b0d4da2fb398736b7afde3f16d1364d06cf46dad9c4e591d1ea394.js?body=1" for 127.0.0.1 at 2016-08-31 21:41:02 -0500
+
+
+Started GET "/assets/js/chartjs/chart.min.self-ba2063aab36611ff08faf64bffa6a26ec0e486b6d42a732e7ddd29e6190b4f04.js?body=1" for 127.0.0.1 at 2016-08-31 21:41:02 -0500
+
+
+Started GET "/assets/js/pace/pace.min.self-9bf6d667514a59744d5db2c9392aaf5595dec9c131a425ababa1cb8cddb814f2.js?body=1" for 127.0.0.1 at 2016-08-31 21:41:02 -0500
+
+
+Started GET "/assets/js/nprogress.self-ee0af190efcd10748e6f1bde91255ea0bf490342f26389814d76a217f5255ff4.js?body=1" for 127.0.0.1 at 2016-08-31 21:41:02 -0500
+
+
+Started GET "/assets/flash.self-c7b94ce6f778ffa2d56272d0d981967ab27d8ac57a75802e72fcfab9b95d1000.js?body=1" for 127.0.0.1 at 2016-08-31 21:41:02 -0500
+
+
+Started GET "/assets/main.self-a1f856adee1d3ba51b81d3b74bd9904d735257018cb7805f44443777863b2c53.js?body=1" for 127.0.0.1 at 2016-08-31 21:41:02 -0500
+
+
+Started GET "/assets/js/custom.self-4f0ced23cee8da0b88915f10b145d6df88298f210a750017ccb1176aa7fbdd0f.js?body=1" for 127.0.0.1 at 2016-08-31 21:41:02 -0500
+
+
+Started GET "/assets/footermanifest.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js?body=1" for 127.0.0.1 at 2016-08-31 21:41:03 -0500
+
+
+Started GET "/admin/costcs/new" for 127.0.0.1 at 2016-08-31 21:41:10 -0500
+Processing by Admin::CostcsController#new as HTML
+  [1m[35mLabor Load (0.2ms)[0m  SELECT `labors`.* FROM `labors`
+  Rendered admin/costcs/new.html.erb within layouts/application (6.8ms)
+Completed 200 OK in 98ms (Views: 96.8ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/admin/costcs" for 127.0.0.1 at 2016-08-31 21:41:29 -0500
+Processing by Admin::CostcsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"QFtKAffuJv2uhfl92frxggVqWEneQpS2Z4qtgwWB8N2V6+I2OWCsNKMNBqlspSmLWTgKTZSb/Fc1SwD1I3brgw==", "costc"=>{"code"=>"1", "name"=>"234234", "description"=>"234234", "labors"=>["", "1", "2"]}, "commit"=>"Create Costc"}
+Unpermitted parameter: labors
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `costcs` (`code`, `name`, `description`, `created_at`, `updated_at`) VALUES ('1', '234234', '234234', '2016-09-01 02:41:29', '2016-09-01 02:41:29')
+  [1m[36m (89.8ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/admin/costcs
+Completed 302 Found in 93ms (ActiveRecord: 90.2ms)
+
+
+Started GET "/admin/costcs" for 127.0.0.1 at 2016-08-31 21:41:30 -0500
+Processing by Admin::CostcsController#index as HTML
+  [1m[35mCostc Load (0.3ms)[0m  SELECT `costcs`.* FROM `costcs`
+  [1m[36mLabor Load (0.1ms)[0m  [1mSELECT `labors`.* FROM `labors` INNER JOIN `labor_costcs` ON `labors`.`id` = `labor_costcs`.`labor_id` WHERE `labor_costcs`.`costc_id` = 1[0m
+  [1m[35mLabor Load (0.2ms)[0m  SELECT `labors`.* FROM `labors` INNER JOIN `labor_costcs` ON `labors`.`id` = `labor_costcs`.`labor_id` WHERE `labor_costcs`.`costc_id` = 2
+  Rendered admin/costcs/index.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 87ms (Views: 85.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/admin/costcs/new" for 127.0.0.1 at 2016-08-31 21:48:22 -0500
+Processing by Admin::CostcsController#new as HTML
+  [1m[36mLabor Load (0.2ms)[0m  [1mSELECT `labors`.* FROM `labors`[0m
+  Rendered admin/costcs/new.html.erb within layouts/application (17.7ms)
+Completed 200 OK in 119ms (Views: 110.3ms | ActiveRecord: 2.4ms)
+
+
+Started POST "/admin/costcs" for 127.0.0.1 at 2016-08-31 21:48:30 -0500
+Processing by Admin::CostcsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ugBglrD4ygmH6qcHkdsJLFPMijljgZvSMS6Ex2KOhaZvsMihfnZAwIpiWNMkhNElD57YPSlY8zNj7ymxRHme+A==", "costc"=>{"code"=>"2", "name"=>"2222222222", "description"=>"22222222222", "labors"=>["", "1", "2"]}, "commit"=>"Create Costc"}
+Unpermitted parameter: labors
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `costcs` (`code`, `name`, `description`, `created_at`, `updated_at`) VALUES ('2', '2222222222', '22222222222', '2016-09-01 02:48:30', '2016-09-01 02:48:30')[0m
+  [1m[35m (107.8ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `labor_costcs` (`labor_id`, `costc_id`, `created_at`, `updated_at`) VALUES (1, 3, '2016-09-01 02:48:30', '2016-09-01 02:48:30')
+  [1m[36m (56.8ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO `labor_costcs` (`labor_id`, `costc_id`, `created_at`, `updated_at`) VALUES (2, 3, '2016-09-01 02:48:31', '2016-09-01 02:48:31')[0m
+  [1m[35m (29.2ms)[0m  COMMIT
+Redirected to http://localhost:3000/admin/costcs
+Completed 302 Found in 210ms (ActiveRecord: 195.9ms)
+
+
+Started GET "/admin/costcs" for 127.0.0.1 at 2016-08-31 21:48:31 -0500
+Processing by Admin::CostcsController#index as HTML
+  [1m[36mCostc Load (0.3ms)[0m  [1mSELECT `costcs`.* FROM `costcs`[0m
+  [1m[35mLabor Load (1.3ms)[0m  SELECT `labors`.* FROM `labors` INNER JOIN `labor_costcs` ON `labors`.`id` = `labor_costcs`.`labor_id` WHERE `labor_costcs`.`costc_id` = 1
+  [1m[36mLabor Load (0.4ms)[0m  [1mSELECT `labors`.* FROM `labors` INNER JOIN `labor_costcs` ON `labors`.`id` = `labor_costcs`.`labor_id` WHERE `labor_costcs`.`costc_id` = 2[0m
+  [1m[35mLabor Load (0.3ms)[0m  SELECT `labors`.* FROM `labors` INNER JOIN `labor_costcs` ON `labors`.`id` = `labor_costcs`.`labor_id` WHERE `labor_costcs`.`costc_id` = 3
+  Rendered admin/costcs/index.html.erb within layouts/application (11.5ms)
+Completed 200 OK in 113ms (Views: 110.6ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/admin/costcs/new" for 127.0.0.1 at 2016-08-31 21:48:37 -0500
+Processing by Admin::CostcsController#new as HTML
+  [1m[36mLabor Load (0.2ms)[0m  [1mSELECT `labors`.* FROM `labors`[0m
+  Rendered admin/costcs/new.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 95ms (Views: 94.2ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/admin/costcs" for 127.0.0.1 at 2016-08-31 21:48:44 -0500
+Processing by Admin::CostcsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"0tDDCGJWV2enBtBddJGeL9JEq6gnb1OaGLhjjT9+9kkHYGs/rNjdrqqOL4nBzkYmjhb5rG22O3tKec77GYntFw==", "costc"=>{"code"=>"33333", "name"=>"333333", "description"=>"3333333", "labors"=>["", "2"]}, "commit"=>"Create Costc"}
+Unpermitted parameter: labors
+  [1m[35m (0.6ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `costcs` (`code`, `name`, `description`, `created_at`, `updated_at`) VALUES ('33333', '333333', '3333333', '2016-09-01 02:48:44', '2016-09-01 02:48:44')[0m
+  [1m[35m (80.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `labor_costcs` (`labor_id`, `costc_id`, `created_at`, `updated_at`) VALUES (2, 4, '2016-09-01 02:48:44', '2016-09-01 02:48:44')
+  [1m[36m (60.8ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/admin/costcs
+Completed 302 Found in 176ms (ActiveRecord: 142.5ms)
+
+
+Started GET "/admin/costcs" for 127.0.0.1 at 2016-08-31 21:48:44 -0500
+Processing by Admin::CostcsController#index as HTML
+  [1m[35mCostc Load (0.3ms)[0m  SELECT `costcs`.* FROM `costcs`
+  [1m[36mLabor Load (12.2ms)[0m  [1mSELECT `labors`.* FROM `labors` INNER JOIN `labor_costcs` ON `labors`.`id` = `labor_costcs`.`labor_id` WHERE `labor_costcs`.`costc_id` = 1[0m
+  [1m[35mLabor Load (0.3ms)[0m  SELECT `labors`.* FROM `labors` INNER JOIN `labor_costcs` ON `labors`.`id` = `labor_costcs`.`labor_id` WHERE `labor_costcs`.`costc_id` = 2
+  [1m[36mLabor Load (1.3ms)[0m  [1mSELECT `labors`.* FROM `labors` INNER JOIN `labor_costcs` ON `labors`.`id` = `labor_costcs`.`labor_id` WHERE `labor_costcs`.`costc_id` = 3[0m
+  [1m[35mLabor Load (1.0ms)[0m  SELECT `labors`.* FROM `labors` INNER JOIN `labor_costcs` ON `labors`.`id` = `labor_costcs`.`labor_id` WHERE `labor_costcs`.`costc_id` = 4
+  Rendered admin/costcs/index.html.erb within layouts/application (33.4ms)
+Completed 200 OK in 125ms (Views: 108.4ms | ActiveRecord: 15.1ms)
+
+
+Started GET "/admin/costcs/new" for 127.0.0.1 at 2016-08-31 21:51:04 -0500
+Processing by Admin::CostcsController#new as HTML
+  [1m[36mLabor Load (0.1ms)[0m  [1mSELECT `labors`.* FROM `labors`[0m
+  Rendered admin/costcs/new.html.erb within layouts/application (12.8ms)
+Completed 200 OK in 118ms (Views: 109.1ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/admin/costcs" for 127.0.0.1 at 2016-08-31 21:51:17 -0500
+Processing by Admin::CostcsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"RnEMZ8+6XSAhrdV7Crk+jdUwOze7Aah0G4qGz6iGPgCTwaRQATTX6SwlKq+/5uaEiWJpM/HYwJVJSyu5jnElXg==", "costc"=>{"code"=>"123", "name"=>"123", "description"=>"123", "labors2"=>["", "1", "2"]}, "commit"=>"Create Costc"}
+Unpermitted parameter: labors2
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `costcs` (`code`, `name`, `description`, `created_at`, `updated_at`) VALUES ('123', '123', '123', '2016-09-01 02:51:17', '2016-09-01 02:51:17')[0m
+  [1m[35m (76.4ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `labor_costcs` (`labor_id`, `costc_id`, `created_at`, `updated_at`) VALUES (1, 5, '2016-09-01 02:51:17', '2016-09-01 02:51:17')
+  [1m[36m (37.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `labor_costcs` (`labor_id`, `costc_id`, `created_at`, `updated_at`) VALUES (2, 5, '2016-09-01 02:51:17', '2016-09-01 02:51:17')[0m
+  [1m[35m (31.5ms)[0m  COMMIT
+Redirected to http://localhost:3000/admin/costcs
+Completed 302 Found in 159ms (ActiveRecord: 146.7ms)
+
+
+Started GET "/admin/costcs" for 127.0.0.1 at 2016-08-31 21:51:17 -0500
+Processing by Admin::CostcsController#index as HTML
+  [1m[36mCostc Load (0.3ms)[0m  [1mSELECT `costcs`.* FROM `costcs`[0m
+  [1m[35mLabor Load (0.4ms)[0m  SELECT `labors`.* FROM `labors` INNER JOIN `labor_costcs` ON `labors`.`id` = `labor_costcs`.`labor_id` WHERE `labor_costcs`.`costc_id` = 1
+  [1m[36mLabor Load (0.2ms)[0m  [1mSELECT `labors`.* FROM `labors` INNER JOIN `labor_costcs` ON `labors`.`id` = `labor_costcs`.`labor_id` WHERE `labor_costcs`.`costc_id` = 2[0m
+  [1m[35mLabor Load (0.3ms)[0m  SELECT `labors`.* FROM `labors` INNER JOIN `labor_costcs` ON `labors`.`id` = `labor_costcs`.`labor_id` WHERE `labor_costcs`.`costc_id` = 3
+  [1m[36mLabor Load (0.3ms)[0m  [1mSELECT `labors`.* FROM `labors` INNER JOIN `labor_costcs` ON `labors`.`id` = `labor_costcs`.`labor_id` WHERE `labor_costcs`.`costc_id` = 4[0m
+  [1m[35mLabor Load (0.3ms)[0m  SELECT `labors`.* FROM `labors` INNER JOIN `labor_costcs` ON `labors`.`id` = `labor_costcs`.`labor_id` WHERE `labor_costcs`.`costc_id` = 5
+  Rendered admin/costcs/index.html.erb within layouts/application (18.5ms)
+Completed 200 OK in 124ms (Views: 120.6ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/images/sort_desc.png" for 127.0.0.1 at 2016-08-31 21:51:30 -0500
+
+ActionController::RoutingError (No route matches [GET] "/images/sort_desc.png"):
+  actionpack (4.2.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.4) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.4) lib/rails/engine.rb:518:in `call'
+  railties (4.2.4) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /home/leidy/.rvm/rubies/ruby-2.2.3/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /home/leidy/.rvm/rubies/ruby-2.2.3/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /home/leidy/.rvm/rubies/ruby-2.2.3/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.3ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb (3.3ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (15.0ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (73.5ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (14.6ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (30.0ms)
+
+
+Started GET "/admin/costcs/new" for 127.0.0.1 at 2016-08-31 21:58:50 -0500
+Processing by Admin::CostcsController#new as HTML
+  Rendered admin/costcs/new.html.erb within layouts/application (4054.5ms)
+Completed 500 Internal Server Error in 4058ms (ActiveRecord: 0.0ms)
+
+ActionView::Template::Error (Asset was not declared to be precompiled in production.
+Add `Rails.application.config.assets.precompile += %w( selectize.bootstrap3.css )` to `config/initializers/assets.rb` and restart your server):
+    1: <%= stylesheet_link_tag    'selectize.bootstrap3', media: 'all', 'data-turbolinks-track' => true %>
+    2: <%= javascript_include_tag 'selectize.min', 'data-turbolinks-track' => true %>
+    3: 
+    4: <h1 class="x_title"><i class="glyphicon glyphicon-leaf titleicon"></i>Crear Centro de costos</h1>
+  app/views/admin/costcs/new.html.erb:1:in `_app_views_admin_costcs_new_html_erb___3541002567852166964_11223480'
+
+
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.7ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.7ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (26.1ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (17.2ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.7ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (33.2ms)
+
+
+Started GET "/admin/costcs/new" for 127.0.0.1 at 2016-08-31 21:59:09 -0500
+Processing by Admin::CostcsController#new as HTML
+  Rendered admin/costcs/new.html.erb within layouts/application (104.1ms)
+Completed 500 Internal Server Error in 106ms (ActiveRecord: 0.0ms)
+
+ActionView::Template::Error (Asset was not declared to be precompiled in production.
+Add `Rails.application.config.assets.precompile += %w( selectize.bootstrap3.css )` to `config/initializers/assets.rb` and restart your server):
+    1: <%= stylesheet_link_tag    'selectize.bootstrap3', media: 'all', 'data-turbolinks-track' => true %>
+    2: <%= javascript_include_tag 'selectize.min', 'data-turbolinks-track' => true %>
+    3: 
+    4: <h1 class="x_title"><i class="glyphicon glyphicon-leaf titleicon"></i>Crear Centro de costos</h1>
+  app/views/admin/costcs/new.html.erb:1:in `_app_views_admin_costcs_new_html_erb___3541002567852166964_11223480'
+
+
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.1ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.4ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (23.0ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.2ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (16.0ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (29.6ms)
+
+
+Started GET "/admin/costcs/new" for 127.0.0.1 at 2016-08-31 21:59:36 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by Admin::CostcsController#new as HTML
+  [1m[35mLabor Load (0.2ms)[0m  SELECT `labors`.* FROM `labors`
+  Rendered admin/costcs/new.html.erb within layouts/application (3319.7ms)
+Completed 200 OK in 4607ms (Views: 4539.3ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/assets/selectize.bootstrap3.self-3210e4b793d77fdc26e49c98c5ca11dc585f5ed5e9975d64c49387f4a67788c0.css?body=1" for 127.0.0.1 at 2016-08-31 21:59:41 -0500
+
+
+Started GET "/assets/selectize.min.self-8a3b883055c7ac840464bd228ebc01da2a334f56b564b15a2df1e33f44ec1a01.js?body=1" for 127.0.0.1 at 2016-08-31 21:59:41 -0500
+
+
+Started GET "/admin/costcs/new" for 127.0.0.1 at 2016-08-31 22:00:30 -0500
+Processing by Admin::CostcsController#new as HTML
+  [1m[36mLabor Load (0.1ms)[0m  [1mSELECT `labors`.* FROM `labors`[0m
+  Rendered admin/costcs/new.html.erb within layouts/application (10.6ms)
+Completed 200 OK in 97ms (Views: 96.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/admin/costcs/new" for 127.0.0.1 at 2016-08-31 22:00:54 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by Admin::CostcsController#new as HTML
+  [1m[35mLabor Load (0.2ms)[0m  SELECT `labors`.* FROM `labors`
+  Rendered admin/costcs/new.html.erb within layouts/application (396.8ms)
+Completed 200 OK in 549ms (Views: 529.9ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/assets/dataTables/bootstrap/3/jquery.dataTables.bootstrap.self-db401fae5b21f5b20e5dae1bf4f95cf02ee816a7bfbe7941d4c761c6c108f1c8.css?body=1" for 127.0.0.1 at 2016-08-31 22:00:55 -0500
+
+
+Started GET "/assets/css/animate.min.self-ce55568ec016e2bd083b075fa15202542f46a96d7fa1bc0a3d2233096de076fd.css?body=1" for 127.0.0.1 at 2016-08-31 22:00:55 -0500
+
+
+Started GET "/assets/application.self-352b1fae5a8bbee7d138e26aa303f817391e2584e0d8eeb0e2affa56b13a39b4.css?body=1" for 127.0.0.1 at 2016-08-31 22:00:55 -0500
+
+
+Started GET "/assets/css/floatexamples.self-7a285bfcdd469585fed9fa584c90defd4356633b2f77bade5893a7556076dffe.css?body=1" for 127.0.0.1 at 2016-08-31 22:00:55 -0500
+
+
+Started GET "/assets/css/icheck/flat/green.self-9aab23d491ef2ac6d0d739809c4f9d7a03ba13a60e5de52e9449313198cfb4c3.css?body=1" for 127.0.0.1 at 2016-08-31 22:00:55 -0500
+
+
+Started GET "/assets/css/custom.self-2c8d089dc938fabfe20a2ae7c7a4568b07461a4ff11b8830786148c7282d8268.css?body=1" for 127.0.0.1 at 2016-08-31 22:00:55 -0500
+
+
+Started GET "/assets/css/normalize.self-45a3426c79ad28d5e271d4f9a1c32f8e5faea9144008d44cc01a6f691158c84b.css?body=1" for 127.0.0.1 at 2016-08-31 22:00:55 -0500
+
+
+Started GET "/assets/css/ion.rangeSlider.self-0de79328bec27d4cb5f3ed539f1be12889ab682ce42058deef7b7842d65465a9.css?body=1" for 127.0.0.1 at 2016-08-31 22:00:55 -0500
+
+
+Started GET "/assets/pace.self-4cac7a0a6e622e399239bc3466769d86c484a27626f1250426d399366e775ccc.css?body=1" for 127.0.0.1 at 2016-08-31 22:00:55 -0500
+
+
+Started GET "/assets/style.self-99d5bf07a23320f4730a3b11b31b2d29d455c1fe7fa1d761550da2cf37f319c4.css?body=1" for 127.0.0.1 at 2016-08-31 22:00:55 -0500
+
+
+Started GET "/assets/jquery.dataTables.min.self-f99d6b61adf2b3939d64d51c9391bb941bdbf00d773ab630bdff9df0f7c46874.css?body=1" for 127.0.0.1 at 2016-08-31 22:00:55 -0500
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2016-08-31 22:00:55 -0500
+
+
+Started GET "/assets/bootstrap/transition.self-6ad2488465135ab731a045a8ebbe3ea2fc501aed286042496eda1664fdd07ba9.js?body=1" for 127.0.0.1 at 2016-08-31 22:00:55 -0500
+
+
+Started GET "/assets/bootstrap/alert.self-742145c5bb847aafdadc6e339be795628f8bc25f177e851f03a8c42278eb0312.js?body=1" for 127.0.0.1 at 2016-08-31 22:00:55 -0500
+
+
+Started GET "/assets/bootstrap/button.self-126ac9bf0e7f2d8568f8da3a00fd5f0fac6eae0946331003370161fbf8d7975e.js?body=1" for 127.0.0.1 at 2016-08-31 22:00:55 -0500
+
+
+Started GET "/assets/bootstrap/carousel.self-e47323f363ceb3dc0bdbce05e36e709ed428e339833a41140a85cb0af24b8127.js?body=1" for 127.0.0.1 at 2016-08-31 22:00:55 -0500
+
+
+Started GET "/assets/bootstrap/collapse.self-2eb697f62b587bb786ff940d82dd4be88cdeeaf13ca128e3da3850c5fcaec301.js?body=1" for 127.0.0.1 at 2016-08-31 22:00:55 -0500
+
+
+Started GET "/assets/bootstrap/dropdown.self-561cca1cbaf67474e01e9536f106bad541594860a6df997004591c1c1957a147.js?body=1" for 127.0.0.1 at 2016-08-31 22:00:55 -0500
+
+
+Started GET "/assets/bootstrap/modal.self-3e78617ade5663314b7ee0ea10375a5b34d59ffbade44939e3f2a4e4ef2019b3.js?body=1" for 127.0.0.1 at 2016-08-31 22:00:55 -0500
+
+
+Started GET "/assets/bootstrap/tab.self-5bf7078b682f8b131332eefa46b45fa5eff2eca745fc0d03e2991450888f7c28.js?body=1" for 127.0.0.1 at 2016-08-31 22:00:55 -0500
+
+
+Started GET "/assets/bootstrap/affix.self-6d6f1a7fc5c8aabf3547fa1b794fab6268f54bc55ad815e55873c71f52513517.js?body=1" for 127.0.0.1 at 2016-08-31 22:00:55 -0500
+
+
+Started GET "/assets/bootstrap/scrollspy.self-969f3c5f48cdf1e439c7fa1154c13b948715f5c689f87837c0b64521d3b46ef6.js?body=1" for 127.0.0.1 at 2016-08-31 22:00:55 -0500
+
+
+Started GET "/assets/bootstrap/tooltip.self-05afb177e08f98997ccfc84fa08a215e4b27d48d5fe4d049080675e9dffd8199.js?body=1" for 127.0.0.1 at 2016-08-31 22:00:55 -0500
+
+
+Started GET "/assets/bootstrap/popover.self-0aa93860b59fe7393f1dd490f54b3cb994f9d6155adffce034d4e14ae361b041.js?body=1" for 127.0.0.1 at 2016-08-31 22:00:55 -0500
+
+
+Started GET "/assets/bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for 127.0.0.1 at 2016-08-31 22:00:55 -0500
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2016-08-31 22:00:55 -0500
+
+
+Started GET "/assets/turbolinks.self-c5acd7a204f5f25ce7a1d8a0e4d92e28d34c9e2df2c7371cd7af88e147e4ad82.js?body=1" for 127.0.0.1 at 2016-08-31 22:00:55 -0500
+
+
+Started GET "/assets/application.self-16c207b3ca1b52afcfc7f4b662487caf1bbe084a6656bb15f693ab9de2d11be7.js?body=1" for 127.0.0.1 at 2016-08-31 22:00:55 -0500
+
+
+Started GET "/assets/js/flot/jquery.flot.self-705d7592a526517fe86a873dd3aa15f58ce66a7953036fe087b44cd70521f0cc.js?body=1" for 127.0.0.1 at 2016-08-31 22:00:55 -0500
+
+
+Started GET "/assets/js/flot/jquery.flot.pie.self-33ca88cc4a7371598cb8fa2d30eeaddcecb19184d16161873c7c1e632447c3b5.js?body=1" for 127.0.0.1 at 2016-08-31 22:00:55 -0500
+
+
+Started GET "/assets/js/flot/jquery.flot.orderBars.self-1310e7cf40dfc527b1828bdfa8e62ba12341da3b0c7bc4883ec3976103c7e790.js?body=1" for 127.0.0.1 at 2016-08-31 22:00:55 -0500
+
+
+Started GET "/assets/js/flot/jquery.flot.time.min.self-42e80da9d580f1cd692913e466a0a35720994cd42aa2bf940d419142bf70ae67.js?body=1" for 127.0.0.1 at 2016-08-31 22:00:55 -0500
+
+
+Started GET "/assets/js/flot/date.self-dd103d36715d4e9beae419cc0328daa08d388182e31fce53e6c95e04c826f014.js?body=1" for 127.0.0.1 at 2016-08-31 22:00:55 -0500
+
+
+Started GET "/assets/js/flot/jquery.flot.spline.self-78f8d0e8dfaa7a73b069749d22fb3f92c7de0cf39198cdd3531184a89c8f44a3.js?body=1" for 127.0.0.1 at 2016-08-31 22:00:55 -0500
+
+
+Started GET "/assets/js/flot/jquery.flot.stack.self-77107f0e9fec22d48d33184fec10aa3335cfb4469305a20d0885662e9c8716f7.js?body=1" for 127.0.0.1 at 2016-08-31 22:00:55 -0500
+
+
+Started GET "/assets/js/flot/curvedLines.self-29a3f7497ffd95027475ad2f947b8a6c57156690e858a8780923864a563532c0.js?body=1" for 127.0.0.1 at 2016-08-31 22:00:55 -0500
+
+
+Started GET "/assets/js/flot/jquery.flot.resize.self-2164419d35ef0c28690426670059965ff17c804b466f57a8cbcc25c479b256c9.js?body=1" for 127.0.0.1 at 2016-08-31 22:00:55 -0500
+
+
+Started GET "/assets/js/progressbar/bootstrap-progressbar.min.self-a9996721a19c173901023b21df854903c6a8e2b406cd93d1464a10327d8b52a5.js?body=1" for 127.0.0.1 at 2016-08-31 22:00:55 -0500
+
+
+Started GET "/assets/js/icheck/icheck.min.self-71402d4bdfd85b52b46ee005d31661013598d0d930d2f195227371538f814ab1.js?body=1" for 127.0.0.1 at 2016-08-31 22:00:55 -0500
+
+
+Started GET "/assets/js/moment/moment.min.self-47f3f0f0f331b237c5584a60bfc321301c0d9a5651dd70c635af1e17be68d5bb.js?body=1" for 127.0.0.1 at 2016-08-31 22:00:55 -0500
+
+
+Started GET "/assets/js/datepicker/daterangepicker.self-ed4efcc595b0d4da2fb398736b7afde3f16d1364d06cf46dad9c4e591d1ea394.js?body=1" for 127.0.0.1 at 2016-08-31 22:00:55 -0500
+
+
+Started GET "/assets/js/chartjs/chart.min.self-ba2063aab36611ff08faf64bffa6a26ec0e486b6d42a732e7ddd29e6190b4f04.js?body=1" for 127.0.0.1 at 2016-08-31 22:00:55 -0500
+
+
+Started GET "/assets/js/pace/pace.min.self-9bf6d667514a59744d5db2c9392aaf5595dec9c131a425ababa1cb8cddb814f2.js?body=1" for 127.0.0.1 at 2016-08-31 22:00:55 -0500
+
+
+Started GET "/assets/js/nprogress.self-ee0af190efcd10748e6f1bde91255ea0bf490342f26389814d76a217f5255ff4.js?body=1" for 127.0.0.1 at 2016-08-31 22:00:55 -0500
+
+
+Started GET "/assets/flash.self-c7b94ce6f778ffa2d56272d0d981967ab27d8ac57a75802e72fcfab9b95d1000.js?body=1" for 127.0.0.1 at 2016-08-31 22:00:55 -0500
+
+
+Started GET "/assets/main.self-a1f856adee1d3ba51b81d3b74bd9904d735257018cb7805f44443777863b2c53.js?body=1" for 127.0.0.1 at 2016-08-31 22:00:55 -0500
+
+
+Started GET "/assets/selectize.bootstrap3.self-3210e4b793d77fdc26e49c98c5ca11dc585f5ed5e9975d64c49387f4a67788c0.css?body=1" for 127.0.0.1 at 2016-08-31 22:00:55 -0500
+
+
+Started GET "/assets/selectize.min.self-8a3b883055c7ac840464bd228ebc01da2a334f56b564b15a2df1e33f44ec1a01.js?body=1" for 127.0.0.1 at 2016-08-31 22:00:55 -0500
+
+
+Started GET "/assets/js/custom.self-4f0ced23cee8da0b88915f10b145d6df88298f210a750017ccb1176aa7fbdd0f.js?body=1" for 127.0.0.1 at 2016-08-31 22:00:55 -0500
+
+
+Started GET "/assets/footermanifest.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js?body=1" for 127.0.0.1 at 2016-08-31 22:00:55 -0500
+
+
+Started GET "/admin/costcs/new" for 127.0.0.1 at 2016-08-31 22:01:58 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by Admin::CostcsController#new as HTML
+  [1m[35mLabor Load (0.2ms)[0m  SELECT `labors`.* FROM `labors`
+  Rendered admin/costcs/new.html.erb within layouts/application (430.0ms)
+Completed 200 OK in 654ms (Views: 633.3ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/admin/costcs/new" for 127.0.0.1 at 2016-08-31 22:02:07 -0500
+Processing by Admin::CostcsController#new as HTML
+  [1m[36mLabor Load (0.6ms)[0m  [1mSELECT `labors`.* FROM `labors`[0m
+  Rendered admin/costcs/new.html.erb within layouts/application (21.6ms)
+Completed 200 OK in 127ms (Views: 125.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/dataTables/bootstrap/3/jquery.dataTables.bootstrap.self-db401fae5b21f5b20e5dae1bf4f95cf02ee816a7bfbe7941d4c761c6c108f1c8.css?body=1" for 127.0.0.1 at 2016-08-31 22:02:07 -0500
+
+
+Started GET "/assets/css/custom.self-2c8d089dc938fabfe20a2ae7c7a4568b07461a4ff11b8830786148c7282d8268.css?body=1" for 127.0.0.1 at 2016-08-31 22:02:07 -0500
+
+
+Started GET "/assets/css/floatexamples.self-7a285bfcdd469585fed9fa584c90defd4356633b2f77bade5893a7556076dffe.css?body=1" for 127.0.0.1 at 2016-08-31 22:02:07 -0500
+
+
+Started GET "/assets/css/animate.min.self-ce55568ec016e2bd083b075fa15202542f46a96d7fa1bc0a3d2233096de076fd.css?body=1" for 127.0.0.1 at 2016-08-31 22:02:07 -0500
+
+
+Started GET "/assets/application.self-352b1fae5a8bbee7d138e26aa303f817391e2584e0d8eeb0e2affa56b13a39b4.css?body=1" for 127.0.0.1 at 2016-08-31 22:02:07 -0500
+
+
+Started GET "/assets/css/icheck/flat/green.self-9aab23d491ef2ac6d0d739809c4f9d7a03ba13a60e5de52e9449313198cfb4c3.css?body=1" for 127.0.0.1 at 2016-08-31 22:02:07 -0500
+
+
+Started GET "/assets/css/normalize.self-45a3426c79ad28d5e271d4f9a1c32f8e5faea9144008d44cc01a6f691158c84b.css?body=1" for 127.0.0.1 at 2016-08-31 22:02:07 -0500
+
+
+Started GET "/assets/pace.self-4cac7a0a6e622e399239bc3466769d86c484a27626f1250426d399366e775ccc.css?body=1" for 127.0.0.1 at 2016-08-31 22:02:07 -0500
+
+
+Started GET "/assets/css/ion.rangeSlider.self-0de79328bec27d4cb5f3ed539f1be12889ab682ce42058deef7b7842d65465a9.css?body=1" for 127.0.0.1 at 2016-08-31 22:02:07 -0500
+
+
+Started GET "/assets/style.self-99d5bf07a23320f4730a3b11b31b2d29d455c1fe7fa1d761550da2cf37f319c4.css?body=1" for 127.0.0.1 at 2016-08-31 22:02:07 -0500
+
+
+Started GET "/assets/jquery.dataTables.min.self-f99d6b61adf2b3939d64d51c9391bb941bdbf00d773ab630bdff9df0f7c46874.css?body=1" for 127.0.0.1 at 2016-08-31 22:02:07 -0500
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2016-08-31 22:02:07 -0500
+
+
+Started GET "/assets/selectize.bootstrap3.self-3210e4b793d77fdc26e49c98c5ca11dc585f5ed5e9975d64c49387f4a67788c0.css?body=1" for 127.0.0.1 at 2016-08-31 22:02:07 -0500
+
+
+Started GET "/assets/bootstrap/transition.self-6ad2488465135ab731a045a8ebbe3ea2fc501aed286042496eda1664fdd07ba9.js?body=1" for 127.0.0.1 at 2016-08-31 22:02:07 -0500
+
+
+Started GET "/assets/bootstrap/alert.self-742145c5bb847aafdadc6e339be795628f8bc25f177e851f03a8c42278eb0312.js?body=1" for 127.0.0.1 at 2016-08-31 22:02:07 -0500
+
+
+Started GET "/assets/bootstrap/button.self-126ac9bf0e7f2d8568f8da3a00fd5f0fac6eae0946331003370161fbf8d7975e.js?body=1" for 127.0.0.1 at 2016-08-31 22:02:07 -0500
+
+
+Started GET "/assets/bootstrap/carousel.self-e47323f363ceb3dc0bdbce05e36e709ed428e339833a41140a85cb0af24b8127.js?body=1" for 127.0.0.1 at 2016-08-31 22:02:07 -0500
+
+
+Started GET "/assets/bootstrap/collapse.self-2eb697f62b587bb786ff940d82dd4be88cdeeaf13ca128e3da3850c5fcaec301.js?body=1" for 127.0.0.1 at 2016-08-31 22:02:07 -0500
+
+
+Started GET "/assets/bootstrap/dropdown.self-561cca1cbaf67474e01e9536f106bad541594860a6df997004591c1c1957a147.js?body=1" for 127.0.0.1 at 2016-08-31 22:02:07 -0500
+
+
+Started GET "/assets/bootstrap/modal.self-3e78617ade5663314b7ee0ea10375a5b34d59ffbade44939e3f2a4e4ef2019b3.js?body=1" for 127.0.0.1 at 2016-08-31 22:02:07 -0500
+
+
+Started GET "/assets/bootstrap/tab.self-5bf7078b682f8b131332eefa46b45fa5eff2eca745fc0d03e2991450888f7c28.js?body=1" for 127.0.0.1 at 2016-08-31 22:02:07 -0500
+
+
+Started GET "/assets/bootstrap/affix.self-6d6f1a7fc5c8aabf3547fa1b794fab6268f54bc55ad815e55873c71f52513517.js?body=1" for 127.0.0.1 at 2016-08-31 22:02:07 -0500
+
+
+Started GET "/assets/bootstrap/scrollspy.self-969f3c5f48cdf1e439c7fa1154c13b948715f5c689f87837c0b64521d3b46ef6.js?body=1" for 127.0.0.1 at 2016-08-31 22:02:07 -0500
+
+
+Started GET "/assets/bootstrap/tooltip.self-05afb177e08f98997ccfc84fa08a215e4b27d48d5fe4d049080675e9dffd8199.js?body=1" for 127.0.0.1 at 2016-08-31 22:02:07 -0500
+
+
+Started GET "/assets/bootstrap/popover.self-0aa93860b59fe7393f1dd490f54b3cb994f9d6155adffce034d4e14ae361b041.js?body=1" for 127.0.0.1 at 2016-08-31 22:02:07 -0500
+
+
+Started GET "/assets/bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for 127.0.0.1 at 2016-08-31 22:02:07 -0500
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2016-08-31 22:02:07 -0500
+
+
+Started GET "/assets/turbolinks.self-c5acd7a204f5f25ce7a1d8a0e4d92e28d34c9e2df2c7371cd7af88e147e4ad82.js?body=1" for 127.0.0.1 at 2016-08-31 22:02:07 -0500
+
+
+Started GET "/assets/application.self-16c207b3ca1b52afcfc7f4b662487caf1bbe084a6656bb15f693ab9de2d11be7.js?body=1" for 127.0.0.1 at 2016-08-31 22:02:07 -0500
+
+
+Started GET "/assets/js/flot/jquery.flot.self-705d7592a526517fe86a873dd3aa15f58ce66a7953036fe087b44cd70521f0cc.js?body=1" for 127.0.0.1 at 2016-08-31 22:02:07 -0500
+
+
+Started GET "/assets/js/flot/jquery.flot.pie.self-33ca88cc4a7371598cb8fa2d30eeaddcecb19184d16161873c7c1e632447c3b5.js?body=1" for 127.0.0.1 at 2016-08-31 22:02:07 -0500
+
+
+Started GET "/assets/js/flot/jquery.flot.orderBars.self-1310e7cf40dfc527b1828bdfa8e62ba12341da3b0c7bc4883ec3976103c7e790.js?body=1" for 127.0.0.1 at 2016-08-31 22:02:07 -0500
+
+
+Started GET "/assets/js/flot/jquery.flot.time.min.self-42e80da9d580f1cd692913e466a0a35720994cd42aa2bf940d419142bf70ae67.js?body=1" for 127.0.0.1 at 2016-08-31 22:02:07 -0500
+
+
+Started GET "/assets/js/flot/date.self-dd103d36715d4e9beae419cc0328daa08d388182e31fce53e6c95e04c826f014.js?body=1" for 127.0.0.1 at 2016-08-31 22:02:07 -0500
+
+
+Started GET "/assets/js/flot/jquery.flot.spline.self-78f8d0e8dfaa7a73b069749d22fb3f92c7de0cf39198cdd3531184a89c8f44a3.js?body=1" for 127.0.0.1 at 2016-08-31 22:02:07 -0500
+
+
+Started GET "/assets/js/flot/jquery.flot.stack.self-77107f0e9fec22d48d33184fec10aa3335cfb4469305a20d0885662e9c8716f7.js?body=1" for 127.0.0.1 at 2016-08-31 22:02:07 -0500
+
+
+Started GET "/assets/js/flot/curvedLines.self-29a3f7497ffd95027475ad2f947b8a6c57156690e858a8780923864a563532c0.js?body=1" for 127.0.0.1 at 2016-08-31 22:02:07 -0500
+
+
+Started GET "/assets/js/flot/jquery.flot.resize.self-2164419d35ef0c28690426670059965ff17c804b466f57a8cbcc25c479b256c9.js?body=1" for 127.0.0.1 at 2016-08-31 22:02:07 -0500
+
+
+Started GET "/assets/js/progressbar/bootstrap-progressbar.min.self-a9996721a19c173901023b21df854903c6a8e2b406cd93d1464a10327d8b52a5.js?body=1" for 127.0.0.1 at 2016-08-31 22:02:07 -0500
+
+
+Started GET "/assets/js/icheck/icheck.min.self-71402d4bdfd85b52b46ee005d31661013598d0d930d2f195227371538f814ab1.js?body=1" for 127.0.0.1 at 2016-08-31 22:02:07 -0500
+
+
+Started GET "/assets/js/moment/moment.min.self-47f3f0f0f331b237c5584a60bfc321301c0d9a5651dd70c635af1e17be68d5bb.js?body=1" for 127.0.0.1 at 2016-08-31 22:02:07 -0500
+
+
+Started GET "/assets/js/datepicker/daterangepicker.self-ed4efcc595b0d4da2fb398736b7afde3f16d1364d06cf46dad9c4e591d1ea394.js?body=1" for 127.0.0.1 at 2016-08-31 22:02:07 -0500
+
+
+Started GET "/assets/js/chartjs/chart.min.self-ba2063aab36611ff08faf64bffa6a26ec0e486b6d42a732e7ddd29e6190b4f04.js?body=1" for 127.0.0.1 at 2016-08-31 22:02:07 -0500
+
+
+Started GET "/assets/js/pace/pace.min.self-9bf6d667514a59744d5db2c9392aaf5595dec9c131a425ababa1cb8cddb814f2.js?body=1" for 127.0.0.1 at 2016-08-31 22:02:07 -0500
+
+
+Started GET "/assets/js/nprogress.self-ee0af190efcd10748e6f1bde91255ea0bf490342f26389814d76a217f5255ff4.js?body=1" for 127.0.0.1 at 2016-08-31 22:02:07 -0500
+
+
+Started GET "/assets/flash.self-c7b94ce6f778ffa2d56272d0d981967ab27d8ac57a75802e72fcfab9b95d1000.js?body=1" for 127.0.0.1 at 2016-08-31 22:02:07 -0500
+
+
+Started GET "/assets/main.self-a1f856adee1d3ba51b81d3b74bd9904d735257018cb7805f44443777863b2c53.js?body=1" for 127.0.0.1 at 2016-08-31 22:02:07 -0500
+
+
+Started GET "/assets/selectize.min.self-8a3b883055c7ac840464bd228ebc01da2a334f56b564b15a2df1e33f44ec1a01.js?body=1" for 127.0.0.1 at 2016-08-31 22:02:08 -0500
+
+
+Started GET "/assets/js/custom.self-4f0ced23cee8da0b88915f10b145d6df88298f210a750017ccb1176aa7fbdd0f.js?body=1" for 127.0.0.1 at 2016-08-31 22:02:08 -0500
+
+
+Started GET "/assets/footermanifest.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js?body=1" for 127.0.0.1 at 2016-08-31 22:02:08 -0500
+
+
+Started GET "/admin/costcs/new" for 127.0.0.1 at 2016-08-31 22:03:38 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by Admin::CostcsController#new as HTML
+  [1m[35mLabor Load (0.2ms)[0m  SELECT `labors`.* FROM `labors`
+  Rendered admin/costcs/new.html.erb within layouts/application (2532.3ms)
+Completed 200 OK in 2781ms (Views: 2761.0ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/assets/dataTables/bootstrap/3/jquery.dataTables.bootstrap.self-db401fae5b21f5b20e5dae1bf4f95cf02ee816a7bfbe7941d4c761c6c108f1c8.css?body=1" for 127.0.0.1 at 2016-08-31 22:03:41 -0500
+
+
+Started GET "/assets/css/animate.min.self-ce55568ec016e2bd083b075fa15202542f46a96d7fa1bc0a3d2233096de076fd.css?body=1" for 127.0.0.1 at 2016-08-31 22:03:41 -0500
+
+
+Started GET "/assets/css/custom.self-2c8d089dc938fabfe20a2ae7c7a4568b07461a4ff11b8830786148c7282d8268.css?body=1" for 127.0.0.1 at 2016-08-31 22:03:41 -0500
+
+
+Started GET "/assets/css/icheck/flat/green.self-9aab23d491ef2ac6d0d739809c4f9d7a03ba13a60e5de52e9449313198cfb4c3.css?body=1" for 127.0.0.1 at 2016-08-31 22:03:41 -0500
+
+
+Started GET "/assets/application.self-352b1fae5a8bbee7d138e26aa303f817391e2584e0d8eeb0e2affa56b13a39b4.css?body=1" for 127.0.0.1 at 2016-08-31 22:03:41 -0500
+
+
+Started GET "/assets/css/normalize.self-45a3426c79ad28d5e271d4f9a1c32f8e5faea9144008d44cc01a6f691158c84b.css?body=1" for 127.0.0.1 at 2016-08-31 22:03:41 -0500
+
+
+Started GET "/assets/css/floatexamples.self-7a285bfcdd469585fed9fa584c90defd4356633b2f77bade5893a7556076dffe.css?body=1" for 127.0.0.1 at 2016-08-31 22:03:41 -0500
+
+
+Started GET "/assets/css/ion.rangeSlider.self-0de79328bec27d4cb5f3ed539f1be12889ab682ce42058deef7b7842d65465a9.css?body=1" for 127.0.0.1 at 2016-08-31 22:03:41 -0500
+
+
+Started GET "/assets/style.self-99d5bf07a23320f4730a3b11b31b2d29d455c1fe7fa1d761550da2cf37f319c4.css?body=1" for 127.0.0.1 at 2016-08-31 22:03:41 -0500
+
+
+Started GET "/assets/pace.self-4cac7a0a6e622e399239bc3466769d86c484a27626f1250426d399366e775ccc.css?body=1" for 127.0.0.1 at 2016-08-31 22:03:41 -0500
+
+
+Started GET "/assets/jquery.dataTables.min.self-f99d6b61adf2b3939d64d51c9391bb941bdbf00d773ab630bdff9df0f7c46874.css?body=1" for 127.0.0.1 at 2016-08-31 22:03:41 -0500
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2016-08-31 22:03:41 -0500
+
+
+Started GET "/assets/bootstrap/transition.self-6ad2488465135ab731a045a8ebbe3ea2fc501aed286042496eda1664fdd07ba9.js?body=1" for 127.0.0.1 at 2016-08-31 22:03:41 -0500
+
+
+Started GET "/assets/bootstrap/alert.self-742145c5bb847aafdadc6e339be795628f8bc25f177e851f03a8c42278eb0312.js?body=1" for 127.0.0.1 at 2016-08-31 22:03:41 -0500
+
+
+Started GET "/assets/bootstrap/button.self-126ac9bf0e7f2d8568f8da3a00fd5f0fac6eae0946331003370161fbf8d7975e.js?body=1" for 127.0.0.1 at 2016-08-31 22:03:41 -0500
+
+
+Started GET "/assets/bootstrap/carousel.self-e47323f363ceb3dc0bdbce05e36e709ed428e339833a41140a85cb0af24b8127.js?body=1" for 127.0.0.1 at 2016-08-31 22:03:41 -0500
+
+
+Started GET "/assets/bootstrap/collapse.self-2eb697f62b587bb786ff940d82dd4be88cdeeaf13ca128e3da3850c5fcaec301.js?body=1" for 127.0.0.1 at 2016-08-31 22:03:41 -0500
+
+
+Started GET "/assets/bootstrap/dropdown.self-561cca1cbaf67474e01e9536f106bad541594860a6df997004591c1c1957a147.js?body=1" for 127.0.0.1 at 2016-08-31 22:03:41 -0500
+
+
+Started GET "/assets/bootstrap/modal.self-3e78617ade5663314b7ee0ea10375a5b34d59ffbade44939e3f2a4e4ef2019b3.js?body=1" for 127.0.0.1 at 2016-08-31 22:03:41 -0500
+
+
+Started GET "/assets/bootstrap/tab.self-5bf7078b682f8b131332eefa46b45fa5eff2eca745fc0d03e2991450888f7c28.js?body=1" for 127.0.0.1 at 2016-08-31 22:03:41 -0500
+
+
+Started GET "/assets/bootstrap/affix.self-6d6f1a7fc5c8aabf3547fa1b794fab6268f54bc55ad815e55873c71f52513517.js?body=1" for 127.0.0.1 at 2016-08-31 22:03:41 -0500
+
+
+Started GET "/assets/bootstrap/scrollspy.self-969f3c5f48cdf1e439c7fa1154c13b948715f5c689f87837c0b64521d3b46ef6.js?body=1" for 127.0.0.1 at 2016-08-31 22:03:41 -0500
+
+
+Started GET "/assets/bootstrap/tooltip.self-05afb177e08f98997ccfc84fa08a215e4b27d48d5fe4d049080675e9dffd8199.js?body=1" for 127.0.0.1 at 2016-08-31 22:03:41 -0500
+
+
+Started GET "/assets/bootstrap/popover.self-0aa93860b59fe7393f1dd490f54b3cb994f9d6155adffce034d4e14ae361b041.js?body=1" for 127.0.0.1 at 2016-08-31 22:03:41 -0500
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2016-08-31 22:03:41 -0500
+
+
+Started GET "/assets/bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for 127.0.0.1 at 2016-08-31 22:03:41 -0500
+
+
+Started GET "/assets/turbolinks.self-c5acd7a204f5f25ce7a1d8a0e4d92e28d34c9e2df2c7371cd7af88e147e4ad82.js?body=1" for 127.0.0.1 at 2016-08-31 22:03:41 -0500
+
+
+Started GET "/assets/application.self-16c207b3ca1b52afcfc7f4b662487caf1bbe084a6656bb15f693ab9de2d11be7.js?body=1" for 127.0.0.1 at 2016-08-31 22:03:41 -0500
+
+
+Started GET "/assets/js/flot/jquery.flot.self-705d7592a526517fe86a873dd3aa15f58ce66a7953036fe087b44cd70521f0cc.js?body=1" for 127.0.0.1 at 2016-08-31 22:03:41 -0500
+
+
+Started GET "/assets/js/flot/jquery.flot.pie.self-33ca88cc4a7371598cb8fa2d30eeaddcecb19184d16161873c7c1e632447c3b5.js?body=1" for 127.0.0.1 at 2016-08-31 22:03:41 -0500
+
+
+Started GET "/assets/js/flot/jquery.flot.orderBars.self-1310e7cf40dfc527b1828bdfa8e62ba12341da3b0c7bc4883ec3976103c7e790.js?body=1" for 127.0.0.1 at 2016-08-31 22:03:41 -0500
+
+
+Started GET "/assets/js/flot/jquery.flot.time.min.self-42e80da9d580f1cd692913e466a0a35720994cd42aa2bf940d419142bf70ae67.js?body=1" for 127.0.0.1 at 2016-08-31 22:03:41 -0500
+
+
+Started GET "/assets/js/flot/date.self-dd103d36715d4e9beae419cc0328daa08d388182e31fce53e6c95e04c826f014.js?body=1" for 127.0.0.1 at 2016-08-31 22:03:41 -0500
+
+
+Started GET "/assets/js/flot/jquery.flot.spline.self-78f8d0e8dfaa7a73b069749d22fb3f92c7de0cf39198cdd3531184a89c8f44a3.js?body=1" for 127.0.0.1 at 2016-08-31 22:03:41 -0500
+
+
+Started GET "/assets/js/flot/jquery.flot.stack.self-77107f0e9fec22d48d33184fec10aa3335cfb4469305a20d0885662e9c8716f7.js?body=1" for 127.0.0.1 at 2016-08-31 22:03:41 -0500
+
+
+Started GET "/assets/js/flot/curvedLines.self-29a3f7497ffd95027475ad2f947b8a6c57156690e858a8780923864a563532c0.js?body=1" for 127.0.0.1 at 2016-08-31 22:03:41 -0500
+
+
+Started GET "/assets/js/flot/jquery.flot.resize.self-2164419d35ef0c28690426670059965ff17c804b466f57a8cbcc25c479b256c9.js?body=1" for 127.0.0.1 at 2016-08-31 22:03:41 -0500
+
+
+Started GET "/assets/js/progressbar/bootstrap-progressbar.min.self-a9996721a19c173901023b21df854903c6a8e2b406cd93d1464a10327d8b52a5.js?body=1" for 127.0.0.1 at 2016-08-31 22:03:41 -0500
+
+
+Started GET "/assets/js/icheck/icheck.min.self-71402d4bdfd85b52b46ee005d31661013598d0d930d2f195227371538f814ab1.js?body=1" for 127.0.0.1 at 2016-08-31 22:03:41 -0500
+
+
+Started GET "/assets/js/moment/moment.min.self-47f3f0f0f331b237c5584a60bfc321301c0d9a5651dd70c635af1e17be68d5bb.js?body=1" for 127.0.0.1 at 2016-08-31 22:03:41 -0500
+
+
+Started GET "/assets/js/datepicker/daterangepicker.self-ed4efcc595b0d4da2fb398736b7afde3f16d1364d06cf46dad9c4e591d1ea394.js?body=1" for 127.0.0.1 at 2016-08-31 22:03:41 -0500
+
+
+Started GET "/assets/js/chartjs/chart.min.self-ba2063aab36611ff08faf64bffa6a26ec0e486b6d42a732e7ddd29e6190b4f04.js?body=1" for 127.0.0.1 at 2016-08-31 22:03:41 -0500
+
+
+Started GET "/assets/js/pace/pace.min.self-9bf6d667514a59744d5db2c9392aaf5595dec9c131a425ababa1cb8cddb814f2.js?body=1" for 127.0.0.1 at 2016-08-31 22:03:41 -0500
+
+
+Started GET "/assets/js/nprogress.self-ee0af190efcd10748e6f1bde91255ea0bf490342f26389814d76a217f5255ff4.js?body=1" for 127.0.0.1 at 2016-08-31 22:03:41 -0500
+
+
+Started GET "/assets/flash.self-c7b94ce6f778ffa2d56272d0d981967ab27d8ac57a75802e72fcfab9b95d1000.js?body=1" for 127.0.0.1 at 2016-08-31 22:03:41 -0500
+
+
+Started GET "/assets/main.self-a1f856adee1d3ba51b81d3b74bd9904d735257018cb7805f44443777863b2c53.js?body=1" for 127.0.0.1 at 2016-08-31 22:03:41 -0500
+
+
+Started GET "/assets/selectize.bootstrap3.self-3210e4b793d77fdc26e49c98c5ca11dc585f5ed5e9975d64c49387f4a67788c0.css?body=1" for 127.0.0.1 at 2016-08-31 22:03:41 -0500
+
+
+Started GET "/assets/js/custom.self-4f0ced23cee8da0b88915f10b145d6df88298f210a750017ccb1176aa7fbdd0f.js?body=1" for 127.0.0.1 at 2016-08-31 22:03:41 -0500
+
+
+Started GET "/assets/footermanifest.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js?body=1" for 127.0.0.1 at 2016-08-31 22:03:41 -0500
+
+
+Started GET "/assets/selectize.self-61f55f5e921222a6f67c85fd08144c73006e7149fbee83d09433e8d93a2efde6.js?body=1" for 127.0.0.1 at 2016-08-31 22:03:41 -0500
+
+
+Started GET "/admin/costcs/new" for 127.0.0.1 at 2016-08-31 22:04:15 -0500
+Processing by Admin::CostcsController#new as HTML
+  [1m[36mLabor Load (0.2ms)[0m  [1mSELECT `labors`.* FROM `labors`[0m
+  Rendered admin/costcs/new.html.erb within layouts/application (6.6ms)
+Completed 200 OK in 99ms (Views: 97.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/admin/costcs/new" for 127.0.0.1 at 2016-08-31 22:06:16 -0500
+Processing by Admin::CostcsController#new as HTML
+  [1m[35mLabor Load (0.6ms)[0m  SELECT `labors`.* FROM `labors`
+  Rendered admin/costcs/new.html.erb within layouts/application (18.2ms)
+Completed 200 OK in 164ms (Views: 162.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/css/custom.self-5d3ecc67009c3339fbe3c67dae6215e3888def043aa24d20252c4017c867de88.css?body=1" for 127.0.0.1 at 2016-08-31 22:06:16 -0500
+
+
+Started GET "/admin/costcs/new" for 127.0.0.1 at 2016-08-31 22:06:31 -0500
+Processing by Admin::CostcsController#new as HTML
+  [1m[36mLabor Load (0.1ms)[0m  [1mSELECT `labors`.* FROM `labors`[0m
+  Rendered admin/costcs/new.html.erb within layouts/application (7.3ms)
+Completed 200 OK in 101ms (Views: 100.4ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/admin/costcs/new" for 127.0.0.1 at 2016-08-31 22:07:33 -0500
+Processing by Admin::CostcsController#new as HTML
+  [1m[35mLabor Load (0.4ms)[0m  SELECT `labors`.* FROM `labors`
+  Rendered admin/costcs/new.html.erb within layouts/application (18.8ms)
+Completed 200 OK in 138ms (Views: 136.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/css/custom.self-dbe5ef407ac7357d9317e36c7eee690807757934b329104b3bf9e1343187d785.css?body=1" for 127.0.0.1 at 2016-08-31 22:07:33 -0500
