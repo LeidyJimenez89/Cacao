@@ -9,6 +9,7 @@
       <th>Código</th>
       <th>Nombre</th>
       <th>Descripción</th>
+      <th>Labores</th>
       <th>Acciones</th>
     </tr>
   </thead>
@@ -19,6 +20,7 @@
         <td><%= costc.code %></td>
         <td><%= costc.name %></td>
         <td><%= costc.description %></td>
+        <td><%= costc.labors.map { |e| e.name }.join("<br>").html_safe %></td>
         <td>
         <%= link_to 'Ver', admin_costc_path(costc) ,:class =>"btn btn-default btn-sm"%>
         <%= link_to 'Editar', edit_admin_costc_path(costc) ,:class =>"btn btn-default btn-sm"%>
