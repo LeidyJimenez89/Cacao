@@ -30,6 +30,7 @@ class Admin::JobsController < ApplicationController
 
   def create
     @job = Job.new(job_params)
+    @job.state="Activo"
     if @job.save
       redirect_to admin_jobs_path, notice: 'C1argo creado satisfactoriamente'
     else

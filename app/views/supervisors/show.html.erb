@@ -1,16 +1,11 @@
 <p>
-  <strong>Name:</strong>
-  <%= @supervisor.name %>
-</p>
-
-<p>
-  <strong>Lastname:</strong>
-  <%= @supervisor.lastname %>
-</p>
-
-<p>
   <strong>Cc:</strong>
   <%= @supervisor.cc %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @supervisor.name.to_s + " " + @supervisor.lastname.to_s %>
 </p>
 
 <p>
@@ -20,7 +15,9 @@
 
 <p>
   <strong>Position:</strong>
-  <%= @supervisor.position %>
+    <% if @supervisor.job.present? %>
+      <%= @supervisor.job.name %>
+    <% end %>
 </p>
 
 <p>

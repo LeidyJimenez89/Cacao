@@ -1,4 +1,8 @@
-<h1>Editar Centro de costos</h1>
+<%= stylesheet_link_tag    'selectize.bootstrap3', media: 'all', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag 'selectize', 'data-turbolinks-track' => true %>
+
+<h1 class="x_title"><i class="glyphicon glyphicon-leaf titleicon"></i>Editar Centro de costos</h1>
+
 <%= form_for @costc, url:{action: "update"} do |f| %>
   <% if @costc.errors.any? %>
     <div id="error_explanation">
@@ -22,8 +26,17 @@
     <%= f.label :description , "Descripción"%><br>
     <%= f.text_field :description , class:"form-control"%>
   </div>
+
+  <div class="form-group col-md-4">
+    <%= f.label :labors2 , "Labores"%><br>
+    <%= f.select :labors2 , Labor.all.map { |j|  [ j.code + " " + j.name , j.id ]  } , {}, {:multiple => true, class:"form-control"} %>
+  </div>
   <div class="form-group col-md-12">
-	<%= link_to 'Cancelar', admin_costcs_path ,:class =>"btn btn-danger" %>
+    <%= link_to 'Cancelar', admin_costcs_path ,:class =>"btn btn-danger" %>
     <%= f.submit :class =>"btn btn-success" %>
   </div>
 <% end %>
+
+<script type="text/javascript">
+$("#costc_labors2").selectize();
+</script>
