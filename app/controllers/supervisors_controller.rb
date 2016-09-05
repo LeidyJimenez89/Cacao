@@ -26,7 +26,7 @@ class SupervisorsController < ApplicationController
   def create
     @supervisor = Supervisor.new(supervisor_params)
     if @supervisor.save
-      redirect_to @supervisor, notice: 'Supervisor creado satisfactoriamente'
+      redirect_to supervisors_path, notice: 'Supervisor creado satisfactoriamente'
     else
       render :new , alert: 'Supervisor no creado satisfactoriamente'
     end
@@ -37,7 +37,7 @@ class SupervisorsController < ApplicationController
   def update
     respond_to do |format|
       if @supervisor.update(supervisor_params)
-        format.html { redirect_to @supervisor, notice: 'Supervisor editado satisfactoriamente' }
+        format.html { redirect_to supervisors_path, notice: 'Supervisor editado satisfactoriamente' }
       else
         render :edit , alert: 'Supervisor no editado satisfactoriamente'
       end
@@ -49,7 +49,7 @@ class SupervisorsController < ApplicationController
   def destroy
     @supervisor.destroy
     respond_to do |format|
-      format.html { redirect_to supervisors_url, notice: 'Supervisor was successfully destroyed.' }
+      format.html { redirect_to supervisors_path, notice: 'Supervisor was successfully destroyed.' }
     end
   end
 
@@ -61,6 +61,6 @@ class SupervisorsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def supervisor_params
-      params.require(:supervisor).permit(:user_id, :name, :lastname, :cc, :state, :position, :dateadmission)
+      params.require(:supervisor).permit(:user_id, :name, :lastname, :cc, :state, :job_id, :dateadmission)
     end
 end

@@ -5,6 +5,7 @@ class CostcsController < ApplicationController
   # GET /costcs.json
   def index
     @costcs = Costc.all
+    log(params)
   end
 
   # GET /costcs/1

@@ -19,8 +19,12 @@
     <% @operators.each do |operator| %>
       <tr>
         <td><%= operator.cc %></td>
-        <td><%= operator.name %></td>
-        <td><%= operator.job_id %></td>
+        <td><%= operator.name.to_s + " " + operator.lastname%></td>
+        <td>
+          <% if operator.job.present? %>
+            <%= operator.job.name %>
+          <% end %>
+        </td>
         <td><%= operator.dateadmission %></td>
         <td><%= operator.state %></td>
         <td>

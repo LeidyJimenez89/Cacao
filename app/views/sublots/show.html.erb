@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Code:</strong>
+  <%= @sublot.code %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @sublot.name %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @sublot.user_id %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @sublot.description %>
+</p>
+
+<%= link_to 'Edit', edit_sublot_path(@sublot) %> |
+<%= link_to 'Back', sublots_path %>

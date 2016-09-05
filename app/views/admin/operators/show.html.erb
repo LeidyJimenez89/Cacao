@@ -5,12 +5,14 @@
 
 <p>
   <strong>Nombre:</strong>
-  <%= @operator.name %>
+  <%= @operator.name.to_s + " " + @operator.lastname.to_s %>
 </p>
 
 <p>
   <strong>Cargo:</strong>
-  <%= @operator.job_id %>
+    <% if @operator.job.present? %>
+      <%= @operator.job.name %>
+    <% end %>
 </p>
 
 <p>

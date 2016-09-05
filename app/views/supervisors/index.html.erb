@@ -8,7 +8,6 @@
     <tr>
       <th>Cécula</th>
       <th>Nombre</th>
-      <th>Apellidos</th>
       <th>State</th>
       <th>Position</th>
       <th>Dateadmission</th>
@@ -20,10 +19,13 @@
     <% @supervisors.each do |supervisor| %>
       <tr>
         <td><%= supervisor.cc %></td>
-        <td><%= supervisor.name %></td>
-        <td><%= supervisor.lastname %></td>
+        <td><%= supervisor.name.to_s + " " + supervisor.lastname %></td>
+        <td>
+          <% if supervisor.job.present? %>
+              <%= supervisor.job.name %>
+          <% end %>
+        </td>
         <td><%= supervisor.state %></td>
-        <td><%= supervisor.position %></td>
         <td><%= supervisor.dateadmission %></td>
         <td>
         <%= link_to 'Ver', supervisor,:class =>"btn btn-default btn-sm"  %>
