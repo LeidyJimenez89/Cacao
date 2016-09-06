@@ -1,15 +1,15 @@
-<p id="notice"><%= notice %></p>
+<%= javascript_include_tag 'jquery.dataTables.min', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag 'bootstrap', 'data-turbolinks-track' => true %>
 
-<h1>Listing Sublots</h1>
-
-<table>
+<h1 class="x_title"><i class="glyphicon glyphicon-leaf titleicon"></i>Listar Sublotes</h1>
+<%= link_to 'Crear sublote', new_sublot_path , :class =>"btn btn-default pull-right"%>
+<table id="datatable" class="display datatable" cellspacing="0" width="100%">
   <thead>
     <tr>
-      <th>Code</th>
-      <th>Name</th>
-      <th>User</th>
-      <th>Description</th>
-      <th colspan="3"></th>
+      <th>Código</th>
+      <th>Nombre</th>
+      <th>Descripción</th>
+      <th>Acciones</th>
     </tr>
   </thead>
 
@@ -18,16 +18,30 @@
       <tr>
         <td><%= sublot.code %></td>
         <td><%= sublot.name %></td>
-        <td><%= sublot.user_id %></td>
         <td><%= sublot.description %></td>
-        <td><%= link_to 'Show', sublot %></td>
-        <td><%= link_to 'Edit', edit_sublot_path(sublot) %></td>
-        <td><%= link_to 'Destroy', sublot, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+        <%= link_to 'Show', sublot_path(sublot),:class =>"btn btn-default btn-sm" %>
+        <%= link_to 'Edit', edit_sublot_path(sublot),:class =>"btn btn-default btn-sm" %>
+        <%= link_to 'Destroy', sublot_path(sublot),:class =>"btn btn-default btn-sm", method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
+<script>
+$('#datatable').DataTable({
+              "language": {
+                "url": "../files/spanish"
+            }
+  // ajax: ...,
+  // autoWidth: false,
+  // pagingType: 'full_numbers',
+  // processing: true,
+  // serverSide: true,
 
-<%= link_to 'New Sublot', new_sublot_path %>
+  // Optional, if you want full pagination controls.
+  // Check dataTables documentation to learn more about available options.
+  // http://datatables.net/reference/option/pagingType
+});
+</script>

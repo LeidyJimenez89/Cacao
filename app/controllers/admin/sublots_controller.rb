@@ -1,4 +1,4 @@
-class SublotsController < ApplicationController
+class Admin::SublotsController < ApplicationController
   before_action :set_sublot, only: [:show, :edit, :update, :destroy]
 
   # GET /sublots
