@@ -47,14 +47,6 @@ class Admin::CostcsController < ApplicationController
   def update
     respond_to do |format|
       if @costc.update(costc_params)
-              params[:costc][:labors2].each do |labor|
-        if labor.present?
-          nuevo = LaborCostc.new
-          nuevo[:labor_id] = labor
-          nuevo[:costc_id] = @costc.id
-          nuevo.save
-        end
-      end
         format.html { redirect_to admin_costcs_path, notice: 'Centro de costos editado satisfactoriamente' }
       else
         render :edit , alert: 'Centro de costos editado satisfactoriamente'

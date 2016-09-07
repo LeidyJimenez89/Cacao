@@ -29,7 +29,7 @@
 
   <div class="form-group col-md-4">
     <%= f.label :labors2 , "Labores"%><br>
-    <%= f.select :labors2 , Labor.all.map { |j|  [ j.code + " " + j.name , j.id ]  } , {}, {:multiple => true, class:"form-control"} %>
+    <%= f.select :labors2 , Labor.all.map { |j|  [ j.code + " " + j.name , j.id ]  } , {selected: @costc.labors.map { |e| e.id }}, {:multiple => true, class:"form-control"} %>
   </div>
   <div class="form-group col-md-12">
     <%= link_to 'Cancelar', admin_costcs_path ,:class =>"btn btn-danger" %>

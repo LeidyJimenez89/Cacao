@@ -21,11 +21,25 @@ class Admin::JobsController < ApplicationController
   def edit
   end
 
-  def change
-    @jobs = Job.all
+  def enable
+    @job = Job.find(params[:id])
+    @job[:state] = "Activo"
+    if @job.save
+      redirect_to admin_jobs_path, notice: 'Estado habilitado satisfactoriamente'
+    else
+      render :new , alert: 'Estado no habilitado satisfactoriamente' 
+    end
   end
 
-
+  def disable
+    @job = Job.find(params[:id])
+    @job[:state] = "Inactivo"
+    if @job.save
+      redirect_to admin_jobs_path, notice: 'Estado inhabilitado satisfactoriamente'
+    else
+      render :new , alert: 'Estado no inhabilitado satisfactoriamente' 
+    end
+  end
 
 
   def create
