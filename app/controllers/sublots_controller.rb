@@ -26,11 +26,10 @@ class SublotsController < ApplicationController
   def create
     @sublot = Sublot.new(sublot_params)
       if @sublot.save
-        redirect_to @sublot, notice: 'Sublote creado satisfactoriamente'
+        redirect_to sublots_path, notice: 'Sublote creado satisfactoriamente'
       else
         render :new , alert: 'Sublote no creado satisfactoriamente'
       end
-    end
   end
 
   # PATCH/PUT /sublots/1
@@ -38,7 +37,7 @@ class SublotsController < ApplicationController
   def update
     respond_to do |format|
       if @sublot.update(sublot_params)
-        format.html { redirect_to @sublot, notice: 'Sublote editado satisfactoriamente' }
+        format.html { redirect_to sublots_path, notice: 'Sublote editado satisfactoriamente' }
       else
         render :edit, alert: 'Sublote no editado satisfactoriamente'
       end
@@ -50,7 +49,7 @@ class SublotsController < ApplicationController
   def destroy
     @sublot.destroy
     respond_to do |format|
-      format.html { redirect_to sublots_url, notice: 'Sublote eliminado satisfactoriamente' }
+      format.html { redirect_to sublots_path, notice: 'Sublote eliminado satisfactoriamente' }
     end
   end
 
@@ -64,3 +63,4 @@ class SublotsController < ApplicationController
     def sublot_params
       params.require(:sublot).permit(:code, :name, :user_id, :description)
     end
+end

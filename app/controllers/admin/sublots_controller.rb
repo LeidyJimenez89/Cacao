@@ -21,26 +21,25 @@ class Admin::SublotsController < ApplicationController
   def edit
   end
 
-  # POST /sublots
-  # POST /sublots.json
+
   def create
     @sublot = Sublot.new(sublot_params)
       if @sublot.save
-        redirect_to @sublot, notice: 'Sublote creado satisfactoriamente'
+        redirect_to admin_sublots_path, notice: 'Sublote creado satisfactoriamente'
       else
         render :new , alert: 'Sublote no creado satisfactoriamente'
       end
-    end
   end
+
 
   # PATCH/PUT /sublots/1
   # PATCH/PUT /sublots/1.json
   def update
     respond_to do |format|
       if @sublot.update(sublot_params)
-        format.html { redirect_to @sublot, notice: 'Sublote editado satisfactoriamente' }
+        format.html { redirect_to admin_sublots_path, notice: 'Sublote editado satisfactoriamente' }
       else
-        render :edit, alert: 'Sublote no editado satisfactoriamente'
+        render :edit , alert: 'Sublote no creado satisfactoriamente' 
       end
     end
   end
@@ -50,7 +49,7 @@ class Admin::SublotsController < ApplicationController
   def destroy
     @sublot.destroy
     respond_to do |format|
-      format.html { redirect_to sublots_url, notice: 'Sublote eliminado satisfactoriamente' }
+      format.html { redirect_to admin_sublots_path, notice: 'Sublote eliminado satisfactoriamente' }
     end
   end
 
@@ -62,5 +61,6 @@ class Admin::SublotsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def sublot_params
-      params.require(:sublot).permit(:code, :name, :user_id, :description)
+      params.require(:sublot).permit(:user_id, :name, :description, :code)
     end
+end

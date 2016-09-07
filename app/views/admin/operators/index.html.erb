@@ -31,6 +31,12 @@
         <%= link_to 'Ver', admin_operator_path(operator),:class =>"btn btn-default btn-sm" %>      
         <%= link_to 'Editar', edit_admin_operator_path(operator) ,:class =>"btn btn-default btn-sm"%>
         <%= link_to 'Eliminar', admin_operator_path(operator),:class =>"btn btn-default btn-sm", method: :delete, data: { confirm: 'Are you sure?' } %>
+        <%if operator.state=="Activo"%>
+          <%= link_to 'Retirar', admin_retired_operator_path(operator),:class =>"btn btn-default btn-sm" %>
+        <%end%>
+        <%if operator.state=="Retirado"%>
+          <%= link_to 'Reintegrar', admin_reinstated_operator_path(operator),:class =>"btn btn-default btn-sm" %>
+        <%end%>
         </td>
       </tr>
     <% end %>

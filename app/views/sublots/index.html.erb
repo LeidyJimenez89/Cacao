@@ -20,9 +20,9 @@
         <td><%= sublot.name %></td>
         <td><%= sublot.description %></td>
         <td>
-        <%= link_to 'Show', sublot_path(sublot),:class =>"btn btn-default btn-sm" %>
-        <%= link_to 'Edit', edit_sublot_path(sublot),:class =>"btn btn-default btn-sm" %>
-        <%= link_to 'Destroy', sublot_path(sublot),:class =>"btn btn-default btn-sm", method: :delete, data: { confirm: 'Are you sure?' } %>
+        <%= link_to 'Ver', sublot_path(sublot),:class =>"btn btn-default btn-sm" %>
+        <%= link_to 'Editar', edit_sublot_path(sublot),:class =>"btn btn-default btn-sm" %>
+        <%= link_to 'Eliminar', sublot_path(sublot),:class =>"btn btn-default btn-sm", method: :delete, data: { confirm: 'Are you sure?' } %>
         </td>
       </tr>
     <% end %>
