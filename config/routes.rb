@@ -61,6 +61,9 @@ Rails.application.routes.draw do
   #   end
      namespace :admin do
        resources :operators
+       get 'operators/retired/:id', to: 'operators#retired', as: 'retired_operator'
+       get 'operators/reinstated/:id', to: 'operators#reinstated', as: 'reinstated_operator'
+       get 'operators/enable/:id', to: 'operators#enable', as: 'enable_operator'
        
        resources :jobs
        get 'jobs/disable/:id', to: 'jobs#disable', as: 'disable_job'

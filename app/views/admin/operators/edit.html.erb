@@ -30,10 +30,6 @@
 	    <%= f.label :dateadmission, "Fecha de ingreso" %>
 	    <%= f.datetime_select :dateadmission , class:"form-control"%>
 	  </div>
-	  <div class="form-group col-md-4">
-	    <%= f.label :state, "Estado" %>
-	    <%= f.select :state, ["Activo","Inactivo"], {},class:"form-control"%>
-	  </div>
 	  <div class="col-md-12">
 		<%= link_to 'Cancelar', operators_path ,:class =>"btn btn-danger" %>
 	    <%= f.submit :class =>"btn btn-success"%>

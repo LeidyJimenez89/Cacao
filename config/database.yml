@@ -3,6 +3,6 @@
     encoding: utf8
     database: nomina_development
     username: root
-    password: qwer12
+    password: root
     host: localhost
     port: 3306

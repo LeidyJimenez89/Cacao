@@ -5,3 +5,16 @@
 div.dataTables_wrapper {
         margin-bottom: 3em;
     }
+
+.disabled [data-value] .remove {
+  		border-left-color: lighten(desaturate(@selectize-color-item-border, 100%), @selectize-lighten-disabled-item-border);
+  	}
+ } 
+ 
+.remove-single {
+		position: absolute;
+		right: 28px;
+		top: 6px;
+		font-size: 23px;
+	}
+}

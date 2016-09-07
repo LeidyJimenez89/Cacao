@@ -21,6 +21,35 @@ class Admin::OperatorsController < ApplicationController
   def edit
   end
 
+  def enable
+    @operator = Operator.find(params[:id])
+    @operator[:state] = "Activo"
+    if @operator.save
+      redirect_to admin_operators_path, notice: 'Estado habilitado satisfactoriamente'
+    else
+      render :new , alert: 'Estado no habilitado satisfactoriamente' 
+    end
+  end
+
+  def retired
+    @operator = Operator.find(params[:id])
+    @operator[:state] = "Retirado"
+    if @operator.save
+      redirect_to admin_operators_path, notice: 'Estado inhabilitado satisfactoriamente'
+    else
+      render :new , alert: 'Estado no inhabilitado satisfactoriamente' 
+    end
+  end
+
+  def reinstated
+    @operator = Operator.find(params[:id])
+    @operator[:state] = "Reintegrado"
+    if @operator.save
+      redirect_to admin_operators_path, notice: 'Estado inhabilitado satisfactoriamente'
+    else
+      render :new , alert: 'Estado no inhabilitado satisfactoriamente' 
+    end
+  end
 
   def create
     @operator = Operator.new(operator_params)

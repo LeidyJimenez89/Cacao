@@ -1,6 +1,30 @@
-<h1>Editing Sublot</h1>
+<h1 class="x_title"><i class="glyphicon glyphicon-leaf titleicon"></i>Editar Sublote</h1>
 
-<%= render 'form' %>
-
-<%= link_to 'Show', @sublot %> |
-<%= link_to 'Back', sublots_path %>
+<%= form_for (@sublot) do |f| %>
+  <% if @sublot.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@sublot.errors.count, "error") %> prohibited this sublot from being saved:</h2>
+      <ul>
+      	<% @sublot.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="form-group col-md-6">
+    <%= f.label :code , "Código"%><br>
+    <%= f.text_field :code , class:"form-control"%>
+  </div>
+  <div class="form-group col-md-6">
+    <%= f.label :name , "Nombre"%><br>
+    <%= f.text_field :name , class:"form-control"%>
+  </div>
+  <div class="form-group col-md-12">
+    <%= f.label :description , "Descripción"%><br>
+    <%= f.text_area :description , class:"form-control"%>
+  </div>
+	<div class="col-md-12">
+	<%= link_to 'Cancelar', sublots_path ,:class =>"btn btn-danger" %>
+	<%= f.submit :class =>"btn btn-success"%>
+  </div>
+<% end %>
