@@ -23,6 +23,11 @@
         <%= link_to 'Ver', admin_job_path(job),:class =>"btn btn-default btn-sm"%>
         <%= link_to 'Editar', edit_admin_job_path(job),:class =>"btn btn-default btn-sm" %>
         <%= link_to 'Eliminar', admin_job_path(job),:class =>"btn btn-default btn-sm", method: :delete, data: { confirm: '¿Seguro desea eliminar el cargo?' } %>
+        <%if job.state=="Inactivo"%>
+          <%= link_to 'Habilitar', admin_enable_job_path(job),:class =>"btn btn-default btn-sm" %>
+        <%else%>
+          <%= link_to 'Deshabilitar', admin_disable_job_path(job),:class =>"btn btn-default btn-sm" %>
+        <%end%>
         </td>
       </tr>
     <% end %>

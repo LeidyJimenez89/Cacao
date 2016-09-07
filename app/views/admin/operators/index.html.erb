@@ -19,7 +19,7 @@
     <% @operators.each do |operator| %>
       <tr>
         <td><%= operator.cc %></td>
-        <td><%= operator.name.to_s + " " + operator.lastname%></td>
+        <td><%= operator.name.to_s + " " + operator.lastname.to_s%></td>
         <td>
           <% if operator.job.present? %>
             <%= operator.job.name %>

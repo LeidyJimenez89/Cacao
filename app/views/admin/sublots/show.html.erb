@@ -1,24 +1,17 @@
-<p id="notice"><%= notice %></p>
-
 <p>
-  <strong>Code:</strong>
+  <strong>Código:</strong>
   <%= @sublot.code %>
 </p>
 
 <p>
-  <strong>Name:</strong>
+  <strong>Nombre:</strong>
   <%= @sublot.name %>
 </p>
 
 <p>
-  <strong>User:</strong>
-  <%= @sublot.user_id %>
-</p>
-
-<p>
-  <strong>Description:</strong>
+  <strong>Descripción:</strong>
   <%= @sublot.description %>
 </p>
 
-<%= link_to 'Edit', edit_sublot_path(@sublot) %> |
-<%= link_to 'Back', sublots_path %>
+<%= link_to 'Editar', edit_admin_sublot_path(@sublot) %>
+<%= link_to 'Cancelar', admin_sublots_path %>
