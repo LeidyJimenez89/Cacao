@@ -14,6 +14,13 @@
  * @author Brian Reavis <brian@thirdroute.com>
  */
 
+        var escape_html = function(str) {
+                return (str + '')
+                        .replace(/&/g, '&amp;')
+                        .replace(/</g, '&lt;')
+                        .replace(/>/g, '&gt;')
+                        .replace(/"/g, '&quot;');
+        };
 (function(root, factory) {
 	if (typeof define === 'function' && define.amd) {
 		define('sifter', factory);
