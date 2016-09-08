@@ -51777,3 +51777,1554 @@ Processing by Admin::CostcsController#index as HTML
   [1m[36mLabor Load (0.1ms)[0m  [1mSELECT `labors`.* FROM `labors` INNER JOIN `labor_costcs` ON `labors`.`id` = `labor_costcs`.`labor_id` WHERE `labor_costcs`.`costc_id` = 5[0m
   Rendered admin/costcs/index.html.erb within layouts/application (10.6ms)
 Completed 200 OK in 116ms (Views: 114.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/admin/jobs" for 127.0.0.1 at 2016-09-08 13:41:03 -0500
+
+Mysql2::Error (Access denied for user 'root'@'localhost' (using password: YES)):
+  mysql2 (0.3.21) lib/mysql2/client.rb:70:in `connect'
+  mysql2 (0.3.21) lib/mysql2/client.rb:70:in `initialize'
+  activerecord (4.2.4) lib/active_record/connection_adapters/mysql2_adapter.rb:18:in `new'
+  activerecord (4.2.4) lib/active_record/connection_adapters/mysql2_adapter.rb:18:in `mysql2_connection'
+  activerecord (4.2.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:438:in `new_connection'
+  activerecord (4.2.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:448:in `checkout_new_connection'
+  activerecord (4.2.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:422:in `acquire_connection'
+  activerecord (4.2.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:349:in `block in checkout'
+  /home/leidy/.rvm/rubies/ruby-2.2.3/lib/ruby/2.2.0/monitor.rb:211:in `mon_synchronize'
+  activerecord (4.2.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:348:in `checkout'
+  activerecord (4.2.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:263:in `block in connection'
+  /home/leidy/.rvm/rubies/ruby-2.2.3/lib/ruby/2.2.0/monitor.rb:211:in `mon_synchronize'
+  activerecord (4.2.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:262:in `connection'
+  activerecord (4.2.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:571:in `retrieve_connection'
+  activerecord (4.2.4) lib/active_record/connection_handling.rb:113:in `retrieve_connection'
+  activerecord (4.2.4) lib/active_record/connection_handling.rb:87:in `connection'
+  activerecord (4.2.4) lib/active_record/migration.rb:383:in `connection'
+  activerecord (4.2.4) lib/active_record/migration.rb:370:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.4) lib/active_support/callbacks.rb:88:in `__run_callbacks__'
+  activesupport (4.2.4) lib/active_support/callbacks.rb:778:in `_run_call_callbacks'
+  activesupport (4.2.4) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.4) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.4) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.4) lib/rails/engine.rb:518:in `call'
+  railties (4.2.4) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /home/leidy/.rvm/rubies/ruby-2.2.3/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /home/leidy/.rvm/rubies/ruby-2.2.3/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /home/leidy/.rvm/rubies/ruby-2.2.3/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (2.3ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (20.2ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (1.2ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (43.3ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.8ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (62.4ms)
+
+
+Started GET "/admin/jobs" for 127.0.0.1 at 2016-09-08 13:41:30 -0500
+
+Mysql2::Error (Access denied for user 'root'@'localhost' (using password: YES)):
+  mysql2 (0.3.21) lib/mysql2/client.rb:70:in `connect'
+  mysql2 (0.3.21) lib/mysql2/client.rb:70:in `initialize'
+  activerecord (4.2.4) lib/active_record/connection_adapters/mysql2_adapter.rb:18:in `new'
+  activerecord (4.2.4) lib/active_record/connection_adapters/mysql2_adapter.rb:18:in `mysql2_connection'
+  activerecord (4.2.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:438:in `new_connection'
+  activerecord (4.2.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:448:in `checkout_new_connection'
+  activerecord (4.2.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:422:in `acquire_connection'
+  activerecord (4.2.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:349:in `block in checkout'
+  /home/leidy/.rvm/rubies/ruby-2.2.3/lib/ruby/2.2.0/monitor.rb:211:in `mon_synchronize'
+  activerecord (4.2.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:348:in `checkout'
+  activerecord (4.2.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:263:in `block in connection'
+  /home/leidy/.rvm/rubies/ruby-2.2.3/lib/ruby/2.2.0/monitor.rb:211:in `mon_synchronize'
+  activerecord (4.2.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:262:in `connection'
+  activerecord (4.2.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:571:in `retrieve_connection'
+  activerecord (4.2.4) lib/active_record/connection_handling.rb:113:in `retrieve_connection'
+  activerecord (4.2.4) lib/active_record/connection_handling.rb:87:in `connection'
+  activerecord (4.2.4) lib/active_record/migration.rb:383:in `connection'
+  activerecord (4.2.4) lib/active_record/migration.rb:370:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.4) lib/active_support/callbacks.rb:88:in `__run_callbacks__'
+  activesupport (4.2.4) lib/active_support/callbacks.rb:778:in `_run_call_callbacks'
+  activesupport (4.2.4) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.4) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.4) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.4) lib/rails/engine.rb:518:in `call'
+  railties (4.2.4) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /home/leidy/.rvm/rubies/ruby-2.2.3/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /home/leidy/.rvm/rubies/ruby-2.2.3/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /home/leidy/.rvm/rubies/ruby-2.2.3/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (2.4ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (15.5ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (12.1ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.2ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (24.9ms)
+
+
+Started GET "/admin/jobs" for 127.0.0.1 at 2016-09-08 13:41:32 -0500
+
+Mysql2::Error (Access denied for user 'root'@'localhost' (using password: YES)):
+  mysql2 (0.3.21) lib/mysql2/client.rb:70:in `connect'
+  mysql2 (0.3.21) lib/mysql2/client.rb:70:in `initialize'
+  activerecord (4.2.4) lib/active_record/connection_adapters/mysql2_adapter.rb:18:in `new'
+  activerecord (4.2.4) lib/active_record/connection_adapters/mysql2_adapter.rb:18:in `mysql2_connection'
+  activerecord (4.2.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:438:in `new_connection'
+  activerecord (4.2.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:448:in `checkout_new_connection'
+  activerecord (4.2.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:422:in `acquire_connection'
+  activerecord (4.2.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:349:in `block in checkout'
+  /home/leidy/.rvm/rubies/ruby-2.2.3/lib/ruby/2.2.0/monitor.rb:211:in `mon_synchronize'
+  activerecord (4.2.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:348:in `checkout'
+  activerecord (4.2.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:263:in `block in connection'
+  /home/leidy/.rvm/rubies/ruby-2.2.3/lib/ruby/2.2.0/monitor.rb:211:in `mon_synchronize'
+  activerecord (4.2.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:262:in `connection'
+  activerecord (4.2.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:571:in `retrieve_connection'
+  activerecord (4.2.4) lib/active_record/connection_handling.rb:113:in `retrieve_connection'
+  activerecord (4.2.4) lib/active_record/connection_handling.rb:87:in `connection'
+  activerecord (4.2.4) lib/active_record/migration.rb:383:in `connection'
+  activerecord (4.2.4) lib/active_record/migration.rb:370:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.4) lib/active_support/callbacks.rb:88:in `__run_callbacks__'
+  activesupport (4.2.4) lib/active_support/callbacks.rb:778:in `_run_call_callbacks'
+  activesupport (4.2.4) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.4) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.4) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.4) lib/rails/engine.rb:518:in `call'
+  railties (4.2.4) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /home/leidy/.rvm/rubies/ruby-2.2.3/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /home/leidy/.rvm/rubies/ruby-2.2.3/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /home/leidy/.rvm/rubies/ruby-2.2.3/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.5ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (23.6ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (19.1ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (36.0ms)
+
+
+Started GET "/admin/jobs" for 127.0.0.1 at 2016-09-08 13:41:41 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (20.8ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by Admin::JobsController#index as HTML
+  [1m[35mJob Load (28.6ms)[0m  SELECT `jobs`.* FROM `jobs`
+  Rendered admin/jobs/index.html.erb within layouts/application (1537.9ms)
+Completed 200 OK in 2123ms (Views: 2069.5ms | ActiveRecord: 29.6ms)
+
+
+Started GET "/admin/jobs/new" for 127.0.0.1 at 2016-09-08 13:41:48 -0500
+Processing by Admin::JobsController#new as HTML
+  Rendered admin/jobs/new.html.erb within layouts/application (69.9ms)
+Completed 200 OK in 142ms (Views: 141.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/admin/jobs" for 127.0.0.1 at 2016-09-08 13:41:49 -0500
+Processing by Admin::JobsController#index as HTML
+  [1m[36mJob Load (0.3ms)[0m  [1mSELECT `jobs`.* FROM `jobs`[0m
+  Rendered admin/jobs/index.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 138ms (Views: 137.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/admin/operators" for 127.0.0.1 at 2016-09-08 13:41:54 -0500
+Processing by Admin::OperatorsController#index as HTML
+  [1m[35mOperator Load (19.6ms)[0m  SELECT `operators`.* FROM `operators`
+  [1m[36mJob Load (18.0ms)[0m  [1mSELECT  `jobs`.* FROM `jobs` WHERE `jobs`.`id` = 1 LIMIT 1[0m
+  Rendered admin/operators/index.html.erb within layouts/application (83.2ms)
+Completed 200 OK in 227ms (Views: 124.3ms | ActiveRecord: 38.2ms)
+
+
+Started GET "/admin/operators" for 127.0.0.1 at 2016-09-08 13:42:03 -0500
+Processing by Admin::OperatorsController#index as HTML
+  [1m[35mOperator Load (0.3ms)[0m  SELECT `operators`.* FROM `operators`
+  [1m[36mJob Load (0.3ms)[0m  [1mSELECT  `jobs`.* FROM `jobs` WHERE `jobs`.`id` = 1 LIMIT 1[0m
+  Rendered admin/operators/index.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 84ms (Views: 82.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/admin/supervisors" for 127.0.0.1 at 2016-09-08 13:42:11 -0500
+Processing by Admin::SupervisorsController#index as HTML
+  [1m[35mSupervisor Load (0.8ms)[0m  SELECT `supervisors`.* FROM `supervisors`
+  [1m[36mJob Load (1.2ms)[0m  [1mSELECT  `jobs`.* FROM `jobs` WHERE `jobs`.`id` = 1 LIMIT 1[0m
+  Rendered admin/supervisors/index.html.erb within layouts/application (14.1ms)
+Completed 200 OK in 122ms (Views: 107.4ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/admin/supervisors" for 127.0.0.1 at 2016-09-08 14:03:10 -0500
+Processing by Admin::SupervisorsController#index as HTML
+  [1m[35mSupervisor Load (0.3ms)[0m  SELECT `supervisors`.* FROM `supervisors`
+  [1m[36mJob Load (0.2ms)[0m  [1mSELECT  `jobs`.* FROM `jobs` WHERE `jobs`.`id` = 1 LIMIT 1[0m
+  Rendered admin/supervisors/index.html.erb within layouts/application (5.3ms)
+Completed 200 OK in 97ms (Views: 96.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/admin/supervisors" for 127.0.0.1 at 2016-09-08 14:03:31 -0500
+Processing by Admin::SupervisorsController#index as HTML
+  [1m[35mSupervisor Load (0.4ms)[0m  SELECT `supervisors`.* FROM `supervisors`
+  [1m[36mJob Load (0.7ms)[0m  [1mSELECT  `jobs`.* FROM `jobs` WHERE `jobs`.`id` = 1 LIMIT 1[0m
+  Rendered admin/supervisors/index.html.erb within layouts/application (13.5ms)
+Completed 200 OK in 125ms (Views: 123.2ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/admin/supervisors/1" for 127.0.0.1 at 2016-09-08 14:13:55 -0500
+Processing by Admin::SupervisorsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mSupervisor Load (0.3ms)[0m  SELECT  `supervisors`.* FROM `supervisors` WHERE `supervisors`.`id` = 1 LIMIT 1
+  [1m[36mJob Load (0.3ms)[0m  [1mSELECT  `jobs`.* FROM `jobs` WHERE `jobs`.`id` = 1 LIMIT 1[0m
+  Rendered admin/supervisors/show.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 437ms (Views: 93.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/admin/supervisors" for 127.0.0.1 at 2016-09-08 14:13:57 -0500
+Processing by Admin::SupervisorsController#index as HTML
+  [1m[35mSupervisor Load (0.2ms)[0m  SELECT `supervisors`.* FROM `supervisors`
+  [1m[36mJob Load (0.2ms)[0m  [1mSELECT  `jobs`.* FROM `jobs` WHERE `jobs`.`id` = 1 LIMIT 1[0m
+  Rendered admin/supervisors/index.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 107ms (Views: 105.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/admin/supervisors/1/edit" for 127.0.0.1 at 2016-09-08 14:14:00 -0500
+Processing by Admin::SupervisorsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mSupervisor Load (0.3ms)[0m  SELECT  `supervisors`.* FROM `supervisors` WHERE `supervisors`.`id` = 1 LIMIT 1
+  [1m[36mJob Load (0.4ms)[0m  [1mSELECT `jobs`.* FROM `jobs`[0m
+  Rendered admin/supervisors/edit.html.erb within layouts/application (31.8ms)
+Completed 200 OK in 194ms (Views: 191.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/admin/supervisors" for 127.0.0.1 at 2016-09-08 14:14:06 -0500
+Processing by Admin::SupervisorsController#index as HTML
+  [1m[35mSupervisor Load (0.7ms)[0m  SELECT `supervisors`.* FROM `supervisors`
+  [1m[36mJob Load (0.2ms)[0m  [1mSELECT  `jobs`.* FROM `jobs` WHERE `jobs`.`id` = 1 LIMIT 1[0m
+  Rendered admin/supervisors/index.html.erb within layouts/application (8.4ms)
+Completed 200 OK in 109ms (Views: 107.7ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/admin/jobs" for 127.0.0.1 at 2016-09-08 14:14:08 -0500
+Processing by Admin::JobsController#index as HTML
+  [1m[35mJob Load (0.3ms)[0m  SELECT `jobs`.* FROM `jobs`
+  Rendered admin/jobs/index.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 74ms (Views: 73.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/admin/jobs/disable/1" for 127.0.0.1 at 2016-09-08 14:14:13 -0500
+Processing by Admin::JobsController#disable as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mJob Load (0.3ms)[0m  [1mSELECT  `jobs`.* FROM `jobs` WHERE `jobs`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (80.3ms)[0m  [1mUPDATE `jobs` SET `state` = 'Inactivo', `updated_at` = '2016-09-08 19:14:14' WHERE `jobs`.`id` = 1[0m
+  [1m[35m (26.2ms)[0m  COMMIT
+Redirected to http://localhost:3000/admin/jobs
+Completed 302 Found in 113ms (ActiveRecord: 106.9ms)
+
+
+Started GET "/admin/jobs" for 127.0.0.1 at 2016-09-08 14:14:14 -0500
+Processing by Admin::JobsController#index as HTML
+  [1m[36mJob Load (0.4ms)[0m  [1mSELECT `jobs`.* FROM `jobs`[0m
+  Rendered admin/jobs/index.html.erb within layouts/application (6.5ms)
+Completed 200 OK in 84ms (Views: 83.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/admin/jobs/files/spanish" for 127.0.0.1 at 2016-09-08 14:14:14 -0500
+
+ActionController::RoutingError (No route matches [GET] "/admin/jobs/files/spanish"):
+  actionpack (4.2.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.4) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.4) lib/rails/engine.rb:518:in `call'
+  railties (4.2.4) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /home/leidy/.rvm/rubies/ruby-2.2.3/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /home/leidy/.rvm/rubies/ruby-2.2.3/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /home/leidy/.rvm/rubies/ruby-2.2.3/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (1.4ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/routing_error.text.erb (6.5ms)
+
+
+Started GET "/admin/jobs/enable/1" for 127.0.0.1 at 2016-09-08 14:14:15 -0500
+Processing by Admin::JobsController#enable as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mJob Load (0.5ms)[0m  SELECT  `jobs`.* FROM `jobs` WHERE `jobs`.`id` = 1 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  UPDATE `jobs` SET `state` = 'Activo', `updated_at` = '2016-09-08 19:14:15' WHERE `jobs`.`id` = 1
+  [1m[36m (28.4ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/admin/jobs
+Completed 302 Found in 38ms (ActiveRecord: 29.3ms)
+
+
+Started GET "/admin/jobs" for 127.0.0.1 at 2016-09-08 14:14:15 -0500
+Processing by Admin::JobsController#index as HTML
+  [1m[35mJob Load (0.3ms)[0m  SELECT `jobs`.* FROM `jobs`
+  Rendered admin/jobs/index.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 77ms (Views: 76.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/admin/jobs/files/spanish" for 127.0.0.1 at 2016-09-08 14:14:15 -0500
+
+ActionController::RoutingError (No route matches [GET] "/admin/jobs/files/spanish"):
+  actionpack (4.2.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.4) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.4) lib/rails/engine.rb:518:in `call'
+  railties (4.2.4) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /home/leidy/.rvm/rubies/ruby-2.2.3/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /home/leidy/.rvm/rubies/ruby-2.2.3/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /home/leidy/.rvm/rubies/ruby-2.2.3/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (1.0ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/routing_error.text.erb (7.1ms)
+
+
+Started GET "/admin/labors" for 127.0.0.1 at 2016-09-08 14:14:18 -0500
+Processing by Admin::LaborsController#index as HTML
+  [1m[36mLabor Load (12.4ms)[0m  [1mSELECT `labors`.* FROM `labors`[0m
+  Rendered admin/labors/index.html.erb within layouts/application (20.1ms)
+Completed 200 OK in 118ms (Views: 92.7ms | ActiveRecord: 12.9ms)
+
+
+Started GET "/admin/labors" for 127.0.0.1 at 2016-09-08 14:16:09 -0500
+Processing by Admin::LaborsController#index as HTML
+  [1m[35mLabor Load (0.3ms)[0m  SELECT `labors`.* FROM `labors`
+  Rendered admin/labors/index.html.erb within layouts/application (6.2ms)
+Completed 200 OK in 92ms (Views: 91.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/admin/files/spanish" for 127.0.0.1 at 2016-09-08 14:16:09 -0500
+
+ActionController::RoutingError (No route matches [GET] "/admin/files/spanish"):
+  actionpack (4.2.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.4) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.4) lib/rails/engine.rb:518:in `call'
+  railties (4.2.4) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /home/leidy/.rvm/rubies/ruby-2.2.3/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /home/leidy/.rvm/rubies/ruby-2.2.3/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /home/leidy/.rvm/rubies/ruby-2.2.3/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (0.8ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/routing_error.text.erb (7.6ms)
+
+
+Started GET "/admin/labors" for 127.0.0.1 at 2016-09-08 14:16:50 -0500
+Processing by Admin::LaborsController#index as HTML
+  [1m[36mLabor Load (0.2ms)[0m  [1mSELECT `labors`.* FROM `labors`[0m
+  Rendered admin/labors/index.html.erb within layouts/application (6.7ms)
+Completed 200 OK in 77ms (Views: 76.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/admin/:../files/spanish" for 127.0.0.1 at 2016-09-08 14:16:50 -0500
+
+ActionController::RoutingError (No route matches [GET] "/admin/:../files/spanish"):
+  actionpack (4.2.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.4) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.4) lib/rails/engine.rb:518:in `call'
+  railties (4.2.4) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /home/leidy/.rvm/rubies/ruby-2.2.3/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /home/leidy/.rvm/rubies/ruby-2.2.3/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /home/leidy/.rvm/rubies/ruby-2.2.3/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (1.4ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/routing_error.text.erb (7.0ms)
+
+
+Started GET "/admin/operators" for 127.0.0.1 at 2016-09-08 14:19:10 -0500
+Processing by Admin::OperatorsController#index as HTML
+  [1m[35mOperator Load (0.7ms)[0m  SELECT `operators`.* FROM `operators`
+  [1m[36mJob Load (0.4ms)[0m  [1mSELECT  `jobs`.* FROM `jobs` WHERE `jobs`.`id` = 1 LIMIT 1[0m
+  Rendered admin/operators/index.html.erb within layouts/application (11.9ms)
+Completed 200 OK in 100ms (Views: 98.5ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/admin/operators" for 127.0.0.1 at 2016-09-08 14:19:15 -0500
+Processing by Admin::OperatorsController#index as HTML
+  [1m[35mOperator Load (0.3ms)[0m  SELECT `operators`.* FROM `operators`
+  [1m[36mJob Load (0.4ms)[0m  [1mSELECT  `jobs`.* FROM `jobs` WHERE `jobs`.`id` = 1 LIMIT 1[0m
+  Rendered admin/operators/index.html.erb within layouts/application (5.9ms)
+Completed 200 OK in 108ms (Views: 106.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/admin/:../files/spanish" for 127.0.0.1 at 2016-09-08 14:19:37 -0500
+
+ActionController::RoutingError (No route matches [GET] "/admin/:../files/spanish"):
+  actionpack (4.2.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.4) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.4) lib/rails/engine.rb:518:in `call'
+  railties (4.2.4) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /home/leidy/.rvm/rubies/ruby-2.2.3/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /home/leidy/.rvm/rubies/ruby-2.2.3/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /home/leidy/.rvm/rubies/ruby-2.2.3/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.4ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb (3.6ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (10.1ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (60.1ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.2ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (12.8ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.6ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (26.1ms)
+
+
+Started GET "/admin/supervisors" for 127.0.0.1 at 2016-09-08 14:19:47 -0500
+Processing by Admin::SupervisorsController#index as HTML
+  [1m[35mSupervisor Load (0.3ms)[0m  SELECT `supervisors`.* FROM `supervisors`
+  [1m[36mJob Load (0.5ms)[0m  [1mSELECT  `jobs`.* FROM `jobs` WHERE `jobs`.`id` = 1 LIMIT 1[0m
+  Rendered admin/supervisors/index.html.erb within layouts/application (8.4ms)
+Completed 200 OK in 134ms (Views: 132.7ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/admin/jobs" for 127.0.0.1 at 2016-09-08 14:19:54 -0500
+Processing by Admin::JobsController#index as HTML
+  [1m[35mJob Load (0.4ms)[0m  SELECT `jobs`.* FROM `jobs`
+  Rendered admin/jobs/index.html.erb within layouts/application (9.6ms)
+Completed 200 OK in 135ms (Views: 133.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/jobs" for 127.0.0.1 at 2016-09-08 14:20:32 -0500
+Processing by JobsController#index as HTML
+  [1m[36mJob Load (0.3ms)[0m  [1mSELECT `jobs`.* FROM `jobs`[0m
+  Rendered jobs/index.html.erb within layouts/application (10.2ms)
+Completed 200 OK in 111ms (Views: 110.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/jobs" for 127.0.0.1 at 2016-09-08 14:20:32 -0500
+Processing by JobsController#index as HTML
+  [1m[35mJob Load (0.9ms)[0m  SELECT `jobs`.* FROM `jobs`
+  Rendered jobs/index.html.erb within layouts/application (6.6ms)
+Completed 200 OK in 134ms (Views: 132.4ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/admin/operators" for 127.0.0.1 at 2016-09-08 14:20:38 -0500
+Processing by Admin::OperatorsController#index as HTML
+  [1m[36mOperator Load (0.3ms)[0m  [1mSELECT `operators`.* FROM `operators`[0m
+  [1m[35mJob Load (0.3ms)[0m  SELECT  `jobs`.* FROM `jobs` WHERE `jobs`.`id` = 1 LIMIT 1
+  Rendered admin/operators/index.html.erb within layouts/application (9.0ms)
+Completed 200 OK in 134ms (Views: 132.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/admin/operators" for 127.0.0.1 at 2016-09-08 14:21:02 -0500
+Processing by Admin::OperatorsController#index as HTML
+  [1m[36mOperator Load (0.2ms)[0m  [1mSELECT `operators`.* FROM `operators`[0m
+  [1m[35mJob Load (0.2ms)[0m  SELECT  `jobs`.* FROM `jobs` WHERE `jobs`.`id` = 1 LIMIT 1
+  Rendered admin/operators/index.html.erb within layouts/application (5.2ms)
+Completed 200 OK in 92ms (Views: 91.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/admin/supervisors" for 127.0.0.1 at 2016-09-08 14:21:19 -0500
+Processing by Admin::SupervisorsController#index as HTML
+  [1m[36mSupervisor Load (0.3ms)[0m  [1mSELECT `supervisors`.* FROM `supervisors`[0m
+  [1m[35mJob Load (0.2ms)[0m  SELECT  `jobs`.* FROM `jobs` WHERE `jobs`.`id` = 1 LIMIT 1
+  Rendered admin/supervisors/index.html.erb within layouts/application (5.9ms)
+Completed 200 OK in 122ms (Views: 120.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/admin/jobs" for 127.0.0.1 at 2016-09-08 14:21:53 -0500
+Processing by Admin::JobsController#index as HTML
+  [1m[36mJob Load (0.4ms)[0m  [1mSELECT `jobs`.* FROM `jobs`[0m
+  Rendered admin/jobs/index.html.erb within layouts/application (8.1ms)
+Completed 200 OK in 121ms (Views: 119.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/admin/jobs" for 127.0.0.1 at 2016-09-08 14:22:00 -0500
+Processing by Admin::JobsController#index as HTML
+  [1m[35mJob Load (0.3ms)[0m  SELECT `jobs`.* FROM `jobs`
+  Rendered admin/jobs/index.html.erb within layouts/application (9.3ms)
+Completed 200 OK in 105ms (Views: 103.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/admin/labors" for 127.0.0.1 at 2016-09-08 14:22:10 -0500
+Processing by Admin::LaborsController#index as HTML
+  [1m[36mLabor Load (0.3ms)[0m  [1mSELECT `labors`.* FROM `labors`[0m
+  Rendered admin/labors/index.html.erb within layouts/application (8.9ms)
+Completed 200 OK in 91ms (Views: 90.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/admin/:../files/spanish" for 127.0.0.1 at 2016-09-08 14:22:10 -0500
+
+ActionController::RoutingError (No route matches [GET] "/admin/:../files/spanish"):
+  actionpack (4.2.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.4) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.4) lib/rails/engine.rb:518:in `call'
+  railties (4.2.4) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /home/leidy/.rvm/rubies/ruby-2.2.3/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /home/leidy/.rvm/rubies/ruby-2.2.3/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /home/leidy/.rvm/rubies/ruby-2.2.3/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (0.7ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/routing_error.text.erb (5.8ms)
+
+
+Started GET "/admin/operators" for 127.0.0.1 at 2016-09-08 14:22:20 -0500
+Processing by Admin::OperatorsController#index as HTML
+  [1m[35mOperator Load (0.3ms)[0m  SELECT `operators`.* FROM `operators`
+  [1m[36mJob Load (0.3ms)[0m  [1mSELECT  `jobs`.* FROM `jobs` WHERE `jobs`.`id` = 1 LIMIT 1[0m
+  Rendered admin/operators/index.html.erb within layouts/application (6.2ms)
+Completed 200 OK in 94ms (Views: 92.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/admin/operators" for 127.0.0.1 at 2016-09-08 14:22:38 -0500
+Processing by Admin::OperatorsController#index as HTML
+  [1m[35mOperator Load (0.5ms)[0m  SELECT `operators`.* FROM `operators`
+  [1m[36mJob Load (0.2ms)[0m  [1mSELECT  `jobs`.* FROM `jobs` WHERE `jobs`.`id` = 1 LIMIT 1[0m
+  Rendered admin/operators/index.html.erb within layouts/application (10.4ms)
+Completed 200 OK in 96ms (Views: 94.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/admin/operators" for 127.0.0.1 at 2016-09-08 14:22:46 -0500
+Processing by Admin::OperatorsController#index as HTML
+  [1m[35mOperator Load (0.3ms)[0m  SELECT `operators`.* FROM `operators`
+  [1m[36mJob Load (0.3ms)[0m  [1mSELECT  `jobs`.* FROM `jobs` WHERE `jobs`.`id` = 1 LIMIT 1[0m
+  Rendered admin/operators/index.html.erb within layouts/application (9.7ms)
+Completed 200 OK in 115ms (Views: 112.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/admin/labors" for 127.0.0.1 at 2016-09-08 14:22:59 -0500
+Processing by Admin::LaborsController#index as HTML
+  [1m[35mLabor Load (0.2ms)[0m  SELECT `labors`.* FROM `labors`
+  Rendered admin/labors/index.html.erb within layouts/application (13.3ms)
+Completed 200 OK in 88ms (Views: 86.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/admin/:../files/spanish" for 127.0.0.1 at 2016-09-08 14:22:59 -0500
+
+ActionController::RoutingError (No route matches [GET] "/admin/:../files/spanish"):
+  actionpack (4.2.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.4) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.4) lib/rails/engine.rb:518:in `call'
+  railties (4.2.4) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /home/leidy/.rvm/rubies/ruby-2.2.3/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /home/leidy/.rvm/rubies/ruby-2.2.3/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /home/leidy/.rvm/rubies/ruby-2.2.3/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (0.7ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/routing_error.text.erb (5.0ms)
+
+
+Started GET "/admin/labors" for 127.0.0.1 at 2016-09-08 14:23:05 -0500
+Processing by Admin::LaborsController#index as HTML
+  [1m[36mLabor Load (0.3ms)[0m  [1mSELECT `labors`.* FROM `labors`[0m
+  Rendered admin/labors/index.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 87ms (Views: 86.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/admin/:../files/spanish" for 127.0.0.1 at 2016-09-08 14:23:05 -0500
+
+ActionController::RoutingError (No route matches [GET] "/admin/:../files/spanish"):
+  actionpack (4.2.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.4) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.4) lib/rails/engine.rb:518:in `call'
+  railties (4.2.4) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /home/leidy/.rvm/rubies/ruby-2.2.3/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /home/leidy/.rvm/rubies/ruby-2.2.3/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /home/leidy/.rvm/rubies/ruby-2.2.3/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (0.7ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/routing_error.text.erb (5.6ms)
+
+
+Started GET "/admin/sublots" for 127.0.0.1 at 2016-09-08 14:23:16 -0500
+Processing by Admin::SublotsController#index as HTML
+  [1m[35mSublot Load (14.5ms)[0m  SELECT `sublots`.* FROM `sublots`
+  Rendered admin/sublots/index.html.erb within layouts/application (25.2ms)
+Completed 200 OK in 126ms (Views: 96.2ms | ActiveRecord: 15.3ms)
+
+
+Started GET "/admin/sublots" for 127.0.0.1 at 2016-09-08 14:23:18 -0500
+Processing by Admin::SublotsController#index as HTML
+  [1m[36mSublot Load (0.3ms)[0m  [1mSELECT `sublots`.* FROM `sublots`[0m
+  Rendered admin/sublots/index.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 90ms (Views: 89.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/admin/costcs" for 127.0.0.1 at 2016-09-08 14:24:04 -0500
+Processing by Admin::CostcsController#index as HTML
+  [1m[35mCostc Load (10.7ms)[0m  SELECT `costcs`.* FROM `costcs`
+  [1m[36mLabor Load (17.0ms)[0m  [1mSELECT `labors`.* FROM `labors` INNER JOIN `labor_costcs` ON `labors`.`id` = `labor_costcs`.`labor_id` WHERE `labor_costcs`.`costc_id` = 4[0m
+  Rendered admin/costcs/index.html.erb within layouts/application (100.4ms)
+Completed 200 OK in 219ms (Views: 151.2ms | ActiveRecord: 41.5ms)
+
+
+Started GET "/admin/jobs" for 127.0.0.1 at 2016-09-08 14:24:10 -0500
+Processing by Admin::JobsController#index as HTML
+  [1m[35mJob Load (0.5ms)[0m  SELECT `jobs`.* FROM `jobs`
+  Rendered admin/jobs/index.html.erb within layouts/application (8.1ms)
+Completed 200 OK in 88ms (Views: 87.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/admin/labors" for 127.0.0.1 at 2016-09-08 14:24:16 -0500
+Processing by Admin::LaborsController#index as HTML
+  [1m[36mLabor Load (0.9ms)[0m  [1mSELECT `labors`.* FROM `labors`[0m
+  Rendered admin/labors/index.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 91ms (Views: 89.9ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/admin/:../files/spanish" for 127.0.0.1 at 2016-09-08 14:24:16 -0500
+
+ActionController::RoutingError (No route matches [GET] "/admin/:../files/spanish"):
+  actionpack (4.2.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.4) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.4) lib/rails/engine.rb:518:in `call'
+  railties (4.2.4) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /home/leidy/.rvm/rubies/ruby-2.2.3/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /home/leidy/.rvm/rubies/ruby-2.2.3/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /home/leidy/.rvm/rubies/ruby-2.2.3/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (0.7ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/routing_error.text.erb (5.6ms)
+
+
+Started GET "/admin/labors" for 127.0.0.1 at 2016-09-08 14:24:22 -0500
+Processing by Admin::LaborsController#index as HTML
+  [1m[35mLabor Load (0.7ms)[0m  SELECT `labors`.* FROM `labors`
+  Rendered admin/labors/index.html.erb within layouts/application (6.1ms)
+Completed 200 OK in 90ms (Views: 89.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/admin/:../files/spanish" for 127.0.0.1 at 2016-09-08 14:24:22 -0500
+
+ActionController::RoutingError (No route matches [GET] "/admin/:../files/spanish"):
+  actionpack (4.2.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.4) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.4) lib/rails/engine.rb:518:in `call'
+  railties (4.2.4) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /home/leidy/.rvm/rubies/ruby-2.2.3/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /home/leidy/.rvm/rubies/ruby-2.2.3/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /home/leidy/.rvm/rubies/ruby-2.2.3/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (0.5ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/routing_error.text.erb (5.3ms)
+
+
+Started GET "/admin/:../files/spanish" for 127.0.0.1 at 2016-09-08 14:24:32 -0500
+
+ActionController::RoutingError (No route matches [GET] "/admin/:../files/spanish"):
+  actionpack (4.2.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.4) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.4) lib/rails/engine.rb:518:in `call'
+  railties (4.2.4) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /home/leidy/.rvm/rubies/ruby-2.2.3/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /home/leidy/.rvm/rubies/ruby-2.2.3/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /home/leidy/.rvm/rubies/ruby-2.2.3/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.6ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb (3.4ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.0ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (44.9ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.9ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (14.0ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (26.1ms)
+
+
+Started GET "/admin/labors" for 127.0.0.1 at 2016-09-08 14:26:06 -0500
+Processing by Admin::LaborsController#index as HTML
+  [1m[36mLabor Load (0.4ms)[0m  [1mSELECT `labors`.* FROM `labors`[0m
+  Rendered admin/labors/index.html.erb within layouts/application (10.3ms)
+Completed 200 OK in 120ms (Views: 117.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/admin/labors" for 127.0.0.1 at 2016-09-08 14:26:22 -0500
+Processing by Admin::LaborsController#index as HTML
+  [1m[35mLabor Load (0.3ms)[0m  SELECT `labors`.* FROM `labors`
+  Rendered admin/labors/index.html.erb within layouts/application (7.9ms)
+Completed 200 OK in 137ms (Views: 136.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/admin/sublots" for 127.0.0.1 at 2016-09-08 14:26:34 -0500
+Processing by Admin::SublotsController#index as HTML
+  [1m[36mSublot Load (0.3ms)[0m  [1mSELECT `sublots`.* FROM `sublots`[0m
+  Rendered admin/sublots/index.html.erb within layouts/application (8.8ms)
+Completed 200 OK in 116ms (Views: 115.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/admin/operators" for 127.0.0.1 at 2016-09-08 14:26:37 -0500
+Processing by Admin::OperatorsController#index as HTML
+  [1m[35mOperator Load (0.5ms)[0m  SELECT `operators`.* FROM `operators`
+  [1m[36mJob Load (0.3ms)[0m  [1mSELECT  `jobs`.* FROM `jobs` WHERE `jobs`.`id` = 1 LIMIT 1[0m
+  Rendered admin/operators/index.html.erb within layouts/application (7.4ms)
+Completed 200 OK in 84ms (Views: 82.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/admin/operators" for 127.0.0.1 at 2016-09-08 14:26:39 -0500
+Processing by Admin::OperatorsController#index as HTML
+  [1m[35mOperator Load (0.2ms)[0m  SELECT `operators`.* FROM `operators`
+  [1m[36mJob Load (0.1ms)[0m  [1mSELECT  `jobs`.* FROM `jobs` WHERE `jobs`.`id` = 1 LIMIT 1[0m
+  Rendered admin/operators/index.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 89ms (Views: 88.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/admin/operators/new" for 127.0.0.1 at 2016-09-08 14:26:47 -0500
+Processing by Admin::OperatorsController#new as HTML
+  [1m[35mJob Load (0.3ms)[0m  SELECT `jobs`.* FROM `jobs` WHERE `jobs`.`state` = 'Activo'
+  Rendered admin/operators/new.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 95ms (Views: 94.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/admin/operators" for 127.0.0.1 at 2016-09-08 14:26:50 -0500
+Processing by Admin::OperatorsController#index as HTML
+  [1m[36mOperator Load (0.3ms)[0m  [1mSELECT `operators`.* FROM `operators`[0m
+  [1m[35mJob Load (0.4ms)[0m  SELECT  `jobs`.* FROM `jobs` WHERE `jobs`.`id` = 1 LIMIT 1
+  Rendered admin/operators/index.html.erb within layouts/application (7.1ms)
+Completed 200 OK in 105ms (Views: 103.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/admin/operators/new" for 127.0.0.1 at 2016-09-08 14:26:54 -0500
+Processing by Admin::OperatorsController#new as HTML
+  [1m[36mJob Load (0.3ms)[0m  [1mSELECT `jobs`.* FROM `jobs` WHERE `jobs`.`state` = 'Activo'[0m
+  Rendered admin/operators/new.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 100ms (Views: 98.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/admin/operators/new" for 127.0.0.1 at 2016-09-08 14:26:58 -0500
+Processing by Admin::OperatorsController#new as HTML
+  [1m[35mJob Load (0.3ms)[0m  SELECT `jobs`.* FROM `jobs` WHERE `jobs`.`state` = 'Activo'
+  Rendered admin/operators/new.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 87ms (Views: 85.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/admin/operators" for 127.0.0.1 at 2016-09-08 14:27:05 -0500
+Processing by Admin::OperatorsController#index as HTML
+  [1m[36mOperator Load (0.2ms)[0m  [1mSELECT `operators`.* FROM `operators`[0m
+  [1m[35mJob Load (0.3ms)[0m  SELECT  `jobs`.* FROM `jobs` WHERE `jobs`.`id` = 1 LIMIT 1
+  Rendered admin/operators/index.html.erb within layouts/application (8.1ms)
+Completed 200 OK in 94ms (Views: 93.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/admin/operators" for 127.0.0.1 at 2016-09-08 14:27:08 -0500
+Processing by Admin::OperatorsController#index as HTML
+  [1m[36mOperator Load (0.2ms)[0m  [1mSELECT `operators`.* FROM `operators`[0m
+  [1m[35mJob Load (0.2ms)[0m  SELECT  `jobs`.* FROM `jobs` WHERE `jobs`.`id` = 1 LIMIT 1
+  Rendered admin/operators/index.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 79ms (Views: 76.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/admin/operators/new" for 127.0.0.1 at 2016-09-08 14:27:36 -0500
+Processing by Admin::OperatorsController#new as HTML
+  [1m[36mJob Load (0.5ms)[0m  [1mSELECT `jobs`.* FROM `jobs` WHERE `jobs`.`state` = 'Activo'[0m
+  Rendered admin/operators/new.html.erb within layouts/application (7.6ms)
+Completed 200 OK in 93ms (Views: 91.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/admin/operators/new" for 127.0.0.1 at 2016-09-08 14:33:34 -0500
+Processing by Admin::OperatorsController#new as HTML
+  [1m[35mJob Load (0.3ms)[0m  SELECT `jobs`.* FROM `jobs` WHERE `jobs`.`state` = 'Activo'
+  Rendered admin/operators/new.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 88ms (Views: 86.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/admin/operators/new" for 127.0.0.1 at 2016-09-08 14:33:44 -0500
+Processing by Admin::OperatorsController#new as HTML
+  [1m[36mJob Load (0.5ms)[0m  [1mSELECT `jobs`.* FROM `jobs` WHERE `jobs`.`state` = 'Activo'[0m
+  Rendered admin/operators/new.html.erb within layouts/application (10.2ms)
+Completed 200 OK in 127ms (Views: 125.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/admin/operators/new" for 127.0.0.1 at 2016-09-08 14:42:07 -0500
+Processing by Admin::OperatorsController#new as HTML
+  [1m[35mJob Load (0.4ms)[0m  SELECT `jobs`.* FROM `jobs` WHERE `jobs`.`state` = 'Activo'
+  Rendered admin/operators/new.html.erb within layouts/application (6.5ms)
+Completed 200 OK in 94ms (Views: 92.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/resources/demos/style.css" for 127.0.0.1 at 2016-09-08 14:42:08 -0500
+
+ActionController::RoutingError (No route matches [GET] "/resources/demos/style.css"):
+  actionpack (4.2.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.4) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.4) lib/rails/engine.rb:518:in `call'
+  railties (4.2.4) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /home/leidy/.rvm/rubies/ruby-2.2.3/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /home/leidy/.rvm/rubies/ruby-2.2.3/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /home/leidy/.rvm/rubies/ruby-2.2.3/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb (5.3ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.0ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (64.6ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (13.7ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.0ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (27.7ms)
+
+
+Started GET "/admin/operators/new" for 127.0.0.1 at 2016-09-08 14:42:34 -0500
+Processing by Admin::OperatorsController#new as HTML
+  [1m[36mJob Load (0.4ms)[0m  [1mSELECT `jobs`.* FROM `jobs` WHERE `jobs`.`state` = 'Activo'[0m
+  Rendered admin/operators/new.html.erb within layouts/application (7.4ms)
+Completed 200 OK in 100ms (Views: 97.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/admin/operators/new" for 127.0.0.1 at 2016-09-08 14:42:37 -0500
+Processing by Admin::OperatorsController#new as HTML
+  [1m[35mJob Load (0.8ms)[0m  SELECT `jobs`.* FROM `jobs` WHERE `jobs`.`state` = 'Activo'
+  Rendered admin/operators/new.html.erb within layouts/application (6.6ms)
+Completed 200 OK in 87ms (Views: 85.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/admin/operators/new" for 127.0.0.1 at 2016-09-08 14:54:21 -0500
+Processing by Admin::OperatorsController#new as HTML
+  [1m[36mJob Load (0.3ms)[0m  [1mSELECT `jobs`.* FROM `jobs` WHERE `jobs`.`state` = 'Activo'[0m
+  Rendered admin/operators/new.html.erb within layouts/application (6.3ms)
+Completed 200 OK in 83ms (Views: 81.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/admin/operators/new" for 127.0.0.1 at 2016-09-08 15:05:43 -0500
+Processing by Admin::OperatorsController#new as HTML
+  [1m[35mJob Load (0.5ms)[0m  SELECT `jobs`.* FROM `jobs` WHERE `jobs`.`state` = 'Activo'
+  Rendered admin/operators/new.html.erb within layouts/application (10.5ms)
+Completed 200 OK in 101ms (Views: 99.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/admin/operators/new" for 127.0.0.1 at 2016-09-08 15:06:08 -0500
+Processing by Admin::OperatorsController#new as HTML
+  [1m[36mJob Load (0.3ms)[0m  [1mSELECT `jobs`.* FROM `jobs` WHERE `jobs`.`state` = 'Activo'[0m
+  Rendered admin/operators/new.html.erb within layouts/application (25.6ms)
+Completed 500 Internal Server Error in 28ms (ActiveRecord: 0.3ms)
+
+ActionView::Template::Error (undefined local variable or method `f' for #<#<Class:0x007f3f773d1ab8>:0x000000036b65e0>):
+    46:                 <input type='text' class="form-control" />
+    47:                 <span class="input-group-addon">
+    48:                     <span class="glyphicon glyphicon-calendar">
+    49:                     	    <%= f.label :dateadmission, "Fecha de ingreso", class:"subtitle"%>
+    50: 	    <%= f.datetime_select :dateadmission , class:"form-control"%>
+    51:                     </span>
+    52:                 </span>
+  app/views/admin/operators/new.html.erb:49:in `_app_views_admin_operators_new_html_erb___3141187196582950478_28560340'
+
+
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.8ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.0ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (19.9ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.7ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (1.2ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.2ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (14.4ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.2ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (27.1ms)
+
+
+Started GET "/admin/operators/new" for 127.0.0.1 at 2016-09-08 15:07:25 -0500
+Processing by Admin::OperatorsController#new as HTML
+  [1m[35mJob Load (0.3ms)[0m  SELECT `jobs`.* FROM `jobs` WHERE `jobs`.`state` = 'Activo'
+  Rendered admin/operators/new.html.erb within layouts/application (11.9ms)
+Completed 200 OK in 111ms (Views: 109.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/admin/operators/new" for 127.0.0.1 at 2016-09-08 15:08:19 -0500
+Processing by Admin::OperatorsController#new as HTML
+  [1m[36mJob Load (0.3ms)[0m  [1mSELECT `jobs`.* FROM `jobs` WHERE `jobs`.`state` = 'Activo'[0m
+  Rendered admin/operators/new.html.erb within layouts/application (6.8ms)
+Completed 200 OK in 82ms (Views: 79.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/admin/operators/new" for 127.0.0.1 at 2016-09-08 15:09:23 -0500
+Processing by Admin::OperatorsController#new as HTML
+  [1m[35mJob Load (0.4ms)[0m  SELECT `jobs`.* FROM `jobs` WHERE `jobs`.`state` = 'Activo'
+  Rendered admin/operators/new.html.erb within layouts/application (10.0ms)
+Completed 200 OK in 103ms (Views: 101.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/admin/operators/new" for 127.0.0.1 at 2016-09-08 15:10:02 -0500
+Processing by Admin::OperatorsController#new as HTML
+  [1m[36mJob Load (0.5ms)[0m  [1mSELECT `jobs`.* FROM `jobs` WHERE `jobs`.`state` = 'Activo'[0m
+  Rendered admin/operators/new.html.erb within layouts/application (10.8ms)
+Completed 200 OK in 118ms (Views: 116.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/admin/operators/new" for 127.0.0.1 at 2016-09-08 15:13:57 -0500
+Processing by Admin::OperatorsController#new as HTML
+  [1m[35mJob Load (0.5ms)[0m  SELECT `jobs`.* FROM `jobs` WHERE `jobs`.`state` = 'Activo'
+  Rendered admin/operators/new.html.erb within layouts/application (7.8ms)
+Completed 200 OK in 111ms (Views: 109.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/admin/operators" for 127.0.0.1 at 2016-09-08 15:14:34 -0500
+Processing by Admin::OperatorsController#index as HTML
+  [1m[36mOperator Load (0.3ms)[0m  [1mSELECT `operators`.* FROM `operators`[0m
+  [1m[35mJob Load (0.3ms)[0m  SELECT  `jobs`.* FROM `jobs` WHERE `jobs`.`id` = 1 LIMIT 1
+  Rendered admin/operators/index.html.erb within layouts/application (7.5ms)
+Completed 200 OK in 91ms (Views: 90.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/admin/jobs" for 127.0.0.1 at 2016-09-08 15:30:52 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (20.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by Admin::JobsController#index as HTML
+  [1m[35mJob Load (11.0ms)[0m  SELECT `jobs`.* FROM `jobs`
+  Rendered admin/jobs/index.html.erb within layouts/application (2261.6ms)
+Completed 200 OK in 3222ms (Views: 3186.7ms | ActiveRecord: 11.9ms)
+
+
+Started GET "/admin/jobs" for 127.0.0.1 at 2016-09-08 16:08:02 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by Admin::JobsController#index as HTML
+  [1m[35mJob Load (0.3ms)[0m  SELECT `jobs`.* FROM `jobs`
+  Rendered admin/jobs/index.html.erb within layouts/application (280.4ms)
+Completed 200 OK in 412ms (Views: 401.7ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/admin/jobs" for 127.0.0.1 at 2016-09-08 16:08:11 -0500
+Processing by Admin::JobsController#index as HTML
+  [1m[36mJob Load (0.4ms)[0m  [1mSELECT `jobs`.* FROM `jobs`[0m
+  Rendered admin/jobs/index.html.erb within layouts/application (8.7ms)
+Completed 200 OK in 140ms (Views: 138.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/admin/jobs" for 127.0.0.1 at 2016-09-08 16:14:53 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (21.5ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by Admin::JobsController#index as HTML
+  [1m[35mJob Load (10.9ms)[0m  SELECT `jobs`.* FROM `jobs`
+  Rendered admin/jobs/index.html.erb within layouts/application (2260.9ms)
+Completed 200 OK in 3071ms (Views: 3035.0ms | ActiveRecord: 11.6ms)
+
+
+Started GET "/admin/jobs" for 127.0.0.1 at 2016-09-08 16:15:10 -0500
+Processing by Admin::JobsController#index as HTML
+  [1m[36mJob Load (0.2ms)[0m  [1mSELECT `jobs`.* FROM `jobs`[0m
+  Rendered admin/jobs/index.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 119ms (Views: 117.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/admin/labors" for 127.0.0.1 at 2016-09-08 16:15:22 -0500
+Processing by Admin::LaborsController#index as HTML
+  [1m[35mLabor Load (9.6ms)[0m  SELECT `labors`.* FROM `labors`
+  Rendered admin/labors/index.html.erb within layouts/application (29.4ms)
+Completed 200 OK in 146ms (Views: 120.1ms | ActiveRecord: 10.7ms)
+
+
+Started GET "/admin/operators" for 127.0.0.1 at 2016-09-08 16:15:51 -0500
+Processing by Admin::OperatorsController#index as HTML
+  [1m[36mOperator Load (6.4ms)[0m  [1mSELECT `operators`.* FROM `operators`[0m
+  [1m[35mJob Load (18.7ms)[0m  SELECT  `jobs`.* FROM `jobs` WHERE `jobs`.`id` = 1 LIMIT 1
+  Rendered admin/operators/index.html.erb within layouts/application (61.5ms)
+Completed 200 OK in 188ms (Views: 129.4ms | ActiveRecord: 26.4ms)
+
+
+Started GET "/admin/operators/new" for 127.0.0.1 at 2016-09-08 16:15:52 -0500
+Processing by Admin::OperatorsController#new as HTML
+  [1m[36mJob Load (0.3ms)[0m  [1mSELECT `jobs`.* FROM `jobs` WHERE `jobs`.`state` = 'Activo'[0m
+  Rendered admin/operators/new.html.erb within layouts/application (91.3ms)
+Completed 200 OK in 250ms (Views: 249.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/admin/operators" for 127.0.0.1 at 2016-09-08 16:15:55 -0500
+Processing by Admin::OperatorsController#index as HTML
+  [1m[35mOperator Load (0.3ms)[0m  SELECT `operators`.* FROM `operators`
+  [1m[36mJob Load (0.4ms)[0m  [1mSELECT  `jobs`.* FROM `jobs` WHERE `jobs`.`id` = 1 LIMIT 1[0m
+  Rendered admin/operators/index.html.erb within layouts/application (8.2ms)
+Completed 200 OK in 111ms (Views: 109.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/admin/operators" for 127.0.0.1 at 2016-09-08 16:16:22 -0500
+Processing by Admin::OperatorsController#index as HTML
+  [1m[35mOperator Load (0.2ms)[0m  SELECT `operators`.* FROM `operators`
+  [1m[36mJob Load (0.3ms)[0m  [1mSELECT  `jobs`.* FROM `jobs` WHERE `jobs`.`id` = 1 LIMIT 1[0m
+  Rendered admin/operators/index.html.erb within layouts/application (6.3ms)
+Completed 200 OK in 82ms (Views: 81.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/admin/operators/new" for 127.0.0.1 at 2016-09-08 16:21:01 -0500
+Processing by Admin::OperatorsController#new as HTML
+  [1m[35mJob Load (0.5ms)[0m  SELECT `jobs`.* FROM `jobs` WHERE `jobs`.`state` = 'Activo'
+  Rendered admin/operators/new.html.erb within layouts/application (8.5ms)
+Completed 200 OK in 94ms (Views: 92.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/admin/operators/new" for 127.0.0.1 at 2016-09-08 16:21:05 -0500
+Processing by Admin::OperatorsController#new as HTML
+  [1m[36mJob Load (0.4ms)[0m  [1mSELECT `jobs`.* FROM `jobs` WHERE `jobs`.`state` = 'Activo'[0m
+  Rendered admin/operators/new.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 78ms (Views: 77.6ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/admin/operators" for 127.0.0.1 at 2016-09-08 16:21:13 -0500
+Processing by Admin::OperatorsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"9/ObGHZjvNQmf+EepLnMgnKi/iPi92KSE+Q3AXxCSaq+6FKCJnzG0o0A5TsxjwFu/6DraWpePeJ9qkqyeYCtag==", "operator"=>{"cc"=>"", "name"=>"", "lastname"=>"", "job_id"=>"1", "dateadmission(1i)"=>"2016", "dateadmission(2i)"=>"9", "dateadmission(3i)"=>"8", "dateadmission(4i)"=>"21", "dateadmission(5i)"=>"21"}, "commit"=>"Create Operator"}
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (9.8ms)[0m  [1mINSERT INTO `operators` (`cc`, `name`, `job_id`, `lastname`, `dateadmission`, `created_at`, `updated_at`) VALUES ('', '', 1, '', '2016-09-08 21:21:00', '2016-09-08 21:21:13', '2016-09-08 21:21:13')[0m
+  [1m[35m (35.4ms)[0m  COMMIT
+Redirected to http://localhost:3000/admin/operators
+Completed 302 Found in 48ms (ActiveRecord: 45.3ms)
+
+
+Started GET "/admin/operators" for 127.0.0.1 at 2016-09-08 16:21:13 -0500
+Processing by Admin::OperatorsController#index as HTML
+  [1m[36mOperator Load (0.3ms)[0m  [1mSELECT `operators`.* FROM `operators`[0m
+  [1m[35mJob Load (0.2ms)[0m  SELECT  `jobs`.* FROM `jobs` WHERE `jobs`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `jobs`.* FROM `jobs` WHERE `jobs`.`id` = 1 LIMIT 1[0m  [["id", 1]]
+  Rendered admin/operators/index.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 79ms (Views: 78.5ms | ActiveRecord: 0.5ms)
+
+
+Started DELETE "/admin/operators/7" for 127.0.0.1 at 2016-09-08 16:21:17 -0500
+Processing by Admin::OperatorsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"8/Cf0/1ElGJvBxWdaWPEVGduaEEaTQ6CYM++sRCWPQC661ZJrVvuZMR4Ebj8VQm46mx9C5LkUfIOgcMCFVTZwA==", "id"=>"7"}
+  [1m[35mOperator Load (0.3ms)[0m  SELECT  `operators`.* FROM `operators` WHERE `operators`.`id` = 7 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM `operators` WHERE `operators`.`id` = 7
+  [1m[36m (74.9ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/admin/operators
+Completed 302 Found in 79ms (ActiveRecord: 75.5ms)
+
+
+Started GET "/admin/operators" for 127.0.0.1 at 2016-09-08 16:21:17 -0500
+Processing by Admin::OperatorsController#index as HTML
+  [1m[35mOperator Load (0.3ms)[0m  SELECT `operators`.* FROM `operators`
+  [1m[36mJob Load (0.2ms)[0m  [1mSELECT  `jobs`.* FROM `jobs` WHERE `jobs`.`id` = 1 LIMIT 1[0m
+  Rendered admin/operators/index.html.erb within layouts/application (7.7ms)
+Completed 200 OK in 77ms (Views: 76.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/admin/operators" for 127.0.0.1 at 2016-09-08 16:21:20 -0500
+Processing by Admin::OperatorsController#index as HTML
+  [1m[35mOperator Load (0.2ms)[0m  SELECT `operators`.* FROM `operators`
+  [1m[36mJob Load (0.3ms)[0m  [1mSELECT  `jobs`.* FROM `jobs` WHERE `jobs`.`id` = 1 LIMIT 1[0m
+  Rendered admin/operators/index.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 76ms (Views: 74.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/admin/operators" for 127.0.0.1 at 2016-09-08 16:23:58 -0500
+Processing by Admin::OperatorsController#index as HTML
+  [1m[35mOperator Load (0.3ms)[0m  SELECT `operators`.* FROM `operators`
+  [1m[36mJob Load (0.9ms)[0m  [1mSELECT  `jobs`.* FROM `jobs` WHERE `jobs`.`id` = 1 LIMIT 1[0m
+  Rendered admin/operators/index.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 72ms (Views: 70.1ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/admin/operators" for 127.0.0.1 at 2016-09-08 16:36:04 -0500
+Processing by Admin::OperatorsController#index as HTML
+  [1m[35mOperator Load (0.3ms)[0m  SELECT `operators`.* FROM `operators`
+  [1m[36mJob Load (0.2ms)[0m  [1mSELECT  `jobs`.* FROM `jobs` WHERE `jobs`.`id` = 1 LIMIT 1[0m
+  Rendered admin/operators/index.html.erb within layouts/application (6.7ms)
+Completed 200 OK in 91ms (Views: 90.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/admin/jobs" for 127.0.0.1 at 2016-09-08 16:36:11 -0500
+Processing by Admin::JobsController#index as HTML
+  [1m[35mJob Load (0.4ms)[0m  SELECT `jobs`.* FROM `jobs`
+  Rendered admin/jobs/index.html.erb within layouts/application (5.9ms)
+Completed 200 OK in 88ms (Views: 87.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/admin/jobs/disable/1" for 127.0.0.1 at 2016-09-08 16:36:13 -0500
+Processing by Admin::JobsController#disable as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mJob Load (0.4ms)[0m  [1mSELECT  `jobs`.* FROM `jobs` WHERE `jobs`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (81.0ms)[0m  [1mUPDATE `jobs` SET `state` = 'Inactivo', `updated_at` = '2016-09-08 21:36:13' WHERE `jobs`.`id` = 1[0m
+  [1m[35m (50.9ms)[0m  COMMIT
+Redirected to http://localhost:3000/admin/jobs
+Completed 302 Found in 137ms (ActiveRecord: 132.5ms)
+
+
+Started GET "/admin/jobs" for 127.0.0.1 at 2016-09-08 16:36:13 -0500
+Processing by Admin::JobsController#index as HTML
+  [1m[36mJob Load (0.3ms)[0m  [1mSELECT `jobs`.* FROM `jobs`[0m
+  Rendered admin/jobs/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 84ms (Views: 83.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/admin/jobs/files/spanish" for 127.0.0.1 at 2016-09-08 16:36:14 -0500
+
+ActionController::RoutingError (No route matches [GET] "/admin/jobs/files/spanish"):
+  actionpack (4.2.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.4) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.4) lib/rails/engine.rb:518:in `call'
+  railties (4.2.4) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /home/leidy/.rvm/rubies/ruby-2.2.3/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /home/leidy/.rvm/rubies/ruby-2.2.3/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /home/leidy/.rvm/rubies/ruby-2.2.3/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (0.5ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/routing_error.text.erb (6.7ms)
+
+
+Started GET "/admin/jobs/enable/1" for 127.0.0.1 at 2016-09-08 16:36:15 -0500
+Processing by Admin::JobsController#enable as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mJob Load (0.2ms)[0m  SELECT  `jobs`.* FROM `jobs` WHERE `jobs`.`id` = 1 LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.0ms)[0m  UPDATE `jobs` SET `state` = 'Activo', `updated_at` = '2016-09-08 21:36:15' WHERE `jobs`.`id` = 1
+  [1m[36m (36.1ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/admin/jobs
+Completed 302 Found in 41ms (ActiveRecord: 37.4ms)
+
+
+Started GET "/admin/jobs" for 127.0.0.1 at 2016-09-08 16:36:15 -0500
+Processing by Admin::JobsController#index as HTML
+  [1m[35mJob Load (0.3ms)[0m  SELECT `jobs`.* FROM `jobs`
+  Rendered admin/jobs/index.html.erb within layouts/application (8.4ms)
+Completed 200 OK in 96ms (Views: 95.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/admin/jobs/files/spanish" for 127.0.0.1 at 2016-09-08 16:36:15 -0500
+
+ActionController::RoutingError (No route matches [GET] "/admin/jobs/files/spanish"):
+  actionpack (4.2.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.4) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.4) lib/rails/engine.rb:518:in `call'
+  railties (4.2.4) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /home/leidy/.rvm/rubies/ruby-2.2.3/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /home/leidy/.rvm/rubies/ruby-2.2.3/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /home/leidy/.rvm/rubies/ruby-2.2.3/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (0.3ms)
+  Rendered /home/leidy/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/routing_error.text.erb (3.6ms)
+
+
+Started GET "/admin/jobs" for 127.0.0.1 at 2016-09-08 16:36:18 -0500
+Processing by Admin::JobsController#index as HTML
+  [1m[36mJob Load (0.6ms)[0m  [1mSELECT `jobs`.* FROM `jobs`[0m
+  Rendered admin/jobs/index.html.erb within layouts/application (8.4ms)
+Completed 200 OK in 83ms (Views: 81.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/admin/jobs" for 127.0.0.1 at 2016-09-08 16:47:25 -0500
+Processing by Admin::JobsController#index as HTML
+  [1m[35mJob Load (0.2ms)[0m  SELECT `jobs`.* FROM `jobs`
+  Rendered admin/jobs/index.html.erb within layouts/application (5.8ms)
+Completed 200 OK in 79ms (Views: 78.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/admin/labors" for 127.0.0.1 at 2016-09-08 16:47:50 -0500
+Processing by Admin::LaborsController#index as HTML
+  [1m[36mLabor Load (0.4ms)[0m  [1mSELECT `labors`.* FROM `labors`[0m
+  Rendered admin/labors/index.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 80ms (Views: 78.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/admin/sublots" for 127.0.0.1 at 2016-09-08 16:48:05 -0500
+Processing by Admin::SublotsController#index as HTML
+  [1m[35mSublot Load (8.0ms)[0m  SELECT `sublots`.* FROM `sublots`
+  Rendered admin/sublots/index.html.erb within layouts/application (17.1ms)
+Completed 200 OK in 125ms (Views: 101.8ms | ActiveRecord: 8.6ms)
+
+
+Started GET "/admin/costcs" for 127.0.0.1 at 2016-09-08 16:48:08 -0500
+Processing by Admin::CostcsController#index as HTML
+  [1m[36mCostc Load (5.7ms)[0m  [1mSELECT `costcs`.* FROM `costcs`[0m
+  [1m[35mLabor Load (9.1ms)[0m  SELECT `labors`.* FROM `labors` INNER JOIN `labor_costcs` ON `labors`.`id` = `labor_costcs`.`labor_id` WHERE `labor_costcs`.`costc_id` = 4
+  Rendered admin/costcs/index.html.erb within layouts/application (88.0ms)
+Completed 200 OK in 182ms (Views: 143.9ms | ActiveRecord: 23.6ms)
+
+
+Started GET "/admin/costcs/4" for 127.0.0.1 at 2016-09-08 16:53:00 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (22.5ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by Admin::CostcsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mCostc Load (19.4ms)[0m  SELECT  `costcs`.* FROM `costcs` WHERE `costcs`.`id` = 4 LIMIT 1
+  Rendered admin/costcs/show.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 2164ms (Views: 2083.3ms | ActiveRecord: 26.0ms)
+
+
+Started GET "/admin/costcs" for 127.0.0.1 at 2016-09-08 16:53:04 -0500
+Processing by Admin::CostcsController#index as HTML
+  [1m[36mCostc Load (0.3ms)[0m  [1mSELECT `costcs`.* FROM `costcs`[0m
+  [1m[35mLabor Load (17.7ms)[0m  SELECT `labors`.* FROM `labors` INNER JOIN `labor_costcs` ON `labors`.`id` = `labor_costcs`.`labor_id` WHERE `labor_costcs`.`costc_id` = 4
+  Rendered admin/costcs/index.html.erb within layouts/application (173.1ms)
+Completed 200 OK in 272ms (Views: 236.8ms | ActiveRecord: 34.5ms)
+
+
+Started GET "/admin/costcs" for 127.0.0.1 at 2016-09-08 16:53:07 -0500
+Processing by Admin::CostcsController#index as HTML
+  [1m[36mCostc Load (0.5ms)[0m  [1mSELECT `costcs`.* FROM `costcs`[0m
+  [1m[35mLabor Load (0.9ms)[0m  SELECT `labors`.* FROM `labors` INNER JOIN `labor_costcs` ON `labors`.`id` = `labor_costcs`.`labor_id` WHERE `labor_costcs`.`costc_id` = 4
+  Rendered admin/costcs/index.html.erb within layouts/application (7.9ms)
+Completed 200 OK in 104ms (Views: 102.5ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/admin/jobs" for 127.0.0.1 at 2016-09-08 16:53:12 -0500
+Processing by Admin::JobsController#index as HTML
+  [1m[36mJob Load (6.4ms)[0m  [1mSELECT `jobs`.* FROM `jobs`[0m
+  Rendered admin/jobs/index.html.erb within layouts/application (17.5ms)
+Completed 200 OK in 120ms (Views: 103.0ms | ActiveRecord: 6.9ms)
+
+
+Started GET "/admin/jobs/new" for 127.0.0.1 at 2016-09-08 16:53:15 -0500
+Processing by Admin::JobsController#new as HTML
+  Rendered admin/jobs/new.html.erb within layouts/application (64.2ms)
+Completed 200 OK in 152ms (Views: 151.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/admin/jobs" for 127.0.0.1 at 2016-09-08 16:53:50 -0500
+Processing by Admin::JobsController#index as HTML
+  [1m[35mJob Load (0.4ms)[0m  SELECT `jobs`.* FROM `jobs`
+  Rendered admin/jobs/index.html.erb within layouts/application (6.1ms)
+Completed 200 OK in 123ms (Views: 121.6ms | ActiveRecord: 0.4ms)
