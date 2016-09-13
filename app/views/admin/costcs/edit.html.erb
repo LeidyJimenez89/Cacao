@@ -1,4 +1,5 @@
 <%= stylesheet_link_tag    'selectize.bootstrap3', media: 'all', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag 'plugin', 'data-turbolinks-track' => true %>
 <%= javascript_include_tag 'selectize', 'data-turbolinks-track' => true %>
 
 <h1 class="x_title"><i class="glyphicon glyphicon-leaf titleicon"></i>Editar Centro de costos</h1>
@@ -14,22 +15,21 @@
       </ul>
     </div>
   <% end %>
-  <div class="form-group col-md-4">
+  <div class="form-group col-md-6">
     <%= f.label :code , "Código"%><br>
     <%= f.text_field :code , class:"form-control"%>
   </div>
-  <div class="form-group col-md-4">
+  <div class="form-group col-md-6">
     <%= f.label :name , "Nombre"%><br>
     <%= f.text_field :name , class:"form-control"%>
   </div>
-  <div class="form-group col-md-4">
-    <%= f.label :description , "Descripción"%><br>
-    <%= f.text_field :description , class:"form-control"%>
-  </div>
-
-  <div class="form-group col-md-4">
+  <div class="form-group col-md-12">
     <%= f.label :labors2 , "Labores"%><br>
     <%= f.select :labors2 , Labor.all.map { |j|  [ j.code + " " + j.name , j.id ]  } , {selected: @costc.labors.map { |e| e.id }}, {:multiple => true, class:"form-control"} %>
+  </div>
+  <div class="form-group col-md-12">
+    <%= f.label :description , "Descripción"%><br>
+    <%= f.text_area :description , class:"form-control"%>
   </div>
   <div class="form-group col-md-12">
     <%= link_to 'Cancelar', admin_costcs_path ,:class =>"btn btn-danger" %>
@@ -38,5 +38,5 @@
 <% end %>
 
 <script type="text/javascript">
-$("#costc_labors2").selectize();
+$("#costc_labors2").selectize({ plugins: ['remove_button'] });
 </script>

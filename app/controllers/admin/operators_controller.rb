@@ -21,38 +21,51 @@ class Admin::OperatorsController < ApplicationController
   def edit
   end
 
+  def activate
+    @operator = Operator.find(params[:id])
+  end
+
+  def retire
+    @operator = Operator.find(params[:id])
+  end
+
+  def reinstate
+    @operator = Operator.find(params[:id])
+  end
+
   def enable
     @operator = Operator.find(params[:id])
     @operator[:state] = "Activo"
-    if @operator.save
+    if @operator.update(operator_params)
       redirect_to admin_operators_path, notice: 'Estado habilitado satisfactoriamente'
     else
-      render :new , alert: 'Estado no habilitado satisfactoriamente' 
+      render :activate , alert: 'Estado no habilitado satisfactoriamente' 
     end
   end
 
   def retired
     @operator = Operator.find(params[:id])
     @operator[:state] = "Retirado"
-    if @operator.save
+    if @operator.update(operator_params)
       redirect_to admin_operators_path, notice: 'Estado inhabilitado satisfactoriamente'
     else
-      render :new , alert: 'Estado no inhabilitado satisfactoriamente' 
+      render :retire , alert: 'Estado no inhabilitado satisfactoriamente' 
     end
   end
 
   def reinstated
     @operator = Operator.find(params[:id])
     @operator[:state] = "Reintegrado"
-    if @operator.save
+    if @operator.update(operator_params)
       redirect_to admin_operators_path, notice: 'Estado inhabilitado satisfactoriamente'
     else
-      render :new , alert: 'Estado no inhabilitado satisfactoriamente' 
+      render :reinstate , alert: 'Estado no inhabilitado satisfactoriamente' 
     end
   end
 
   def create
     @operator = Operator.new(operator_params)
+    @operator[:state] = "Activo"
       if @operator.save
         redirect_to admin_operators_path, notice: 'Operador creado satisfactoriamente'
       else
@@ -85,6 +98,6 @@ class Admin::OperatorsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def operator_params
-      params.require(:operator).permit(:cc, :name, :position, :dateadmission, :state , :job_id, :lastname)
+      params.require(:operator).permit(:cc, :name, :position, :dateadmission, :state , :job_id, :lastname, :retirementdate, :description)
     end
 end

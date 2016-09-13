@@ -26,9 +26,7 @@
 
 <body class="nav-md">
 <div class="container body">
-  <% flash.each do |key, value| %>
-      <div align="center" id="flash" class="alert alert-<%= key %>"><%= value %></div>
-  <% end %>
+
 
 
 
@@ -262,8 +260,14 @@
 <div class="right_col" role="main" style="height:100vh;">
     <div class="clearfix"></div>
     <div class="row">
+<!--  Los mensajes arriba de la página    
       <h1 class="label label-success"><%= notice %></h1>
-      <h1><%= alert %></h1>
+      <h1><%= alert %></h1> -->
+
+  <% flash.each do |key, value| %>
+      <div align="center" id="flash" class="label label-success <%= key %>"><%= value %></div>
+  <% end %>
+
       <%= yield %>
     </div>
 </div>

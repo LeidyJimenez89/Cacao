@@ -61,15 +61,24 @@ Rails.application.routes.draw do
   #   end
      namespace :admin do
        resources :operators
-       get 'operators/retired/:id', to: 'operators#retired', as: 'retired_operator'
-       get 'operators/reinstated/:id', to: 'operators#reinstated', as: 'reinstated_operator'
-       get 'operators/enable/:id', to: 'operators#enable', as: 'enable_operator'
+       post 'operators/:id/retired', to: 'operators#retired', as: 'retired_operator'
+       post 'operators/:id/reinstated', to: 'operators#reinstated', as: 'reinstated_operator'
+       post 'operators/:id/enable', to: 'operators#enable', as: 'enable_operator'
+       get 'operators/:id/retire', to: 'operators#retire', as: 'retire_operator'
+       get 'operators/:id/reinstate', to: 'operators#reinstate', as: 'reinstate_operator'
+       get 'operators/:id/activate', to: 'operators#activate', as: 'activate_operator'
        
        resources :jobs
        get 'jobs/disable/:id', to: 'jobs#disable', as: 'disable_job'
        get 'jobs/enable/:id', to: 'jobs#enable', as: 'enable_job'
 
        resources :supervisors
+       post 'supervisors/:id/retired', to: 'supervisors#retired', as: 'retired_supervisor'
+       post 'supervisors/:id/reinstated', to: 'supervisors#reinstated', as: 'reinstated_supervisor'
+       post 'supervisors/:id/enable', to: 'supervisors#enable', as: 'enable_supervisor'
+       get 'supervisors/:id/retire', to: 'supervisors#retire', as: 'retire_supervisor'
+       get 'supervisors/:id/reinstate', to: 'supervisors#reinstate', as: 'reinstate_supervisor'
+       get 'supervisors/:id/activate', to: 'supervisors#activate', as: 'activate_supervisor'
 
        resources :labors
 

@@ -45,6 +45,14 @@ class Admin::CostcsController < ApplicationController
   # PATCH/PUT /costcs/1
   # PATCH/PUT /costcs/1.json
   def update
+    params[:costc][:labors2].each do |labor|
+      if labor.present?
+        nuevo = LaborCostc.new
+        nuevo[:labor_id] = labor
+        nuevo[:costc_id] = @costc.id
+        nuevo.save
+      end
+    end
     respond_to do |format|
       if @costc.update(costc_params)
         format.html { redirect_to admin_costcs_path, notice: 'Centro de costos editado satisfactoriamente' }
@@ -71,6 +79,6 @@ class Admin::CostcsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def costc_params
-      params.require(:costc).permit(:user_id, :code, :name, :description)
+      params.require(:costc).permit(:user_id, :code, :name, :description, :labors)
     end
 end

@@ -10,6 +10,7 @@
       <th>Nombre</th>
       <th>Cargo</th>
       <th>Fecha de ingreso</th>
+      <th>Fecha de retiro</th>
       <th>Estado</th>
       <th>Acciones</th>
     </tr>
@@ -26,16 +27,20 @@
           <% end %>
         </td>
         <td><%= operator.dateadmission %></td>
+        <td><%= operator.retirementdate %></td>
         <td><%= operator.state %></td>
         <td>
         <%= link_to 'Ver', admin_operator_path(operator),:class =>"btn btn-default btn-sm" %>      
         <%= link_to 'Editar', edit_admin_operator_path(operator) ,:class =>"btn btn-default btn-sm"%>
         <%= link_to 'Eliminar', admin_operator_path(operator),:class =>"btn btn-default btn-sm", method: :delete, data: { confirm: 'Are you sure?' } %>
         <%if operator.state=="Activo"%>
-          <%= link_to 'Retirar', admin_retired_operator_path(operator),:class =>"btn btn-default btn-sm" %>
+          <%= link_to 'Retirar', admin_retire_operator_path(operator),:class =>"btn btn-default btn-sm" %>
         <%end%>
-        <%if operator.state=="Retirado"%>
-          <%= link_to 'Reintegrar', admin_reinstated_operator_path(operator),:class =>"btn btn-default btn-sm" %>
+        <%if operator.state=="Retirado" and operator.retirementdate != " "%>
+          <%= link_to 'Reintegrar', admin_reinstate_operator_path(operator),:class =>"btn btn-default btn-sm" %>
+        <%end%>
+        <%if operator.state=="Reintegrado" and operator.retirementdate != " "%>
+          <%= link_to 'Retirar', admin_retire_operator_path(operator),:class =>"btn btn-default btn-sm" %>
         <%end%>
         </td>
       </tr>

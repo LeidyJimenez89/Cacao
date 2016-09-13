@@ -25,5 +25,12 @@
   <%= @operator.state %>
 </p>
 
+<% if @operator.retirementdate.present? %>
+  <p>
+    <strong>Fecha de retiro:</strong>
+    <%= @operator.retirementdate %>
+  </p>
+<% end %>
+
 <%= link_to 'Editar', edit_admin_operator_path(@operator) ,:class =>"btn btn-default"%>
 <%= link_to 'Cancelar', admin_operators_path ,:class =>"btn btn-default"%>

@@ -21,9 +21,51 @@ class Admin::SupervisorsController < ApplicationController
   def edit
   end
 
+  def activate
+    @supervisor = Supervisor.find(params[:id])
+  end
+
+  def retire
+    @supervisor = Supervisor.find(params[:id])
+  end
+
+  def reinstate
+    @supervisor = Supervisor.find(params[:id])
+  end
+
+  def enable
+    @supervisor = Supervisor.find(params[:id])
+    @supervisor[:state] = "Activo"
+    if @supervisor.update(supervisor_params)
+      redirect_to admin_supervisors_path, notice: 'Estado habilitado satisfactoriamente'
+    else
+      render :activate , alert: 'Estado no habilitado satisfactoriamente' 
+    end
+  end
+
+  def retired
+    @supervisor = Supervisor.find(params[:id])
+    @supervisor[:state] = "Retirado"
+    if @supervisor.update(supervisor_params)
+      redirect_to admin_supervisors_path, notice: 'Estado inhabilitado satisfactoriamente'
+    else
+      render :retire , alert: 'Estado no inhabilitado satisfactoriamente' 
+    end
+  end
+
+  def reinstated
+    @supervisor = Supervisor.find(params[:id])
+    @supervisor[:state] = "Reintegrado"
+    if @supervisor.update(supervisor_params)
+      redirect_to admin_supervisors_path, notice: 'Estado inhabilitado satisfactoriamente'
+    else
+      render :reinstate , alert: 'Estado no inhabilitado satisfactoriamente' 
+    end
+  end
 
   def create
     @supervisor = Supervisor.new(supervisor_params)
+    @supervisor[:state] = "Activo"
     if @supervisor.save
       redirect_to admin_supervisors_path, notice: 'Supervisor creado satisfactoriamente'
     else
@@ -58,6 +100,6 @@ class Admin::SupervisorsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def supervisor_params
-      params.require(:supervisor).permit(:user_id, :name, :lastname, :cc, :state, :job_id, :dateadmission)
+      params.require(:supervisor).permit(:user_id, :name, :lastname, :cc, :state, :job_id, :dateadmission, :retirementdate, :description)
     end
 end
