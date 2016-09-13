@@ -6,11 +6,12 @@
 <table id="datatable" class="display datatable" cellspacing="0" width="100%">
   <thead>
     <tr>
-      <th>Cécula</th>
+      <th>Cédula</th>
       <th>Nombre</th>
-      <th>State</th>
-      <th>Position</th>
-      <th>Dateadmission</th>
+      <th>Estado</th>
+      <th>Cargo</th>
+      <th>Fecha de ingreso</th>
+      <th>Fecha de retiro</th>
       <th>Acciones</th>
     </tr>
   </thead>
@@ -27,6 +28,7 @@
         </td>
         <td><%= supervisor.state %></td>
         <td><%= supervisor.dateadmission %></td>
+        <td><%= supervisor.retirementdate %></td>
         <td>
         <%= link_to 'Ver', supervisor,:class =>"btn btn-default btn-sm"  %>
         <%= link_to 'Editar', edit_supervisor_path(supervisor),:class =>"btn btn-default btn-sm"  %>

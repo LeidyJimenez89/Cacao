@@ -11,6 +11,7 @@
       <th>Cargo</th>      
       <th>Estado</th>
       <th>Fecha de ingreso</th>
+      <th>Fecha de retiro</th>
       <th>Acciones</th>
     </tr>
   </thead>
@@ -27,10 +28,20 @@
         </td>
         <td><%= supervisor.state %></td>
         <td><%= supervisor.dateadmission %></td>
+        <td><%= supervisor.retirementdate %></td>
         <td>
         <%= link_to 'Ver', admin_supervisor_path(supervisor),:class =>"btn btn-default btn-sm"  %>
         <%= link_to 'Editar', edit_admin_supervisor_path(supervisor),:class =>"btn btn-default btn-sm"  %>
         <%= link_to 'Eliminar', admin_supervisor_path(supervisor),:class =>"btn btn-default btn-sm" , method: :delete, data: { confirm: 'Are you sure?' } %>
+        <%if supervisor.state=="Activo"%>
+          <%= link_to 'Retirar', admin_retire_supervisor_path(supervisor),:class =>"btn btn-default btn-sm" %>
+        <%end%>
+        <%if supervisor.state=="Retirado" and supervisor.retirementdate != " "%>
+          <%= link_to 'Reintegrar', admin_reinstate_supervisor_path(supervisor),:class =>"btn btn-default btn-sm" %>
+        <%end%>
+        <%if supervisor.state=="Reintegrado" and supervisor.retirementdate != " "%>
+          <%= link_to 'Retirar', admin_retire_supervisor_path(supervisor),:class =>"btn btn-default btn-sm" %>
+        <%end%>
         </td>
       </tr>
     <% end %>
