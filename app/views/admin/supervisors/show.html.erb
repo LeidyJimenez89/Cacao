@@ -21,6 +21,11 @@
 </p>
 
 <p>
+  <strong>Género:</strong>
+  <%= @supervisor.gender %>
+</p>
+
+<p>
   <strong>Fecha de ingreso:</strong>
   <%= @supervisor.dateadmission %>
 </p>
@@ -31,6 +36,19 @@
     <%= @supervisor.retirementdate %>
   </p>
 <% end %>
+
+<% if @supervisor.description.present? %>
+  <p>
+    <strong>Explicación de retiro:</strong>
+    <%= @supervisor.description %>
+  </p>
+<% end %>
+
+<p>
+  <strong>Operadores a cargo:</strong>
+  <br>
+  <%= @supervisor.operators.map { |e| e.cc + " " + e.name }.join("<br>").html_safe %>
+</p>
 
 <%= link_to 'Editar', edit_admin_supervisor_path(@supervisor),:class =>"btn btn-default" %>
 <%= link_to 'Cancelar', admin_supervisors_path,:class =>"btn btn-default" %>

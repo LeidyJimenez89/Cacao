@@ -46,6 +46,16 @@ class Admin::JobsController < ApplicationController
     @job = Job.new(job_params)
     @job.state="Activo"
     if @job.save
+
+      params[:job][:labors2].each do |labor|
+        if labor.present?
+          nuevo = LaborJob.new
+          nuevo[:labor_id] = job
+          nuevo[:job_id] = @labor.id
+          nuevo.save
+        end
+      end
+
       redirect_to admin_jobs_path, notice: 'C1argo creado satisfactoriamente'
     else
       render :new , alert: 'Cargo no creado satisfactoriamente' 
@@ -56,6 +66,19 @@ class Admin::JobsController < ApplicationController
   # PATCH/PUT /jobs/1
   # PATCH/PUT /jobs/1.json
   def update
+    if @job.labors.present?
+      @job = Job.find(params[:id])
+      @job.labors.delete_all
+    end
+
+    params[:job][:labors2].each do |labor|
+      if labor.present?
+        nuevo = LaborJob.new
+        nuevo[:labor_id] = job
+        nuevo[:job_id] = @labor.id
+        nuevo.save
+      end
+    end
     respond_to do |format|
       if @job.update(job_params)
         format.html { redirect_to admin_jobs_path, notice: 'Cargo editado satisfactoriamente' }

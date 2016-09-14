@@ -6,9 +6,9 @@
 <table id="datatable" class="display datatable" cellspacing="0" width="100%">
   <thead>
     <tr>
+      <th>Centro de costos</th>
       <th>Código</th>
       <th>Nombre</th>
-      <th>Descripción</th>
       <th>Acciones</th>
     </tr>
   </thead>
@@ -16,9 +16,9 @@
   <tbody>
     <% @sublots.each do |sublot| %>
       <tr>
+        <td><%= sublot.costc.name %></td>
         <td><%= sublot.code %></td>
         <td><%= sublot.name %></td>
-        <td><%= sublot.description %></td>
         <td>
         <%= link_to 'Ver', admin_sublot_path(sublot),:class =>"btn btn-default btn-sm" %>
         <%= link_to 'Editar', edit_admin_sublot_path(sublot),:class =>"btn btn-default btn-sm" %>

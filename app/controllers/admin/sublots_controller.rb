@@ -61,6 +61,6 @@ class Admin::SublotsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def sublot_params
-      params.require(:sublot).permit(:user_id, :name, :description, :code)
+      params.require(:sublot).permit(:user_id, :name, :description, :code, :costc_id)
     end
 end

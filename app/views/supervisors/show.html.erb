@@ -21,6 +21,11 @@
 </p>
 
 <p>
+  <strong>Género:</strong>
+  <%= @supervisor.gender %>
+</p>
+
+<p>
   <strong>Fecha de ingreso:</strong>
   <%= @supervisor.dateadmission %>
 </p>
@@ -29,6 +34,13 @@
   <p>
     <strong>Fecha de retiro:</strong>
     <%= @supervisor.retirementdate %>
+  </p>
+<% end %>
+
+<% if @supervisor.description.present? %>
+  <p>
+    <strong>Explicación de retiro:</strong>
+    <%= @supervisor.description %>
   </p>
 <% end %>
 

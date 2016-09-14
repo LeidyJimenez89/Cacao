@@ -45,6 +45,11 @@ class Admin::CostcsController < ApplicationController
   # PATCH/PUT /costcs/1
   # PATCH/PUT /costcs/1.json
   def update
+    if @costc.labors.present?
+      @costc = Costc.find(params[:id])
+      @costc.labors.delete_all
+    end
+
     params[:costc][:labors2].each do |labor|
       if labor.present?
         nuevo = LaborCostc.new

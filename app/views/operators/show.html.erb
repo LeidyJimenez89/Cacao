@@ -16,6 +16,11 @@
 </p>
 
 <p>
+  <strong>Género:</strong>
+  <%= @operator.gender%>
+</p>
+
+<p>
   <strong>Fecha de ingreso:</strong>
   <%= @operator.dateadmission %>
 </p>
@@ -29,6 +34,13 @@
   <p>
     <strong>Fecha de retiro:</strong>
     <%= @operator.retirementdate %>
+  </p>
+<% end %>
+
+<% if @operator.description.present? %>
+  <p>
+    <strong>Explicación de retiro:</strong>
+    <%= @operator.description %>
   </p>
 <% end %>
 
