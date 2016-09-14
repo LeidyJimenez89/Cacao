@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160912193744) do
+ActiveRecord::Schema.define(version: 20160914201134) do
 
   create_table "ar_internal_metadata", primary_key: "key", force: :cascade do |t|
     t.string   "value",      limit: 255
@@ -45,12 +45,26 @@ ActiveRecord::Schema.define(version: 20160912193744) do
     t.datetime "updated_at",           null: false
   end
 
+  create_table "labor_jobs", force: :cascade do |t|
+    t.integer  "labor_id",   limit: 4
+    t.integer  "job_id",     limit: 4
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
   create_table "labors", force: :cascade do |t|
     t.integer  "user_id",     limit: 4
     t.string   "code",        limit: 255
     t.string   "name",        limit: 255
     t.string   "paymentunit", limit: 255
     t.float    "rate",        limit: 24
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
+
+  create_table "operator_supervisors", force: :cascade do |t|
+    t.integer  "supervisor_id", limit: 4
+    t.integer  "operator_id",   limit: 4
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
   end
@@ -66,6 +80,7 @@ ActiveRecord::Schema.define(version: 20160912193744) do
     t.integer  "job_id",         limit: 4
     t.datetime "retirementdate"
     t.string   "description",    limit: 255
+    t.string   "gender",         limit: 255
   end
 
   create_table "sublots", force: :cascade do |t|
@@ -75,6 +90,7 @@ ActiveRecord::Schema.define(version: 20160912193744) do
     t.string   "description", limit: 255
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
+    t.integer  "costc_id",    limit: 4
   end
 
   create_table "supervisors", force: :cascade do |t|
@@ -89,6 +105,7 @@ ActiveRecord::Schema.define(version: 20160912193744) do
     t.datetime "retirementdate"
     t.string   "description",    limit: 255
     t.string   "cc",             limit: 255
+    t.string   "gender",         limit: 255
   end
 
 end

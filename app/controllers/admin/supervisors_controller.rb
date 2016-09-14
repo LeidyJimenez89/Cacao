@@ -67,6 +67,16 @@ class Admin::SupervisorsController < ApplicationController
     @supervisor = Supervisor.new(supervisor_params)
     @supervisor[:state] = "Activo"
     if @supervisor.save
+
+      params[:supervisor][:operators2].each do |operator|
+        if operator.present?
+          nuevo = OperatorSupervisor.new
+          nuevo[:operator_id] = operator
+          nuevo[:supervisor_id] = @supervisor.id
+          nuevo.save
+        end
+      end
+
       redirect_to admin_supervisors_path, notice: 'Supervisor creado satisfactoriamente'
     else
       render :new , alert: 'Operador no creado satisfactoriamente' 
@@ -75,6 +85,19 @@ class Admin::SupervisorsController < ApplicationController
 
 
   def update
+    if @supervisor.operators.present?
+      @supervisor = Supervisor.find(params[:id])
+      @supervisor.operators.delete_all
+    end
+
+    params[:supervisor][:operators2].each do |operator|
+        if operator.present?
+          nuevo = OperatorSupervisor.new
+          nuevo[:operator_id] = operator
+          nuevo[:supervisor_id] = @supervisor.id
+          nuevo.save
+        end
+      end
     respond_to do |format|
       if @supervisor.update(supervisor_params)
         format.html { redirect_to admin_supervisors_path, notice: 'Supervisor editado satisfactoriamente' }
@@ -100,6 +123,6 @@ class Admin::SupervisorsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def supervisor_params
-      params.require(:supervisor).permit(:user_id, :name, :lastname, :cc, :state, :job_id, :dateadmission, :retirementdate, :description)
+      params.require(:supervisor).permit(:user_id, :name, :lastname, :cc, :state, :job_id, :dateadmission, :retirementdate, :description, :gender)
     end
 end

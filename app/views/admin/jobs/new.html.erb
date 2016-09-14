@@ -1,3 +1,7 @@
+<%= stylesheet_link_tag    'selectize.bootstrap3', media: 'all', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag 'selectize', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag 'plugin', 'data-turbolinks-track' => true %>
+
 <h1 class="x_title"><i class="glyphicon glyphicon-leaf titleicon"></i>Crear Cargo</h1>
 
 <%= form_for @job, url:{action: "create"} do |f| %>
@@ -12,19 +16,29 @@
     </div>
   <% end %>
 
-	  <div class="form-group col-md-12">
-	    <%= f.label :name , "Nombre", class:"subtitle"%>
-	    <%= f.text_field :name , class:"form-control"%>
-	  </div>
-
-	  <div class="form-group col-md-12">
-	    <%= f.label :description , "Descripción", class:"subtitle"%>
-	    <%= f.text_area :description , class:"form-control"%>
-	  </div>
-
-	  <div class="col-md-12">
-		<%= link_to 'Cancelar', admin_jobs_path ,:class =>"btn btn-danger" %>
-	    <%= f.submit :class =>"btn btn-success"%>
-	  </div>
+  <div class="form-group col-md-12">
+    <%= f.label :name , "Nombre"%>
+    <%= f.text_field :name , class:"form-control"%>
+  </div>
+  <div class="form-group col-md-12">
+    <%= f.label :labors2 , "Labores"%>
+	<%= f.select(:labors2, option_groups_from_collection_for_select(Costc.all, :labors, :name, :id, :name), {} , { :multiple => true }) %>
+  </div>
+  <div class="form-group col-md-12">
+    <%= f.label :description , "Descripción"%>
+    <%= f.text_area :description , class:"form-control"%>
+  </div>
+  <div class="col-md-12">
+	<%= link_to 'Cancelar', admin_jobs_path ,:class =>"btn btn-danger" %>
+    <%= f.submit :class =>"btn btn-success"%>
+  </div>
 
 <% end %>
+
+<script type="text/javascript">
+$("#job_labors2").selectize({ plugins: ['optgroup_columns'] });
+
+
+
+
+</script>

@@ -14,12 +14,14 @@
 	    <%= f.label :name , "Nombre", class:"subtitle"%>
 	    <%= f.text_field :name , class:"form-control"%>
 	  </div>
-
 	  <div class="form-group col-md-12">
 	    <%= f.label :description , "Descripción", class:"subtitle"%>
 	    <%= f.text_area :description , class:"form-control"%>
 	  </div>
-
+	  <div class="form-group col-md-4">
+	    <%= f.label :job_id, "Cargo", class:"subtitle"%>
+	    <%= f.select :job_id, Job.where(state: "Activo").map { |j|  [ j.name , j.id ]  } , {prompt: ""} ,class:"form-control"%>
+	  </div>
 	  <div class="col-md-12">
 		<%= link_to 'Cancelar', admin_jobs_path ,:class =>"btn btn-danger" %>
 	    <%= f.submit :class =>"btn btn-success"%>

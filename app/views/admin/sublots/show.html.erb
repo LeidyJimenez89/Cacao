@@ -1,3 +1,10 @@
+<% if @sublot.costc_id.present? %>
+	<p>
+	  <strong>Descripción:</strong>
+	  <%= @sublot.costc.name %>
+	</p>
+<% end %>
+
 <p>
   <strong>Código:</strong>
   <%= @sublot.code %>

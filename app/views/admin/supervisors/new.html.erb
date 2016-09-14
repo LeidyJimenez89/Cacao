@@ -1,3 +1,7 @@
+<%= stylesheet_link_tag    'selectize.bootstrap3', media: 'all', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag 'selectize', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag 'plugin', 'data-turbolinks-track' => true %>
+
 <h1 class="x_title"><i class="glyphicon glyphicon-leaf titleicon"></i>Crear Supervisor</h1>
 
 <%= form_for @supervisor , url:{action: "create"} do |f| %>
@@ -24,6 +28,10 @@
     <%= f.text_field :lastname , class:"form-control"%>
   </div>
   <div class="form-group col-md-4">
+    <%= f.label :gender, "Estado" %>
+    <%= f.select :gender, ["Femenino","Masculino"], {},class:"form-control"%>
+  </div>
+  <div class="form-group col-md-4">
     <%= f.label :job_id, "Cargo"%>
     <%= f.select :job_id , Job.all.map { |j|  [ j.name , j.id ]  } , {prompt: ""}, class:"form-control"%>
   </div>
@@ -31,8 +39,20 @@
     <%= f.label :dateadmission, "Fecha de ingreso"%>
     <%= f.datetime_select :dateadmission , class:"form-control"%>
   </div>
+  <div class="form-group col-md-12">
+    <%= f.label :operators2 , "Labores"%><br>
+    <%= f.select :operators2 , Operator.all.map { |j|  [ j.cc + " " + j.name , j.id ]  } , {}, {:multiple => true, class:"form-control"} %>
+  </div>
   <div class="col-md-12">
   	<%= link_to 'Cancelar', admin_supervisors_path ,:class =>"btn btn-danger"%>
     <%= f.submit :class =>"btn btn-success"%>
   </div>
 <% end %>
+
+<script type="text/javascript">
+$("#supervisor_operators2").selectize({ plugins: ['remove_button'] });
+
+
+
+
+</script>
