@@ -45,6 +45,20 @@ class Admin::LaborsController < ApplicationController
   # PATCH/PUT /labors/1
   # PATCH/PUT /labors/1.json
   def update
+    if @labor.costcs.present?
+      @labor = Labor.find(params[:id])
+      @labor.costcs.delete_all
+    end
+
+    params[:labor][:costcs2].each do |cc|
+      if cc.present?
+        nuevo = LaborCostc.new
+        nuevo[:costc_id] = cc
+        nuevo[:labor_id] = @labor.id
+        nuevo.save
+      end
+    end
+
     respond_to do |format|
       if @labor.update(labor_params)
         format.html { redirect_to admin_labors_path, notice: 'Labor editada satisfactoriamente' }
@@ -71,6 +85,7 @@ class Admin::LaborsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def labor_params
+      params[:labor][:name]=params[:labor][:name].capitalize
       params.require(:labor).permit(:user_id, :code, :name, :paymentunit, :rate)
     end
 end

@@ -21,8 +21,8 @@
     <%= f.text_field :name , class:"form-control"%>
   </div>
   <div class="form-group col-md-12">
-    <%= f.label :labors2 , "Labores"%>
-	<%= f.select(:labors2, option_groups_from_collection_for_select(Costc.all, :labors, :name, :id, :name), {} , { :multiple => true }) %>
+    <%= f.label :labors2 , "Labores"%><br>
+    <%= f.select :labors2 , Labor.all.map { |j|  [ j.code + " " + j.name , j.id ]  } , {}, {:multiple => true, class:"form-control"} %>
   </div>
   <div class="form-group col-md-12">
     <%= f.label :description , "Descripción"%>
@@ -36,7 +36,7 @@
 <% end %>
 
 <script type="text/javascript">
-$("#job_labors2").selectize({duplicates: true,hideSelected: false,  plugins: ['optgroup_columns'] });
+$("#job_labors2").selectize({ plugins: ['remove_button'] });
 
 
 

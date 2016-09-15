@@ -1,4 +1,8 @@
-<h1>Editar Labor</h1>
+<%= stylesheet_link_tag    'selectize.bootstrap3', media: 'all', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag 'selectize', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag 'plugin', 'data-turbolinks-track' => true %>
+
+<h1 class="x_title"><i class="glyphicon glyphicon-leaf titleicon"></i>Editar Labor</h1>
 <%= form_for @labor , url:{action: "update"} do |f| %>
   <% if @labor.errors.any? %>
     <div id="error_explanation">
@@ -10,24 +14,36 @@
       </ul>
     </div>
   <% end %>
-    <div class="form-group col-md-4">
+    <div class="form-group col-md-6">
     <%= f.label :code , "Código"%>
     <%= f.text_field :code, class:"form-control" %>
   </div>
-  <div class="form-group col-md-4">
+  <div class="form-group col-md-6">
     <%= f.label :name , "Nombre"%>
     <%= f.text_field :name, class:"form-control" %>
   </div>
-  <div class="form-group col-md-4">
-    <%= f.label :paymentunit , "Unidad de pago"%>
-    <%= f.text_field :paymentunit, class:"form-control" %>
+  <div class="form-group col-md-6">
+    <%= f.label :paymentunit, "Estado" %>
+    <%= f.select :paymentunit, ["Planta","Jornal","Metros lineales","Bolsa","Mes"], {},class:"form-control"%>
   </div>
-  <div class="form-group col-md-4">
+  <div class="form-group col-md-6">
     <%= f.label :rate , "Tarifa"%>
     <%= f.text_field :rate, class:"form-control" %>
+  </div>
+  <div class="form-group col-md-12">
+    <%= f.label :costcs2 , "Centros de costos"%><br>
+    <%= f.select :costcs2 , Costc.all.map { |j|  [ j.code + " " + j.name , j.id ]  } , {selected: @labor.costcs.map { |e| e.id }}, {:multiple => true, class:"form-control"} %>
   </div>
   <div class="form-group col-md-12">
 	<%= link_to 'Cancelar', admin_labors_path ,:class =>"btn btn-danger" %>
 	<%= f.submit :class =>"btn btn-success"%>
   </div>
 <% end %>
+
+<script type="text/javascript">
+$("#labor_costcs2").selectize({ plugins: ['remove_button'] });
+
+
+
+
+</script>
