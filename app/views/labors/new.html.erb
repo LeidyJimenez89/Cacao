@@ -20,8 +20,8 @@
     <%= f.text_field :name, class:"form-control" %>
   </div>
   <div class="form-group col-md-4">
-    <%= f.label :paymentunit , "Unidad de pago"%>
-    <%= f.text_field :paymentunit, class:"form-control" %>
+    <%= f.label :paymentunit, "Estado" %>
+    <%= f.select :paymentunit, ["Planta","Jornal","Metros lineales","Bolsa","Mes"], {},class:"form-control"%>
   </div>
   <div class="form-group col-md-4">
     <%= f.label :rate , "Tarifa"%>

@@ -50,8 +50,8 @@ class Admin::JobsController < ApplicationController
       params[:job][:labors2].each do |labor|
         if labor.present?
           nuevo = LaborJob.new
-          nuevo[:labor_id] = job
-          nuevo[:job_id] = @labor.id
+          nuevo[:labor_id] = labor
+          nuevo[:job_id] = @job.id
           nuevo.save
         end
       end
@@ -74,8 +74,8 @@ class Admin::JobsController < ApplicationController
     params[:job][:labors2].each do |labor|
       if labor.present?
         nuevo = LaborJob.new
-        nuevo[:labor_id] = job
-        nuevo[:job_id] = @labor.id
+        nuevo[:labor_id] = labor
+        nuevo[:job_id] = @job.id
         nuevo.save
       end
     end
