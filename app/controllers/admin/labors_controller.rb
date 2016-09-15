@@ -26,6 +26,16 @@ class Admin::LaborsController < ApplicationController
   def create
     @labor = Labor.new(labor_params)
     if @labor.save
+
+      params[:labor][:costcs2].each do |cc|
+        if cc.present?
+          nuevo = LaborCostc.new
+          nuevo[:costc_id] = cc
+          nuevo[:labor_id] = @labor.id
+          nuevo.save
+        end
+      end
+
       redirect_to admin_labors_path, notice: 'Labor creada satisfactoriamente' 
     else
       render :new , alert: 'Labor no creada satisfactoriamente' 
