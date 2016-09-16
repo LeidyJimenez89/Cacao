@@ -21,9 +21,13 @@ class Admin::SupervisorsController < ApplicationController
   def edit
   end
 
-  def activate
-    @supervisor = Supervisor.find(params[:id])
+  def savehistory
+    @records = Record.all
   end
+
+#  def activate
+#    @supervisor = Supervisor.find(params[:id])
+#  end
 
   def retire
     @supervisor = Supervisor.find(params[:id])
@@ -33,15 +37,15 @@ class Admin::SupervisorsController < ApplicationController
     @supervisor = Supervisor.find(params[:id])
   end
 
-  def enable
-    @supervisor = Supervisor.find(params[:id])
-    @supervisor[:state] = "Activo"
-    if @supervisor.update(supervisor_params)
-      redirect_to admin_supervisors_path, notice: 'Estado habilitado satisfactoriamente'
-    else
-      render :activate , alert: 'Estado no habilitado satisfactoriamente' 
-    end
-  end
+#  def enable
+#    @supervisor = Supervisor.find(params[:id])
+#    @supervisor[:state] = "Activo"
+#    if @supervisor.update(supervisor_params)
+#      redirect_to admin_supervisors_path, notice: 'Estado habilitado satisfactoriamente'
+#    else
+#      render :activate , alert: 'Estado no habilitado satisfactoriamente' 
+#    end
+#  end
 
   def retired
     @supervisor = Supervisor.find(params[:id])

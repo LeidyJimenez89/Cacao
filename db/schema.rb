@@ -83,6 +83,15 @@ ActiveRecord::Schema.define(version: 20160916012532) do
     t.string   "gender",         limit: 255
   end
 
+  create_table "record_operators", force: :cascade do |t|
+    t.integer  "record_id",   limit: 4
+    t.integer  "operator_id", limit: 4
+    t.string   "state",       limit: 255
+    t.string   "description", limit: 255
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
+
   create_table "records", force: :cascade do |t|
     t.integer  "record_id",   limit: 4
     t.integer  "operator_id", limit: 4

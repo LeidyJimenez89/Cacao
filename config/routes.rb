@@ -70,25 +70,28 @@ end
   #     resources :products
   #   end
      namespace :admin do
-       resources :operators
+
        post 'operators/:id/retired', to: 'operators#retired', as: 'retired_operator'
        post 'operators/:id/reinstated', to: 'operators#reinstated', as: 'reinstated_operator'
        post 'operators/:id/enable', to: 'operators#enable', as: 'enable_operator'
        get 'operators/:id/retire', to: 'operators#retire', as: 'retire_operator'
        get 'operators/:id/reinstate', to: 'operators#reinstate', as: 'reinstate_operator'
        get 'operators/:id/activate', to: 'operators#activate', as: 'activate_operator'
-       
+       get 'operators/savehistory'
+       resources :operators
+
        resources :jobs
        get 'jobs/disable/:id', to: 'jobs#disable', as: 'disable_job'
        get 'jobs/enable/:id', to: 'jobs#enable', as: 'enable_job'
 
-       resources :supervisors
        post 'supervisors/:id/retired', to: 'supervisors#retired', as: 'retired_supervisor'
        post 'supervisors/:id/reinstated', to: 'supervisors#reinstated', as: 'reinstated_supervisor'
        post 'supervisors/:id/enable', to: 'supervisors#enable', as: 'enable_supervisor'
        get 'supervisors/:id/retire', to: 'supervisors#retire', as: 'retire_supervisor'
        get 'supervisors/:id/reinstate', to: 'supervisors#reinstate', as: 'reinstate_supervisor'
        get 'supervisors/:id/activate', to: 'supervisors#activate', as: 'activate_supervisor'
+       get 'supervisors/register', to: 'supervisors#register', as: 'register_supervisor'
+       resources :supervisors
 
        resources :labors
 
