@@ -1,6 +1,7 @@
 class Admin::CostcsController < ApplicationController
   before_action :set_costc, only: [:show, :edit, :update, :destroy]
-
+  #layout "empty", only: [:index]
+  
   # GET /costcs
   # GET /costcs.json
   def index
