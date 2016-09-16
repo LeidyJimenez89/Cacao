@@ -21,8 +21,12 @@ class Admin::OperatorsController < ApplicationController
   def edit
   end
 
-  def activate
-    @operator = Operator.find(params[:id])
+#  def activate
+#    @operator = Operator.find(params[:id])
+#  end
+
+  def savehistory
+    @records = Record.all
   end
 
   def retire
@@ -33,27 +37,26 @@ class Admin::OperatorsController < ApplicationController
     @operator = Operator.find(params[:id])
   end
 
-  def enable
-    @operator = Operator.find(params[:id])
-    @operator[:state] = "Activo"
-    if @operator.update(operator_params)
-      redirect_to admin_operators_path, notice: 'Estado habilitado satisfactoriamente'
-    else
-      render :activate , alert: 'Estado no habilitado satisfactoriamente' 
-    end
-  end
+#  def enable
+#    @operator = Operator.find(params[:id])
+#    @operator[:state] = "Activo"
+#    if @operator.update(operator_params)
+#      redirect_to admin_operators_path, notice: 'Estado habilitado satisfactoriamente'
+#    else
+#      render :activate , alert: 'Estado no habilitado satisfactoriamente' 
+#    end
+#  end
 
   def retired
     @operator = Operator.find(params[:id])
     @operator[:state] = "Retirado"
 
+    if @operator.update(operator_params)
     nuevo = Record.new
     nuevo[:operator_id] = @operator.id
     nuevo[:state] = @operator.state
     nuevo[:description] = @operator.description
     nuevo.save
-
-    if @operator.update(operator_params)
       redirect_to admin_operators_path, notice: 'Estado inhabilitado satisfactoriamente'
     else
       render :retire , alert: 'Estado no inhabilitado satisfactoriamente' 
@@ -63,7 +66,13 @@ class Admin::OperatorsController < ApplicationController
   def reinstated
     @operator = Operator.find(params[:id])
     @operator[:state] = "Reintegrado"
+
     if @operator.update(operator_params)
+    nuevo = Record.new
+    nuevo[:operator_id] = @operator.id
+    nuevo[:state] = @operator.state
+    nuevo[:description] = @operator.description
+    nuevo.save
       redirect_to admin_operators_path, notice: 'Estado inhabilitado satisfactoriamente'
     else
       render :reinstate , alert: 'Estado no inhabilitado satisfactoriamente' 
@@ -73,11 +82,17 @@ class Admin::OperatorsController < ApplicationController
   def create
     @operator = Operator.new(operator_params)
     @operator[:state] = "Activo"
-      if @operator.save
-        redirect_to admin_operators_path, notice: 'Operador creado satisfactoriamente'
-      else
-        render :new , alert: 'Operador no creado satisfactoriamente' 
-      end
+
+    if @operator.save
+    nuevo = Record.new
+    nuevo[:operator_id] = @operator.id
+    nuevo[:state] = @operator.state
+    nuevo[:description] = @operator.description
+    nuevo.save
+      redirect_to admin_operators_path, notice: 'Operador creado satisfactoriamente'
+    else
+      render :new , alert: 'Operador no creado satisfactoriamente' 
+    end
   end
 
   def update
