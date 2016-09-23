@@ -28,7 +28,14 @@
         </td>
         <td><%= supervisor.state %></td>
         <td><%= supervisor.dateadmission %></td>
-        <td><%= supervisor.retirementdate %></td>
+
+        <% retire = supervisor.records.where(state: "Retirado").order("id desc").first %>
+        <% if retire.present? %>
+          <td><%= supervisor.records.where(state: "Retirado").order("id desc").first.retirementdate %></td>
+        <% else %>
+          <td></td>
+        <% end %>
+        
         <td>
         <%= link_to 'Ver', admin_supervisor_path(supervisor),:class =>"btn btn-default btn-sm"  %>
         <%= link_to 'Editar', edit_admin_supervisor_path(supervisor),:class =>"btn btn-default btn-sm"  %>

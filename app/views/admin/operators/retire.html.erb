@@ -1,10 +1,10 @@
 <h1>Retirar Operador</h1>
-<%= form_for @operator, url:{action: "retired"}, html:{method: "post"} do |f| %>
-  <% if @operator.errors.any? %>
+<%= form_for @record, url:{action: "retired"}, html:{method: "post"} do |f| %>
+  <% if @record.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@operator.errors.count, "error") %> prohibited this operator from being saved:</h2>
+      <h2><%= pluralize(@record.errors.count, "error") %> prohibited this record from being saved:</h2>
       <ul>
-      	<% @operator.errors.full_messages.each do |message| %>
+      	<% @record.errors.full_messages.each do |message| %>
         <li><%= message %></li>
         <% end %>
       </ul>
@@ -12,10 +12,10 @@
   <% end %>
 	  <div class="form-group col-md-12">
 	    <%= f.label :retirementdate, "Fecha de retiro" %>
-	    <%= f.datetime_select :retirementdate , class:"form-control"%>
+	    <%= f.text_field :retirementdate , class:"form-control"%>
 	  </div>
     <div class="form-group col-md-12">
-      <%= f.label :description, "Descripción" %>
+      <%= f.label :description, "Motivo" %>
       <%= f.text_area :description , class:"form-control"%>
     </div>
 	  <div class="col-md-12">
@@ -23,3 +23,7 @@
 	  <%= f.submit :class =>"btn btn-success"%>
 	  </div>
 <% end %>
+
+<script>
+$('#record_retirementdate').datepicker({dateFormat:'yy-mm-dd'});
+</script>

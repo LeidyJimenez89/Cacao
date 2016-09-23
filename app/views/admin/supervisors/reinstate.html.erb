@@ -1,18 +1,18 @@
 <h1>Retirar Supervisor</h1>
-<%= form_for @supervisor, url:{action: "reinstated"}, html:{method: "post"} do |f| %>
-  <% if @supervisor.errors.any? %>
+<%= form_for @record, url:{action: "reinstated"}, html:{method: "post"} do |f| %>
+  <% if @record.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@supervisor.errors.count, "error") %> prohibited this supervisor from being saved:</h2>
+      <h2><%= pluralize(@record.errors.count, "error") %> prohibited this record from being saved:</h2>
       <ul>
-      	<% @supervisor.errors.full_messages.each do |message| %>
+      	<% @record.errors.full_messages.each do |message| %>
         <li><%= message %></li>
         <% end %>
       </ul>
     </div>
   <% end %>
 	  <div class="form-group col-md-12">
-	    <%= f.label :dateadmission, "Fecha de retiro" %>
-	    <%= f.datetime_select :dateadmission , class:"form-control"%>
+	    <%= f.label :reinstatedate, "Fecha de retiro" %>
+	    <%= f.text_field :reinstatedate , class:"form-control"%>
 	  </div>
     <div class="form-group col-md-12">
       <%= f.label :description, "Descripción" %>
@@ -23,3 +23,7 @@
 	  <%= f.submit :class =>"btn btn-success"%>
 	  </div>
 <% end %>
+
+<script>
+$('#record_reinstatedate').datepicker({ dateFormat:'yy-mm-dd'});
+</script>
