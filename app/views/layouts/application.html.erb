@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title><%= content_for?(:title) ? yield(:title) : "GentelellaOnRails" %> </title>
+  <title><%= content_for?(:title) ? yield(:title) : "Compañía Colombiana de Cacao" %> </title>
 
 
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
@@ -25,303 +25,312 @@
 </head>
 
 <body class="nav-md">
-<div class="container body">
+  <div class="container body">
+
+    <!-- sidenav -->
+    <div class="main_container">
+
+      <div class="col-md-3 left_col">
+        <div class="left_col scroll-view">
+    <!--
+          <div style="border: 0;">
+            <a class="site_title" ><span>CCC</span></a>
+          </div>
+
+          <div class="navbar nav_title" style="border: 0;">
+            <a class="site_title" style="font-size: 14px" ><span>Compañía Colombiana de Cacao</span></a>
+          </div>
+    -->
+          <div class="clearfix"></div>
+
+         <!-- menu profile quick info -->
+            <div class="profile">
+              <div class="profile_pic">
+                <%= image_tag("CCC1.png", size: "225x125")%>
+              </div>
+            </div>
+          <!-- /menu profile quick info -->
+
+          <div class="clearfix"></div>
+          </br>
+
+          <!-- sidebar menu -->
+          <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+
+            <div class="menu_section">
+              <h3>Personal</h3>
+              <ul class="nav side-menu">
+
+                <li><a><i class="fa fa-user"></i> Operarios <span class="fa fa-chevron-down"></span></a>
+                  <ul class="nav child_menu" style="display: none">
+                    <li><%= link_to 'Listar operadores', admin_operators_path%></li>
+                    <li><%= link_to 'Crear operador', new_admin_operator_path%></li>
+                  </ul>
+                </li>
+
+                <li><a><i class="fa fa-user"></i> Supervisores <span class="fa fa-chevron-down"></span></a>
+                  <ul class="nav child_menu" style="display: none">
+                    <li><%= link_to 'Listar supervisores', admin_supervisors_path%></li>
+                    <li><%= link_to 'Crear supervisor', new_admin_supervisor_path%></li>
+                  </ul>
+                </li>
+
+              </ul>
+            </div>
+
+            <div class="menu_section">
+              <h3>Administración</h3>
+              <ul class="nav side-menu">
+
+                <li><a><i class="fa fa-cogs"></i> Cargos <span class="fa fa-chevron-down"></span></a>
+                  <ul class="nav child_menu" style="display: none">
+                    <li><%= link_to 'Listar cargos', admin_jobs_path%></li>
+                    <li><%= link_to 'Crear cargo', new_admin_job_path%></li>
+                  </ul>
+                </li>
+
+                <li><a><i class="fa fa-cogs"></i> Labores <span class="fa fa-chevron-down"></span></a>
+                  <ul class="nav child_menu" style="display: none">
+                    <li><%= link_to 'Listar labores', admin_labors_path%></li>
+                    <li><%= link_to 'Crear labor', new_admin_labor_path%></li>
+                  </ul>
+                </li>
+
+                <li><a><i class="fa fa-cogs"></i> Sublotes <span class="fa fa-chevron-down"></span></a>
+                  <ul class="nav child_menu" style="display: none">
+                    <li><%= link_to 'Listar sublotes', admin_sublots_path%></li>
+                    <li><%= link_to 'Crear sublote', new_admin_sublot_path%></li>
+                  </ul>
+                </li>
+
+                <li><a><i class="fa fa-cogs"></i> Centro de costos <span class="fa fa-chevron-down"></span></a>
+                  <ul class="nav child_menu" style="display: none">
+                    <li><%= link_to 'Listar centros de costos', admin_costcs_path%></li>
+                    <li><%= link_to 'Crear centro de costos', new_admin_costc_path%></li>
+                  </ul>
+                </li>
+
+              </ul>
+            </div>
+
+            <div class="menu_section">
+              <h3>Digitación</h3>
+              <ul class="nav side-menu">
+
+                <li><a><i class="fa fa-cogs"></i> Digitar <span class="fa fa-chevron-down"></span></a>
+                  <ul class="nav child_menu" style="display: none">
+                    <li><%= link_to 'Listar cargos', admin_jobs_path%></li>
+                  </ul>
+                </li>
+
+              </ul>
+            </div>
+
+            <div class="menu_section">
+              <h3>Informes</h3>
+              <ul class="nav side-menu">
+
+                <li><a><i class="fa fa-cogs"></i> Historial contratación <span class="fa fa-chevron-down"></span></a>
+                  <ul class="nav child_menu" style="display: none">
+                    <li><%= link_to 'Ver historial', admin_operators_savehistory_path %></li>
+                  </ul>
+                </li>
+
+              </ul>
+            </div>
+
+          </div>
+          <!-- /sidebar menu -->
+
+          <!-- /menu footer buttons -->
+          <div class="sidebar-footer hidden-small">
+            <a data-toggle="tooltip" data-placement="top" title="Settings">
+              <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+            </a>
+            <a data-toggle="tooltip" data-placement="top" title="FullScreen">
+              <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
+            </a>
+            <a data-toggle="tooltip" data-placement="top" title="Lock">
+              <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
+            </a>
+            <a data-toggle="tooltip" data-placement="top" title="Logout">
+              <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+            </a>
+          </div>
+          <!-- /menu footer buttons -->
+        </div>
+      </div>
+    <!-- /sidenav -->
 
 
 
 
+    <!-- top navigation -->
+    <div class="top_nav">
+
+      <div class="nav_menu">
+        <nav class="" role="navigation">
+          <div class="nav toggle">
+            <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+          </div>
+          <% if current_user.present? %>
+          <ul class="nav navbar-nav navbar-right">
+            <li class="">
+              <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                <%= image_tag "img.jpg" %><%= current_user.email %>
+                <span class=" fa fa-angle-down"></span>
+              </a>
+              <ul class="dropdown-menu dropdown-usermenu pull-right">
+                <li><a href="javascript:;">  Profile</a>
+                </li>
+                <li>
+                  <a href="javascript:;">
+                    <span class="badge bg-red pull-right">50%</span>
+                    <span>Settings</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="javascript:;">Help</a>
+                </li>
+                <li>
+                <%= link_to destroy_user_session_path , :method => "delete" do %>
+                  <i class="fa fa-sign-out pull-right"></i>
+                  Salir
+                <% end %>
+                </li>
+              </ul>
+            </li>
+            <% end %>
+
+    <!--      
+            <li role="presentation" class="dropdown">
+              <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
+                <i class="fa fa-envelope-o"></i>
+                <span class="badge bg-green">6</span>
+              </a>
+
+              <ul id="menu1" class="dropdown-menu list-unstyled msg_list" role="menu">
+                
+                <li>
+                  <a>
+                          <span class="image">
+                                            <%= image_tag "img.jpg" %>
+                                        </span>
+                          <span>
+                                            <span>John Smith</span>
+                          <span class="time">3 mins ago</span>
+                          </span>
+                          <span class="message">
+                                            Film festivals used to be do-or-die moments for movie makers. They were where...
+                                        </span>
+                  </a>
+                </li>
+
+                <li>
+                  <a>
+                          <span class="image">
+                                           <%= image_tag "img.jpg" %>
+                                        </span>
+                          <span>
+                                            <span>John Smith</span>
+                          <span class="time">3 mins ago</span>
+                          </span>
+                          <span class="message">
+                                            Film festivals used to be do-or-die moments for movie makers. They were where...
+                                        </span>
+                  </a>
+                </li>
+
+                <li>
+                  <a>
+                          <span class="image">
+                                           <%= image_tag "img.jpg" %>
+                                        </span>
+                          <span>
+                                            <span>John Smith</span>
+                          <span class="time">3 mins ago</span>
+                          </span>
+                          <span class="message">
+                                            Film festivals used to be do-or-die moments for movie makers. They were where...
+                                        </span>
+                  </a>
+                </li>
+
+                <li>
+                  <a>
+                          <span class="image">
+                                            <%= image_tag "img.jpg" %>
+                                        </span>
+                          <span>
+                                            <span>John Smith</span>
+                          <span class="time">3 mins ago</span>
+                          </span>
+                          <span class="message">
+                                            Film festivals used to be do-or-die moments for movie makers. They were where...
+                                        </span>
+                  </a>
+                </li>
+
+                <li>
+                  <div class="text-center">
+                    <a>
+                      <strong>See All Alerts</strong>
+                      <i class="fa fa-angle-right"></i>
+                    </a>
+                  </div>
+                </li>
+
+              </ul>
+            </li>
+    -->
+          </ul>
+        </nav>
+      </div>
+
+    </div>
+    <!-- /top navigation -->
 
 
-<!-- sidenav -->
-<div class="main_container">
 
-  <div class="col-md-3 left_col">
-    <div class="left_col scroll-view">
+    <!-- page content -->
+    <div class="right_col" role="main" style="height:100vh;">
+        <div class="clearfix"></div>
+        <div class="row">
+    <!--  Los mensajes arriba de la página    
+          <h1 class="label label-success"><%= notice %></h1>
+          <h1><%= alert %></h1> 
+    -->
+          <% flash.each do |key, value| %>
+              <div align="center" id="flash" class="label label-success <%= key %>"><%= value %></div>
+          <% end %>
 
-      <div style="border: 0;">
-        <!--<%= image_tag("CCC.png", size: "225x125")%>-->
-        <a class="site_title"><span>CCC</span></a>  
+          <%= yield %>
+        </div>
+    </div>
+
+
+
+    <!-- footer content -->
+    <footer>
+      <div class="pull-right">
+        Compañía Colombiana de Cacao 
+    <!--
+        <a href="https://colorlib.com">Colorlib</a>
+    -->
       </div>
       <div class="clearfix"></div>
+    </footer>
+    <!-- /footer content -->
 
-     <!-- menu profile quick info -->
-      <div class="profile">
-        <div class="profile_pic">
-          <!-- <%= image_tag("CCC.png", size: "225x125")%>-->
-        </div>
-        <div class="profile_info">
-        </div>
-      </div>
-      <!-- /menu profile quick info -->
-
-      <br />
-      <br />
-
-      <!-- sidebar menu -->
-      <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
-
-        <div class="menu_section">
-          <h3>Personal</h3>
-          <ul class="nav side-menu">
-
-            <li><a><i class="fa fa-user"></i> Operarios <span class="fa fa-chevron-down"></span></a>
-              <ul class="nav child_menu" style="display: none">
-                <li><%= link_to 'Listar operadores', admin_operators_path%></li>
-                <li><%= link_to 'Crear operador', new_admin_operator_path%></li>
-              </ul>
-            </li>
-
-            <li><a><i class="fa fa-user"></i> Supervisores <span class="fa fa-chevron-down"></span></a>
-              <ul class="nav child_menu" style="display: none">
-                <li><%= link_to 'Listar supervisores', admin_supervisors_path%></li>
-                <li><%= link_to 'Crear supervisor', new_admin_supervisor_path%></li>
-              </ul>
-            </li>
-
-          </ul>
-        </div>
-
-        <div class="menu_section">
-          <h3>Administración</h3>
-          <ul class="nav side-menu">
-
-            <li><a><i class="fa fa-cogs"></i> Cargos <span class="fa fa-chevron-down"></span></a>
-              <ul class="nav child_menu" style="display: none">
-                <li><%= link_to 'Listar cargos', admin_jobs_path%></li>
-                <li><%= link_to 'Crear cargo', new_admin_job_path%></li>
-              </ul>
-            </li>
-
-            <li><a><i class="fa fa-cogs"></i> Labores <span class="fa fa-chevron-down"></span></a>
-              <ul class="nav child_menu" style="display: none">
-                <li><%= link_to 'Listar labores', admin_labors_path%></li>
-                <li><%= link_to 'Crear labor', new_admin_labor_path%></li>
-              </ul>
-            </li>
-
-            <li><a><i class="fa fa-cogs"></i> Sublotes <span class="fa fa-chevron-down"></span></a>
-              <ul class="nav child_menu" style="display: none">
-                <li><%= link_to 'Listar sublotes', admin_sublots_path%></li>
-                <li><%= link_to 'Crear sublote', new_admin_sublot_path%></li>
-              </ul>
-            </li>
-
-            <li><a><i class="fa fa-cogs"></i> Centro de costos <span class="fa fa-chevron-down"></span></a>
-              <ul class="nav child_menu" style="display: none">
-                <li><%= link_to 'Listar centros de costos', admin_costcs_path%></li>
-                <li><%= link_to 'Crear centro de costos', new_admin_costc_path%></li>
-              </ul>
-            </li>
-
-          </ul>
-        </div>
-
-        <div class="menu_section">
-          <h3>Digitación</h3>
-          <ul class="nav side-menu">
-
-            <li><a><i class="fa fa-cogs"></i> Digitar <span class="fa fa-chevron-down"></span></a>
-              <ul class="nav child_menu" style="display: none">
-                <li><%= link_to 'Listar cargos', admin_jobs_path%></li>
-              </ul>
-            </li>
-
-          </ul>
-        </div>
-
-        <div class="menu_section">
-          <h3>Informes</h3>
-          <ul class="nav side-menu">
-
-            <li><a><i class="fa fa-cogs"></i> Historial contratación <span class="fa fa-chevron-down"></span></a>
-              <ul class="nav child_menu" style="display: none">
-                <li><%= link_to 'Ver historial', admin_operators_savehistory_path %></li>
-              </ul>
-            </li>
-
-          </ul>
-        </div>
-
-      </div>
-      <!-- /sidebar menu -->
-
-      <!-- /menu footer buttons -->
-      <div class="sidebar-footer hidden-small">
-        <a data-toggle="tooltip" data-placement="top" title="Settings">
-          <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
-        </a>
-        <a data-toggle="tooltip" data-placement="top" title="FullScreen">
-          <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
-        </a>
-        <a data-toggle="tooltip" data-placement="top" title="Lock">
-          <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
-        </a>
-        <a data-toggle="tooltip" data-placement="top" title="Logout">
-          <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
-        </a>
-      </div>
-      <!-- /menu footer buttons -->
-    </div>
-  </div>
-<!-- /sidenav -->
-
-
-
-
-<!-- top navigation -->
-<div class="top_nav">
-
-  <div class="nav_menu">
-    <nav class="" role="navigation">
-      <div class="nav toggle">
-        <a id="menu_toggle"><i class="fa fa-bars"></i></a>
-      </div>
-      <% if current_user.present? %>
-      <ul class="nav navbar-nav navbar-right">
-        <li class="">
-          <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-            <%= image_tag "img.jpg" %><%= current_user.email %>
-            <span class=" fa fa-angle-down"></span>
-          </a>
-          <ul class="dropdown-menu dropdown-usermenu pull-right">
-            <li><a href="javascript:;">  Profile</a>
-            </li>
-            <li>
-              <a href="javascript:;">
-                <span class="badge bg-red pull-right">50%</span>
-                <span>Settings</span>
-              </a>
-            </li>
-            <li>
-              <a href="javascript:;">Help</a>
-            </li>
-            <li>
-            <%= link_to destroy_user_session_path , :method => "delete" do %>
-              <i class="fa fa-sign-out pull-right"></i>
-              Salir
-            <% end %>
-            </li>
-          </ul>
-        </li>
-        <% end %>
-        <li role="presentation" class="dropdown">
-          <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
-            <i class="fa fa-envelope-o"></i>
-            <span class="badge bg-green">6</span>
-          </a>
-          <ul id="menu1" class="dropdown-menu list-unstyled msg_list" role="menu">
-            <li>
-              <a>
-                      <span class="image">
-                                        <%= image_tag "img.jpg" %>
-                                    </span>
-                      <span>
-                                        <span>John Smith</span>
-                      <span class="time">3 mins ago</span>
-                      </span>
-                      <span class="message">
-                                        Film festivals used to be do-or-die moments for movie makers. They were where...
-                                    </span>
-              </a>
-            </li>
-            <li>
-              <a>
-                      <span class="image">
-                                       <%= image_tag "img.jpg" %>
-                                    </span>
-                      <span>
-                                        <span>John Smith</span>
-                      <span class="time">3 mins ago</span>
-                      </span>
-                      <span class="message">
-                                        Film festivals used to be do-or-die moments for movie makers. They were where...
-                                    </span>
-              </a>
-            </li>
-            <li>
-              <a>
-                      <span class="image">
-                                       <%= image_tag "img.jpg" %>
-                                    </span>
-                      <span>
-                                        <span>John Smith</span>
-                      <span class="time">3 mins ago</span>
-                      </span>
-                      <span class="message">
-                                        Film festivals used to be do-or-die moments for movie makers. They were where...
-                                    </span>
-              </a>
-            </li>
-            <li>
-              <a>
-                      <span class="image">
-                                        <%= image_tag "img.jpg" %>
-                                    </span>
-                      <span>
-                                        <span>John Smith</span>
-                      <span class="time">3 mins ago</span>
-                      </span>
-                      <span class="message">
-                                        Film festivals used to be do-or-die moments for movie makers. They were where...
-                                    </span>
-              </a>
-            </li>
-            <li>
-              <div class="text-center">
-                <a>
-                  <strong>See All Alerts</strong>
-                  <i class="fa fa-angle-right"></i>
-                </a>
-              </div>
-            </li>
-          </ul>
-        </li>
-
-      </ul>
-    </nav>
   </div>
 
-</div>
-<!-- /top navigation -->
-
-
-
-<!-- page content -->
-<div class="right_col" role="main" style="height:100vh;">
+  <div id="custom_notifications" class="custom-notifications dsp_none">
+    <ul class="list-unstyled notifications clearfix" data-tabbed_notifications="notif-group">
+    </ul>
     <div class="clearfix"></div>
-    <div class="row">
-<!--  Los mensajes arriba de la página    
-      <h1 class="label label-success"><%= notice %></h1>
-      <h1><%= alert %></h1> -->
-
-  <% flash.each do |key, value| %>
-      <div align="center" id="flash" class="label label-success <%= key %>"><%= value %></div>
-  <% end %>
-
-      <%= yield %>
-    </div>
-</div>
-
-
-
-<!-- footer content -->
-<footer>
-  <div class="pull-right">
-    Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
+    <div id="notif-group" class="tabbed_notifications"></div>
   </div>
-  <div class="clearfix"></div>
-</footer>
-<!-- /footer content -->
-</div>
-</div>
-
-<div id="custom_notifications" class="custom-notifications dsp_none">
-  <ul class="list-unstyled notifications clearfix" data-tabbed_notifications="notif-group">
-  </ul>
-  <div class="clearfix"></div>
-  <div id="notif-group" class="tabbed_notifications"></div>
-</div>
-  <%= javascript_include_tag 'footermanifest', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'footermanifest', 'data-turbolinks-track' => true %>
 
 </body>
 </html>

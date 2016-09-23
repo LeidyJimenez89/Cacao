@@ -5,10 +5,10 @@ Devise.setup do |config|
 
   Rails.application.config.to_prepare do
     Devise::SessionsController.layout "empty"
-    Devise::RegistrationsController.layout proc { |controller| user_signed_in? ? "application" : "application" }
-    Devise::ConfirmationsController.layout "application"
-    Devise::UnlocksController.layout "application"
-    Devise::PasswordsController.layout "application"
+    Devise::RegistrationsController.layout proc { |controller| user_signed_in? ? "empty" : "empty" }
+    Devise::ConfirmationsController.layout "empty"
+    Devise::UnlocksController.layout "empty"
+    Devise::PasswordsController.layout "empty"
   end
 
 

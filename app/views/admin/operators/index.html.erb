@@ -27,7 +27,14 @@
           <% end %>
         </td>
         <td><%= operator.dateadmission %></td>
-        <td><%= operator.retirementdate %></td>
+
+        <% retire = operator.records.where(state: "Retirado").order("id desc").first %>
+        <% if retire.present? %>
+          <td><%= operator.records.where(state: "Retirado").order("id desc").first.retirementdate %></td>
+        <% else %>
+          <td></td>
+        <% end %>
+
         <td><%= operator.state %></td>
         <td>
         <%= link_to 'Ver', admin_operator_path(operator),:class =>"btn btn-default btn-sm" %>      

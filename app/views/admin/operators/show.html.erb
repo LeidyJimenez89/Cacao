@@ -30,19 +30,51 @@
   <%= @operator.state %>
 </p>
 
-<% if @operator.retirementdate.present? %>
+<% if @operator.records.where(state: "Retirado").order("id desc").first.retirementdate.present? %>
   <p>
     <strong>Fecha de retiro:</strong>
-    <%= @operator.retirementdate %>
+    <%= @operator.records.where(state: "Retirado").order("id desc").first.retirementdate %>
   </p>
 <% end %>
 
 <% if @operator.description.present? %>
   <p>
-    <strong>Explicación de retiro:</strong>
+    <strong>Motivo:</strong>
     <%= @operator.description %>
   </p>
 <% end %>
+
+<p>
+  <strong>Historial:</strong>
+</p>
+<div class="x_content">
+  <table class="table table-bordered" width="100%">
+    <thead>
+      <tr>
+        <th>Estado</th>
+        <th>Fecha</th>
+      </tr>
+    </thead>
+  <tbody>
+    <% @records.each do |record| %>
+      <% if record.operator_id == @operator.id %>
+        <tr>
+          <td><%= record.state %></td>
+          <% if record.state == "Activo" %>
+            <td><%= record.operator.dateadmission %></td>
+          <% end %>
+          <% if record.state == "Retirado" %>
+            <td><%= record.retirementdate %></td>
+          <% end %>
+          <% if record.state == "Reintegrado" %>
+            <td><%= record.reinstatedate %></td>
+          <% end %>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+  </table>
+</div>
 
 <%= link_to 'Editar', edit_admin_operator_path(@operator) ,:class =>"btn btn-default"%>
 <%= link_to 'Cancelar', admin_operators_path ,:class =>"btn btn-default"%>

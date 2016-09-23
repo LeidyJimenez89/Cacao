@@ -7,9 +7,14 @@ class Admin::OperatorsController < ApplicationController
     @operators = Operator.all
   end
 
+  def savehistory
+    @records = Record.all
+  end
+
   # GET /operators/1
   # GET /operators/1.json
   def show
+    @records = Record.all
   end
 
   # GET /operators/new
@@ -17,25 +22,39 @@ class Admin::OperatorsController < ApplicationController
     @operator = Operator.new
   end
 
+  def create
+    @operator = Operator.new(operator_params)
+    @operator[:state] = "Activo"
+
+    if @operator.save
+      nuevo = Record.new
+      nuevo[:operator_id] = @operator.id
+      nuevo[:state] = @operator.state
+      nuevo[:dateadmission] = @operator.dateadmission
+      nuevo.save
+      redirect_to admin_operators_path, notice: 'Operador creado satisfactoriamente'
+    else
+      render :new , alert: 'Operador no creado satisfactoriamente' 
+    end
+  end
+
   # GET /operators/1/edit
   def edit
+  end
+
+  def update
+    respond_to do |format|
+      if @operator.update(operator_params)
+        format.html { redirect_to admin_operators_path, notice: 'Operador editado satisfactoriamente' }
+      else
+        render :edit , alert: 'Operador no editado satisfactoriamente' 
+      end
+    end
   end
 
 #  def activate
 #    @operator = Operator.find(params[:id])
 #  end
-
-  def savehistory
-    @records = Record.all
-  end
-
-  def retire
-    @operator = Operator.find(params[:id])
-  end
-
-  def reinstate
-    @operator = Operator.find(params[:id])
-  end
 
 #  def enable
 #    @operator = Operator.find(params[:id])
@@ -47,61 +66,49 @@ class Admin::OperatorsController < ApplicationController
 #    end
 #  end
 
+  def retire
+    @record = Record.new
+  end
+
   def retired
     @operator = Operator.find(params[:id])
     @operator[:state] = "Retirado"
 
-    if @operator.update(operator_params)
-    nuevo = Record.new
-    nuevo[:operator_id] = @operator.id
-    nuevo[:state] = @operator.state
-    nuevo[:description] = @operator.description
-    nuevo.save
+    if @operator.save
+
+      nuevo = Record.new
+      nuevo[:operator_id] = @operator.id
+      nuevo[:state] = "Retirado"
+      nuevo[:description] = params[:record][:description]
+      nuevo[:retirementdate] = params[:record][:retirementdate]
+      nuevo.save
+      
       redirect_to admin_operators_path, notice: 'Estado inhabilitado satisfactoriamente'
     else
       render :retire , alert: 'Estado no inhabilitado satisfactoriamente' 
     end
   end
 
+  def reinstate
+    @record = Record.new
+  end
+
   def reinstated
     @operator = Operator.find(params[:id])
     @operator[:state] = "Reintegrado"
 
-    if @operator.update(operator_params)
-    nuevo = Record.new
-    nuevo[:operator_id] = @operator.id
-    nuevo[:state] = @operator.state
-    nuevo[:description] = @operator.description
-    nuevo.save
+    if @operator.save
+
+      nuevo = Record.new
+      nuevo[:operator_id] = @operator.id
+      nuevo[:state] = "Reintegrado"
+      nuevo[:description] = params[:record][:description]
+      nuevo[:reinstatedate] = params[:record][:reinstatedate]
+      nuevo.save
+
       redirect_to admin_operators_path, notice: 'Estado inhabilitado satisfactoriamente'
     else
       render :reinstate , alert: 'Estado no inhabilitado satisfactoriamente' 
-    end
-  end
-
-  def create
-    @operator = Operator.new(operator_params)
-    @operator[:state] = "Activo"
-
-    if @operator.save
-    nuevo = Record.new
-    nuevo[:operator_id] = @operator.id
-    nuevo[:state] = @operator.state
-    nuevo[:description] = @operator.description
-    nuevo.save
-      redirect_to admin_operators_path, notice: 'Operador creado satisfactoriamente'
-    else
-      render :new , alert: 'Operador no creado satisfactoriamente' 
-    end
-  end
-
-  def update
-    respond_to do |format|
-      if @operator.update(operator_params)
-        format.html { redirect_to admin_operators_path, notice: 'Operador editado satisfactoriamente' }
-      else
-        render :edit , alert: 'Operador no editado satisfactoriamente' 
-      end
     end
   end
 
