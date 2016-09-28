@@ -25,7 +25,25 @@ class SupervisorsController < ApplicationController
   # POST /supervisors.json
   def create
     @supervisor = Supervisor.new(supervisor_params)
+    @supervisor[:state] = "Activo"
+    
     if @supervisor.save
+
+      params[:supervisor][:operators2].each do |operator|
+        if operator.present?
+          nuevo = OperatorSupervisor.new
+          nuevo[:operator_id] = operator
+          nuevo[:supervisor_id] = @supervisor.id
+          nuevo.save
+        end
+      end
+
+      nuevo = Record.new
+      nuevo[:supervisor_id] = @supervisor.id
+      nuevo[:state] = @supervisor.state
+      nuevo[:dateadmission] = @supervisor.dateadmission
+      nuevo.save
+
       redirect_to supervisors_path, notice: 'Supervisor creado satisfactoriamente'
     else
       render :new , alert: 'Supervisor no creado satisfactoriamente'

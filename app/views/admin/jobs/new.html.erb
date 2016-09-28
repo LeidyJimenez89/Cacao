@@ -5,6 +5,7 @@
 <h1 class="x_title"><i class="glyphicon glyphicon-leaf titleicon"></i>Crear Cargo</h1>
 
 <%= form_for @job, url:{action: "create"} do |f| %>
+
   <% if @job.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@job.errors.count, "error") %> prohibited this job from being saved:</h2>
@@ -16,29 +17,29 @@
     </div>
   <% end %>
 
-  <div class="form-group col-md-12">
-    <%= f.label :name , "Nombre"%>
-    <%= f.text_field :name , class:"form-control"%>
-  </div>
-  <div class="form-group col-md-12">
-    <%= f.label :labors2 , "Labores"%><br>
-    <%= f.select :labors2 , Labor.all.map { |j|  [ j.code + " " + j.name , j.id ]  } , {}, {:multiple => true, class:"form-control"} %>
-  </div>
-  <div class="form-group col-md-12">
-    <%= f.label :description , "Descripción"%>
-    <%= f.text_area :description , class:"form-control"%>
-  </div>
-  <div class="col-md-12">
-	<%= link_to 'Cancelar', admin_jobs_path ,:class =>"btn btn-danger" %>
-    <%= f.submit :class =>"btn btn-success"%>
+  <div class="form-group col-md-6 field">
+    <div class="col-md-12">
+      <%= f.label :name , "Nombre"%>
+      <%= f.text_field :name , class:"form-control"%>
+    </div>
+    <div class="col-md-12">
+      <%= f.label :labors2 , "Labores"%><br>
+      <%= f.select :labors2 , Labor.all.map { |j|  [ j.code + " " + j.name , j.id ]  } , {}, {:multiple => true, class:"form-control"} %>
+    </div>
+    <div class="col-md-12">
+      <%= f.label :description , "Descripción"%>
+      <%= f.text_area :description , class:"form-control"%>
+    </div>
   </div>
 
+  <div class="form-group col-md-12 field">
+    <div class="col-md-12">
+      <%= f.submit "Crear cargo", :class =>"btn btn-dark"%>
+      <%= link_to 'Cancelar', admin_jobs_path ,:class =>"btn btn-warning" %>
+    </div>
+  </div>
 <% end %>
 
 <script type="text/javascript">
 $("#job_labors2").selectize({ plugins: ['remove_button'] });
-
-
-
-
 </script>

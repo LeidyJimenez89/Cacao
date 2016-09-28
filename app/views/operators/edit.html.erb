@@ -1,41 +1,56 @@
-<h1>Editar Operador</h1>
+<h1 class="x_title"><i class="glyphicon glyphicon-leaf titleicon"></i>Editar Operador</h1>
+
 <%= form_for(@operator) do |f| %>
-  <% if @operator.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@operator.errors.count, "error") %> prohibited this operator from being saved:</h2>
-      <ul>
-      	<% @operator.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-	  <div class="form-group col-md-4">
-	    <%= f.label :cc , "Cédula", class:"subtitle"%>
-	    <%= f.text_field :cc , class:"form-control"%>
-	  </div>
-	  <div class="form-group col-md-4">
-	    <%= f.label :name , "Nombres", class:"subtitle"%>
-	    <%= f.text_field :name, class:"form-control"%>
-	  </div>
-	  <div class="form-group col-md-4">
-	    <%= f.label :lastname , "Apellidos", class:"subtitle"%>
-	    <%= f.text_field :lastname, class:"form-control"%>
-	  </div>
-	  <div class="form-group col-md-4">
-	    <%= f.label :gender, "Estado" %>
-	    <%= f.select :gender, ["Femenino","Masculino"], {},class:"form-control"%>
-	  </div>
-	  <div class="form-group col-md-4">
-	    <%= f.label :job_id, "Cargo", class:"subtitle"%>
-	    <%= f.select :job_id, Job.all.map { |j|  [ j.name , j.id ]  } , {prompt: ""} ,class:"form-control"%>
-	  </div>
-	  <div class="form-group col-md-4">
-	    <%= f.label :dateadmission, "Fecha de ingreso", class:"subtitle"%>
-	    <%= f.datetime_select :dateadmission , class:"form-control"%>
-	  </div>
-	  <div class="col-md-12">
-		<%= link_to 'Cancelar', operators_path ,:class =>"btn btn-danger" %>
-	    <%= f.submit :class =>"btn btn-success"%>
-	  </div>
+
+	<% if @operator.errors.any? %>
+	<div id="error_explanation">
+	  <h2><%= pluralize(@operator.errors.count, "error") %> prohibited this operator from being saved:</h2>
+	  <ul>
+	  	<% @operator.errors.full_messages.each do |message| %>
+	    <li><%= message %></li>
+	  <% end %>
+	  </ul>
+	</div>
+	<% end %>
+
+	<div class="form-group col-md-12 field">
+		<div class="col-md-4">
+			<%= f.label :cc , "Cédula" %>
+			<%= f.text_field :cc , class:"form-control"%>
+		</div>
+		<div class="col-md-4">
+			<%= f.label :name , "Nombres" %>
+			<%= f.text_field :name, class:"form-control"%>
+		</div>
+		<div class="col-md-4">
+			<%= f.label :lastname , "Apellidos" %>
+			<%= f.text_field :lastname, class:"form-control"%>
+		</div>
+	</div>
+
+	<div class="form-group col-md-12 field">
+		<div class="col-md-4">
+			<%= f.label :gender, "Estado" %>
+			<%= f.select :gender, ["Femenino","Masculino"], {},class:"form-control"%>
+		</div>
+		<div class="col-md-4">
+			<%= f.label :job_id, "Cargo" %>
+			<%= f.select :job_id, Job.all.map { |j|  [ j.name , j.id ]  } , {prompt: ""} ,class:"form-control"%>
+		</div>
+		<div class="col-md-4">
+			<%= f.label :dateadmission, "Fecha de ingreso" %>
+			<%= f.text_field :dateadmission , class:"form-control"%>
+		</div>
+	</div>
+
+	<div class="form-group col-md-12 field">
+		<div class="col-md-12">
+			<%= link_to 'Cancelar', operators_path ,:class =>"btn btn-danger" %>
+			<%= f.submit :class =>"btn btn-success"%>
+		</div>
+	</div>
 <% end %>
+
+<script>
+$('#operator_dateadmission').datepicker({ dateFormat:'yy-mm-dd'});
+</script>
