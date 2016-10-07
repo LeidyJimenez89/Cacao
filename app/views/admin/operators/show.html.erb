@@ -1,6 +1,6 @@
 <p>
   <strong>Cédula:</strong>
-  <%= @operator.cc %>
+  <%= @operator.cc%>
 </p>
 
 <p>
@@ -9,9 +9,9 @@
 </p>
 
 <p>
-  <strong>Cargo:</strong>
-    <% if @operator.job.present? %>
-      <%= @operator.job.name %>
+  <strong>Cargo(s):</strong>
+    <% if @operator.jobs.present? %>
+      <%= @operator.jobs.map { |e| e.name }.join("<br>").html_safe %>
     <% end %>
 </p>
 
@@ -30,7 +30,7 @@
   <%= @operator.state %>
 </p>
 
-<% if @operator.records.where(state: "Retirado").order("id desc").first.retirementdate.present? %>
+<% if @operator.records.where(state: "Retirado").present? %>
   <p>
     <strong>Fecha de retiro:</strong>
     <%= @operator.records.where(state: "Retirado").order("id desc").first.retirementdate %>

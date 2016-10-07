@@ -98,5 +98,6 @@ end
        resources :costcs
 
        resources :sublots
+
      end
 end
