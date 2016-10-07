@@ -21,11 +21,7 @@
       <tr>
         <td><%= supervisor.cc %></td>
         <td><%= supervisor.name.to_s + " " + supervisor.lastname %></td>
-        <td>
-          <% if supervisor.job.present? %>
-              <%= supervisor.job.name %>
-          <% end %>
-        </td>
+        <td><%= supervisor.jobs.map { |e| e.name }.join("<br>").html_safe %></td>
         <td><%= supervisor.state %></td>
         <td><%= supervisor.dateadmission %></td>
 

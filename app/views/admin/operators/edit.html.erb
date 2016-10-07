@@ -1,3 +1,7 @@
+<%= stylesheet_link_tag    'selectize.bootstrap3', media: 'all', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag 'selectize', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag 'plugin', 'data-turbolinks-track' => true %>
+
 <h1 class="x_title"><i class="glyphicon glyphicon-leaf titleicon"></i>Editar Operador</h1>
 
 	<%= form_for @operator, url:{action: "update"} do |f| %>
@@ -28,15 +32,11 @@
 	</div>
 
 	<div class="form-group col-md-12 field">
-		<div class="col-md-4">
+		<div class="col-md-6">
 			<%= f.label :gender, "Estado" %>
 			<%= f.select :gender, ["Femenino","Masculino"], {},class:"form-control"%>
 		</div>
-		<div class="col-md-4">
-			<%= f.label :job_id, "Cargo" %>
-			<%= f.select :job_id, Job.all.map { |j|  [ j.name , j.id ]  } , {prompt: ""} ,class:"form-control"%>
-		</div>
-		<div class="col-md-4">
+		<div class="col-md-6">
 			<%= f.label :dateadmission, "Fecha de ingreso" %>
 			<%= f.text_field :dateadmission , class:"form-control"%>
 		</div>
@@ -44,7 +44,14 @@
 
 	<div class="form-group col-md-12 field">
 		<div class="col-md-12">
-			<%= f.submit :class =>"btn btn-dark"%>
+			<%= f.label :jobs2, "Cargo" %>
+			<%= f.select :jobs2, Job.where(state: "Activo").map { |j|  [ j.name , j.id ]  } , {selected: @operator.jobs.map { |e| e.id }}, {:multiple => true, class:"form-control"} %>
+		</div>
+	</div>
+
+	<div class="form-group col-md-12 field">
+		<div class="col-md-12">
+			<%= f.submit "Editar operador", :class =>"btn btn-dark"%>
 			<%= link_to 'Cancelar', admin_operators_path ,:class =>"btn btn-warning" %>
 		</div>
 	</div>
@@ -52,4 +59,5 @@
 
 <script>
 $('#operator_dateadmission').datepicker({ dateFormat:'yy-mm-dd'});
+$("#operator_jobs2").selectize({ plugins: ['remove_button'] });
 </script>

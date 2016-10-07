@@ -19,11 +19,7 @@
       <tr>
         <td><%= operator.cc %></td>
         <td><%= operator.name.to_s + " " + operator.lastname.to_s %></td>
-        <td>
-          <% if operator.job.present? %>
-            <%= operator.job.name %>
-          <% end %>
-        </td>
+        <td><%= operator.jobs.map { |e| e.name }.join("<br>").html_safe %></td>
         <td><%= operator.dateadmission %></td>
         <td><%= operator.state %></td>
         <td>

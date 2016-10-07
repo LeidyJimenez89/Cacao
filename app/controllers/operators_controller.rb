@@ -53,14 +53,47 @@ class OperatorsController < ApplicationController
 
   def create
     @operator = Operator.new(operator_params)
-      if @operator.save
-        redirect_to operators_path, notice: 'Operador creado satisfactoriamente'
-      else
-        render :new , alert: 'Operador no creado satisfactoriamente' 
+    @operator[:state] = "Activo"
+
+    if @operator.save
+
+      nuevo = Record.new
+      nuevo[:operator_id] = @operator.id
+      nuevo[:state] = @operator.state
+      nuevo[:dateadmission] = @operator.dateadmission
+      nuevo.save
+
+      params[:operator][:jobs2].each do |job|
+        if job.present?
+          jobforoperator = JobOperator.new
+          jobforoperator[:job_id] = job
+          jobforoperator[:operator_id] = @operator.id
+          jobforoperator.save
+        end
       end
+
+      redirect_to operators_path, notice: 'Operador creado satisfactoriamente'
+    else
+      render :new , alert: 'Operador no creado satisfactoriamente' 
+    end
   end
 
   def update
+
+    if @operator.jobs.present?
+      @operator = Operator.find(params[:id])
+      @operator.jobs.delete_all
+    end
+
+    params[:operator][:jobs2].each do |job|
+      if job.present?
+        jobforoperator = JobOperator.new
+        jobforoperator[:job_id] = job
+        jobforoperator[:operator_id] = @operator.id
+        jobforoperator.save
+      end
+    end
+
     respond_to do |format|
       if @operator.update(operator_params)
         format.html { redirect_to operators_path, notice: 'Operator was successfully updated.' }

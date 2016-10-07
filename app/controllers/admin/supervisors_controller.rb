@@ -39,6 +39,15 @@ class Admin::SupervisorsController < ApplicationController
       nuevo[:dateadmission] = @supervisor.dateadmission
       nuevo.save
 
+      params[:supervisor][:jobs2].each do |job|
+        if job.present?
+          jobforsupervisor = JobSupervisor.new
+          jobforsupervisor[:job_id] = job
+          jobforsupervisor[:supervisor_id] = @supervisor.id
+          jobforsupervisor.save
+        end
+      end
+
       redirect_to admin_supervisors_path, notice: 'Supervisor creado satisfactoriamente'
     else
       render :new , alert: 'Operador no creado satisfactoriamente' 
