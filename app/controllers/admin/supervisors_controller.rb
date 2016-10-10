@@ -12,6 +12,7 @@ class Admin::SupervisorsController < ApplicationController
   end
 
   def show
+    @records = Record.all
   end
 
   def new
@@ -71,6 +72,21 @@ class Admin::SupervisorsController < ApplicationController
         nuevo.save
       end
     end
+
+    if @supervisor.jobs.present?
+      @supervisorJob = Supervisor.find(params[:id])
+      @supervisorJob.jobs.delete_all
+    end
+
+    params[:supervisor][:jobs2].each do |job|
+      if job.present?
+        jobforsupervisor = JobSupervisor.new
+        jobforsupervisor[:job_id] = job
+        jobforsupervisor[:supervisor_id] = @supervisor.id
+        jobforsupervisor.save
+      end
+    end
+
     respond_to do |format|
       if @supervisor.update(supervisor_params)
         format.html { redirect_to admin_supervisors_path, notice: 'Supervisor editado satisfactoriamente' }

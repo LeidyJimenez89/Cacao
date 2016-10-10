@@ -1,80 +1,82 @@
-<p>
-  <strong>Cédula:</strong>
-  <%= @operator.cc%>
-</p>
+<div class="x_panel">
 
-<p>
-  <strong>Nombre:</strong>
-  <%= @operator.name.to_s + " " + @operator.lastname.to_s %>
-</p>
+  <h1 class="x_title">
+    <i class="glyphicon glyphicon-leaf titleicon"></i>
+    Operador: <%= @operator.name.to_s + " " + @operator.lastname.to_s %>
+  </h1>
 
-<p>
-  <strong>Cargo(s):</strong>
+  <p class="lead">Estado actual:
+      <%= @operator.state %>
+  </p>
+
+  <p>
+    <strong>Cédula:</strong>
+    <%= @operator.cc%>
+  </p>
+
+  <p>
+    <strong>Cargo(s):</strong>
     <% if @operator.jobs.present? %>
-      <%= @operator.jobs.map { |e| e.name }.join("<br>").html_safe %>
+      <%= @operator.jobs.map { |e| e.name }.join(", ").html_safe %>
     <% end %>
-</p>
-
-<p>
-  <strong>Género:</strong>
-  <%= @operator.gender%>
-</p>
-
-<p>
-  <strong>Fecha de ingreso:</strong>
-  <%= @operator.dateadmission %>
-</p>
-
-<p>
-  <strong>Estado:</strong>
-  <%= @operator.state %>
-</p>
-
-<% if @operator.records.where(state: "Retirado").present? %>
-  <p>
-    <strong>Fecha de retiro:</strong>
-    <%= @operator.records.where(state: "Retirado").order("id desc").first.retirementdate %>
   </p>
-<% end %>
 
-<% if @operator.description.present? %>
   <p>
-    <strong>Motivo:</strong>
-    <%= @operator.description %>
+    <strong>Género:</strong>
+    <%= @operator.gender%>
   </p>
-<% end %>
 
-<p>
-  <strong>Historial:</strong>
-</p>
-<div class="x_content">
-  <table class="table table-bordered" width="100%">
-    <thead>
-      <tr>
-        <th>Estado</th>
-        <th>Fecha</th>
-      </tr>
-    </thead>
-  <tbody>
-    <% @records.each do |record| %>
-      <% if record.operator_id == @operator.id %>
+  <p>
+    <strong>Fecha de ingreso:</strong>
+    <%= @operator.dateadmission %>
+  </p>
+
+  <% if @operator.records.where(state: "Retirado").present? %>
+    <p>
+      <strong>Fecha de retiro:</strong>
+      <%= @operator.records.where(state: "Retirado").order("id desc").first.retirementdate %>
+    </p>
+  <% end %>
+
+  <p>
+    <strong>Historial de contratación:</strong>
+  </p>
+  <div class="x_content">
+    <table class="table table-bordered" width="100%">
+      <thead>
         <tr>
-          <td><%= record.state %></td>
-          <% if record.state == "Activo" %>
-            <td><%= record.operator.dateadmission %></td>
-          <% end %>
-          <% if record.state == "Retirado" %>
-            <td><%= record.retirementdate %></td>
-          <% end %>
-          <% if record.state == "Reintegrado" %>
-            <td><%= record.reinstatedate %></td>
-          <% end %>
+          <th>Estado</th>
+          <th>Fecha</th>
         </tr>
+      </thead>
+    <tbody>
+      <% @records.each do |record| %>
+        <% if record.operator_id == @operator.id %>
+          <tr>
+            <td><%= record.state %></td>
+            <% if record.state == "Activo" %>
+              <td><%= record.operator.dateadmission %></td>
+            <% end %>
+            <% if record.state == "Retirado" %>
+              <td><%= record.retirementdate %></td>
+            <% end %>
+            <% if record.state == "Reintegrado" %>
+              <td><%= record.reinstatedate %></td>
+            <% end %>
+          </tr>
+        <% end %>
       <% end %>
-    <% end %>
-  </tbody>
-  </table>
-</div>
+    </tbody>
+    </table>
+  </div>
 
-<%= link_to 'Editar', edit_admin_operator_path(@operator) ,:class =>"btn btn-default"%>
-<%= link_to 'Cancelar', admin_operators_path ,:class =>"btn btn-default"%>
+  <%= link_to edit_admin_operator_path(@operator) ,:class =>"btn btn-dark" do %>
+    <span class="glyphicon glyphicon-pencil"></span>
+    Editar
+  <% end %>
+
+  <%= link_to admin_operators_path ,:class =>"btn btn-danger" do %>
+    <span class="glyphicon glyphicon-remove"></span>
+    Cancelar
+  <% end %>
+</div>
