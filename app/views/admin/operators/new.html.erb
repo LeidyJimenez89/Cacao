@@ -2,7 +2,10 @@
 <%= javascript_include_tag 'selectize', 'data-turbolinks-track' => true %>
 <%= javascript_include_tag 'plugin', 'data-turbolinks-track' => true %>
 
-<h1 class="x_title"><i class="glyphicon glyphicon-leaf titleicon"></i>Crear Operador</h1>
+<h1 class="x_title">
+	<i class="glyphicon glyphicon-leaf titleicon"></i>
+	Crear Operador
+</h1>
 
 <%= form_for @operator, url:{action: "create"} do |f| %>
 
@@ -53,7 +56,10 @@
 	<div class="form-group col-md-12 field">
 		<div class="col-md-12">
 			<%= f.submit "Crear operador", :class =>"btn btn-dark"%>
-			<%= link_to 'Cancelar', admin_operators_path ,:class =>"btn btn-warning" %>
+			<%= link_to admin_operators_path ,:class =>"btn btn-danger" do %>
+    			<span class="glyphicon glyphicon-remove"></span>
+    			Cancelar
+			<% end %>
 		</div>
 	</div>
 <% end %>

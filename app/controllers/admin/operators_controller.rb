@@ -24,8 +24,9 @@ class Admin::OperatorsController < ApplicationController
 
   def create
     @operator = Operator.new(operator_params)
-    @operator[:state] = "Activo"
 
+    @operator[:state] = "Activo"
+    log(@operator)
     if @operator.save
 
       nuevo = Record.new

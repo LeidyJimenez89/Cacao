@@ -1,8 +1,16 @@
 <%= javascript_include_tag 'jquery.dataTables.min', 'data-turbolinks-track' => true %>
 <%= javascript_include_tag 'bootstrap', 'data-turbolinks-track' => true %>
 
-<h1 class="x_title"><i class="glyphicon glyphicon-leaf titleicon"></i>Listar Supervisores</h1>
-<%= link_to 'Crear supervisor', new_admin_supervisor_path , :class =>"btn btn-default pull-right"%>
+<h1 class="x_title">
+  <i class="glyphicon glyphicon-leaf titleicon"></i>
+  Listar Supervisores
+</h1>
+
+<%= link_to new_admin_supervisor_path , :class =>"btn btn-dark pull-right" do %>
+  <span class="glyphicon glyphicon-plus"></span>
+  Crear supervisor
+<% end %>
+
 <table id="datatable" class="display datatable" cellspacing="0" width="100%">
   <thead>
     <tr>
@@ -33,18 +41,42 @@
         <% end %>
         
         <td>
-        <%= link_to 'Ver', admin_supervisor_path(supervisor),:class =>"btn btn-default btn-sm"  %>
-        <%= link_to 'Editar', edit_admin_supervisor_path(supervisor),:class =>"btn btn-default btn-sm"  %>
-        <%= link_to 'Eliminar', admin_supervisor_path(supervisor),:class =>"btn btn-default btn-sm" , method: :delete, data: { confirm: 'Are you sure?' } %>
+        <%= link_to admin_supervisor_path(supervisor),:class =>"btn btn-default btn-sm" do %>
+          <span class="glyphicon glyphicon-eye-open"></span>
+          Ver
+        <% end %>
+
+        <%= link_to edit_admin_supervisor_path(supervisor),:class =>"btn btn-default btn-sm" do %>
+          <span class="glyphicon glyphicon-pencil"></span>
+          Editar
+        <% end %>
+
+        <%= link_to admin_supervisor_path(supervisor),:class =>"btn btn-default btn-sm" , method: :delete, data: { confirm: 'Are you sure?' } do %>
+          <span class="glyphicon glyphicon-trash"></span>
+          Eliminar
+        <% end %>
+
         <%if supervisor.state=="Activo"%>
-          <%= link_to 'Retirar', admin_retire_supervisor_path(supervisor),:class =>"btn btn-default btn-sm" %>
+          <%= link_to admin_retire_supervisor_path(supervisor),:class =>"btn btn-default btn-sm" do %>
+            <span class="glyphicon glyphicon-import"></span>
+            Retirar
+          <% end %>
         <%end%>
+
         <%if supervisor.state=="Retirado" and supervisor.retirementdate != " "%>
-          <%= link_to 'Reintegrar', admin_reinstate_supervisor_path(supervisor),:class =>"btn btn-default btn-sm" %>
+          <%= link_to admin_reinstate_supervisor_path(supervisor),:class =>"btn btn-default btn-sm" do %>
+            <span class="glyphicon glyphicon-export"></span>
+            Reintegrar
+          <% end %>
         <%end%>
+
         <%if supervisor.state=="Reintegrado" and supervisor.retirementdate != " "%>
-          <%= link_to 'Retirar', admin_retire_supervisor_path(supervisor),:class =>"btn btn-default btn-sm" %>
+          <%= link_to admin_retire_supervisor_path(supervisor),:class =>"btn btn-default btn-sm" do %>
+            <span class="glyphicon glyphicon-import"></span>
+            Retirar
+          <% end %>
         <%end%>
+
         </td>
       </tr>
     <% end %>
