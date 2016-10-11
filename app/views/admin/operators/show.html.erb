@@ -26,10 +26,17 @@
     <%= @operator.gender%>
   </p>
 
-  <p>
-    <strong>Fecha de ingreso:</strong>
-    <%= @operator.dateadmission %>
-  </p>
+  <% if @operator.records.where(state: "Reintegrado").present? %>
+    <p>
+      <strong>Fecha de reintegro:</strong>
+      <%= @operator.records.where(state: "Reintegrado").order("id desc").first.reinstatedate %>
+    </p>
+  <% else %>
+    <p>
+      <strong>Fecha de ingreso:</strong>
+      <%= @operator.dateadmission %>
+    </p>
+  <% end %>
 
   <% if @operator.records.where(state: "Retirado").present? %>
     <p>

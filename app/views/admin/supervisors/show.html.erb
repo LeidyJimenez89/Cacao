@@ -26,10 +26,18 @@
     <% end %>
   </p>
 
-  <p>
-    <strong>Fecha de ingreso:</strong>
-    <%= @supervisor.dateadmission %>
-  </p>
+  <% if @supervisor.records.where(state: "Reintegrado").present? %>
+    <p>
+      <strong>Fecha de reintegro:</strong>
+      <%= @supervisor.records.where(state: "Reintegrado").order("id desc").first.reinstatedate %>
+    </p>
+  <% else %>
+    <p>
+      <strong>Fecha de ingreso:</strong>
+      <%= @supervisor.dateadmission %>
+    </p>
+  <% end %>
+
 
   <% if @supervisor.records.where(state: "Retirado").present? %>
     <p>
@@ -75,6 +83,33 @@
     <br>
     <%= @supervisor.operators.map { |e| e.cc + " " + e.name }.join("<br>").html_safe %>
   </p>
+
+
+  <p>
+    <strong>Operarios a cargo:</strong>
+  </p>
+  <div class="x_content">
+    <table class="table table-bordered" width="100%">
+      <thead>
+        <tr>
+          <th>Cédula</th>
+          <th>Nombre</th>
+          <th>Cargo(s)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @supervisor.operators.each do |operatorSupervisor| %>
+            <tr>
+              <td><%= operatorSupervisor.cc %></td>
+              <td><%= operatorSupervisor.name.to_s + " " + operatorSupervisor.lastname.to_s %></td>
+              <td><%= operatorSupervisor.jobs.map { |e| e.name }.join("<br>").html_safe %></td>
+
+            </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+
 
   <%= link_to edit_admin_supervisor_path(@supervisor),:class =>"btn btn-dark" do %>
     <span class="glyphicon glyphicon-pencil"></span>

@@ -139,6 +139,28 @@ class Admin::OperatorsController < ApplicationController
     end
   end
 
+  def changejob
+  end
+
+  def changedjob
+    @operator = Operator.find(params[:id])
+    @operator[:state] = "Retirado"
+
+    if @operator.save
+
+      nuevo = Record.new
+      nuevo[:operator_id] = @operator.id
+      nuevo[:state] = "Retirado"
+      nuevo[:description] = params[:record][:description]
+      nuevo[:retirementdate] = params[:record][:retirementdate]
+      nuevo.save
+      
+      redirect_to admin_operators_path, notice: 'Estado inhabilitado satisfactoriamente'
+    else
+      render :retire , alert: 'Estado no inhabilitado satisfactoriamente' 
+    end
+  end
+
   def destroy
     @operator.destroy
     respond_to do |format|
