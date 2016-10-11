@@ -13,6 +13,8 @@ class Admin::SupervisorsController < ApplicationController
 
   def show
     @records = Record.all
+    @operatorSupervisors = OperatorSupervisor.all
+    log(@operatorSupervisors)
   end
 
   def new
