@@ -74,9 +74,11 @@ end
        post 'operators/:id/retired', to: 'operators#retired', as: 'retired_operator'
        post 'operators/:id/reinstated', to: 'operators#reinstated', as: 'reinstated_operator'
        post 'operators/:id/enable', to: 'operators#enable', as: 'enable_operator'
+       post 'operators/:id/changedjob', to: 'operators#changedjob', as: 'changedjob_operator'
        get 'operators/:id/retire', to: 'operators#retire', as: 'retire_operator'
        get 'operators/:id/reinstate', to: 'operators#reinstate', as: 'reinstate_operator'
        get 'operators/:id/activate', to: 'operators#activate', as: 'activate_operator'
+       get 'operators/:id/changejob', to: 'operators#changejob', as: 'changejob_operator'
        get 'operators/savehistory'
        resources :operators
 

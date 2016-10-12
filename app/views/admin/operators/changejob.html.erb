@@ -1,0 +1,25 @@
+<h1>Cambiar cargo al Operador</h1>
+<%= form_for @recordJob, url:{action: "changedjob"}, html:{method: "post"} do |f| %>
+  <% if @recordJob.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@recordJob.errors.count, "error") %> prohibited this recordJob from being saved:</h2>
+      <ul>
+        <% @recordJob.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+    <div class="form-group col-md-12">
+      <%= f.label :description, "Motivo" %>
+      <%= f.text_area :description , class:"form-control"%>
+    </div>
+    <div class="col-md-12">
+    <%= link_to 'Cancelar', admin_operators_path ,:class =>"btn btn-danger" %>
+    <%= f.submit :class =>"btn btn-success"%>
+    </div>
+<% end %>
+
+<script>
+$('#recordjob_changejobdate').datepicker({dateFormat:'yy-mm-dd'});
+</script>

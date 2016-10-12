@@ -140,24 +140,22 @@ class Admin::OperatorsController < ApplicationController
   end
 
   def changejob
+      @recordJob = RecordJob.new
   end
 
   def changedjob
-    @operator = Operator.find(params[:id])
-    @operator[:state] = "Retirado"
-
     if @operator.save
 
-      nuevo = Record.new
+      nuevo = RecordJob.new
       nuevo[:operator_id] = @operator.id
-      nuevo[:state] = "Retirado"
-      nuevo[:description] = params[:record][:description]
-      nuevo[:retirementdate] = params[:record][:retirementdate]
+      nuevo[:jobs2] = params[:recordjob][:jobs2]
+      nuevo[:changejobdate] = params[:recordjob][:changejobdate]
+      nuevo[:description] = params[:recordjob][:description]
       nuevo.save
       
-      redirect_to admin_operators_path, notice: 'Estado inhabilitado satisfactoriamente'
+      redirect_to admin_operators_path, notice: 'Cambio de cargo existoso'
     else
-      render :retire , alert: 'Estado no inhabilitado satisfactoriamente' 
+      render :retire , alert: 'Cambio de cargo no existoso' 
     end
   end
 
