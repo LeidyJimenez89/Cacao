@@ -1,4 +1,12 @@
-<h1>Cambiar cargo al Operador</h1>
+<%= stylesheet_link_tag    'selectize.bootstrap3', media: 'all', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag 'selectize', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag 'plugin', 'data-turbolinks-track' => true %>
+
+<h1 class="x_title">
+  <i class="glyphicon glyphicon-leaf titleicon"></i>
+  Cambiar cargo al Operador
+</h1>
+
 <%= form_for @recordJob, url:{action: "changedjob"}, html:{method: "post"} do |f| %>
   <% if @recordJob.errors.any? %>
     <div id="error_explanation">
@@ -10,16 +18,31 @@
       </ul>
     </div>
   <% end %>
-    <div class="form-group col-md-12">
-      <%= f.label :description, "Motivo" %>
+  <div class="form-group col-md-12 field">
+    <div class="col-md-6">
+      <%= f.label :changejobdate, "Fecha de cambio de cargo" %>
+      <%= f.text_field :changejobdate , class:"form-control"%>
+    </div>
+    <div class="col-md-6">
+      <%= f.label :jobs2, "Cargo" %>
+      <%= f.select :jobs2, Job.where(state: "Activo").map { |j|  [ j.name , j.id ]  } , {selected: @operator.jobs.map { |e| e.id }}, {:multiple => true, class:"form-control"} %>
+    </div>
+  </div>
+  <div class="form-group col-md-12 field">
+    <div class="col-md-12">
+      <%= f.label :description, "Motivo de cambio" %>
       <%= f.text_area :description , class:"form-control"%>
     </div>
+  </div>
+  <div class="form-group col-md-12 field">
     <div class="col-md-12">
     <%= link_to 'Cancelar', admin_operators_path ,:class =>"btn btn-danger" %>
     <%= f.submit :class =>"btn btn-success"%>
     </div>
+  </div>
 <% end %>
 
 <script>
-$('#recordjob_changejobdate').datepicker({dateFormat:'yy-mm-dd'});
+$('#record_job_changejobdate').datepicker({dateFormat:'yy-mm-dd'});
+$("#record_job_jobs2").selectize({ plugins: ['remove_button'] });
 </script>

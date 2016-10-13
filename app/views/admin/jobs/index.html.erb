@@ -2,7 +2,12 @@
 <%= javascript_include_tag 'bootstrap', 'data-turbolinks-track' => true %>
 
 <h1 class="x_title"><i class="glyphicon glyphicon-leaf titleicon"></i>Listar Cargos</h1>
-<%= link_to 'Crear cargo', new_admin_job_path , :class =>"btn btn-default pull-right"%>
+
+<%= link_to new_admin_job_path , :class =>"btn btn-dark pull-right" do%>
+  <span class="glyphicon glyphicon-plus"></span>
+  Crear cargo
+<% end %>
+
 <table id="datatable" class="display datatable" cellspacing="0" width="100%">
   <thead>
     <tr>
@@ -20,14 +25,34 @@
         <td><%= job.description %></td>
         <td><%= job.state %></td>
         <td>
-        <%= link_to 'Ver', admin_job_path(job),:class =>"btn btn-default btn-sm"%>
-        <%= link_to 'Editar', edit_admin_job_path(job),:class =>"btn btn-default btn-sm" %>
-        <%= link_to 'Eliminar', admin_job_path(job),:class =>"btn btn-default btn-sm", method: :delete, data: { confirm: '¿Seguro desea eliminar el cargo?' } %>
-        <%if job.state=="Inactivo"%>
-          <%= link_to 'Habilitar', admin_enable_job_path(job),:class =>"btn btn-default btn-sm" %>
-        <%else%>
-          <%= link_to 'Deshabilitar', admin_disable_job_path(job),:class =>"btn btn-default btn-sm" %>
+
+        <%= link_to admin_job_path(job),:class =>"btn btn-default btn-sm" do %>
+          <span class="glyphicon glyphicon-eye-open"></span>
+          Ver
         <%end%>
+
+        <%= link_to edit_admin_job_path(job),:class =>"btn btn-default btn-sm" do %>
+          <span class="glyphicon glyphicon-pencil"></span>
+          Editar
+        <%end%>
+
+        <%= link_to admin_job_path(job),:class =>"btn btn-default btn-sm", method: :delete, data: { confirm: '¿Seguro desea eliminar el cargo?' } do %>
+          <span class="glyphicon glyphicon-trash"></span>
+          Eliminar
+        <%end%>
+
+        <%if job.state=="Inactivo"%>
+          <%= link_to admin_enable_job_path(job),:class =>"btn btn-default btn-sm" do %>
+            <span class="glyphicon glyphicon-export"></span>
+            Habilitar
+          <%end%>
+        <%else%>
+          <%= link_to admin_disable_job_path(job),:class =>"btn btn-default btn-sm" do %>
+            <span class="glyphicon glyphicon-import"></span>
+            Deshabilitar
+          <%end%>
+        <%end%>
+
         </td>
       </tr>
     <% end %>

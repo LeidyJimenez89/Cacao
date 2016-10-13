@@ -71,14 +71,14 @@ end
   #   end
      namespace :admin do
 
-       post 'operators/:id/retired', to: 'operators#retired', as: 'retired_operator'
-       post 'operators/:id/reinstated', to: 'operators#reinstated', as: 'reinstated_operator'
-       post 'operators/:id/enable', to: 'operators#enable', as: 'enable_operator'
-       post 'operators/:id/changedjob', to: 'operators#changedjob', as: 'changedjob_operator'
-       get 'operators/:id/retire', to: 'operators#retire', as: 'retire_operator'
-       get 'operators/:id/reinstate', to: 'operators#reinstate', as: 'reinstate_operator'
-       get 'operators/:id/activate', to: 'operators#activate', as: 'activate_operator'
-       get 'operators/:id/changejob', to: 'operators#changejob', as: 'changejob_operator'
+       post 'operators/retired/:id', to: 'operators#retired', as: 'retired_operator'
+       post 'operators/reinstated/:id', to: 'operators#reinstated', as: 'reinstated_operator'
+       post 'operators/enable/:id', to: 'operators#enable', as: 'enable_operator'
+       post 'operators/changedjob/:id', to: 'operators#changedjob', as: 'changedjob_operator'
+       get 'operators/retire/:id', to: 'operators#retire', as: 'retire_operator'
+       get 'operators/reinstate/:id', to: 'operators#reinstate', as: 'reinstate_operator'
+       get 'operators/activate/:id', to: 'operators#activate', as: 'activate_operator'
+       get 'operators/changejob/:id', to: 'operators#changejob', as: 'changejob_operator'
        get 'operators/savehistory'
        resources :operators
 
