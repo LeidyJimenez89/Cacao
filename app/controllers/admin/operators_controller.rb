@@ -15,6 +15,7 @@ class Admin::OperatorsController < ApplicationController
   # GET /operators/1.json
   def show
     @records = Record.all
+    @recordjobs = RecordJob.all
   end
 
   # GET /operators/new
@@ -24,9 +25,8 @@ class Admin::OperatorsController < ApplicationController
 
   def create
     @operator = Operator.new(operator_params)
-
     @operator[:state] = "Activo"
-    log(@operator)
+
     if @operator.save
 
       nuevo = Record.new
@@ -41,6 +41,12 @@ class Admin::OperatorsController < ApplicationController
           jobforoperator[:job_id] = job
           jobforoperator[:operator_id] = @operator.id
           jobforoperator.save
+
+          jobrecord = RecordJob.new
+          jobrecord[:operator_id] = @operator.id
+          jobrecord[:job_id] = job
+          jobrecord[:changejobdate] = @operator.dateadmission
+          jobrecord.save
         end
       end
 
@@ -141,22 +147,34 @@ class Admin::OperatorsController < ApplicationController
 
   def changejob
       @recordJob = RecordJob.new
+      @operator = Operator.where(id: params[:id]).first
   end
 
   def changedjob
-    if @operator.save
 
-      nuevo = RecordJob.new
-      nuevo[:operator_id] = @operator.id
-      nuevo[:jobs2] = params[:recordjob][:jobs2]
-      nuevo[:changejobdate] = params[:recordjob][:changejobdate]
-      nuevo[:description] = params[:recordjob][:description]
-      nuevo.save
-      
-      redirect_to admin_operators_path, notice: 'Cambio de cargo existoso'
-    else
-      render :retire , alert: 'Cambio de cargo no existoso' 
+    @operator = Operator.where(id: params[:id]).first
+
+    if @operator.jobs.present?
+      @operator.jobs.delete_all
     end
+
+    params[:record_job][:jobs2].each do |job|
+      if job.present?
+        jobforoperator = JobOperator.new
+        jobforoperator[:job_id] = job
+        jobforoperator[:operator_id] = @operator.id
+        jobforoperator.save
+      end
+    end
+
+    jobrecord = RecordJob.new
+    jobrecord[:operator_id] = @operator.id
+    jobrecord[:job_id] = params[:record_job][:jobs2]
+    jobrecord[:changejobdate] = params[:record_job][:changejobdate]
+    jobrecord[:description] = params[:record_job][:description]
+    jobrecord.save
+
+    redirect_to admin_operators_path, notice: 'Cargo cambiado satisfactoriamente'
   end
 
   def destroy

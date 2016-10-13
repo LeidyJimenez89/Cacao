@@ -1,18 +1,49 @@
-<p>
-  <strong>Nombre:</strong>
-  <%= @job.name %>
-</p>
+<div class="x_panel">
 
-<p>
-  <strong>Descripción:</strong>
-  <%= @job.description %>
-</p>
+	<h1 class="x_title">
+		<i class="glyphicon glyphicon-leaf titleicon"></i>
+		Cargo: <%= @job.name %>
+	</h1>
 
-<p>
-  <strong>Labores asociadas:</strong>
-  <br>
-  <%= @job.labors.map { |e| e.code + " " + e.name }.join("<br>").html_safe %>
-</p>
+	<p>
+	  <strong>Descripción:</strong>
+	  <%= @job.description %>
+	</p>
 
-<%= link_to 'Editar cargo', edit_admin_job_path(@job),:class =>"btn btn-default" %>
-<%= link_to 'Cancelar', admin_jobs_path, :class =>"btn btn-default" %>
+	<p>
+	  <strong>Labores asociadas:</strong>
+	  <%= @job.labors.map { |e| e.code + " " + e.name }.join("<br>").html_safe %>
+	</p>
+
+	<p>
+	<strong>Labores asociadas:</strong>
+	</p>
+	<div class="x_content">
+	<table class="table table-bordered" width="100%">
+	  <thead>
+	    <tr>
+	      <th>Código</th>
+	      <th>Nombre</th>
+	    </tr>
+	  </thead>
+	<tbody>
+	  <% @job.labors.each do |labor| %>
+	      <tr>
+	        <td><%= labor.code %></td>
+	        <td><%= labor.name %></td>
+	      </tr>
+	  <% end %>
+	</tbody>
+	</table>
+
+	<%= link_to edit_admin_job_path(@job),:class =>"btn btn-dark" do %>
+		<span class="glyphicon glyphicon-pencil"></span>
+		Editar
+	<% end %>
+
+	<%= link_to admin_jobs_path, :class =>"btn btn-danger" do %>
+		<span class="glyphicon glyphicon-remove"></span>
+		Cancelar
+	<% end %>
+
+</div>

@@ -22,6 +22,32 @@
   </p>
 
   <p>
+    <strong>Historial de cambios de cargo:</strong>
+  </p>
+  <div class="x_content">
+    <table class="table table-bordered" width="100%">
+      <thead>
+        <tr>
+          <th>Cargo</th>
+          <th>Fecha</th>
+        </tr>
+      </thead>
+    <tbody>
+      <% @recordjobs.each do |recordjob| %>
+        <% if recordjob.operator_id == @operator.id %>
+          <tr>
+            <td>
+              <%= recordjob.operator.jobs.map { |e| e.name }.join(", ").html_safe %>
+            </td>
+            <td><%= recordjob.changejobdate %></td>
+          </tr>
+        <% end %>
+      <% end %>
+    </tbody>
+    </table>
+  </div>
+
+  <p>
     <strong>Género:</strong>
     <%= @operator.gender%>
   </p>
