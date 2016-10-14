@@ -1,24 +1,33 @@
-<% if @sublot.costc_id.present? %>
-	<p>
-	  <strong>Descripción:</strong>
-	  <%= @sublot.costc.name %>
-	</p>
-<% end %>
+<div class="x_panel">
 
-<p>
-  <strong>Código:</strong>
-  <%= @sublot.code %>
-</p>
+  <h1 class="x_title">
+    <i class="glyphicon glyphicon-leaf titleicon"></i>
+    Sublote: <%= @sublot.name %>
+  </h1>
 
-<p>
-  <strong>Nombre:</strong>
-  <%= @sublot.name %>
-</p>
+  <% if @sublot.costc_id.present? %>
+  	<p>
+  	  <strong>Centro de costos:</strong>
+  	  <%= @sublot.costc.name %>
+  	</p>
+  <% end %>
 
-<p>
-  <strong>Descripción:</strong>
-  <%= @sublot.description %>
-</p>
+  <p>
+    <strong>Código:</strong>
+    <%= @sublot.code %>
+  </p>
 
-<%= link_to 'Editar', edit_admin_sublot_path(@sublot) ,:class =>"btn btn-default btn-sm" %>
-<%= link_to 'Cancelar', admin_sublots_path ,:class =>"btn btn-default btn-sm" %>
+  <p>
+    <strong>Descripción:</strong>
+    <%= @sublot.description %>
+  </p>
+
+  <%= link_to edit_admin_sublot_path(@sublot) ,:class =>"btn btn-dark" do %>
+    <span class="glyphicon glyphicon-pencil"></span>
+    Editar
+  <% end %>
+  <%= link_to admin_sublots_path ,:class =>"btn btn-danger" do %>
+    <span class="glyphicon glyphicon-remove"></span>
+    Cancelar
+  <% end %>
+</div>

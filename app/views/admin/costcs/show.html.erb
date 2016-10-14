@@ -1,17 +1,24 @@
-<p>
-  <strong>Code:</strong>
-  <%= @costc.code %>
-</p>
+<div class="x_panel">
 
-<p>
-  <strong>Name:</strong>
-  <%= @costc.name %>
-</p>
+	<h1 class="x_title">
+		<i class="glyphicon glyphicon-leaf titleicon"></i>
+		Sublote: <%= @costc.name %>
+	</h1>
+	<p>
+	  <strong>Código:</strong>
+	  <%= @costc.code %>
+	</p>
+	<p>
+	  <strong>Descripción:</strong>
+	  <%= @costc.description %>
+	</p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @costc.description %>
-</p>
-
-<%= link_to 'Edit', edit_admin_costc_path(@costc) ,:class =>"btn btn-default"%>
-<%= link_to 'Back', admin_costcs_path ,:class =>"btn btn-default"%>
+	<%= link_to edit_admin_costc_path(@costc),:class =>"btn btn-dark" do %>
+		<span class="glyphicon glyphicon-pencil"></span>
+		Editar centro de costo
+	<% end %>
+	<%= link_to admin_costcs_path ,:class =>"btn btn-danger" do %>
+		<span class="glyphicon glyphicon-remove"></span>
+		Cancelar
+	<% end %>
+</div>

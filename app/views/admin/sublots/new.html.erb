@@ -1,4 +1,7 @@
-<h1 class="x_title"><i class="glyphicon glyphicon-leaf titleicon"></i>Crear Sublote</h1>
+<h1 class="x_title">
+  <i class="glyphicon glyphicon-leaf titleicon"></i>
+  Crear Sublote
+</h1>
 
 <%= form_for @sublot , url:{action: "create"} do |f| %>
   <% if @sublot.errors.any? %>
@@ -12,23 +15,37 @@
     </div>
   <% end %>
   <div class="form-group col-md-12">
-      <%= f.label :costc_id, "Centro de costo", class:"subtitle"%>
-      <%= f.select :costc_id, Costc.all.map { |j|  [ j.name , j.id ]  } , {prompt: ""} ,class:"form-control"%>
+    <div class="col-md-4">
+        <%= f.label :costc_id, "Centro de costo", class:"subtitle"%>
+        <%= f.select :costc_id, Costc.all.map { |j|  [ j.name , j.id ]  } , {prompt: ""} ,class:"form-control"%>
+    </div>
+    <div class="col-md-4">
+      <%= f.label :code , "Código"%><br>
+      <%= f.text_field :code , class:"form-control"%>
+    </div>
+    <div class="col-md-4">
+      <%= f.label :name , "Nombre"%><br>
+      <%= f.text_field :name , class:"form-control"%>
+    </div>
   </div>
-  <div class="form-group col-md-6">
-    <%= f.label :code , "Código"%><br>
-    <%= f.text_field :code , class:"form-control"%>
-  </div>
-  <div class="form-group col-md-6">
-    <%= f.label :name , "Nombre"%><br>
-    <%= f.text_field :name , class:"form-control"%>
-  </div>
+
   <div class="form-group col-md-12">
-    <%= f.label :description , "Descripción"%><br>
-    <%= f.text_area :description , class:"form-control"%>
+    <div class="col-md-12">
+      <%= f.label :description , "Descripción"%><br>
+      <%= f.text_area :description , class:"form-control"%>
+    </div>
   </div>
-  <div class="col-md-12">
-  <%= link_to 'Cancelar', admin_sublots_path ,:class =>"btn btn-danger" %>
-  <%= f.submit :class =>"btn btn-success"%>
+
+  <div class="form-group col-md-12"> 
+    <div class="col-md-12">
+      <%= button_tag(:type => 'submit', :class => 'btn btn-dark') do %>
+        <i class="glyphicon glyphicon-floppy-disk"></i>
+        Crear sublote 
+      <% end %>
+      <%= link_to admin_sublots_path ,:class =>"btn btn-danger" do %>
+          <span class="glyphicon glyphicon-remove"></span>
+          Cancelar
+      <% end %>
+    </div>
   </div>
 <% end %>

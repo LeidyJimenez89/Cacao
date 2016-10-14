@@ -1,8 +1,15 @@
 <%= javascript_include_tag 'jquery.dataTables.min', 'data-turbolinks-track' => true %>
 <%= javascript_include_tag 'bootstrap', 'data-turbolinks-track' => true %>
 
-<h1 class="x_title"><i class="glyphicon glyphicon-leaf titleicon"></i>Listar Centros de costos</h1>
-<%= link_to 'Crear centro de costos', new_admin_costc_path , :class =>"btn btn-default pull-right"%>
+<h1 class="x_title">
+  <i class="glyphicon glyphicon-leaf titleicon"></i>
+  Listar Centros de costos
+</h1>
+
+<%= link_to new_admin_costc_path , :class =>"btn btn-dark pull-right" do %>
+  <span class="glyphicon glyphicon-plus"></span>
+  Crear centro de costos
+<% end %>
 <table id="datatable" class="display datatable" cellspacing="0" width="100%">
   <thead>
     <tr>
@@ -22,9 +29,18 @@
         <td><%= costc.sublots.map { |e| e.name }.join("<br>").html_safe %></td>
         <td><%= costc.labors.map { |e| e.name }.join("<br>").html_safe %></td>
         <td>
-        <%= link_to 'Ver', admin_costc_path(costc) ,:class =>"btn btn-default btn-sm"%>
-        <%= link_to 'Editar', edit_admin_costc_path(costc) ,:class =>"btn btn-default btn-sm"%>
-        <%= link_to 'Eliminar', admin_costc_path(costc),:class =>"btn btn-default btn-sm", method: :delete, data: { confirm: 'Are you sure?' } %>
+        <%= link_to admin_costc_path(costc) ,:class =>"btn btn-default btn-sm" do %>
+          <span class="glyphicon glyphicon-eye-open"></span>
+          Ver
+        <% end %>
+        <%= link_to edit_admin_costc_path(costc) ,:class =>"btn btn-default btn-sm" do %>
+          <span class="glyphicon glyphicon-pencil"></span>
+          Editar
+        <% end %>
+        <%= link_to admin_costc_path(costc),:class =>"btn btn-default btn-sm", method: :delete, data: { confirm: '¿Seguro desea eliminar el centro de costos?' } do %>
+          <span class="glyphicon glyphicon-trash"></span>
+          Eliminar
+        <% end %>
         </td>
       </tr>
     <% end %>

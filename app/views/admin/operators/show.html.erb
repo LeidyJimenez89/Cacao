@@ -28,8 +28,9 @@
     <table class="table table-bordered" width="100%">
       <thead>
         <tr>
-          <th>Cargo</th>
-          <th>Fecha</th>
+          <th class="active">Cargo</th>
+          <th class="active">Fecha</th>
+          <th class="active">Motivo</th>
         </tr>
       </thead>
     <tbody>
@@ -40,6 +41,7 @@
               <%= recordjob.operator.jobs.map { |e| e.name }.join(", ").html_safe %>
             </td>
             <td><%= recordjob.changejobdate %></td>
+            <td><%= recordjob.description %></td>
           </tr>
         <% end %>
       <% end %>
@@ -54,7 +56,7 @@
 
   <% if @operator.records.where(state: "Reintegrado").present? %>
     <p>
-      <strong>Fecha de reintegro:</strong>
+      <strong>Fecha del reintegro más reciente:</strong>
       <%= @operator.records.where(state: "Reintegrado").order("id desc").first.reinstatedate %>
     </p>
   <% else %>
@@ -66,7 +68,7 @@
 
   <% if @operator.records.where(state: "Retirado").present? %>
     <p>
-      <strong>Fecha de retiro:</strong>
+      <strong>Fecha del retiro más reciente:</strong>
       <%= @operator.records.where(state: "Retirado").order("id desc").first.retirementdate %>
     </p>
   <% end %>
@@ -80,6 +82,7 @@
         <tr>
           <th>Estado</th>
           <th>Fecha</th>
+          <th>Motivo</th>
         </tr>
       </thead>
     <tbody>
@@ -96,6 +99,7 @@
             <% if record.state == "Reintegrado" %>
               <td><%= record.reinstatedate %></td>
             <% end %>
+            <td><%= record.description %></td>
           </tr>
         <% end %>
       <% end %>
