@@ -1,8 +1,16 @@
 <%= javascript_include_tag 'jquery.dataTables.min', 'data-turbolinks-track' => true %>
 <%= javascript_include_tag 'bootstrap', 'data-turbolinks-track' => true %>
 
-<h1 class="x_title"><i class="glyphicon glyphicon-leaf titleicon"></i>Listar Sublotes</h1>
-<%= link_to 'Crear sublote', new_admin_sublot_path , :class =>"btn btn-default pull-right"%>
+<h1 class="x_title">
+  <i class="glyphicon glyphicon-leaf titleicon"></i>
+  Listar Sublotes
+</h1>
+
+<%= link_to new_admin_sublot_path , :class =>"btn btn-dark pull-right" do %>
+  <span class="glyphicon glyphicon-plus"></span>
+  Crear sublote
+<% end %>
+
 <table id="datatable" class="display datatable" cellspacing="0" width="100%">
   <thead>
     <tr>
@@ -20,9 +28,22 @@
         <td><%= sublot.code %></td>
         <td><%= sublot.name %></td>
         <td>
-        <%= link_to 'Ver', admin_sublot_path(sublot),:class =>"btn btn-default btn-sm" %>
-        <%= link_to 'Editar', edit_admin_sublot_path(sublot),:class =>"btn btn-default btn-sm" %>
-        <%= link_to 'Eliminar', admin_sublot_path(sublot),:class =>"btn btn-default btn-sm", method: :delete, data: { confirm: 'Are you sure?' } %>
+
+        <%= link_to admin_sublot_path(sublot),:class =>"btn btn-default btn-sm" do %>
+          <span class="glyphicon glyphicon-eye-open"></span>
+          Ver
+        <% end %>
+
+        <%= link_to edit_admin_sublot_path(sublot),:class =>"btn btn-default btn-sm" do %>
+          <span class="glyphicon glyphicon-pencil"></span>
+          Editar
+        <% end %>
+
+        <%= link_to admin_sublot_path(sublot),:class =>"btn btn-default btn-sm", method: :delete, data: { confirm: '¿Seguro desea eliminar el sublote?' } do %>
+          <span class="glyphicon glyphicon-trash"></span>
+          Eliminar
+        <% end %>
+
         </td>
       </tr>
     <% end %>
