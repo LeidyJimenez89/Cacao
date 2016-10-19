@@ -46,70 +46,72 @@
     </p>
   <% end %>
 
-  <p>
-    <strong>Historial de contratación:</strong>
-  </p>
-  <div class="x_content">
-    <table class="table table-bordered" width="100%">
-      <thead>
-        <tr>
-          <th>Estado</th>
-          <th>Fecha</th>
-        </tr>
-      </thead>
-    <tbody>
-      <% @records.each do |record| %>
-        <% if record.supervisor_id == @supervisor.id %>
+  <% if @supervisor.records.present? %>
+    <p>
+      <strong>Historial de contratación:</strong>
+    </p>
+    <div class="x_content">
+      <table class="table table-bordered" width="100%">
+        <thead>
           <tr>
-            <td><%= record.state %></td>
-            <% if record.state == "Activo" %>
-              <td><%= record.supervisor.dateadmission %></td>
-            <% end %>
-            <% if record.state == "Retirado" %>
-              <td><%= record.retirementdate %></td>
-            <% end %>
-            <% if record.state == "Reintegrado" %>
-              <td><%= record.reinstatedate %></td>
-            <% end %>
+            <th class="active">Estado</th>
+            <th class="active">Fecha</th>
           </tr>
-        <% end %>
-      <% end %>
-    </tbody>
-    </table>
-  </div>
-
-  <p>
-    <strong>Operadores a cargo:</strong>
-    <br>
-    <%= @supervisor.operators.map { |e| e.cc + " " + e.name }.join("<br>").html_safe %>
-  </p>
-
-
-  <p>
-    <strong>Operarios a cargo:</strong>
-  </p>
-  <div class="x_content">
-    <table class="table table-bordered" width="100%">
-      <thead>
-        <tr>
-          <th>Cédula</th>
-          <th>Nombre</th>
-          <th>Cargo(s)</th>
-        </tr>
-      </thead>
+        </thead>
       <tbody>
-        <% @supervisor.operators.each do |operatorSupervisor| %>
+        <% @supervisor.records.each do |record| %>
             <tr>
-              <td><%= operatorSupervisor.cc %></td>
-              <td><%= operatorSupervisor.name.to_s + " " + operatorSupervisor.lastname.to_s %></td>
-              <td><%= operatorSupervisor.jobs.map { |e| e.name }.join("<br>").html_safe %></td>
-
+              <td><%= record.state %></td>
+              <% if record.state == "Activo" %>
+                <td><%= record.supervisor.dateadmission %></td>
+              <% end %>
+              <% if record.state == "Retirado" %>
+                <td><%= record.retirementdate %></td>
+              <% end %>
+              <% if record.state == "Reintegrado" %>
+                <td><%= record.reinstatedate %></td>
             </tr>
+          <% end %>
         <% end %>
       </tbody>
-    </table>
-  </div>
+      </table>
+    </div>
+  <% end %>
 
+  <% if @supervisor.operators.present? %>
+    <p>
+      <strong>Operarios a cargo:</strong>
+      <br>
+      <%= @supervisor.operators.map { |e| e.cc + " " + e.name }.join("<br>").html_safe %>
+    </p>
+  <% end %>
+
+  <% if @supervisor.operators.present? %>
+    <p>
+      <strong>Operarios a cargo:</strong>
+    </p>
+    <div class="x_content">
+      <table class="table table-bordered" width="100%">
+        <thead>
+          <tr>
+            <th class="active">Cédula</th>
+            <th class="active">Nombre</th>
+            <th class="active">Cargo(s)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @supervisor.operators.each do |operatorSupervisor| %>
+              <tr>
+                <td><%= operatorSupervisor.cc %></td>
+                <td><%= operatorSupervisor.name.to_s + " " + operatorSupervisor.lastname.to_s %></td>
+                <td><%= operatorSupervisor.jobs.map { |e| e.name }.join("<br>").html_safe %></td>
+
+              </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  <% end %>
 
   <%= link_to edit_admin_supervisor_path(@supervisor),:class =>"btn btn-dark" do %>
     <span class="glyphicon glyphicon-pencil"></span>

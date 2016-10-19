@@ -27,7 +27,7 @@
         <td><%= costc.code %></td>
         <td><%= costc.name %></td>
         <td><%= costc.sublots.map { |e| e.name }.join("<br>").html_safe %></td>
-        <td><%= costc.labors.map { |e| e.name }.join("<br>").html_safe %></td>
+        <td><%= costc.labors.count %></td>
         <td>
         <%= link_to admin_costc_path(costc) ,:class =>"btn btn-default btn-sm" do %>
           <span class="glyphicon glyphicon-eye-open"></span>

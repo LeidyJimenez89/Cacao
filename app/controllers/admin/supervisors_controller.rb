@@ -12,9 +12,6 @@ class Admin::SupervisorsController < ApplicationController
   end
 
   def show
-    @records = Record.all
-    @operatorSupervisors = OperatorSupervisor.all
-    log(@operatorSupervisors)
   end
 
   def new

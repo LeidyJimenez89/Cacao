@@ -22,34 +22,6 @@
   </p>
 
   <p>
-    <strong>Historial de cambios de cargo:</strong>
-  </p>
-  <div class="x_content">
-    <table class="table table-bordered" width="100%">
-      <thead>
-        <tr>
-          <th class="active">Cargo</th>
-          <th class="active">Fecha</th>
-          <th class="active">Motivo</th>
-        </tr>
-      </thead>
-    <tbody>
-      <% @recordjobs.each do |recordjob| %>
-        <% if recordjob.operator_id == @operator.id %>
-          <tr>
-            <td>
-              <%= recordjob.operator.jobs.map { |e| e.name }.join(", ").html_safe %>
-            </td>
-            <td><%= recordjob.changejobdate %></td>
-            <td><%= recordjob.description %></td>
-          </tr>
-        <% end %>
-      <% end %>
-    </tbody>
-    </table>
-  </div>
-
-  <p>
     <strong>Género:</strong>
     <%= @operator.gender%>
   </p>
@@ -73,39 +45,65 @@
     </p>
   <% end %>
 
-  <p>
-    <strong>Historial de contratación:</strong>
-  </p>
-  <div class="x_content">
-    <table class="table table-bordered" width="100%">
-      <thead>
-        <tr>
-          <th>Estado</th>
-          <th>Fecha</th>
-          <th>Motivo</th>
-        </tr>
-      </thead>
-    <tbody>
-      <% @records.each do |record| %>
-        <% if record.operator_id == @operator.id %>
+  <% if @operator.record_jobs.present? %>
+    <p>
+      <strong>Historial de cambios de cargo:</strong>
+    </p>
+    <div class="x_content">
+      <table class="table table-bordered" width="100%">
+        <thead>
           <tr>
-            <td><%= record.state %></td>
-            <% if record.state == "Activo" %>
-              <td><%= record.operator.dateadmission %></td>
-            <% end %>
-            <% if record.state == "Retirado" %>
-              <td><%= record.retirementdate %></td>
-            <% end %>
-            <% if record.state == "Reintegrado" %>
-              <td><%= record.reinstatedate %></td>
-            <% end %>
-            <td><%= record.description %></td>
+            <th class="active">Cargo</th>
+            <th class="active">Fecha</th>
+            <th class="active">Motivo</th>
           </tr>
+        </thead>
+      <tbody>
+        <% @operator.record_jobs.each do |recordjob| %>
+            <tr>
+              <td><%= recordjob.job.name %></td>
+              <td><%= recordjob.changejobdate %></td>
+              <td><%= recordjob.description %></td>
+            </tr>
         <% end %>
-      <% end %>
-    </tbody>
-    </table>
-  </div>
+      </tbody>
+      </table>
+    </div>
+  <% end %>
+
+  <% if @operator.record_jobs.present? %>
+    <p>
+      <strong>Historial de contratación:</strong>
+    </p>
+    <div class="x_content">
+      <table class="table table-bordered" width="100%">
+        <thead>
+          <tr>
+            <th class="active">Estado</th>
+            <th class="active">Fecha</th>
+            <th class="active">Motivo</th>
+          </tr>
+        </thead>
+      <tbody>
+        <% @operator.records.each do |record| %>
+            <tr>
+              <td><%= record.state %></td>
+              <% if record.state == "Activo" %>
+                <td><%= record.operator.dateadmission %></td>
+              <% end %>
+              <% if record.state == "Retirado" %>
+                <td><%= record.retirementdate %></td>
+              <% end %>
+              <% if record.state == "Reintegrado" %>
+                <td><%= record.reinstatedate %></td>
+              <% end %>
+              <td><%= record.description %></td>
+            </tr>
+        <% end %>
+      </tbody>
+      </table>
+    </div>
+  <% end %>
 
   <%= link_to edit_admin_operator_path(@operator) ,:class =>"btn btn-dark" do %>
     <span class="glyphicon glyphicon-pencil"></span>

@@ -7,7 +7,7 @@ class Operator < ActiveRecord::Base
 
 	has_many :records
 
-	has_many :recordjob
+	has_many :record_jobs
 
 	attr_accessor :records2
 	attr_accessor :jobs2
