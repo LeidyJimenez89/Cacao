@@ -11,11 +11,13 @@ class Admin::OperatorsController < ApplicationController
     @records = Record.all
   end
 
+  def paysheet
+    @records = Record.all
+  end
+
   # GET /operators/1
   # GET /operators/1.json
   def show
-    @records = Record.all
-    @recordjobs = RecordJob.all
   end
 
   # GET /operators/new
@@ -167,12 +169,16 @@ class Admin::OperatorsController < ApplicationController
       end
     end
 
-    jobrecord = RecordJob.new
-    jobrecord[:operator_id] = @operator.id
-    jobrecord[:job_id] = params[:record_job][:jobs2]
-    jobrecord[:changejobdate] = params[:record_job][:changejobdate]
-    jobrecord[:description] = params[:record_job][:description]
-    jobrecord.save
+    params[:record_job][:jobs2].each do |job|
+      if job.present?
+        jobrecord = RecordJob.new
+        jobrecord[:operator_id] = @operator.id
+        jobrecord[:job_id] = job
+        jobrecord[:changejobdate] = params[:record_job][:changejobdate]
+        jobrecord[:description] = params[:record_job][:description]
+        jobrecord.save
+      end
+    end
 
     redirect_to admin_operators_path, notice: 'Cargo cambiado satisfactoriamente'
   end

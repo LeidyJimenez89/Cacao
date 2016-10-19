@@ -130,6 +130,12 @@
               <h3>Informes</h3>
               <ul class="nav side-menu">
 
+                <li><a><i class="fa fa-file-text"></i> Nómina CCC <span class="fa fa-chevron-down"></span></a>
+                  <ul class="nav child_menu" style="display: none">
+                    <li><%= link_to 'Ver historial', admin_operators_paysheet_path %></li>
+                  </ul>
+                </li>
+
                 <li><a><i class="fa fa-file-text"></i> Historial contratación <span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu" style="display: none">
                     <li><%= link_to 'Ver historial', admin_operators_savehistory_path %></li>
