@@ -1,4 +1,8 @@
-<h1>Retirar Supervisor</h1>
+<h1 class="x_title">
+  <i class="glyphicon glyphicon-leaf titleicon"></i>
+  Retirar Supervisor
+</h1>
+
 <%= form_for @record, url:{action: "reinstated"}, html:{method: "post"} do |f| %>
   <% if @record.errors.any? %>
     <div id="error_explanation">
@@ -10,18 +14,30 @@
       </ul>
     </div>
   <% end %>
-	  <div class="form-group col-md-12">
+  <div class="form-group col-md-12 field">
+	  <div class="col-md-12">
 	    <%= f.label :reinstatedate, "Fecha de retiro" %>
 	    <%= f.text_field :reinstatedate , class:"form-control"%>
-	  </div>
-    <div class="form-group col-md-12">
+    </div>
+  </div>
+  <div class="form-group col-md-12 field">
+    <div class="col-md-12">
       <%= f.label :description, "Descripción" %>
       <%= f.text_area :description , class:"form-control"%>
     </div>
-	  <div class="col-md-12">
-		<%= link_to 'Cancelar', admin_supervisors_path ,:class =>"btn btn-danger" %>
-	  <%= f.submit :class =>"btn btn-success"%>
-	  </div>
+  </div>
+  <div class="form-group col-md-12 field">
+    <div class="col-md-12">
+      <%= button_tag(:type => 'submit', :class => 'btn btn-dark') do %>
+        <i class="glyphicon glyphicon-floppy-disk"></i>
+        Reintegrar supervisor 
+      <% end %>
+      <%= link_to admin_supervisors_path ,:class =>"btn btn-danger" do %>
+        <span class="glyphicon glyphicon-remove"></span>
+        Cancelar
+      <% end %>
+    </div>
+  </div>
 <% end %>
 
 <script>
