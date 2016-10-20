@@ -2,7 +2,10 @@
 <%= javascript_include_tag 'selectize', 'data-turbolinks-track' => true %>
 <%= javascript_include_tag 'plugin', 'data-turbolinks-track' => true %>
 
-<h1 class="x_title"><i class="glyphicon glyphicon-leaf titleicon"></i>Editar Supervisor</h1>
+<h1 class="x_title">
+  <i class="glyphicon glyphicon-leaf titleicon"></i>
+  Editar Supervisor
+</h1>
 
 <%= form_for @supervisor, url:{action: "update"} do |f| %>
 
