@@ -51,8 +51,10 @@
 
 	<div class="form-group col-md-12 field">
 		<div class="col-md-12">
-			<%= f.submit "Editar operador", :class =>"btn btn-dark" %>
-
+			<%= button_tag(:type => 'submit', :class => 'btn btn-dark') do %>
+				<i class="glyphicon glyphicon-floppy-disk"></i>
+				Editar operador 
+			<% end %>
 			<%= link_to admin_operators_path ,:class =>"btn btn-danger" do %>
 				<span class="glyphicon glyphicon-remove"></span>
 				Cancelar
