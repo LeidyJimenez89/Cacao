@@ -12,7 +12,8 @@ class Admin::OperatorsController < ApplicationController
   end
 
   def paysheet
-    @records = Record.all
+    @operators = Operator.all
+    @supervisors = Supervisor.all
   end
 
   # GET /operators/1

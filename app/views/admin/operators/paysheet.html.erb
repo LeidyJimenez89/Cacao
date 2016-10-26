@@ -8,49 +8,52 @@
     <tr>
       <th>Cédula</th>
       <th>Nombre</th>
-      <th>Tipo</th>
+      <th>Cargo</th>
       <th>Estado</th>
+      <th>Básico</th>
       <th>Fecha de ingreso</th>
+      <th>Fecha de retiro</th>
       <th>Total a pagar</th>
     </tr>
   </thead>
 
   <tbody>
-    <% @records.each do |record| %>
-      <% if record.operator.present? %>
+    <% @operators.each do |operator| %>
         <tr>
-          <td><%= record.operator.cc %></td>
-          <td><%= record.operator.name  + " " + record.operator.lastname %></td>
-          <td><%= "Operador" %></td>
-          <td><%= record.state %></td>
-          <% if record.state =="Activo" %>
-            <td><%= record.operator.dateadmission %></td>
-          <% elsif record.state == "Retirado" %>
-            <td><%= record.retirementdate %></td>
-          <% elsif record.state == "Reintegrado" %>
-            <td><%= record.reinstatedate %></td>
+          <td><%= operator.cc %></td>
+          <td><%= operator.name  + " " + operator.lastname %></td>
+          <td><%= operator.jobs.map { |e| e.name }.join(", ").html_safe %></td>
+          <td><%= operator.state %></td>
+          <td><%= operator.jobs.map { |e| e.basepay }.join(", ").html_safe %></td>
+          <% if operator.state =="Activo" %>
+            <td><%= operator.dateadmission %></td>
+          <% elsif operator.state == "Reintegrado" %>
+            <td><%= operator.records.where(state: "Reintegrado").order("id desc").first.reinstatedate %></td>
+          <% elsif operator.state == "Retirado" %>
+            <td><%= operator.records.where(state: "Reintegrado").order("id desc").first.reinstatedate %></td>
           <% end %>
-          <td><%= record.description %></td>
+          <td><%= operator.records.where(state: "Retirado").order("id desc").first.retirementdate %></td>
+          <td><%= operator.cc %></td>
         </tr>
-      <% end %>
-      <% if record.supervisor.present? %>
-        <tr>
-          <td><%= record.supervisor.cc %></td>
-          <td><%= record.supervisor.name  + " " + record.supervisor.lastname %></td>
-          <td><%= "Supervisor" %></td>
-          <td><%= record.state %></td>
-          <% if record.state =="Activo" %>
-            <td><%= record.supervisor.dateadmission %></td>
-          <% elsif record.state == "Retirado" %>
-            <td><%= record.retirementdate %></td>
-          <% elsif record.state == "Reintegrado" %>
-            <td><%= record.reinstatedate %></td>
-          <% end %>
-          <td><%= record.description %></td>
-        </tr>
-      <% end %>
-
     <% end %>
+    <% @supervisors.each do |supervisor| %>
+        <tr>
+          <td><%= supervisor.cc %></td>
+          <td><%= supervisor.name  + " " + supervisor.lastname %></td>
+          <td><%= supervisor.jobs.map { |e| e.name }.join(", ").html_safe %></td>
+          <td><%= supervisor.state %></td>
+          <td><%= supervisor.jobs.map { |e| e.basepay }.join(", ").html_safe %></td>
+          <% if supervisor.state =="Activo" %>
+            <td><%= supervisor.dateadmission %></td>
+          <% elsif supervisor.state == "Reintegrado" %>
+            <td><%= supervisor.records.where(state: "Reintegrado").order("id desc").first.reinstatedate %></td>
+          <% elsif supervisor.state == "Retirado" %>
+            <td><%= supervisor.records.where(state: "Reintegrado").order("id desc").first.reinstatedate %></td>
+          <% end %>
+          <td><%= supervisor.records.where(state: "Retirado").order("id desc").first.retirementdate %></td>
+          <td><%= supervisor.cc %></td>
+        </tr>
+      <% end %>
   </tbody>
 </table>
 
