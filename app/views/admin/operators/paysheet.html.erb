@@ -6,14 +6,14 @@
 <table class="table table-bordered"  cellspacing="0" width="100%">
   <thead>
     <tr>
-      <th>Cédula</th>
-      <th>Nombre</th>
-      <th>Cargo</th>
-      <th>Estado</th>
-      <th>Básico</th>
-      <th>Fecha de ingreso</th>
-      <th>Fecha de retiro</th>
-      <th>Total a pagar</th>
+      <th class="active">Cédula</th>
+      <th class="active">Nombre</th>
+      <th class="active">Cargo</th>
+      <th class="active">Básico</th>
+      <th class="active">Estado</th>
+      <th class="active">Fecha de ingreso</th>
+      <th class="active">Fecha de retiro</th>
+      <th class="active">Total a pagar</th>
     </tr>
   </thead>
 
@@ -23,16 +23,17 @@
           <td><%= operator.cc %></td>
           <td><%= operator.name  + " " + operator.lastname %></td>
           <td><%= operator.jobs.map { |e| e.name }.join(", ").html_safe %></td>
-          <td><%= operator.state %></td>
           <td><%= operator.jobs.map { |e| e.basepay }.join(", ").html_safe %></td>
-          <% if operator.state =="Activo" %>
+          <td><%= operator.state %></td>
+
+          <% if operator.records.where(state: "Reintegrado").order("id desc").first.reinstatedate.present? %>
+            <td><%= operator.records.where(state: "Reintegrado").order("id desc").first.reinstatedate %></td>
+          <% else %>
             <td><%= operator.dateadmission %></td>
-          <% elsif operator.state == "Reintegrado" %>
-            <td><%= operator.records.where(state: "Reintegrado").order("id desc").first.reinstatedate %></td>
-          <% elsif operator.state == "Retirado" %>
-            <td><%= operator.records.where(state: "Reintegrado").order("id desc").first.reinstatedate %></td>
           <% end %>
-          <td><%= operator.records.where(state: "Retirado").order("id desc").first.retirementdate %></td>
+          <% if operator.records.where(state: "Reintegrado").order("id desc").first.reinstatedate.present? %>
+            <td><%= operator.records.where(state: "Retirado").order("id desc").first.retirementdate %></td>
+          <% end %>
           <td><%= operator.cc %></td>
         </tr>
     <% end %>
@@ -41,8 +42,8 @@
           <td><%= supervisor.cc %></td>
           <td><%= supervisor.name  + " " + supervisor.lastname %></td>
           <td><%= supervisor.jobs.map { |e| e.name }.join(", ").html_safe %></td>
-          <td><%= supervisor.state %></td>
           <td><%= supervisor.jobs.map { |e| e.basepay }.join(", ").html_safe %></td>
+          <td><%= supervisor.state %></td>
           <% if supervisor.state =="Activo" %>
             <td><%= supervisor.dateadmission %></td>
           <% elsif supervisor.state == "Reintegrado" %>
