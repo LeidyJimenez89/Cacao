@@ -30,3 +30,7 @@
 ** {"utf8"=>"✓", "authenticity_token"=>"kdzuT/7kGIwE6sK11ozX0I8I85w7OALGv6mCNQW2LAZJA9omalf7/qMw3VME59yLzWiyc8xLNIN3TB69VfmgTQ==", "record"=>{"retirementdate"=>"2016-10-26", "description"=>""}, "button"=>"", "controller"=>"admin/supervisors", "action"=>"retired", "id"=>"23"}
 ***********************************************************************************************************
 
+*****************************************27/10/2016*****************************************
+** {"utf8"=>"✓", "authenticity_token"=>"aNz5MokPifxzLs/kFVb4aifRF0OrEct14TeQ33fUitnXmc8Ii6qaZev1Wd72ITmseNOzz34G+4WjOQ9DaIknUA==", "record"=>{"retirementdate"=>"2016-11-01", "description"=>""}, "button"=>"", "controller"=>"admin/supervisors", "action"=>"retired", "id"=>"23"}
+***********************************************************************************************************
+
