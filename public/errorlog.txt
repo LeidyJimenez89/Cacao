@@ -34,3 +34,15 @@
 ** {"utf8"=>"✓", "authenticity_token"=>"aNz5MokPifxzLs/kFVb4aifRF0OrEct14TeQ33fUitnXmc8Ii6qaZev1Wd72ITmseNOzz34G+4WjOQ9DaIknUA==", "record"=>{"retirementdate"=>"2016-11-01", "description"=>""}, "button"=>"", "controller"=>"admin/supervisors", "action"=>"retired", "id"=>"23"}
 ***********************************************************************************************************
 
+*****************************************31/10/2016*****************************************
+** {"utf8"=>"✓", "authenticity_token"=>"Z/gVm9H/3Bg5ZmHUvhjgT3VwUIDHN3KKwVw3kqIPDECL6N6iWGwbVg0vCaQJ+VaDZM+oAPY0smqwtjJbgb4mog==", "record"=>{"retirementdate"=>"2016-11-01", "description"=>""}, "button"=>"", "controller"=>"admin/supervisors", "action"=>"retired", "id"=>"24"}
+***********************************************************************************************************
+
+*****************************************31/10/2016*****************************************
+** {"utf8"=>"✓", "authenticity_token"=>"COB0n/G6+jR9L5ieS+DXrf29pdQg1Zgv9bwEoTru2Yvk8L+meCk9eklm8O78AWFh7AJdVBHWWM+EVgFoGV/zaQ==", "record"=>{"retirementdate"=>"2016-11-04", "description"=>""}, "button"=>"", "controller"=>"admin/supervisors", "action"=>"retired", "id"=>"23"}
+***********************************************************************************************************
+
+*****************************************31/10/2016*****************************************
+** {"utf8"=>"✓", "authenticity_token"=>"jPh1yyW1rWABVNtz9AtdqzV2MTwbUn4s3wOG/wS/OTJg6L7yrCZqLjUdswND6utnJMnJvCpRvsyu6YM2Jw4T0A==", "record"=>{"retirementdate"=>"2016-11-07", "description"=>""}, "button"=>"", "controller"=>"admin/supervisors", "action"=>"retired", "id"=>"23"}
+***********************************************************************************************************
+

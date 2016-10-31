@@ -3,7 +3,8 @@
   Nómina
 </h1>
 
-<table class="table table-bordered"  cellspacing="0" width="100%">
+<div style="overflow:auto;max-width:100%" >
+<table class="table table-bordered"  cellspacing="0" >
   <thead>
     <tr>
       <th class="active">Cédula</th>
@@ -13,6 +14,12 @@
       <th class="active">Estado</th>
       <th class="active">Fecha de ingreso</th>
       <th class="active">Fecha de retiro</th>
+      <th class="active">Días a pagar</th>
+      <th class="active">Licencias remuneradas</th>
+      <th class="active">Licencias no remuneradas</th>
+      <th class="active">Licencias ambulatorias</th>
+      <th class="active">Licencias ARL</th>
+      <th class="active">Faltas injustificadas</th>
       <th class="active">Total a pagar</th>
     </tr>
   </thead>
@@ -26,14 +33,32 @@
           <td><%= operator.jobs.map { |e| e.basepay }.join(", ").html_safe %></td>
           <td><%= operator.state %></td>
 
-          <% if operator.records.where(state: "Reintegrado").order("id desc").first.reinstatedate.present? %>
-            <td><%= operator.records.where(state: "Reintegrado").order("id desc").first.reinstatedate %></td>
-          <% else %>
-            <td><%= operator.dateadmission %></td>
-          <% end %>
-          <% if operator.records.where(state: "Reintegrado").order("id desc").first.reinstatedate.present? %>
-            <td><%= operator.records.where(state: "Retirado").order("id desc").first.retirementdate %></td>
-          <% end %>
+            <% if operator.state == "Activo" %>
+              <td><%= operator.dateadmission %></td>
+              <td><%=  %></td>
+            <% end %>
+
+            <% if operator.state == "Retirado" %>
+              <% if operator.records.where(state: "Reintegrado").order("id desc").first.present? %>
+                <td><%= operator.records.where(state: "Reintegrado").order("id desc").first.reinstatedate %></td>
+                <td><%= operator.records.where(state: "Retirado").order("id desc").first.retirementdate %></td>
+              <% else %>
+                <td><%= operator.dateadmission %></td>
+                <td><%= operator.records.where(state: "Retirado").order("id desc").first.retirementdate %></td>
+              <% end %>
+            <% end %>
+
+            <% if operator.state == "Reintegrado" %>
+              <td><%= operator.records.where(state: "Reintegrado").order("id desc").first.reinstatedate %></td>
+              <td><%=  %></td>
+            <% end %>
+
+          <td><%= operator.cc %></td>
+          <td><%= operator.cc %></td>
+          <td><%= operator.cc %></td>
+          <td><%= operator.cc %></td>
+          <td><%= operator.cc %></td>
+          <td><%= operator.cc %></td>
           <td><%= operator.cc %></td>
         </tr>
     <% end %>
@@ -44,19 +69,39 @@
           <td><%= supervisor.jobs.map { |e| e.name }.join(", ").html_safe %></td>
           <td><%= supervisor.jobs.map { |e| e.basepay }.join(", ").html_safe %></td>
           <td><%= supervisor.state %></td>
-          <% if supervisor.state =="Activo" %>
-            <td><%= supervisor.dateadmission %></td>
-          <% elsif supervisor.state == "Reintegrado" %>
-            <td><%= supervisor.records.where(state: "Reintegrado").order("id desc").first.reinstatedate %></td>
-          <% elsif supervisor.state == "Retirado" %>
-            <td><%= supervisor.records.where(state: "Reintegrado").order("id desc").first.reinstatedate %></td>
-          <% end %>
-          <td><%= supervisor.records.where(state: "Retirado").order("id desc").first.retirementdate %></td>
+
+            <% if supervisor.state == "Activo" %>
+              <td><%= supervisor.dateadmission %></td>
+              <td><%=  %></td>
+            <% end %>
+
+            <% if supervisor.state == "Retirado" %>
+              <% if supervisor.records.where(state: "Reintegrado").order("id desc").first.present? %>
+                <td><%= supervisor.records.where(state: "Reintegrado").order("id desc").first.reinstatedate %></td>
+                <td><%= supervisor.records.where(state: "Retirado").order("id desc").first.retirementdate %></td>
+              <% else %>
+                <td><%= supervisor.dateadmission %></td>
+                <td><%= supervisor.records.where(state: "Retirado").order("id desc").first.retirementdate %></td>
+              <% end %>
+            <% end %>
+
+            <% if supervisor.state == "Reintegrado" %>
+              <td><%= supervisor.records.where(state: "Reintegrado").order("id desc").first.reinstatedate %></td>
+              <td><%=  %></td>
+            <% end %>
+
+          <td><%= supervisor.cc %></td>
+          <td><%= supervisor.cc %></td>
+          <td><%= supervisor.cc %></td>
+          <td><%= supervisor.cc %></td>
+          <td><%= supervisor.cc %></td>
+          <td><%= supervisor.cc %></td>
           <td><%= supervisor.cc %></td>
         </tr>
       <% end %>
   </tbody>
 </table>
+</div>
 
 <script>
 $('#datatable').DataTable({
