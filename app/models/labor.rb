@@ -5,5 +5,7 @@ class Labor < ActiveRecord::Base
 	has_many :jobs, through: :labor_job
 	has_many :labor_job
 
+	has_many :transcriptions
+
 	attr_accessor :costcs2
 end

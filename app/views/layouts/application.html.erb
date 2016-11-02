@@ -114,10 +114,17 @@
             </div>
 
             <div class="menu_section">
-              <h3>Digitación</h3>
+              <h3>Novedades de nómina</h3>
               <ul class="nav side-menu">
 
-                <li><a><i class="fa fa-clipboard"></i> Digitar <span class="fa fa-chevron-down"></span></a>
+                <li><a><i class="fa fa-clipboard"></i> Operarios <span class="fa fa-chevron-down"></span></a>
+                  <ul class="nav child_menu" style="display: none">
+                    <li><%= link_to 'Listar cargos', admin_jobs_path%></li>
+                  </ul>
+                </li>
+
+
+                <li><a><i class="fa fa-clipboard"></i> Supervisores <span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu" style="display: none">
                     <li><%= link_to 'Listar cargos', admin_jobs_path%></li>
                   </ul>
