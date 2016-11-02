@@ -8,5 +8,7 @@ class Job < ActiveRecord::Base
 
 	belongs_to :recordjob
 
+	has_many :transcriptions
+
 	attr_accessor :labors2
 end

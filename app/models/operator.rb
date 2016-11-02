@@ -9,6 +9,8 @@ class Operator < ActiveRecord::Base
 
 	has_many :record_jobs
 
+	has_many :transcriptions
+
 	attr_accessor :records2
 	attr_accessor :jobs2
 end
