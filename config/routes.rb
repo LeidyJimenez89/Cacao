@@ -102,5 +102,7 @@ end
 
        resources :sublots
 
+       resources :transcriptions
+
      end
 end

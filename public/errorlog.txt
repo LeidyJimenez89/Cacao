@@ -134,3 +134,75 @@
 ** #<ActiveRecord::Relation [#<Transcription id: 1, supervisor_id: 23, operator_id: 26, job_id: 4, labor_id: 4, costc_id: 16, sublot_id: 3, wageamount: 1.0, laboramount: 2000.0, subtotal: 2000.0, created_at: "2016-10-25 21:07:00", updated_at: "2016-10-25 21:07:00">, #<Transcription id: 2, supervisor_id: 23, operator_id: 26, job_id: 4, labor_id: 4, costc_id: 16, sublot_id: 3, wageamount: 1.0, laboramount: 5000.0, subtotal: 5000.0, created_at: "2016-10-25 21:07:00", updated_at: "2016-10-25 21:07:00">]>
 ***********************************************************************************************************
 
+*****************************************03/11/2016*****************************************
+** #<ActiveRecord::Relation [#<Transcription id: 1, supervisor_id: 23, operator_id: 26, job_id: 4, labor_id: 4, costc_id: 16, sublot_id: 3, wageamount: 1.0, laboramount: 2000.0, subtotal: 2000.0, created_at: "2016-10-25 21:07:00", updated_at: "2016-10-25 21:07:00">, #<Transcription id: 2, supervisor_id: 23, operator_id: 26, job_id: 4, labor_id: 4, costc_id: 16, sublot_id: 3, wageamount: 1.0, laboramount: 5000.0, subtotal: 5000.0, created_at: "2016-10-25 21:07:00", updated_at: "2016-10-25 21:07:00">]>
+***********************************************************************************************************
+
+*****************************************03/11/2016*****************************************
+** #<ActiveRecord::Relation [#<Transcription id: 1, supervisor_id: 23, operator_id: 26, job_id: 4, labor_id: 4, costc_id: 16, sublot_id: 3, wageamount: 1.0, laboramount: 2000.0, subtotal: 2000.0, created_at: "2016-10-25 21:07:00", updated_at: "2016-10-25 21:07:00">, #<Transcription id: 2, supervisor_id: 23, operator_id: 26, job_id: 4, labor_id: 4, costc_id: 16, sublot_id: 3, wageamount: 1.0, laboramount: 5000.0, subtotal: 5000.0, created_at: "2016-10-25 21:07:00", updated_at: "2016-10-25 21:07:00">]>
+***********************************************************************************************************
+
+*****************************************03/11/2016*****************************************
+** #<ActiveRecord::Relation [#<Transcription id: 1, supervisor_id: 23, operator_id: 26, job_id: 4, labor_id: 4, costc_id: 16, sublot_id: 3, wageamount: 1.0, laboramount: 2000.0, subtotal: 2000.0, created_at: "2016-10-25 21:07:00", updated_at: "2016-10-25 21:07:00">, #<Transcription id: 2, supervisor_id: 23, operator_id: 26, job_id: 4, labor_id: 4, costc_id: 16, sublot_id: 3, wageamount: 1.0, laboramount: 5000.0, subtotal: 5000.0, created_at: "2016-10-25 21:07:00", updated_at: "2016-10-25 21:07:00">]>
+***********************************************************************************************************
+
+*****************************************03/11/2016*****************************************
+** #<ActiveRecord::Relation [#<Transcription id: 1, supervisor_id: 23, operator_id: 26, job_id: 4, labor_id: 4, costc_id: 16, sublot_id: 3, wageamount: 1.0, laboramount: 2000.0, subtotal: 2000.0, created_at: "2016-10-25 21:07:00", updated_at: "2016-10-25 21:07:00">, #<Transcription id: 2, supervisor_id: 23, operator_id: 26, job_id: 4, labor_id: 4, costc_id: 16, sublot_id: 3, wageamount: 1.0, laboramount: 5000.0, subtotal: 5000.0, created_at: "2016-10-25 21:07:00", updated_at: "2016-10-25 21:07:00">]>
+***********************************************************************************************************
+
+*****************************************03/11/2016*****************************************
+** #<ActiveRecord::Relation [#<Transcription id: 1, supervisor_id: 23, operator_id: 26, job_id: 4, labor_id: 4, costc_id: 16, sublot_id: 3, wageamount: 1.0, laboramount: 2000.0, subtotal: 2000.0, created_at: "2016-10-25 21:07:00", updated_at: "2016-10-25 21:07:00">, #<Transcription id: 2, supervisor_id: 23, operator_id: 26, job_id: 4, labor_id: 4, costc_id: 16, sublot_id: 3, wageamount: 1.0, laboramount: 5000.0, subtotal: 5000.0, created_at: "2016-10-25 21:07:00", updated_at: "2016-10-25 21:07:00">]>
+***********************************************************************************************************
+
+*****************************************03/11/2016*****************************************
+** #<ActiveRecord::Relation [#<Transcription id: 1, supervisor_id: 23, operator_id: 26, job_id: 4, labor_id: 4, costc_id: 16, sublot_id: 3, wageamount: 1.0, laboramount: 2000.0, subtotal: 2000.0, created_at: "2016-10-25 21:07:00", updated_at: "2016-10-25 21:07:00">, #<Transcription id: 2, supervisor_id: 23, operator_id: 26, job_id: 4, labor_id: 4, costc_id: 16, sublot_id: 3, wageamount: 1.0, laboramount: 5000.0, subtotal: 5000.0, created_at: "2016-10-25 21:07:00", updated_at: "2016-10-25 21:07:00">]>
+***********************************************************************************************************
+
+*****************************************03/11/2016*****************************************
+** #<ActiveRecord::Relation [#<Transcription id: 1, supervisor_id: 23, operator_id: 26, job_id: 4, labor_id: 4, costc_id: 16, sublot_id: 3, wageamount: 1.0, laboramount: 2000.0, subtotal: 2000.0, created_at: "2016-10-25 21:07:00", updated_at: "2016-10-25 21:07:00">, #<Transcription id: 2, supervisor_id: 23, operator_id: 26, job_id: 4, labor_id: 4, costc_id: 16, sublot_id: 3, wageamount: 1.0, laboramount: 5000.0, subtotal: 5000.0, created_at: "2016-10-25 21:07:00", updated_at: "2016-10-25 21:07:00">]>
+***********************************************************************************************************
+
+*****************************************03/11/2016*****************************************
+** #<ActiveRecord::Relation [#<Transcription id: 1, supervisor_id: 23, operator_id: 26, job_id: 4, labor_id: 4, costc_id: 16, sublot_id: 3, wageamount: 1.0, laboramount: 2000.0, subtotal: 2000.0, created_at: "2016-10-25 21:07:00", updated_at: "2016-10-25 21:07:00">, #<Transcription id: 2, supervisor_id: 23, operator_id: 26, job_id: 4, labor_id: 4, costc_id: 16, sublot_id: 3, wageamount: 1.0, laboramount: 5000.0, subtotal: 5000.0, created_at: "2016-10-25 21:07:00", updated_at: "2016-10-25 21:07:00">]>
+***********************************************************************************************************
+
+*****************************************03/11/2016*****************************************
+** #<ActiveRecord::Relation [#<Transcription id: 1, supervisor_id: 23, operator_id: 26, job_id: 4, labor_id: 4, costc_id: 16, sublot_id: 3, wageamount: 1.0, laboramount: 2000.0, subtotal: 2000.0, created_at: "2016-10-25 21:07:00", updated_at: "2016-10-25 21:07:00">, #<Transcription id: 2, supervisor_id: 23, operator_id: 26, job_id: 4, labor_id: 4, costc_id: 16, sublot_id: 3, wageamount: 1.0, laboramount: 5000.0, subtotal: 5000.0, created_at: "2016-10-25 21:07:00", updated_at: "2016-10-25 21:07:00">]>
+***********************************************************************************************************
+
+*****************************************03/11/2016*****************************************
+** #<ActiveRecord::Relation [#<Transcription id: 1, supervisor_id: 23, operator_id: 26, job_id: 4, labor_id: 4, costc_id: 16, sublot_id: 3, wageamount: 1.0, laboramount: 2000.0, subtotal: 2000.0, created_at: "2016-10-25 21:07:00", updated_at: "2016-10-25 21:07:00">, #<Transcription id: 2, supervisor_id: 23, operator_id: 26, job_id: 4, labor_id: 4, costc_id: 16, sublot_id: 3, wageamount: 1.0, laboramount: 5000.0, subtotal: 5000.0, created_at: "2016-10-25 21:07:00", updated_at: "2016-10-25 21:07:00">]>
+***********************************************************************************************************
+
+*****************************************03/11/2016*****************************************
+** #<ActiveRecord::Relation [#<Transcription id: 1, supervisor_id: 23, operator_id: 26, job_id: 4, labor_id: 4, costc_id: 16, sublot_id: 3, wageamount: 1.0, laboramount: 2000.0, subtotal: 2000.0, created_at: "2016-10-25 21:07:00", updated_at: "2016-10-25 21:07:00">, #<Transcription id: 2, supervisor_id: 23, operator_id: 26, job_id: 4, labor_id: 4, costc_id: 16, sublot_id: 3, wageamount: 1.0, laboramount: 5000.0, subtotal: 5000.0, created_at: "2016-10-25 21:07:00", updated_at: "2016-10-25 21:07:00">]>
+***********************************************************************************************************
+
+*****************************************03/11/2016*****************************************
+** #<ActiveRecord::Relation [#<Transcription id: 1, supervisor_id: 23, operator_id: 26, job_id: 4, labor_id: 4, costc_id: 16, sublot_id: 3, wageamount: 1.0, laboramount: 2000.0, subtotal: 2000.0, created_at: "2016-10-25 21:07:00", updated_at: "2016-10-25 21:07:00">, #<Transcription id: 2, supervisor_id: 23, operator_id: 26, job_id: 4, labor_id: 4, costc_id: 16, sublot_id: 3, wageamount: 1.0, laboramount: 5000.0, subtotal: 5000.0, created_at: "2016-10-25 21:07:00", updated_at: "2016-10-25 21:07:00">]>
+***********************************************************************************************************
+
+*****************************************03/11/2016*****************************************
+** #<ActiveRecord::Relation [#<Transcription id: 1, supervisor_id: 23, operator_id: 26, job_id: 4, labor_id: 4, costc_id: 16, sublot_id: 3, wageamount: 1.0, laboramount: 2000.0, subtotal: 2000.0, created_at: "2016-10-25 21:07:00", updated_at: "2016-10-25 21:07:00">, #<Transcription id: 2, supervisor_id: 23, operator_id: 26, job_id: 4, labor_id: 4, costc_id: 16, sublot_id: 3, wageamount: 1.0, laboramount: 5000.0, subtotal: 5000.0, created_at: "2016-10-25 21:07:00", updated_at: "2016-10-25 21:07:00">]>
+***********************************************************************************************************
+
+*****************************************03/11/2016*****************************************
+** #<ActiveRecord::Relation [#<Transcription id: 1, supervisor_id: 23, operator_id: 26, job_id: 4, labor_id: 4, costc_id: 16, sublot_id: 3, wageamount: 1.0, laboramount: 2000.0, subtotal: 2000.0, created_at: "2016-10-25 21:07:00", updated_at: "2016-10-25 21:07:00">, #<Transcription id: 2, supervisor_id: 23, operator_id: 26, job_id: 4, labor_id: 4, costc_id: 16, sublot_id: 3, wageamount: 1.0, laboramount: 5000.0, subtotal: 5000.0, created_at: "2016-10-25 21:07:00", updated_at: "2016-10-25 21:07:00">]>
+***********************************************************************************************************
+
+*****************************************03/11/2016*****************************************
+** #<ActiveRecord::Relation [#<Transcription id: 1, supervisor_id: 23, operator_id: 26, job_id: 4, labor_id: 4, costc_id: 16, sublot_id: 3, wageamount: 1.0, laboramount: 2000.0, subtotal: 2000.0, created_at: "2016-10-25 21:07:00", updated_at: "2016-10-25 21:07:00">, #<Transcription id: 2, supervisor_id: 23, operator_id: 26, job_id: 4, labor_id: 4, costc_id: 16, sublot_id: 3, wageamount: 1.0, laboramount: 5000.0, subtotal: 5000.0, created_at: "2016-10-25 21:07:00", updated_at: "2016-10-25 21:07:00">]>
+***********************************************************************************************************
+
+*****************************************03/11/2016*****************************************
+** #<ActiveRecord::Relation [#<Transcription id: 1, supervisor_id: 23, operator_id: 26, job_id: 4, labor_id: 4, costc_id: 16, sublot_id: 3, wageamount: 1.0, laboramount: 2000.0, subtotal: 2000.0, created_at: "2016-10-25 21:07:00", updated_at: "2016-10-25 21:07:00">, #<Transcription id: 2, supervisor_id: 23, operator_id: 26, job_id: 4, labor_id: 4, costc_id: 16, sublot_id: 3, wageamount: 1.0, laboramount: 5000.0, subtotal: 5000.0, created_at: "2016-10-25 21:07:00", updated_at: "2016-10-25 21:07:00">]>
+***********************************************************************************************************
+
+*****************************************03/11/2016*****************************************
+** #<ActiveRecord::Relation [#<Transcription id: 1, supervisor_id: 23, operator_id: 26, job_id: 4, labor_id: 4, costc_id: 16, sublot_id: 3, wageamount: 1.0, laboramount: 2000.0, subtotal: 2000.0, created_at: "2016-10-25 21:07:00", updated_at: "2016-10-25 21:07:00">, #<Transcription id: 2, supervisor_id: 23, operator_id: 26, job_id: 4, labor_id: 4, costc_id: 16, sublot_id: 3, wageamount: 1.0, laboramount: 5000.0, subtotal: 5000.0, created_at: "2016-10-25 21:07:00", updated_at: "2016-10-25 21:07:00">]>
+***********************************************************************************************************
+
+*****************************************03/11/2016*****************************************
+** #<ActiveRecord::Relation [#<Transcription id: 1, supervisor_id: 23, operator_id: 26, job_id: 4, labor_id: 4, costc_id: 16, sublot_id: 3, wageamount: 1.0, laboramount: 2000.0, subtotal: 2000.0, created_at: "2016-10-25 21:07:00", updated_at: "2016-10-25 21:07:00">, #<Transcription id: 2, supervisor_id: 23, operator_id: 26, job_id: 4, labor_id: 4, costc_id: 16, sublot_id: 3, wageamount: 1.0, laboramount: 5000.0, subtotal: 5000.0, created_at: "2016-10-25 21:07:00", updated_at: "2016-10-25 21:07:00">]>
+***********************************************************************************************************
+

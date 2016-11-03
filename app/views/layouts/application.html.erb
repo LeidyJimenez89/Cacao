@@ -82,6 +82,12 @@
               <h3>Administración</h3>
               <ul class="nav side-menu">
 
+                <li><a><i class="fa fa-cog"></i> Configuración básica <span class="fa fa-chevron-down"></span></a>
+                  <ul class="nav child_menu" style="display: none">
+                    <li><%= link_to 'Ver configuración',admin_jobs_path %></li>
+                  </ul>
+                </li>
+
                 <li><a><i class="fa fa-sitemap"></i> Cargos <span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu" style="display: none">
                     <li><%= link_to 'Listar cargos', admin_jobs_path%></li>
@@ -119,7 +125,7 @@
 
                 <li><a><i class="fa fa-clipboard"></i> Operarios <span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu" style="display: none">
-                    <li><%= link_to 'Listar cargos', admin_jobs_path%></li>
+                    <li><%= link_to 'Listar cargos', new_admin_transcription_path%></li>
                   </ul>
                 </li>
 
