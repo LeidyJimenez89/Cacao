@@ -1,0 +1,83 @@
+<h1 class="x_title">
+  <i class="glyphicon glyphicon-leaf titleicon"></i>
+  Registrar novedades de operarios
+</h1>
+
+<%= form_for @transcription , url:{action: "create"} do |f| %>
+
+  <% if @transcription.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@transcription.errors.count, "error") %> prohibited this transcription from being saved:</h2>
+      <ul>
+        <% @transcription.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<table cellspacing="0" width="100%">
+  <thead>
+    <tr>
+      <th>Operario</th>
+      <th>Cargo</th>
+      <th>Centro de costos</th>
+      <th>Sublote</th>
+      <th>Código labor</th>
+      <th>Labor</th>
+      <th>Cantidad labor</th>
+      <th>Cantidad jornal</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td>
+          <%= f.select :operator_id , Operator.all.map { |j|  [ j.cc + " " + j.name + " " + j.lastname , j.id ]  } , {prompt: ""}, class:"form-control"%>
+        </td>
+        <td>
+          <%= f.select :job_id , Job.where(JobOperator.where(.map { |j|  [ j.name , j.id ]  } , {prompt: ""}, class:"form-control"%>
+        </td>
+        <td>
+          <%= f.text_field :supervisor_id , class:"form-control"%>
+        </td>
+        <td>
+          <%= f.text_field :supervisor_id , class:"form-control"%>
+        </td>
+        <td>
+          <%= f.text_field :supervisor_id , class:"form-control"%>
+        </td>
+        <td>
+          <%= f.text_field :supervisor_id , class:"form-control"%>
+        </td>
+        <td>
+          <%= f.text_field :supervisor_id , class:"form-control"%>
+        </td>
+        <td>
+          <%= f.text_field :supervisor_id , class:"form-control"%>
+        </td>
+        <td>
+          <%= button_tag(:type => 'submit', :class => 'btn btn-dark') do %>
+            <i class="glyphicon glyphicon-floppy-disk"></i>
+            Enviar 
+          <% end %>
+        </td>
+      </tr>
+  </tbody>
+</table>
+
+  <div class="form-group col-md-12 field">
+    <div class="col-md-12">
+      <%= link_to admin_transcriptions_path ,:class =>"btn btn-danger" do %>
+        <span class="glyphicon glyphicon-remove"></span>
+        Cancelar
+      <% end %>
+    </div>
+  </div>
+<% end %>
+
+<script type="text/javascript">
+$("#transcription_operators2").selectize({ plugins: ['remove_button'] });
+$("#transcription_jobs2").selectize({ plugins: ['remove_button'] });
+$('#transcription_dateadmission').datepicker({ dateFormat:'yy-mm-dd'});
+</script>

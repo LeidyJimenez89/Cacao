@@ -26,6 +26,11 @@
     <%= @operator.gender%>
   </p>
 
+  <p>
+    <strong>Auxilio de transporte:</strong>
+    <%= @operator.transportaid %>
+  </p>
+
   <% if @operator.records.where(state: "Reintegrado").present? %>
     <p>
       <strong>Fecha del reintegro más reciente:</strong>

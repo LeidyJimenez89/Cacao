@@ -79,20 +79,20 @@
               <td><%=  %></td>
             <% end %>
             
-          <% licenciasRemuneradas = operator.transcriptions.where(labor_id: "4").count %>
-          <% licenciasNoRemuneradas = operator.transcriptions.where(labor_id: "4").count %>
-          <% licenciasAmbulatorias = operator.transcriptions.where(labor_id: "4").count %>
-          <% licenciasARL = operator.transcriptions.where(labor_id: "4").count %>
-          <% faltasInjustificadas = operator.transcriptions.where(labor_id: "4").count %>
+          <% licenciasRemuneradas = operator.transcriptions.where(labor_id: Labor.where(code: "950").first.id).count %>
+          <% licenciasNoRemuneradas = operator.transcriptions.where(labor_id: Labor.where(code: "960").first.id).count %>
+          <% licenciasAmbulatorias = operator.transcriptions.where(labor_id: Labor.where(code: "970").first.id).count %>
+          <% licenciasARL = operator.transcriptions.where(labor_id: Labor.where(code: "980").first.id).count %>
+          <% faltasInjustificadas = operator.transcriptions.where(labor_id: Labor.where(code: "990").first.id).count %>
 
           <td><%= number_to_currency(operator.transcriptions.map { |e| e.subtotal }.reduce(0, :+)) %></td>
           <td><%= 30 - licenciasRemuneradas - licenciasNoRemuneradas - licenciasAmbulatorias - licenciasARL - faltasInjustificadas %></td>
-          <td><%= operator.cc %></td>
-          <td><%= operator.cc %></td>
-          <td><%= operator.cc %></td>
-          <td><%= operator.cc %></td>
-          <td><%= operator.cc %></td>
-          <td><%= operator.cc %></td>
+          <td><%= "" %></td>
+          <td><%= licenciasRemuneradas %></td>
+          <td><%= licenciasNoRemuneradas %></td>
+          <td><%= licenciasAmbulatorias %></td>
+          <td><%= licenciasARL %></td>
+          <td><%= faltasInjustificadas %></td>
           <td><%= operator.cc %></td>
           <td><%= operator.cc %></td>
           <td><%= operator.cc %></td>

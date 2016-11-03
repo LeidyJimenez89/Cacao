@@ -20,6 +20,11 @@
   </p>
 
   <p>
+    <strong>Auxilio de transporte:</strong>
+    <%= @supervisor.transportaid %>
+  </p>
+
+  <p>
     <strong>Cargo(s):</strong>
     <% if @supervisor.jobs.present? %>
       <%= @supervisor.jobs.map { |e| e.name }.join(", ").html_safe %>
