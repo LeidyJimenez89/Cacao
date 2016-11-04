@@ -16,14 +16,13 @@
     </div>
   <% end %>
 
-<table cellspacing="0" width="100%">
+<table class="table table-bordered" width="100%">
   <thead>
     <tr>
       <th>Operario</th>
       <th>Cargo</th>
       <th>Centro de costos</th>
       <th>Sublote</th>
-      <th>Código labor</th>
       <th>Labor</th>
       <th>Cantidad labor</th>
       <th>Cantidad jornal</th>
@@ -36,25 +35,22 @@
           <%= f.select :operator_id , Operator.all.map { |j|  [ j.cc + " " + j.name + " " + j.lastname , j.id ]  } , {prompt: ""}, class:"form-control"%>
         </td>
         <td>
-          <%= f.select :job_id , Job.where(JobOperator.where(.map { |j|  [ j.name , j.id ]  } , {prompt: ""}, class:"form-control"%>
+          <%= f.select :job_id , Job.all.map { |j|  [ j.name , j.id ]  } , {prompt: ""}, class:"form-control"%>
         </td>
         <td>
-          <%= f.text_field :supervisor_id , class:"form-control"%>
+          <%= f.select :costc_id , Costc.all.map { |j|  [ j.name , j.id ]  } , {prompt: ""}, class:"form-control"%>
         </td>
         <td>
-          <%= f.text_field :supervisor_id , class:"form-control"%>
+          <%= f.select :sublot_id , Sublot.all.map { |j|  [ j.code , j.id ]  } , {prompt: ""}, class:"form-control"%>
         </td>
         <td>
-          <%= f.text_field :supervisor_id , class:"form-control"%>
+          <%= f.select :labor_id , Labor.all.map { |j|  [ j.code + " " + j.name , j.id ]  } , {prompt: ""}, class:"form-control"%>
         </td>
         <td>
-          <%= f.text_field :supervisor_id , class:"form-control"%>
+          <%= f.text_field :laboramount , class:"form-control"%>
         </td>
         <td>
-          <%= f.text_field :supervisor_id , class:"form-control"%>
-        </td>
-        <td>
-          <%= f.text_field :supervisor_id , class:"form-control"%>
+          <%= f.text_field :wageamount , class:"form-control"%>
         </td>
         <td>
           <%= button_tag(:type => 'submit', :class => 'btn btn-dark') do %>
@@ -67,7 +63,7 @@
 </table>
 
   <div class="form-group col-md-12 field">
-    <div class="col-md-12">
+    <div class="pull-right">
       <%= link_to admin_transcriptions_path ,:class =>"btn btn-danger" do %>
         <span class="glyphicon glyphicon-remove"></span>
         Cancelar

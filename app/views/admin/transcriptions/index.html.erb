@@ -1,0 +1,66 @@
+<%= javascript_include_tag 'jquery.dataTables.min', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag 'bootstrap', 'data-turbolinks-track' => true %>
+
+<h1 class="x_title">
+<i class="glyphicon glyphicon-leaf titleicon"></i>
+Listar Novedades de nómina
+</h1>
+
+<%= link_to new_admin_transcription_path , :class =>"btn btn-default pull-right" do%>
+  <span class="glyphicon glyphicon-leaf titleicon"></span>
+  Registrar novedades de nómina
+<% end %>
+
+<table id="datatable" class="display datatable" cellspacing="0" width="100%">
+  <thead>
+    <tr>
+      <th>Operario</th>
+      <th>Cargo</th>
+      <th>Centro de costos</th>
+      <th>Sublote</th>
+      <th>Labor</th>
+      <th>Cantidad labor</th>
+      <th>Cantidad jornal</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @transcriptions.each do |transcription| %>
+      <tr>
+
+        <td><%= transcription.operator.cc + " " + transcription.operator.name + " " + transcription.operator.lastname %></td>
+        <td><%= transcription.operator.cc %></td>
+        <td><%= transcription.costc.code %></td>
+        <% if transcription.sublot.present? %>
+          <td><%= transcription.sublot.code %></td>
+        <% else %>
+          <td><%=  %></td>
+        <% end %>
+        <td><%= transcription.labor.code %></td>
+        <td><%= transcription.laboramount %></td>
+        <td><%= transcription.wageamount %></td>
+        <td>
+          <%= link_to 'Editar', edit_admin_transcription_path(transcription) ,:class =>"btn btn-default btn-sm"%>
+          <%= link_to 'Eliminar', admin_transcription_path(transcription),:class =>"btn btn-default btn-sm", method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<script>
+$('#datatable').DataTable({
+              "language": {
+                "url": "files/spanish"
+            }
+  // ajax: ...,
+  // autoWidth: false,
+  // pagingType: 'full_numbers',
+  // processing: true,
+  // serverSide: true,
+
+  // Optional, if you want full pagination controls.
+  // Check dataTables documentation to learn more about available options.
+  // http://datatables.net/reference/option/pagingType
+});
+</script>

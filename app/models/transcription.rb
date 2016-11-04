@@ -5,4 +5,5 @@ class Transcription < ActiveRecord::Base
 	belongs_to :labor
 	belongs_to :sublot
 	belongs_to :job
+	attr_accessor :paymentunit2
 end
