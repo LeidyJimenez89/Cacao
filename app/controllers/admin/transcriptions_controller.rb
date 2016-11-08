@@ -26,6 +26,26 @@ class Admin::TranscriptionsController < ApplicationController
     end
   end
 
+  def edit
+    @transcription = Transcription.find(params[:id])
+  end
+
+  def update
+    @transcription = Transcription.new(transcription_params)
+
+    if @transcription.labor.paymentunit == "Jornal"
+      @transcription[:subtotal]= params[:transcription][:wageamount].to_f * @transcription.labor.rate.to_f
+    else
+      @transcription[:subtotal]= params[:transcription][:laboramount].to_f * @transcription.labor.rate.to_f
+    end
+
+    if @transcription.update
+      redirect_to admin_transcriptions_path, notice: 'Registro editado'
+    else
+      render :new , alert: 'Registro no esta editado' 
+    end
+  end
+
   def destroy
     @transcription = Transcription.find(params[:id])
     @transcription.destroy
