@@ -94,6 +94,12 @@ end
        get 'supervisors/:id/reinstate', to: 'supervisors#reinstate', as: 'reinstate_supervisor'
        get 'supervisors/:id/activate', to: 'supervisors#activate', as: 'activate_supervisor'
        get 'supervisors/register', to: 'supervisors#register', as: 'register_supervisor'
+
+
+
+       get 'transcriptions/get_jobs/:operatorId', to: 'transcriptions#get_jobs', as: 'get_jobs'
+
+
        resources :supervisors
 
        resources :labors

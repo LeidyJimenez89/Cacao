@@ -1,3 +1,8 @@
+<%= stylesheet_link_tag    'selectize.bootstrap3', media: 'all', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag 'selectize', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag 'plugin', 'data-turbolinks-track' => true %>
+
+
 <h1 class="x_title">
   <i class="glyphicon glyphicon-leaf titleicon"></i>
   Registrar novedades de operarios
@@ -19,8 +24,8 @@
   <table class="table table-bordered" width="100%">
     <thead>
       <tr>
-        <th>Operario</th>
-        <th>Cargo</th>
+        <th width="200">Operario</th>
+        <th width="300">Cargo</th>
         <th width="100">Centro de costos</th>
         <th width="110">Sublote</th>
         <th>Labor</th>
@@ -35,7 +40,7 @@
             <%= f.select :operator_id , Operator.all.map { |j|  [ j.cc + " " + j.name + " " + j.lastname , j.id ]  } , {prompt: ""}, class:"form-control"%>
           </td>
           <td>
-            <%= f.select :job_id , Job.all.map { |j|  [ j.name , j.id ]  } , {prompt: ""}, class:"form-control"%>
+            <%= f.select :job_id , [] , {prompt: ""}, class:"form-control"%>
           </td>
           <td>
             <%= f.select :costc_id , Costc.all.map { |j|  [ j.code , j.id ]  } , {prompt: ""}, class:"form-control"%>
@@ -77,4 +82,34 @@
 $("#transcription_operators2").selectize({ plugins: ['remove_button'] });
 $("#transcription_jobs2").selectize({ plugins: ['remove_button'] });
 $('#transcription_dateadmission').datepicker({ dateFormat:'yy-mm-dd'});
+
+
+$('#transcription_job_id').selectize();
+var urlJobs = <%= admin_get_jobs_path(0).to_json.html_safe %>;
+var sel_jobs  = $('#transcription_job_id')[0].selectize;
+
+$('#transcription_operator_id').selectize({
+    denyEmptyOption: true,
+    onChange: function(value) {
+      if (value != ""){
+        sel_jobs.clearOptions();
+        sel_jobs.load(function(callback) {
+            $.ajax({
+              dataType: "json",
+              url: urlJobs + value,
+              success: function(results) {
+                console.log(results);
+                callback(results);
+              },
+              error: function() {
+                callback();
+              }
+            });
+        });
+      }
+
+    }
+});
+
+
 </script>
