@@ -98,6 +98,8 @@ end
 
 
        get 'transcriptions/get_jobs/:operatorId', to: 'transcriptions#get_jobs', as: 'get_jobs'
+       get 'transcriptions/get_labors/:jobId', to: 'transcriptions#get_labors', as: 'get_labors'
+       get 'transcriptions/get_sublots/:costcId', to: 'transcriptions#get_sublots', as: 'get_sublots'
 
 
        resources :supervisors
@@ -109,6 +111,8 @@ end
        resources :sublots
 
        resources :transcriptions
+       
+       resources :configurations
 
      end
 end

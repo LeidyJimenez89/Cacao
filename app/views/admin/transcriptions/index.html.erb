@@ -30,7 +30,11 @@ Listar Novedades de nómina
 
         <td><%= transcription.operator.cc + " " + transcription.operator.name + " " + transcription.operator.lastname %></td>
         <td><%= transcription.operator.cc %></td>
-        <td><%= transcription.costc.code %></td>
+        <% if transcription.costc.present? %>
+          <td><%= transcription.costc.code %></td>
+        <% else %>
+          <td><%=  %></td>
+        <% end %>
         <% if transcription.sublot.present? %>
           <td><%= transcription.sublot.code %></td>
         <% else %>
