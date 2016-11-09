@@ -38,7 +38,34 @@ class Admin::TranscriptionsController < ApplicationController
       format.html { render :json => "Hola mundo" }
       format.json { render :json => jobs }
     end
+  end
 
+  def get_labors
+    op = Job.where(id: params[:jobId]).first
+    labors = Array.new
+
+    if op.present?
+      labors = op.labors.map { |e| { value: e.id, text: e.code + " " + e.name } }
+    end
+
+    respond_to do |format|
+      format.html { render :json => labors }
+      format.json { render :json => labors }
+    end
+  end
+
+    def get_sublots
+    op = Costc.where(id: params[:costcId]).first
+    sublots = Array.new
+
+    if op.present?
+      sublots = op.sublots.map { |e| { value: e.id, text: e.code } }
+    end
+
+    respond_to do |format|
+      format.html { render :json => "Hola mundo" }
+      format.json { render :json => sublots }
+    end
   end
 
   def edit

@@ -112,7 +112,10 @@
           <td><%= operator.cc %></td>
           <td><%= operator.cc %></td>
           <td><%= operator.cc %></td>
-          <td><%= operator.cc %></td>
+
+          <% if operator.jobs.present? %>
+            <td><%= operator.cc %></td>
+          <% end %>
           <td><%= operator.cc %></td>
 
 
