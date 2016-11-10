@@ -96,7 +96,6 @@ end
        get 'supervisors/register', to: 'supervisors#register', as: 'register_supervisor'
 
 
-
        get 'transcriptions/get_jobs/:operatorId', to: 'transcriptions#get_jobs', as: 'get_jobs'
        get 'transcriptions/get_labors/:jobId', to: 'transcriptions#get_labors', as: 'get_labors'
        get 'transcriptions/get_sublots/:costcId', to: 'transcriptions#get_sublots', as: 'get_sublots'
@@ -113,6 +112,8 @@ end
        resources :transcriptions
        
        resources :configurations
+
+       resources :novelties
 
      end
 end

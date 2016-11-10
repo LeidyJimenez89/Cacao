@@ -24,44 +24,56 @@
   <table class="table table-bordered" width="100%">
     <thead>
       <tr>
-        <th width="180">Operario</th>
-        <th width="180">Cargo</th>
-        <th width="85">Centro de costos</th>
-        <th width="85">Sublote</th>
-        <th width="150">Labor</th>
-        <th width="40">Cantidad labor</th>
-        <th width="40">Cantidad jornal</th>
-        <th width="50">Acciones</th>
       </tr>
     </thead>
     <tbody>
         <tr>
           <td>
-            <%= f.select :operator_id , Operator.all.map { |j|  [ j.cc + " " + j.name + " " + j.lastname , j.id ]  } , {prompt: ""}, class:"form-control"%>
-          </td>
-          <td>
-            <%= f.select :job_id , [] , {prompt: ""}, class:"form-control"%>
-          </td>
-          <td>
-            <%= f.select :costc_id , Costc.all.map { |j|  [ j.code , j.id ]  } , {prompt: ""}, class:"form-control"%>
-          </td>
-          <td>
-            <%= f.select :sublot_id , [] , {prompt: ""}, class:"form-control"%>
-          </td>
-          <td>
-            <%= f.select :labor_id , [] , {prompt: ""}, class:"form-control"%>
-          </td>
-          <td>
-            <%= f.text_field :laboramount , class:"form-control"%>
-          </td>
-          <td>
-            <%= f.text_field :wageamount , class:"form-control"%>
-          </td>
-          <td>
-            <%= button_tag(:type => 'submit', :class => 'btn btn-dark') do %>
-              <i class="glyphicon glyphicon-floppy-disk"></i>
-              Enviar 
-            <% end %>
+
+            <div class="form-group col-md-12 field">
+              <div class="col-md-3">
+                <%= f.label :operator_id , "Operario"%>
+                <%= f.select :operator_id , Operator.all.map { |j|  [ j.cc + " " + j.name + " " + j.lastname , j.id ]  } , {prompt: ""}, class:"form-control"%>
+              </div>
+              <div class="col-md-3">
+                <%= f.label :job_id , "Cargo"%>
+                <%= f.select :job_id , [] , {prompt: ""}, class:"form-control"%>
+              </div>
+              <div class="col-md-3">
+                <%= f.label :costc_id , "Centro de costos"%>
+                <%= f.select :costc_id , Costc.all.map { |j|  [ j.code , j.id ]  } , {prompt: ""}, class:"form-control"%>
+              </div>
+              <div class="col-md-3">
+                <%= f.label :sublot_id , "Sublote"%>
+                <%= f.select :sublot_id , [] , {prompt: ""}, class:"form-control"%>
+              </div>
+            </div>
+
+            <div class="form-group col-md-12 field">
+              <div class="col-md-3">
+                <%= f.label :labor_id , "Labor"%>
+                <%= f.select :labor_id , [] , {prompt: ""}, class:"form-control"%>
+              </div>
+              <div class="col-md-3">
+                <%= f.label :labor_id , "Área"%>
+                <%= f.select :labor_id , [] , {prompt: ""}, class:"form-control"%>
+              </div>
+              <div class="col-md-2">
+                <%= f.label :laboramount , "Cantidad labor"%>
+                <%= f.text_field :laboramount , class:"form-control"%>
+              </div>
+              <div class="col-md-2">
+                <%= f.label :wageamount , "Cantidad jornal"%>
+                <%= f.text_field :wageamount , class:"form-control"%>
+              </div>
+              <div class="col-md-2 text-center">
+                <%= button_tag(:type => 'submit', :class => 'btn btn-dark') do %>
+                  <i class="glyphicon glyphicon-floppy-disk"></i>
+                  Enviar 
+                <% end %>
+              </div>
+            </div>
+            
           </td>
         </tr>
     </tbody>
