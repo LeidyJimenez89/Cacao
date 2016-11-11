@@ -31,13 +31,9 @@
           <td>
 
             <div class="form-group col-md-12 field">
-              <div class="col-md-3">
+              <div class="col-md-6">
                 <%= f.label :operator_id , "Operario"%>
-                <%= f.select :operator_id , Operator.all.map { |j|  [ j.cc + " " + j.name + " " + j.lastname , j.id ]  } , {prompt: ""}, class:"form-control"%>
-              </div>
-              <div class="col-md-3">
-                <%= f.label :job_id , "Cargo"%>
-                <%= f.select :job_id , [] , {prompt: ""}, class:"form-control"%>
+                <%= f.select :operator_id , Operator.all.map { |j|  [ j.cc + " " + j.name + " " + j.lastname + " (" + j.jobs.first.name + ")", j.id ]  } , {prompt: ""}, class:"form-control"%>
               </div>
               <div class="col-md-3">
                 <%= f.label :costc_id , "Centro de costos"%>
@@ -55,8 +51,8 @@
                 <%= f.select :labor_id , [] , {prompt: ""}, class:"form-control"%>
               </div>
               <div class="col-md-3">
-                <%= f.label :labor_id , "Área"%>
-                <%= f.select :labor_id , [] , {prompt: ""}, class:"form-control"%>
+                <%= f.label :area , "Área"%>
+                <%= f.select :area , [] , {prompt: ""}, class:"form-control"%>
               </div>
               <div class="col-md-2">
                 <%= f.label :laboramount , "Cantidad labor"%>
@@ -92,64 +88,8 @@
 
 <script type="text/javascript">
 
-var urlJobs = <%= admin_get_jobs_path(0).to_json.html_safe %>;
 var urlLabors = <%= admin_get_labors_path(0).to_json.html_safe %>;
 var urlSublots = <%= admin_get_sublots_path(0).to_json.html_safe %>;
-
-
-$('#transcription_job_id').selectize({
-    denyEmptyOption: true,
-    onChange: function(value) {
-      console.log(value);
-      if (value != ""){
-        sel_labors.clearOptions();
-        sel_labors.load(function(callback) {
-            $.ajax({
-              dataType: "json",
-              url: urlLabors + value,
-              success: function(results) {
-                console.log(results);
-                callback(results);
-              },
-              error: function() {
-                callback();
-              }
-            });
-        });
-      }
-
-    }
-});
-//$('#transcription_job_id').selectize();
-var sel_jobs  = $('#transcription_job_id')[0].selectize;
-
-$('#transcription_operator_id').selectize({
-    denyEmptyOption: true,
-    onChange: function(value) {
-      if (value != ""){
-        sel_jobs.clearOptions();
-        sel_jobs.load(function(callback) {
-            $.ajax({
-              dataType: "json",
-              url: urlJobs + value,
-              success: function(results) {
-                console.log(results);
-                callback(results);
-              },
-              error: function() {
-                callback();
-              }
-            });
-        });
-      }
-
-    }
-});
-
-$('#transcription_labor_id').selectize();
-var sel_labors  = $('#transcription_labor_id')[0].selectize;
-
-
 
 $('#transcription_sublot_id').selectize();
 var sel_sublots  = $('#transcription_sublot_id')[0].selectize;
@@ -176,5 +116,35 @@ $('#transcription_costc_id').selectize({
 
     }
 });
+
+$('#transcription_labor_id').selectize();
+var sel_labors  = $('#transcription_labor_id')[0].selectize;
+
+$('#transcription_operator_id').selectize({
+    denyEmptyOption: true,
+    onChange: function(value) {
+      if (value != ""){
+        sel_labors.clearOptions();
+        sel_labors.load(function(callback) {
+            $.ajax({
+              dataType: "json",
+              url: urlLabors + value,
+              success: function(results) {
+                console.log(results);
+                callback(results);
+              },
+              error: function() {
+                callback();
+              }
+            });
+        });
+      }
+
+    }
+});
+
+
+
+
 
 </script>

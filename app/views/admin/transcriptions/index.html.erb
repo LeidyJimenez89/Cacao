@@ -29,7 +29,7 @@ Listar Novedades de nómina
       <tr>
 
         <td><%= transcription.operator.cc + " " + transcription.operator.name + " " + transcription.operator.lastname %></td>
-        <td><%= transcription.operator.cc %></td>
+        <td><%= transcription.operator.jobs.first.name %></td>
         <% if transcription.costc.present? %>
           <td><%= transcription.costc.code %></td>
         <% else %>
@@ -40,7 +40,7 @@ Listar Novedades de nómina
         <% else %>
           <td><%=  %></td>
         <% end %>
-        <td><%= transcription.labor.code %></td>
+        <td><%= transcription.labor.code + " " + transcription.labor.name %></td>
         <td><%= transcription.laboramount %></td>
         <td><%= transcription.wageamount %></td>
         <td>

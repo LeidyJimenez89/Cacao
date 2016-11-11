@@ -9,6 +9,8 @@ class Supervisor < ActiveRecord::Base
 
 	has_many :transcriptions
 
+	has_many :novelties
+
 	attr_accessor :operators2
 	attr_accessor :jobs2
 end
