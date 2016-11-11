@@ -26,26 +26,12 @@ class Admin::TranscriptionsController < ApplicationController
     end
   end
 
-  def get_jobs
-    op = Operator.where(id: params[:operatorId]).first
-    jobs = Array.new
-
-    if op.present?
-      jobs = op.jobs.map { |e| { value: e.id, text: e.name } }
-    end
-
-    respond_to do |format|
-      format.html { render :json => "Hola mundo" }
-      format.json { render :json => jobs }
-    end
-  end
-
   def get_labors
-    op = Job.where(id: params[:jobId]).first
+    op = JobOperator.where(operator_id: params[:operatorId]).first
     labors = Array.new
 
     if op.present?
-      labors = op.labors.map { |e| { value: e.id, text: e.code + " " + e.name } }
+      labors = op.job.labors.map { |e| { value: e.id, text: e.code + " " + e.name } }
     end
 
     respond_to do |format|
@@ -75,13 +61,15 @@ class Admin::TranscriptionsController < ApplicationController
   def update
     @transcription = Transcription.find(params[:id])
 
-    if @transcription.labor.paymentunit == "Jornal"
-      @transcription[:subtotal]= params[:transcription][:wageamount].to_f * @transcription.labor.rate.to_f
-    else
-      @transcription[:subtotal]= params[:transcription][:laboramount].to_f * @transcription.labor.rate.to_f
-    end
-
     if @transcription.update(transcription_params)
+
+      if @transcription.labor.paymentunit == "Jornal"
+        @transcription[:subtotal]= params[:transcription][:wageamount].to_f * @transcription.labor.rate.to_f
+      else
+        @transcription[:subtotal]= params[:transcription][:laboramount].to_f * @transcription.labor.rate.to_f
+      end
+      #@transcription.save
+      @transcription.update({:subtotal => @transcription[:subtotal]})
       redirect_to admin_transcriptions_path, notice: 'Registro editado'
     else
       render :new , alert: 'Registro no esta editado' 

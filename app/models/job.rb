@@ -10,5 +10,7 @@ class Job < ActiveRecord::Base
 
 	has_many :transcriptions
 
+	has_many :novelties
+
 	attr_accessor :labors2
 end

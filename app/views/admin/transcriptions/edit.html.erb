@@ -22,35 +22,28 @@
   <div class="form-group col-md-12 field">
     <div class="col-md-6">
       <%= f.label :operator_id , "Operario" %>
-      <%= f.select :operator_id , Operator.all.map { |j|  [ j.cc + " " + j.name + " " + j.lastname , j.id ]  } , {prompt: ""}, class:"form-control"%>
+      <%= f.select :operator_id , Operator.all.map { |j|  [ j.cc + " " + j.name + " " + j.lastname + " (" + j.jobs.first.name + ")", j.id ]  } , {prompt: ""}, class:"form-control"%>
     </div>
-    <div class="col-md-6">
-      <%= f.label :job_id , "Cargo" %>
-      <%= f.select :job_id , Job.all.map { |j|  [ j.name , j.id ]  } , {prompt: ""}, class:"form-control"%>
+    <div class="col-md-3">
+      <%= f.label :costc_id , "Centro de costos" %>
+      <%= f.select :costc_id , Costc.all.map { |j|  [ j.code , j.id ]  } , {prompt: ""}, class:"form-control"%>
+    </div>
+    <div class="col-md-3">
+      <%= f.label :sublot_id , "Sublote" %>
+      <%= f.select :sublot_id , Sublot.all.map { |j|  [ j.code , j.id ]  } , {prompt: ""}, class:"form-control"%>
     </div>
   </div>
 
   <div class="form-group col-md-12 field">
-    <div class="col-md-4">
-      <%= f.label :costc_id , "Centro de costos" %>
-      <%= f.select :costc_id , Costc.all.map { |j|  [ j.code , j.id ]  } , {prompt: ""}, class:"form-control"%>
-    </div>
-    <div class="col-md-4">
-      <%= f.label :sublot_id , "Sublote" %>
-      <%= f.select :sublot_id , Sublot.all.map { |j|  [ j.code , j.id ]  } , {prompt: ""}, class:"form-control"%>
-    </div>
     <div class="col-md-4">
       <%= f.label :labor_id , "Labor" %>
       <%= f.select :labor_id , Labor.all.map { |j|  [ j.code + " " + j.name , j.id ]  } , {prompt: ""}, class:"form-control"%>
     </div>
-  </div>
-
-  <div class="form-group col-md-12 field">
-    <div class="col-md-6">
+    <div class="col-md-4">
       <%= f.label :laboramount , "Cantidad labor" %>
       <%= f.text_field :laboramount , class:"form-control"%>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-4">
       <%= f.label :wageamount , "Cantidad jornal" %>
       <%= f.text_field :wageamount , class:"form-control"%>
     </div>

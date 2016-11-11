@@ -7,5 +7,7 @@ class Labor < ActiveRecord::Base
 
 	has_many :transcriptions
 
+	has_many :novelties
+
 	attr_accessor :costcs2
 end

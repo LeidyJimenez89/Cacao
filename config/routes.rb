@@ -96,10 +96,11 @@ end
        get 'supervisors/register', to: 'supervisors#register', as: 'register_supervisor'
 
 
-       get 'transcriptions/get_jobs/:operatorId', to: 'transcriptions#get_jobs', as: 'get_jobs'
-       get 'transcriptions/get_labors/:jobId', to: 'transcriptions#get_labors', as: 'get_labors'
+       get 'transcriptions/get_labors/:operatorId', to: 'transcriptions#get_labors', as: 'get_labors'
        get 'transcriptions/get_sublots/:costcId', to: 'transcriptions#get_sublots', as: 'get_sublots'
 
+       get 'novelties/get_employeejobs/:supervisorId', to: 'novelties#get_employeejobs', as: 'get_employeejobs'
+       get 'novelties/get_employeelabors/:jobId', to: 'novelties#get_employeelabors', as: 'get_employeelabors'
 
        resources :supervisors
 
