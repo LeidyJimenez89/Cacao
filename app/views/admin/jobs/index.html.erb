@@ -1,0 +1,77 @@
+<%= javascript_include_tag 'jquery.dataTables.min', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag 'bootstrap', 'data-turbolinks-track' => true %>
+
+<h1 class="x_title"><i class="glyphicon glyphicon-leaf titleicon"></i>Listar Cargos</h1>
+
+<%= link_to new_admin_job_path , :class =>"btn btn-dark pull-right" do%>
+  <span class="glyphicon glyphicon-plus"></span>
+  Crear cargo
+<% end %>
+
+<table id="datatable" class="display datatable" cellspacing="0" width="100%">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Básico</th>
+      <th>Estado</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @jobs.each do |job| %>
+      <tr>
+        <td><%= job.name %></td>
+        <td><%= job.basepay %></td>
+        <td><%= job.state %></td>
+        <td>
+
+        <%= link_to admin_job_path(job),:class =>"btn btn-default btn-sm" do %>
+          <span class="glyphicon glyphicon-eye-open"></span>
+          Ver
+        <%end%>
+
+        <%= link_to edit_admin_job_path(job),:class =>"btn btn-default btn-sm" do %>
+          <span class="glyphicon glyphicon-pencil"></span>
+          Editar
+        <%end%>
+
+        <%= link_to admin_job_path(job),:class =>"btn btn-default btn-sm", method: :delete, data: { confirm: '¿Seguro desea eliminar el cargo?' } do %>
+          <span class="glyphicon glyphicon-trash"></span>
+          Eliminar
+        <%end%>
+
+        <%if job.state=="Inactivo"%>
+          <%= link_to admin_enable_job_path(job),:class =>"btn btn-default btn-sm" do %>
+            <span class="glyphicon glyphicon-export"></span>
+            Habilitar
+          <%end%>
+        <%else%>
+          <%= link_to admin_disable_job_path(job),:class =>"btn btn-default btn-sm" do %>
+            <span class="glyphicon glyphicon-import"></span>
+            Deshabilitar
+          <%end%>
+        <%end%>
+
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<script>
+$('#datatable').DataTable({
+              "language": {
+                "url": "../files/spanish"
+            }
+  // ajax: ...,
+  // autoWidth: false,
+  // pagingType: 'full_numbers',
+  // processing: true,
+  // serverSide: true,
+
+  // Optional, if you want full pagination controls.
+  // Check dataTables documentation to learn more about available options.
+  // http://datatables.net/reference/option/pagingType
+});
+</script>

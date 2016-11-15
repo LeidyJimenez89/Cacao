@@ -1,0 +1,34 @@
+<h1 class="x_title"><i class="glyphicon glyphicon-leaf titleicon"></i>Crear Cargo</h1>
+
+<%= form_for(@job) do |f| %>
+
+	<% if @job.errors.any? %>
+	<div id="error_explanation">
+	  <h2><%= pluralize(@job.errors.count, "error") %> prohibited this job from being saved:</h2>
+	  <ul>
+	  	<% @job.errors.full_messages.each do |message| %>
+	    <li><%= message %></li>
+	  <% end %>
+	  </ul>
+	</div>
+	<% end %>
+
+	<div class="form-group col-md-6 field">
+	  <div class="form-group col-md-12">
+	    <%= f.label :name , "Nombre"%>
+	    <%= f.text_field :name , class:"form-control"%>
+	  </div>
+
+	  <div class="form-group col-md-12">
+	    <%= f.label :description , "Descripción"%>
+	    <%= f.text_area :description , class:"form-control"%>
+	  </div>
+	</div>
+
+	<div class="form-group col-md-12 field">
+	  <div class="col-md-12">
+	    <%= f.submit "Crear cargo", :class =>"btn btn-dark"%>
+		<%= link_to 'Cancelar', jobs_path ,:class =>"btn btn-warning" %>
+	  </div>
+	</div>
+<% end %>

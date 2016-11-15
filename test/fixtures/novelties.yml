@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  supervisor_id: 1
+  job_id: 1
+  labor_id: 1
+  area: MyString
+  wageamount: 1.5
+  laboramount: 1.5
+
+two:
+  supervisor_id: 1
+  job_id: 1
+  labor_id: 1
+  area: MyString
+  wageamount: 1.5
+  laboramount: 1.5

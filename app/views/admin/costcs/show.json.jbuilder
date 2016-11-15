@@ -1,0 +1,1 @@
+json.partial! "costcs/costc", costc: @costc

@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @job.name %>
+</p>
+
+<p>
+  <strong>Descripción:</strong>
+  <%= @job.description %>
+</p>
+
+<%= link_to 'Editar cargo', edit_job_path(@job),:class =>"btn btn-default" %>
+<%= link_to 'Cancelar', jobs_path, :class =>"btn btn-default" %>

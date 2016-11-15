@@ -1,0 +1,44 @@
+<h1 class="x_title">
+  <i class="glyphicon glyphicon-leaf titleicon"></i>
+  Retirar Supervisor
+</h1>
+<%= form_for @record, url:{action: "retired"}, html:{method: "post"} do |f| %>
+  <% if @record.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@record.errors.count, "error") %> prohibited this record from being saved:</h2>
+      <ul>
+      	<% @record.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="form-group col-md-12 field">
+	  <div class="col-md-12">
+	    <%= f.label :retirementdate, "Fecha de retiro" %>
+	    <%= f.text_field :retirementdate , class:"form-control"%>
+    </div>
+	</div>
+  <div class="form-group col-md-12 field">
+    <div class="col-md-12">
+      <%= f.label :description, "Descripción" %>
+      <%= f.text_area :description , class:"form-control"%>
+    </div>
+  </div>
+  <div class="form-group col-md-12 field">
+    <div class="col-md-12">
+      <%= button_tag(:type => 'submit', :class => 'btn btn-dark') do %>
+        <i class="glyphicon glyphicon-floppy-disk"></i>
+        Retirar supervisor 
+      <% end %>
+      <%= link_to admin_supervisors_path ,:class =>"btn btn-danger" do %>
+        <span class="glyphicon glyphicon-remove"></span>
+        Cancelar
+      <% end %>
+    </div>
+  </div>
+<% end %>
+
+<script>
+$('#record_retirementdate').datepicker({dateFormat:'yy-mm-dd'});
+</script>

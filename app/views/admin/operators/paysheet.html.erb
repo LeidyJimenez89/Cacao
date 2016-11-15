@@ -1,0 +1,204 @@
+<h1 class="x_title">
+  <i class="glyphicon glyphicon-leaf titleicon"></i>
+  Nómina
+</h1>
+
+<h4 class="pull-right">Descargar Excel</h4>
+<br>
+<br>
+<br>
+<div style="overflow:auto;max-width:100%" >
+<table class="table table-bordered"  cellspacing="0" >
+  <thead>
+    <tr>
+      <th class="active">Cédula</th>
+      <th class="active">Nombre</th>
+      <th class="active">Cargo</th>
+      <th class="active">Básico</th>
+      <th class="active">Estado</th>
+      <th class="active">Fecha de ingreso</th>
+      <th class="active">Fecha de retiro</th>
+      <th class="active">Subtotal</th>
+      <th class="active">Días a pagar</th>
+      <th class="active">Auxilio No prestacional Variable</th>
+      <th class="active">Licencias remuneradas</th>
+      <th class="active">Licencias no remuneradas</th>
+      <th class="active">Licencias ambulatorias</th>
+      <th class="active">Licencias ARL</th>
+      <th class="active">Faltas injustificadas</th>
+      <th class="active">Recargo Nocturno 35%</th>
+      <th class="active">Recargo Festivo Diurno S/C 1.75%</th>
+      <th class="active">Recargo Festivo Nocturno  S/C 210%</th>
+      <th class="active">Recargo Festivo Diurno 0.75%</th>
+      <th class="active">Recargo Festivo Nocturno  C/C 110%</th>
+      <th class="active">Extras Ordinarias Diurnas 125%</th>
+      <th class="active">Extras Ordinarias Nocturnas 1.75%</th>
+      <th class="active">Extras Fest Diurnas 200%</th>
+      <th class="active">Extras Festivas Nocturnas 250%</th>
+      <th class="active">Auxilio de Rodamiento No Prestacional</th>
+      <th class="active">Auxilio de Vivienda No Prestacional</th>
+      <th class="active">Auxilio de Alimentación No Prestacional</th>
+      <th class="active">Sanción</th>
+      <th class="active">Licencia Materna/Paterna</th>
+      <th class="active">Auxilio Extra Legal Fijo</th>
+      <th class="active">Comisión Venta Fijo</th>
+      <th class="active">Auxilio de Alimentacion</th>
+      <th class="active">Descuento Cliente</th>
+      <th class="active">Subsidio de transporte</th>
+      <th class="active">Centro de Costos</th>
+      <th class="active">Total a pagar</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @operators.each do |operator| %>
+        <tr>
+          <td><%= operator.cc %></td>
+          <td><%= operator.name  + " " + operator.lastname %></td>
+          <td><%= operator.jobs.map { |e| e.name }.join(", ").html_safe %></td>
+          <td><%= operator.jobs.map { |e| e.basepay }.join(", ").html_safe %></td>
+          <td><%= operator.state %></td>
+
+            <% if operator.state == "Activo" %>
+              <td><%= operator.dateadmission %></td>
+              <td><%=  %></td>
+            <% end %>
+
+            <% if operator.state == "Retirado" %>
+              <% if operator.records.where(state: "Reintegrado").order("id desc").first.present? %>
+                <td><%= operator.records.where(state: "Reintegrado").order("id desc").first.reinstatedate %></td>
+                <td><%= operator.records.where(state: "Retirado").order("id desc").first.retirementdate %></td>
+              <% else %>
+                <td><%= operator.dateadmission %></td>
+                <td><%= operator.records.where(state: "Retirado").order("id desc").first.retirementdate %></td>
+              <% end %>
+            <% end %>
+
+            <% if operator.state == "Reintegrado" %>
+              <td><%= operator.records.where(state: "Reintegrado").order("id desc").first.reinstatedate %></td>
+              <td><%=  %></td>
+            <% end %>
+            
+          <% licenciasRemuneradas = operator.transcriptions.where(labor_id: Labor.where(code: "950").first.id).count %>
+          <% licenciasNoRemuneradas = operator.transcriptions.where(labor_id: Labor.where(code: "960").first.id).count %>
+          <% licenciasAmbulatorias = operator.transcriptions.where(labor_id: Labor.where(code: "970").first.id).count %>
+          <% licenciasARL = operator.transcriptions.where(labor_id: Labor.where(code: "980").first.id).count %>
+          <% faltasInjustificadas = operator.transcriptions.where(labor_id: Labor.where(code: "990").first.id).count %>
+
+          <td><%= number_to_currency(operator.transcriptions.map { |e| e.subtotal }.reduce(0, :+)) %></td>
+          <td><%= 30 - licenciasRemuneradas - licenciasNoRemuneradas - licenciasAmbulatorias - licenciasARL - faltasInjustificadas %></td>
+          <td><%= "" %></td>
+          <td><%= licenciasRemuneradas %></td>
+          <td><%= licenciasNoRemuneradas %></td>
+          <td><%= licenciasAmbulatorias %></td>
+          <td><%= licenciasARL %></td>
+          <td><%= faltasInjustificadas %></td>
+          <td><%= operator.cc %></td>
+          <td><%= operator.cc %></td>
+          <td><%= operator.cc %></td>
+          <td><%= operator.cc %></td>
+          <td><%= operator.cc %></td>
+          <td><%= operator.cc %></td>
+          <td><%= operator.cc %></td>
+          <td><%= operator.cc %></td>
+          <td><%= operator.cc %></td>
+          <td><%= operator.cc %></td>
+          <td><%= operator.cc %></td>
+          <td><%= operator.cc %></td>
+          <td><%= operator.cc %></td>
+          <td><%= operator.cc %></td>
+          <td><%= operator.cc %></td>
+          <td><%= operator.cc %></td>
+          <td><%= operator.cc %></td>
+          <td><%= operator.cc %></td>
+          <td><%= operator.cc %></td>
+
+          <% if operator.jobs.present? %>
+            <td><%= operator.cc %></td>
+          <% end %>
+          <td><%= operator.cc %></td>
+
+
+        </tr>
+    <% end %>
+    <% @supervisors.each do |supervisor| %>
+        <tr>
+          <td><%= supervisor.cc %></td>
+          <td><%= supervisor.name  + " " + supervisor.lastname %></td>
+          <td><%= supervisor.jobs.map { |e| e.name }.join(", ").html_safe %></td>
+          <td><%= supervisor.jobs.map { |e| e.basepay }.join(", ").html_safe %></td>
+          <td><%= supervisor.state %></td>
+
+            <% if supervisor.state == "Activo" %>
+              <td><%= supervisor.dateadmission %></td>
+              <td><%=  %></td>
+            <% end %>
+
+            <% if supervisor.state == "Retirado" %>
+              <% if supervisor.records.where(state: "Reintegrado").order("id desc").first.present? %>
+                <td><%= supervisor.records.where(state: "Reintegrado").order("id desc").first.reinstatedate %></td>
+                <td><%= supervisor.records.where(state: "Retirado").order("id desc").first.retirementdate %></td>
+              <% else %>
+                <td><%= supervisor.dateadmission %></td>
+                <td><%= supervisor.records.where(state: "Retirado").order("id desc").first.retirementdate %></td>
+              <% end %>
+            <% end %>
+
+            <% if supervisor.state == "Reintegrado" %>
+              <td><%= supervisor.records.where(state: "Reintegrado").order("id desc").first.reinstatedate %></td>
+              <td><%=  %></td>
+            <% end %>
+
+          <td><%= number_to_currency(supervisor.transcriptions.map { |e| e.subtotal }.reduce(0, :+)) %></td>
+          <td><%= supervisor.cc %></td>
+          <td><%= supervisor.cc %></td>
+          <td><%= supervisor.cc %></td>
+          <td><%= supervisor.cc %></td>
+          <td><%= supervisor.cc %></td>
+          <td><%= supervisor.cc %></td>
+          <td><%= supervisor.cc %></td>
+          <td><%= supervisor.cc %></td>
+          <td><%= supervisor.cc %></td>
+          <td><%= supervisor.cc %></td>
+          <td><%= supervisor.cc %></td>
+          <td><%= supervisor.cc %></td>
+          <td><%= supervisor.cc %></td>
+          <td><%= supervisor.cc %></td>
+          <td><%= supervisor.cc %></td>
+          <td><%= supervisor.cc %></td>
+          <td><%= supervisor.cc %></td>
+          <td><%= supervisor.cc %></td>
+          <td><%= supervisor.cc %></td>
+          <td><%= supervisor.cc %></td>
+          <td><%= supervisor.cc %></td>
+          <td><%= supervisor.cc %></td>
+          <td><%= supervisor.cc %></td>
+          <td><%= supervisor.cc %></td>
+          <td><%= supervisor.cc %></td>
+          <td><%= supervisor.cc %></td>
+          <td><%= supervisor.cc %></td>
+          <td><%= supervisor.cc %></td>
+
+
+        </tr>
+      <% end %>
+  </tbody>
+</table>
+</div>
+
+<script>
+$('#datatable').DataTable({
+              "language": {
+                "url": "../files/spanish"
+            }
+  // ajax: ...,
+  // autoWidth: false,
+  // pagingType: 'full_numbers',
+  // processing: true,
+  // serverSide: true,
+
+  // Optional, if you want full pagination controls.
+  // Check dataTables documentation to learn more about available options.
+  // http://datatables.net/reference/option/pagingType
+});
+</script>

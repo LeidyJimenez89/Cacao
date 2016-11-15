@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= content_for?(:title) ? yield(:title) : "Compañía Colombiana de Cacao" %> </title>
+
+
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'css/animate.min', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'css/custom', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'css/icheck/flat/green', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'css/floatexamples', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'css/normalize', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'css/ion.rangeSlider', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'pace', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'style', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'jquery.dataTables.min', media: 'all', 'data-turbolinks-track' => true %>
+
+
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'main', 'data-turbolinks-track' => true %>
+
+  <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+
+<html>
+<body>
+  <%= yield %>
+</body>
+</html>
