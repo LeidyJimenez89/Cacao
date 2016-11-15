@@ -55,26 +55,12 @@ class Admin::NoveltiesController < ApplicationController
     redirect_to admin_novelties_path
   end
 
-  def get_employeejobs
-    op = Supervisor.where(id: params[:supervisorId]).first
-    jobs = Array.new
-
-    if op.present?
-      jobs = op.jobs.map { |e| { value: e.id, text: e.name } }
-    end
-
-    respond_to do |format|
-      format.html { render :json => "Hola mundo" }
-      format.json { render :json => jobs }
-    end
-  end
-
   def get_employeelabors
-    op = Job.where(id: params[:jobId]).first
+    op = JobSupervisor.where(supervisor_id: params[:supervisorId]).first
     labors = Array.new
 
     if op.present?
-      labors = op.labors.map { |e| { value: e.id, text: e.code + " " + e.name } }
+      labors = op.job.labors.map { |e| { value: e.id, text: e.code + " " + e.name } }
     end
 
     respond_to do |format|

@@ -1,16 +1,48 @@
-*****************************************14/11/2016*****************************************
-** #<ActiveRecord::Relation [#<Transcription id: 1, supervisor_id: nil, operator_id: 15, job_id: nil, labor_id: 4, costc_id: 16, sublot_id: 5, wageamount: 1.0, laboramount: 1.0, subtotal: 29439.0, created_at: "2016-11-09 01:07:40", updated_at: "2016-11-09 01:10:36", area: nil>]>
+*****************************************15/11/2016*****************************************
+** {}
 ***********************************************************************************************************
 
-*****************************************14/11/2016*****************************************
-** #<ActiveRecord::Relation [#<Transcription id: 1, supervisor_id: nil, operator_id: 15, job_id: nil, labor_id: 4, costc_id: 16, sublot_id: 5, wageamount: 1.0, laboramount: 1.0, subtotal: 29439.0, created_at: "2016-11-09 01:07:40", updated_at: "2016-11-09 01:10:36", area: nil>]>
+*****************************************15/11/2016*****************************************
+** {"utf8"=>"✓", "_method"=>"patch", "authenticity_token"=>"fNezo+oGMC096SbijdGZy9IzXfj42NPhEjzyncgDyHw21Q8yY6blG/QDELV7fJFkx/GNSpGqf/SHKtPwij4eiA==", "config"=>{"basepay"=>"14"}, "button"=>"", "controller"=>"admin/configs", "action"=>"update"}
 ***********************************************************************************************************
 
-*****************************************14/11/2016*****************************************
-** #<ActiveRecord::Relation [#<Transcription id: 1, supervisor_id: nil, operator_id: 15, job_id: nil, labor_id: 4, costc_id: 16, sublot_id: 5, wageamount: 1.0, laboramount: 1.0, subtotal: 29439.0, created_at: "2016-11-09 01:07:40", updated_at: "2016-11-09 01:10:36", area: nil>]>
+*****************************************15/11/2016*****************************************
+** {"utf8"=>"✓", "_method"=>"patch", "authenticity_token"=>"bcTakf9ezUpOXY78yyBcKfsSAJcyKPVDKQKy//QYE1knxmYAdv4YfIe3uKs9jVSG7tDQJVtaWVa8FJOStiXFrQ==", "config"=>{"basepay"=>"14"}, "button"=>"", "controller"=>"admin/configs", "action"=>"update"}
 ***********************************************************************************************************
 
-*****************************************14/11/2016*****************************************
-** #<ActiveRecord::Relation [#<Transcription id: 1, supervisor_id: nil, operator_id: 15, job_id: nil, labor_id: 4, costc_id: 16, sublot_id: 5, wageamount: 1.0, laboramount: 1.0, subtotal: 29439.0, created_at: "2016-11-09 01:07:40", updated_at: "2016-11-09 01:10:36", area: nil>]>
+*****************************************15/11/2016*****************************************
+** {"basepay"=>"16"}
+***********************************************************************************************************
+
+*****************************************15/11/2016*****************************************
+** #<ActiveRecord::Relation [#<Transcription id: 33, supervisor_id: nil, operator_id: 26, job_id: nil, labor_id: 5, costc_id: 16, sublot_id: 5, wageamount: 1.0, laboramount: 1.0, subtotal: 0.0, created_at: "2016-11-11 18:46:29", updated_at: "2016-11-11 18:46:29", area: nil>, #<Transcription id: 34, supervisor_id: nil, operator_id: 31, job_id: nil, labor_id: 4, costc_id: 16, sublot_id: 5, wageamount: 1.0, laboramount: 1.0, subtotal: 29439.0, created_at: "2016-11-11 19:46:17", updated_at: "2016-11-11 19:46:17", area: nil>, #<Transcription id: 35, supervisor_id: nil, operator_id: 26, job_id: nil, labor_id: 5, costc_id: 16, sublot_id: 5, wageamount: 12.0, laboramount: 12.0, subtotal: 0.0, created_at: "2016-11-15 20:29:03", updated_at: "2016-11-15 20:29:03", area: nil>]>
+***********************************************************************************************************
+
+*****************************************15/11/2016*****************************************
+** #<ActiveRecord::Relation [#<Transcription id: 33, supervisor_id: nil, operator_id: 26, job_id: nil, labor_id: 5, costc_id: 16, sublot_id: 5, wageamount: 1.0, laboramount: 1.0, subtotal: 0.0, created_at: "2016-11-11 18:46:29", updated_at: "2016-11-11 18:46:29", area: nil>, #<Transcription id: 34, supervisor_id: nil, operator_id: 31, job_id: nil, labor_id: 4, costc_id: 16, sublot_id: 5, wageamount: 1.0, laboramount: 1.0, subtotal: 29439.0, created_at: "2016-11-11 19:46:17", updated_at: "2016-11-11 19:46:17", area: nil>, #<Transcription id: 35, supervisor_id: nil, operator_id: 26, job_id: nil, labor_id: 5, costc_id: 16, sublot_id: 5, wageamount: 12.0, laboramount: 12.0, subtotal: 0.0, created_at: "2016-11-15 20:29:03", updated_at: "2016-11-15 20:29:03", area: nil>]>
+***********************************************************************************************************
+
+*****************************************15/11/2016*****************************************
+** #<ActiveRecord::Relation [#<Transcription id: 33, supervisor_id: nil, operator_id: 26, job_id: nil, labor_id: 5, costc_id: 16, sublot_id: 5, wageamount: 1.0, laboramount: 1.0, subtotal: 0.0, created_at: "2016-11-11 18:46:29", updated_at: "2016-11-11 18:46:29", area: nil>, #<Transcription id: 34, supervisor_id: nil, operator_id: 31, job_id: nil, labor_id: 4, costc_id: 16, sublot_id: 5, wageamount: 1.0, laboramount: 1.0, subtotal: 29439.0, created_at: "2016-11-11 19:46:17", updated_at: "2016-11-11 19:46:17", area: nil>, #<Transcription id: 35, supervisor_id: nil, operator_id: 26, job_id: nil, labor_id: 5, costc_id: 16, sublot_id: 5, wageamount: 12.0, laboramount: 12.0, subtotal: 0.0, created_at: "2016-11-15 20:29:03", updated_at: "2016-11-15 20:29:03", area: nil>]>
+***********************************************************************************************************
+
+*****************************************15/11/2016*****************************************
+** #<ActiveRecord::Relation [#<Transcription id: 33, supervisor_id: nil, operator_id: 26, job_id: nil, labor_id: 5, costc_id: 16, sublot_id: 5, wageamount: 1.0, laboramount: 1.0, subtotal: 0.0, created_at: "2016-11-11 18:46:29", updated_at: "2016-11-11 18:46:29", area: nil>, #<Transcription id: 34, supervisor_id: nil, operator_id: 31, job_id: nil, labor_id: 4, costc_id: 16, sublot_id: 5, wageamount: 1.0, laboramount: 1.0, subtotal: 29439.0, created_at: "2016-11-11 19:46:17", updated_at: "2016-11-11 19:46:17", area: nil>, #<Transcription id: 35, supervisor_id: nil, operator_id: 26, job_id: nil, labor_id: 5, costc_id: 16, sublot_id: 5, wageamount: 12.0, laboramount: 12.0, subtotal: 0.0, created_at: "2016-11-15 20:29:03", updated_at: "2016-11-15 20:29:03", area: nil>]>
+***********************************************************************************************************
+
+*****************************************15/11/2016*****************************************
+** #<ActiveRecord::Relation [#<Transcription id: 33, supervisor_id: nil, operator_id: 26, job_id: nil, labor_id: 5, costc_id: 16, sublot_id: 5, wageamount: 1.0, laboramount: 1.0, subtotal: 0.0, created_at: "2016-11-11 18:46:29", updated_at: "2016-11-11 18:46:29", area: nil>, #<Transcription id: 34, supervisor_id: nil, operator_id: 31, job_id: nil, labor_id: 4, costc_id: 16, sublot_id: 5, wageamount: 1.0, laboramount: 1.0, subtotal: 29439.0, created_at: "2016-11-11 19:46:17", updated_at: "2016-11-11 19:46:17", area: nil>, #<Transcription id: 35, supervisor_id: nil, operator_id: 26, job_id: nil, labor_id: 5, costc_id: 16, sublot_id: 5, wageamount: 12.0, laboramount: 12.0, subtotal: 0.0, created_at: "2016-11-15 20:29:03", updated_at: "2016-11-15 20:29:03", area: nil>]>
+***********************************************************************************************************
+
+*****************************************15/11/2016*****************************************
+** #<ActiveRecord::Relation [#<Transcription id: 33, supervisor_id: nil, operator_id: 26, job_id: nil, labor_id: 5, costc_id: 16, sublot_id: 5, wageamount: 1.0, laboramount: 1.0, subtotal: 0.0, created_at: "2016-11-11 18:46:29", updated_at: "2016-11-11 18:46:29", area: nil>, #<Transcription id: 34, supervisor_id: nil, operator_id: 31, job_id: nil, labor_id: 4, costc_id: 16, sublot_id: 5, wageamount: 1.0, laboramount: 1.0, subtotal: 29439.0, created_at: "2016-11-11 19:46:17", updated_at: "2016-11-11 19:46:17", area: nil>, #<Transcription id: 35, supervisor_id: nil, operator_id: 26, job_id: nil, labor_id: 5, costc_id: 16, sublot_id: 5, wageamount: 12.0, laboramount: 12.0, subtotal: 0.0, created_at: "2016-11-15 20:29:03", updated_at: "2016-11-15 20:29:03", area: nil>]>
+***********************************************************************************************************
+
+*****************************************15/11/2016*****************************************
+** #<ActiveRecord::Relation [#<Transcription id: 33, supervisor_id: nil, operator_id: 26, job_id: nil, labor_id: 5, costc_id: 16, sublot_id: 5, wageamount: 1.0, laboramount: 1.0, subtotal: 0.0, created_at: "2016-11-11 18:46:29", updated_at: "2016-11-11 18:46:29", area: nil>, #<Transcription id: 34, supervisor_id: nil, operator_id: 31, job_id: nil, labor_id: 4, costc_id: 16, sublot_id: 5, wageamount: 1.0, laboramount: 1.0, subtotal: 29439.0, created_at: "2016-11-11 19:46:17", updated_at: "2016-11-11 19:46:17", area: nil>, #<Transcription id: 35, supervisor_id: nil, operator_id: 26, job_id: nil, labor_id: 5, costc_id: 16, sublot_id: 5, wageamount: 12.0, laboramount: 12.0, subtotal: 0.0, created_at: "2016-11-15 20:29:03", updated_at: "2016-11-15 20:29:03", area: nil>]>
+***********************************************************************************************************
+
+*****************************************15/11/2016*****************************************
+** #<ActiveRecord::Relation [#<Transcription id: 33, supervisor_id: nil, operator_id: 26, job_id: nil, labor_id: 5, costc_id: 16, sublot_id: 5, wageamount: 1.0, laboramount: 1.0, subtotal: 0.0, created_at: "2016-11-11 18:46:29", updated_at: "2016-11-11 18:46:29", area: nil>, #<Transcription id: 34, supervisor_id: nil, operator_id: 31, job_id: nil, labor_id: 4, costc_id: 16, sublot_id: 5, wageamount: 1.0, laboramount: 1.0, subtotal: 29439.0, created_at: "2016-11-11 19:46:17", updated_at: "2016-11-11 19:46:17", area: nil>, #<Transcription id: 35, supervisor_id: nil, operator_id: 26, job_id: nil, labor_id: 5, costc_id: 16, sublot_id: 5, wageamount: 12.0, laboramount: 12.0, subtotal: 0.0, created_at: "2016-11-15 20:29:03", updated_at: "2016-11-15 20:29:03", area: nil>]>
 ***********************************************************************************************************
 

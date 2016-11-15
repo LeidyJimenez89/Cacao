@@ -114,8 +114,25 @@
           <td><%= operator.cc %></td>
 
           <% if operator.jobs.present? %>
-            <td><%= operator.cc %></td>
+            <% if operator.jobs.first.name == "Obrero agrícola" %>
+              <td> A</td>
+            <% elsif operator.jobs.first.name == "b" %>
+              <td> B</td>
+            <% elsif operator.jobs.first.name == "c" %>
+              <td> C</td>
+            <% elsif operator.jobs.first.name == "d" %>
+              <td> D</td>
+            <% elsif operator.jobs.first.name == "e" %>
+              <td> E</td>
+            <% elsif operator.jobs.first.name == "f" %>
+              <td> F</td>
+            <% elsif operator.jobs.first.name == "g" %>
+              <td> G</td>
+            <% else %>
+              <td> G</td>
+            <% end %>
           <% end %>
+
           <td><%= operator.cc %></td>
 
 
@@ -176,7 +193,28 @@
           <td><%= supervisor.cc %></td>
           <td><%= supervisor.cc %></td>
           <td><%= supervisor.cc %></td>
-          <td><%= supervisor.cc %></td>
+
+
+          <% if supervisor.jobs.present? %>
+            <% if supervisor.jobs.first.name == "Obrero agrícola" %>
+              <td> A</td>
+            <% elsif supervisor.jobs.first.name == "b" %>
+              <td> B</td>
+            <% elsif supervisor.jobs.first.name == "c" %>
+              <td> C</td>
+            <% elsif supervisor.jobs.first.name == "d" %>
+              <td> D</td>
+            <% elsif supervisor.jobs.first.name == "e" %>
+              <td> E</td>
+            <% elsif supervisor.jobs.first.name == "f" %>
+              <td> F</td>
+            <% elsif supervisor.jobs.first.name == "g" %>
+              <td> G</td>
+            <% else %>
+              <td> G</td>
+            <% end %>
+          <% end %>
+
           <td><%= supervisor.cc %></td>
 
 
