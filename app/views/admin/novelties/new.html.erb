@@ -91,7 +91,7 @@ $('#novelty_supervisor_id').selectize({
     onChange: function(value) {
       if (value != ""){
         sel_labors.clearOptions();
-        sel_jobs.load(function(callback) {
+        sel_labors.load(function(callback) {
             $.ajax({
               dataType: "json",
               url: urlLabors + value,

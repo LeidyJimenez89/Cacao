@@ -32,8 +32,15 @@ Listar Novedades de nómina
         <td><%= novelty.laboramount %></td>
         <td><%= novelty.wageamount %></td>
         <td>
-          <%= link_to 'Editar', edit_admin_novelty_path(novelty) ,:class =>"btn btn-default btn-sm"%>
-          <%= link_to 'Eliminar', admin_novelty_path(novelty),:class =>"btn btn-default btn-sm", method: :delete, data: { confirm: 'Are you sure?' } %>
+          <%= link_to edit_admin_novelty_path(novelty),:class =>"btn btn-default btn-sm" do %>
+            <span class="glyphicon glyphicon-pencil"></span>
+            Editar
+          <%end%>
+
+          <%= link_to admin_novelty_path(novelty),:class =>"btn btn-default btn-sm", method: :delete, data: { confirm: '¿Seguro desea eliminar el registro?' } do %>
+            <span class="glyphicon glyphicon-trash"></span>
+            Eliminar
+          <%end%>
         </td>
       </tr>
     <% end %>

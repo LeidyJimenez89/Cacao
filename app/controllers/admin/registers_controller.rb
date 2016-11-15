@@ -1,18 +1,18 @@
 class Admin::ConfigsController < ApplicationController
 
   def index
-    @configurations = Config.first
+    @registrations = Register.first
   end
 
   def edit
-    @config = Config.first
+    @registration = Register.first
   end
 
   def update
-    @configuration = Config.first
+    @registration = Register.first
 
-    if @configuration.update(config_params)
-      redirect_to admin_index_config_path, notice: 'Registro editado'
+    if @registration.update(register_params)
+      redirect_to admin_index_register_path, notice: 'Registro editado'
     else
       render :new , alert: 'Registro no esta editado' 
     end
@@ -20,7 +20,7 @@ class Admin::ConfigsController < ApplicationController
 
   private
     # Never trust parameters from the scary internet, only allow the white list through.
-    def config_params
-      params.require(:config).permit(:basepay)
+    def register_params
+      params.require(:register).permit(:basepay)
     end
 end

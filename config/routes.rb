@@ -100,8 +100,11 @@ end
        get 'transcriptions/get_sublots/:costcId', to: 'transcriptions#get_sublots', as: 'get_sublots'
 
 
-       get 'novelties/get_employeejobs/:supervisorId', to: 'novelties#get_employeejobs', as: 'get_employeejobs'
-       get 'novelties/get_employeelabors/:jobId', to: 'novelties#get_employeelabors', as: 'get_employeelabors'
+       get 'novelties/get_employeelabors/:supervisorId', to: 'novelties#get_employeelabors', as: 'get_employeelabors'
+
+       get 'configs/index', to: 'configs#index', as: 'index_config'
+       get 'configs/edit', to: 'configs#edit', as: 'edit_config'
+       patch 'configs/update', to: 'configs#update', as: 'update_config'
 
        resources :supervisors
 
@@ -113,9 +116,6 @@ end
 
        resources :transcriptions
        
-       resources :configs
-       resources :configurations
-
        resources :novelties
 
      end

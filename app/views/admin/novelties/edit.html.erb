@@ -20,15 +20,11 @@
   <% end %>
 
   <div class="form-group col-md-12 field">
-    <div class="col-md-4">
+    <div class="col-md-6">
       <%= f.label :supervisor_id , "Supervisor" %>
-      <%= f.select :supervisor_id , Supervisor.all.map { |j|  [ j.cc + " " + j.name + " " + j.lastname , j.id ]  } , {prompt: ""}, class:"form-control"%>
+      <%= f.select :supervisor_id , Supervisor.all.map { |j|  [ j.cc + " " + j.name + " " + j.lastname + " (" + j.jobs.first.name + ")", j.id ]  } , {prompt: ""}, class:"form-control"%>
     </div>
-    <div class="col-md-4">
-      <%= f.label :job_id , "Cargo" %>
-      <%= f.select :job_id , Job.all.map { |j|  [ j.name , j.id ]  } , {prompt: ""}, class:"form-control"%>
-    </div>
-    <div class="col-md-4">
+    <div class="col-md-6">
       <%= f.label :labor_id , "Labor" %>
       <%= f.select :labor_id , Labor.all.map { |j|  [ j.code + " " + j.name , j.id ]  } , {prompt: ""}, class:"form-control"%>
     </div>
