@@ -11,7 +11,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161115021827) do
+
+ActiveRecord::Schema.define(version: 20161111154024) do
 
   create_table "ar_internal_metadata", primary_key: "key", force: :cascade do |t|
     t.string   "value",      limit: 255
@@ -24,6 +25,7 @@ ActiveRecord::Schema.define(version: 20161115021827) do
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
   end
+
 
   create_table "configurations", force: :cascade do |t|
     t.integer  "basepay",    limit: 4
@@ -139,6 +141,16 @@ ActiveRecord::Schema.define(version: 20161115021827) do
     t.datetime "updated_at",                null: false
     t.datetime "changejobdate"
     t.integer  "job_id",        limit: 4
+  end
+
+
+  create_table "record_operators", force: :cascade do |t|
+    t.integer  "record_id",   limit: 4
+    t.integer  "operator_id", limit: 4
+    t.string   "state",       limit: 255
+    t.string   "description", limit: 255
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
 
   create_table "records", force: :cascade do |t|

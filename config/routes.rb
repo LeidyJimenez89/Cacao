@@ -99,7 +99,9 @@ end
        get 'transcriptions/get_labors/:operatorId', to: 'transcriptions#get_labors', as: 'get_labors'
        get 'transcriptions/get_sublots/:costcId', to: 'transcriptions#get_sublots', as: 'get_sublots'
 
-       get 'novelties/get_employeelabors/:supervisorId', to: 'novelties#get_employeelabors', as: 'get_employeelabors'
+
+       get 'novelties/get_employeejobs/:supervisorId', to: 'novelties#get_employeejobs', as: 'get_employeejobs'
+       get 'novelties/get_employeelabors/:jobId', to: 'novelties#get_employeelabors', as: 'get_employeelabors'
 
        resources :supervisors
 
@@ -112,6 +114,7 @@ end
        resources :transcriptions
        
        resources :configs
+       resources :configurations
 
        resources :novelties
 
