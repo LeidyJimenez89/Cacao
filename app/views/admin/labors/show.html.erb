@@ -1,0 +1,29 @@
+<div class="x_panel">
+
+	<h1 class="x_title">
+		<i class="glyphicon glyphicon-leaf titleicon"></i>
+		Labor: <%= @labor.name %>
+	</h1>
+	<p class="lead">Código:
+	  <%= @labor.code %>
+	</p>
+	<p>
+	  <strong>Unidad de pago:</strong>
+	  <%= @labor.paymentunit %>
+	</p>
+
+	<p>
+	  <strong>Tarifa:</strong>
+	  <%= @labor.rate %>
+	</p>
+
+	<%= link_to edit_admin_labor_path(@labor),:class =>"btn btn-dark" do %>
+		<span class="glyphicon glyphicon-pencil"></span>
+		Editar
+	<% end %>
+
+	<%= link_to admin_labors_path, :class =>"btn btn-danger" do %>
+		<span class="glyphicon glyphicon-remove"></span>
+		Cancelar
+	<% end %>
+</div>

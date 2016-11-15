@@ -1,0 +1,51 @@
+<h1 class="x_title">
+  <i class="glyphicon glyphicon-leaf titleicon"></i>
+  Crear Sublote
+</h1>
+
+<%= form_for @sublot , url:{action: "create"} do |f| %>
+  <% if @sublot.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@sublot.errors.count, "error") %> prohibited this sublot from being saved:</h2>
+      <ul>
+        <% @sublot.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="form-group col-md-12">
+    <div class="col-md-4">
+        <%= f.label :costc_id, "Centro de costo", class:"subtitle"%>
+        <%= f.select :costc_id, Costc.all.map { |j|  [ j.name , j.id ]  } , {prompt: ""} ,class:"form-control"%>
+    </div>
+    <div class="col-md-4">
+      <%= f.label :code , "Código"%><br>
+      <%= f.text_field :code , class:"form-control"%>
+    </div>
+    <div class="col-md-4">
+      <%= f.label :name , "Nombre"%><br>
+      <%= f.text_field :name , class:"form-control"%>
+    </div>
+  </div>
+
+  <div class="form-group col-md-12">
+    <div class="col-md-12">
+      <%= f.label :description , "Descripción"%><br>
+      <%= f.text_area :description , class:"form-control"%>
+    </div>
+  </div>
+
+  <div class="form-group col-md-12"> 
+    <div class="col-md-12">
+      <%= button_tag(:type => 'submit', :class => 'btn btn-dark') do %>
+        <i class="glyphicon glyphicon-floppy-disk"></i>
+        Crear sublote 
+      <% end %>
+      <%= link_to admin_sublots_path ,:class =>"btn btn-danger" do %>
+          <span class="glyphicon glyphicon-remove"></span>
+          Cancelar
+      <% end %>
+    </div>
+  </div>
+<% end %>

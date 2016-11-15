@@ -1,0 +1,67 @@
+<div class="x_panel">
+
+	<h1 class="x_title">
+		<i class="glyphicon glyphicon-leaf titleicon"></i>
+		Centro de costos: <%= @costc.name %>
+	</h1>
+	<p class="lead">Código:
+	  <%= @costc.code %>
+	</p>
+	<p>
+	  <strong>Descripción:</strong>
+	  <%= @costc.description %>
+	</p>
+
+	<% if @costc.sublots.present? %>
+		<p>
+		  <strong>Sublotes asociados:</strong>
+		</p>
+		<table class="table table-bordered" width="100%">
+		  <thead>
+		    <tr>
+		      <th class="active">Código</th>
+		      <th class="active">Nombre</th>
+		    </tr>
+		  </thead>
+		  <tbody>
+		    <% @costc.sublots.each do |costc| %>
+		      <tr>
+		        <td><%= costc.code %></td>
+		        <td><%= costc.name %></td>
+		      </tr>
+		    <% end %>
+		  </tbody>
+		</table>
+	<% end %>
+
+	<% if @costc.labors.present? %>
+		<p>
+		  <strong>Labores asociadas:</strong>
+		</p>
+		<table class="table table-bordered" width="100%">
+		  <thead>
+		    <tr>
+		      <th class="active">Código</th>
+		      <th class="active">Nombre</th>
+		    </tr>
+		  </thead>
+		  <tbody>
+		    <% @costc.labors.each do |costc| %>
+		      <tr>
+		        <td><%= costc.code %></td>
+		        <td><%= costc.name %></td>
+		      </tr>
+		    <% end %>
+		  </tbody>
+		</table>
+	<% end %>
+
+	<%= link_to edit_admin_costc_path(@costc),:class =>"btn btn-dark" do %>
+		<span class="glyphicon glyphicon-pencil"></span>
+		Editar centro de costo
+	<% end %>
+	<%= link_to admin_costcs_path ,:class =>"btn btn-danger" do %>
+		<span class="glyphicon glyphicon-remove"></span>
+		Cancelar
+	<% end %>
+</div>

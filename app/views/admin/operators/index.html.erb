@@ -1,0 +1,104 @@
+<%= javascript_include_tag 'jquery.dataTables.min', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag 'bootstrap', 'data-turbolinks-track' => true %>
+
+<h1 class="x_title">
+  <i class="glyphicon glyphicon-leaf titleicon"></i>
+  Listar Operadores
+</h1>
+
+<%= link_to new_admin_operator_path , :class =>"btn btn-dark pull-right" do %>
+  <span class="glyphicon glyphicon-plus"></span>
+  Crear operador
+<% end %>
+
+<table id="datatable" class="display datatable" cellspacing="0" width="100%">
+  <thead>
+    <tr>
+      <th>Cédula</th>
+      <th>Nombre</th>
+      <th>Cargo</th>
+      <th>Fecha de ingreso</th>
+      <th>Fecha de retiro</th>
+      <th>Estado</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @operators.each do |operator| %>
+      <tr>
+        <td><%= operator.cc %></td>
+        <td><%= operator.name.to_s + " " + operator.lastname.to_s%></td>
+        <td><%= operator.jobs.map { |e| e.name }.join("<br>").html_safe %></td>
+        <td><%= operator.dateadmission %></td>
+        <% retire = operator.records.where(state: "Retirado").order("id desc").first %>
+        <% if retire.present? %>
+          <td><%= operator.records.where(state: "Retirado").order("id desc").first.retirementdate %></td>
+        <% else %>
+          <td></td>
+        <% end %>
+        <td><%= operator.state %></td>
+        <td>
+        <%= link_to admin_operator_path(operator),:class =>"btn btn-default btn-sm" do %>
+          <span class="glyphicon glyphicon-eye-open"></span>
+          Ver
+        <% end %>
+
+        <%= link_to edit_admin_operator_path(operator) ,:class =>"btn btn-default btn-sm" do %>
+          <span class="glyphicon glyphicon-pencil"></span>
+          Editar
+        <% end %>
+
+        <%= link_to admin_operator_path(operator),:class =>"btn btn-default btn-sm", method: :delete, data: { confirm: 'Are you sure?' } do %>
+          <span class="glyphicon glyphicon-trash"></span>
+          Eliminar
+        <% end %>
+
+        <%if operator.state=="Activo"%>
+          <%= link_to admin_retire_operator_path(operator),:class =>"btn btn-default btn-sm" do %>
+            <span class="glyphicon glyphicon-import"></span>
+            Retirar
+          <% end %>
+        <%end%>
+
+        <%if operator.state=="Retirado" and operator.retirementdate != " "%>
+          <%= link_to admin_reinstate_operator_path(operator),:class =>"btn btn-default btn-sm" do %>
+            <span class="glyphicon glyphicon-export"></span>
+            Reintegrar
+          <% end %>
+        <%end%>
+
+        <%if operator.state=="Reintegrado" and operator.retirementdate != " "%>
+          <%= link_to admin_retire_operator_path(operator),:class =>"btn btn-default btn-sm" do %>
+            <span class="glyphicon glyphicon-import"></span>
+            Retirar
+          <% end %>
+        <%end%>
+
+        <%= link_to admin_changejob_operator_path(operator),:class =>"btn btn-default btn-sm" do %>
+          <span class="glyphicon glyphicon-retweet"></span>
+          Otrosi
+        <% end %>
+
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<script>
+$('#datatable').DataTable({
+              "language": {
+                "url": "../files/spanish"
+            }
+  // ajax: ...,
+  // autoWidth: false,
+  // pagingType: 'full_numbers',
+  // processing: true,
+  // serverSide: true,
+
+  // Optional, if you want full pagination controls.
+  // Check dataTables documentation to learn more about available options.
+  // http://datatables.net/reference/option/pagingType
+});
+</script>

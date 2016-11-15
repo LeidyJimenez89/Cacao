@@ -1,0 +1,48 @@
+<p>
+  <strong>Cédula:</strong>
+  <%= @operator.cc %>
+</p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @operator.name.to_s + " " + @operator.lastname.to_s%>
+</p>
+
+<p>
+  <strong>Cargo:</strong>
+    <% if @operator.job.present? %>
+      <%= @operator.job.name %>
+    <% end %>
+</p>
+
+<p>
+  <strong>Género:</strong>
+  <%= @operator.gender%>
+</p>
+
+<p>
+  <strong>Fecha de ingreso:</strong>
+  <%= @operator.dateadmission %>
+</p>
+
+<p>
+  <strong>Estado:</strong>
+  <%= @operator.state %>
+</p>
+
+<% if @operator.retirementdate.present? %>
+  <p>
+    <strong>Fecha de retiro:</strong>
+    <%= @operator.retirementdate %>
+  </p>
+<% end %>
+
+<% if @operator.description.present? %>
+  <p>
+    <strong>Explicación de retiro:</strong>
+    <%= @operator.description %>
+  </p>
+<% end %>
+
+<%= link_to 'Editar', edit_operator_path(@operator) ,:class =>"btn btn-default"%>
+<%= link_to 'Cancelar', operators_path ,:class =>"btn btn-default"%>

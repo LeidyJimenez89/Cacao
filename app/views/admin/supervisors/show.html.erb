@@ -1,0 +1,130 @@
+<div class="x_panel">
+
+  <h1 class="x_title">
+    <i class="glyphicon glyphicon-leaf titleicon"></i>
+    Supervisor: <%= @supervisor.name.to_s + " " + @supervisor.lastname.to_s %>
+  </h1>
+
+  <p class="lead">Estado actual:
+      <%= @supervisor.state %>
+  </p>
+
+  <p>
+      <strong>Cédula:</strong>
+      <%= @supervisor.cc %>
+  </p>
+
+  <p>
+    <strong>Género:</strong>
+    <%= @supervisor.gender %>
+  </p>
+
+  <p>
+    <strong>Auxilio de transporte:</strong>
+    <%= @supervisor.transportaid %>
+  </p>
+
+  <p>
+    <strong>Cargo(s):</strong>
+    <% if @supervisor.jobs.present? %>
+      <%= @supervisor.jobs.map { |e| e.name }.join(", ").html_safe %>
+    <% end %>
+  </p>
+
+  <% if @supervisor.records.where(state: "Reintegrado").present? %>
+    <p>
+      <strong>Fecha de reintegro:</strong>
+      <%= @supervisor.records.where(state: "Reintegrado").order("id desc").first.reinstatedate %>
+    </p>
+  <% else %>
+    <p>
+      <strong>Fecha de ingreso:</strong>
+      <%= @supervisor.dateadmission %>
+    </p>
+  <% end %>
+
+
+  <% if @supervisor.records.where(state: "Retirado").present? %>
+    <p>
+      <strong>Fecha de retiro:</strong>
+      <%= @supervisor.records.where(state: "Retirado").order("id desc").first.retirementdate %>
+    </p>
+  <% end %>
+
+  <% if @supervisor.records.present? %>
+    <p>
+      <strong>Historial de contratación:</strong>
+    </p>
+    <div class="x_content">
+      <table class="table table-bordered" width="100%">
+        <thead>
+          <tr>
+            <th class="active">Estado</th>
+            <th class="active">Fecha</th>
+          </tr>
+        </thead>
+      <tbody>
+        <% @supervisor.records.each do |record| %>
+            <tr>
+              <td><%= record.state %></td>
+              <% if record.state == "Activo" %>
+                <td><%= record.supervisor.dateadmission %></td>
+              <% end %>
+              <% if record.state == "Retirado" %>
+                <td><%= record.retirementdate %></td>
+              <% end %>
+              <% if record.state == "Reintegrado" %>
+                <td><%= record.reinstatedate %></td>
+            </tr>
+          <% end %>
+        <% end %>
+      </tbody>
+      </table>
+    </div>
+  <% end %>
+
+  <% if @supervisor.operators.present? %>
+    <p>
+      <strong>Operarios a cargo:</strong>
+      <br>
+      <%= @supervisor.operators.map { |e| e.cc + " " + e.name }.join("<br>").html_safe %>
+    </p>
+  <% end %>
+
+  <% if @supervisor.operators.present? %>
+    <p>
+      <strong>Operarios a cargo:</strong>
+    </p>
+    <div class="x_content">
+      <table class="table table-bordered" width="100%">
+        <thead>
+          <tr>
+            <th class="active">Cédula</th>
+            <th class="active">Nombre</th>
+            <th class="active">Cargo(s)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @supervisor.operators.each do |operatorSupervisor| %>
+              <tr>
+                <td><%= operatorSupervisor.cc %></td>
+                <td><%= operatorSupervisor.name.to_s + " " + operatorSupervisor.lastname.to_s %></td>
+                <td><%= operatorSupervisor.jobs.map { |e| e.name }.join("<br>").html_safe %></td>
+
+              </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  <% end %>
+
+  <%= link_to edit_admin_supervisor_path(@supervisor),:class =>"btn btn-dark" do %>
+    <span class="glyphicon glyphicon-pencil"></span>
+    Editar
+  <% end %>
+  <%= link_to admin_supervisors_path,:class =>"btn btn-danger" do %>
+    <span class="glyphicon glyphicon-remove"></span>
+    Cancelar
+  <% end %>
+
+</div>

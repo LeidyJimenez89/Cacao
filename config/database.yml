@@ -1,0 +1,8 @@
+  development:
+    adapter: mysql2
+    encoding: utf8
+    database: nomina_development
+    username: root
+    password: qwer12
+    host: localhost
+    port: 3306

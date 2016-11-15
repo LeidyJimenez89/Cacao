@@ -1,0 +1,22 @@
+<p>
+  <strong>Código:</strong>
+  <%= @labor.code %>
+</p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @labor.name %>
+</p>
+
+<p>
+  <strong>Unidad de pago:</strong>
+  <%= @labor.paymentunit %>
+</p>
+
+<p>
+  <strong>Tarifa:</strong>
+  <%= @labor.rate %>
+</p>
+
+<%= link_to 'Editar', edit_labor_path(@labor) ,:class =>"btn btn-default" %>
+<%= link_to 'Cancelar', labors_path ,:class =>"btn btn-default" %>

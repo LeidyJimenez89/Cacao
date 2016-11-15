@@ -1,0 +1,54 @@
+<div class="x_panel">
+
+	<h1 class="x_title">
+		<i class="glyphicon glyphicon-leaf titleicon"></i>
+		Cargo: <%= @job.name %>
+	</h1>
+
+	<h4>Básico:
+	  <%= @job.basepay %>
+	</h4>
+
+	<p>
+	  <strong>Descripción:</strong>
+	  <%= @job.description %>
+	</p>
+
+	<p>
+	  <strong>Labores asociadas:</strong>
+	  <%= @job.labors.map { |e| e.code + " " + e.name }.join("<br>").html_safe %>
+	</p>
+
+	<p>
+	<strong>Labores asociadas:</strong>
+	</p>
+
+	<div class="x_content">
+		<table class="table table-bordered" width="100%">
+		  <thead>
+		    <tr>
+		      <th class="active">Código</th>
+		      <th class="active">Nombre</th>
+		    </tr>
+		  </thead>
+		<tbody>
+		  <% @job.labors.each do |labor| %>
+		      <tr>
+		        <td><%= labor.code %></td>
+		        <td><%= labor.name %></td>
+		      </tr>
+		  <% end %>
+		</tbody>
+		</table>
+
+		<%= link_to edit_admin_job_path(@job),:class =>"btn btn-dark" do %>
+			<span class="glyphicon glyphicon-pencil"></span>
+			Editar
+		<% end %>
+
+		<%= link_to admin_jobs_path, :class =>"btn btn-danger" do %>
+			<span class="glyphicon glyphicon-remove"></span>
+			Cancelar
+		<% end %>
+	</div>
+</div>

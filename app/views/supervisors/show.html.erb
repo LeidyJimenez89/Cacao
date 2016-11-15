@@ -1,0 +1,48 @@
+<p>
+  <strong>Cédula:</strong>
+  <%= @supervisor.cc %>
+</p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @supervisor.name.to_s + " " + @supervisor.lastname.to_s %>
+</p>
+
+<p>
+  <strong>Estado:</strong>
+  <%= @supervisor.state %>
+</p>
+
+<p>
+  <strong>Cargo:</strong>
+    <% if @supervisor.job.present? %>
+      <%= @supervisor.job.name %>
+    <% end %>
+</p>
+
+<p>
+  <strong>Género:</strong>
+  <%= @supervisor.gender %>
+</p>
+
+<p>
+  <strong>Fecha de ingreso:</strong>
+  <%= @supervisor.dateadmission %>
+</p>
+
+<% if @supervisor.retirementdate.present? %>
+  <p>
+    <strong>Fecha de retiro:</strong>
+    <%= @supervisor.retirementdate %>
+  </p>
+<% end %>
+
+<% if @supervisor.description.present? %>
+  <p>
+    <strong>Explicación de retiro:</strong>
+    <%= @supervisor.description %>
+  </p>
+<% end %>
+
+<%= link_to 'Editar', edit_supervisor_path(@supervisor),:class =>"btn btn-default" %>
+<%= link_to 'Cancelar', supervisors_path,:class =>"btn btn-default" %>

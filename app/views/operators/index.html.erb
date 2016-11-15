@@ -1,0 +1,50 @@
+<%= javascript_include_tag 'jquery.dataTables.min', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag 'bootstrap', 'data-turbolinks-track' => true %>
+
+<h1 class="x_title"><i class="glyphicon glyphicon-leaf titleicon"></i>Listar Operadores</h1>
+<%= link_to 'Crear operador', new_operator_path , :class =>"btn btn-default pull-right"%>
+<table id="datatable" class="display datatable" cellspacing="0" width="100%">
+  <thead>
+    <tr>
+      <th>Cédula</th>
+      <th>Nombre</th>
+      <th>Cargo</th>
+      <th>Fecha de ingreso</th>
+      <th>Estado</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @operators.each do |operator| %>
+      <tr>
+        <td><%= operator.cc %></td>
+        <td><%= operator.name.to_s + " " + operator.lastname.to_s %></td>
+        <td><%= operator.jobs.map { |e| e.name }.join("<br>").html_safe %></td>
+        <td><%= operator.dateadmission %></td>
+        <td><%= operator.state %></td>
+        <td>
+        <%= link_to 'Ver', operator,:class =>"btn btn-default btn-sm" %>      
+        <%= link_to 'Editar', edit_operator_path(operator) ,:class =>"btn btn-default btn-sm"%>
+        <%= link_to 'Eliminar', operator,:class =>"btn btn-default btn-sm", method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<script>
+$('#datatable').DataTable({
+              "language": {
+                "url": "files/spanish"
+            }
+  // ajax: ...,
+  // autoWidth: false,
+  // pagingType: 'full_numbers',
+  // processing: true,
+  // serverSide: true,
+
+  // Optional, if you want full pagination controls.
+  // Check dataTables documentation to learn more about available options.
+  // http://datatables.net/reference/option/pagingType
+});
+</script>

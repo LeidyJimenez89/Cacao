@@ -1,0 +1,75 @@
+<%= javascript_include_tag 'jquery.dataTables.min', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag 'bootstrap', 'data-turbolinks-track' => true %>
+
+<h1 class="x_title">
+  <i class="glyphicon glyphicon-leaf titleicon"></i>
+  Historial de contratación de empleados
+</h1>
+
+<table id="datatable" class="display datatable" cellspacing="0" width="100%">
+  <thead>
+    <tr>
+      <th>Cédula</th>
+      <th>Nombre</th>
+      <th>Tipo</th>
+      <th>Estado</th>
+      <th>Fecha</th>
+      <th>Motivo</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @records.each do |record| %>
+      <% if record.operator.present? %>
+        <tr>
+          <td><%= record.operator.cc %></td>
+          <td><%= record.operator.name  + " " + record.operator.lastname %></td>
+          <td><%= "Operador" %></td>
+          <td><%= record.state %></td>
+          <% if record.state =="Activo" %>
+            <td><%= record.operator.dateadmission %></td>
+          <% elsif record.state == "Retirado" %>
+            <td><%= record.retirementdate %></td>
+          <% elsif record.state == "Reintegrado" %>
+            <td><%= record.reinstatedate %></td>
+          <% end %>
+          <td><%= record.description %></td>
+        </tr>
+      <% end %>
+      <% if record.supervisor.present? %>
+        <tr>
+          <td><%= record.supervisor.cc %></td>
+          <td><%= record.supervisor.name  + " " + record.supervisor.lastname %></td>
+          <td><%= "Supervisor" %></td>
+          <td><%= record.state %></td>
+          <% if record.state =="Activo" %>
+            <td><%= record.supervisor.dateadmission %></td>
+          <% elsif record.state == "Retirado" %>
+            <td><%= record.retirementdate %></td>
+          <% elsif record.state == "Reintegrado" %>
+            <td><%= record.reinstatedate %></td>
+          <% end %>
+          <td><%= record.description %></td>
+        </tr>
+      <% end %>
+
+    <% end %>
+  </tbody>
+</table>
+
+<script>
+$('#datatable').DataTable({
+              "language": {
+                "url": "../files/spanish"
+            }
+  // ajax: ...,
+  // autoWidth: false,
+  // pagingType: 'full_numbers',
+  // processing: true,
+  // serverSide: true,
+
+  // Optional, if you want full pagination controls.
+  // Check dataTables documentation to learn more about available options.
+  // http://datatables.net/reference/option/pagingType
+});
+</script>

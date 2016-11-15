@@ -1,0 +1,17 @@
+<p>
+  <strong>Código:</strong>
+  <%= @sublot.code %>
+</p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @sublot.name %>
+</p>
+
+<p>
+  <strong>Descripción:</strong>
+  <%= @sublot.description %>
+</p>
+
+<%= link_to 'Editar', edit_sublot_path(@sublot) ,:class =>"btn btn-default btn-sm"%>
+<%= link_to 'Cancelar', sublots_path ,:class =>"btn btn-default btn-sm"%>
