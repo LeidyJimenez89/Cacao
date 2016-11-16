@@ -106,6 +106,12 @@ end
        get 'configs/edit', to: 'configs#edit', as: 'edit_config'
        patch 'configs/update', to: 'configs#update', as: 'update_config'
 
+       get 'registers/index', to: 'registers#index', as: 'index_register'
+       patch 'registers/create', to: 'registers#create', as: 'create_register'
+       get 'registers/new', to: 'registers#new', as: 'new_register'
+       get 'registers/edit', to: 'registers#edit', as: 'edit_register'
+       patch 'registers/update', to: 'registers#update', as: 'update_register'
+
        resources :supervisors
 
        resources :labors
