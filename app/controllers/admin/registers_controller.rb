@@ -11,9 +11,9 @@ class Admin::RegistersController < ApplicationController
   end
 
   def create
-    @registration = Register.first
+    @registration = Register.new(register_params)
 
-    if @registration.update(register_params)
+    if @registration.save(register_params)
       redirect_to admin_index_register_path, notice: 'Registro editado'
     else
       render :new , alert: 'Registro no esta editado' 
