@@ -45,8 +45,7 @@
       <th class="active">Auxilio de Alimentacion</th>
       <th class="active">Descuento Cliente</th>
       <th class="active">Subsidio de transporte</th>
-      <th class="active">Centro de Costos</th>
-      <th class="active">Total a pagar</th>
+      <th class="active">Tipos de factura</th>
     </tr>
   </thead>
 
@@ -84,24 +83,32 @@
           <% licenciasAmbulatorias = operator.transcriptions.where(labor_id: Labor.where(code: "970").first.id).count %>
           <% licenciasARL = operator.transcriptions.where(labor_id: Labor.where(code: "980").first.id).count %>
           <% faltasInjustificadas = operator.transcriptions.where(labor_id: Labor.where(code: "990").first.id).count %>
+          <% licenciasSoat = operator.transcriptions.where(labor_id: Labor.where(code: "940").first.id).count %>
+          <% recargoNoctuno = operator.transcriptions.where(labor_id: Labor.where(code: "919").first.id).count %>
+          <% recargoFestivoDiurno = operator.transcriptions.where(labor_id: Labor.where(code: "920").first.id).count %>
+          <% recargoFestivoNocturno = operator.transcriptions.where(labor_id: Labor.where(code: "921").first.id).count %>
+          <% extraOrdinariaDiurna = operator.transcriptions.where(labor_id: Labor.where(code: "922").first.id).count %>
+          <% extraOrdinariaNocturna = operator.transcriptions.where(labor_id: Labor.where(code: "923").first.id).count %>
+          <% extraFestivaDiurna = operator.transcriptions.where(labor_id: Labor.where(code: "924").first.id).count %>
+          <% extraFestivaNocturna = operator.transcriptions.where(labor_id: Labor.where(code: "925").first.id).count %>
 
           <td><%= number_to_currency(operator.transcriptions.map { |e| e.subtotal }.reduce(0, :+)) %></td>
-          <td><%= 30 - licenciasRemuneradas - licenciasNoRemuneradas - licenciasAmbulatorias - licenciasARL - faltasInjustificadas %></td>
+          <td><%= 30 - licenciasRemuneradas - licenciasNoRemuneradas - licenciasAmbulatorias - licenciasARL - faltasInjustificadas - licenciasSoat %></td>
           <td><%= "" %></td>
           <td><%= licenciasRemuneradas %></td>
           <td><%= licenciasNoRemuneradas %></td>
           <td><%= licenciasAmbulatorias %></td>
-          <td><%= licenciasARL %></td>
+          <td><%= licenciasARL + licenciasSoat %></td>
           <td><%= faltasInjustificadas %></td>
-          <td><%= operator.cc %></td>
-          <td><%= operator.cc %></td>
-          <td><%= operator.cc %></td>
-          <td><%= operator.cc %></td>
-          <td><%= operator.cc %></td>
-          <td><%= operator.cc %></td>
-          <td><%= operator.cc %></td>
-          <td><%= operator.cc %></td>
-          <td><%= operator.cc %></td>
+          <td><%= recargoNoctuno %></td>
+          <td><%= recargoFestivoDiurno %></td>
+          <td><%= recargoFestivoNocturno %></td>
+          <td></td>
+          <td></td>
+          <td><%= extraOrdinariaDiurna %></td>
+          <td><%= extraOrdinariaNocturna %></td>
+          <td><%= extraFestivaDiurna %></td>
+          <td><%= extraFestivaNocturna %></td>
           <td><%= operator.cc %></td>
           <td><%= operator.cc %></td>
           <td><%= operator.cc %></td>
@@ -133,7 +140,6 @@
             <% end %>
           <% end %>
 
-          <td><%= operator.cc %></td>
 
 
         </tr>
@@ -166,23 +172,37 @@
               <td><%=  %></td>
             <% end %>
 
+          <% licenciasRemuneradasEmpleado = supervisor.transcriptions.where(labor_id: Labor.where(code: "950").first.id).count %>
+          <% licenciasNoRemuneradasEmpleado = supervisor.transcriptions.where(labor_id: Labor.where(code: "960").first.id).count %>
+          <% licenciasAmbulatoriasEmpleado = supervisor.transcriptions.where(labor_id: Labor.where(code: "970").first.id).count %>
+          <% licenciasARLEmpleado = supervisor.transcriptions.where(labor_id: Labor.where(code: "980").first.id).count %>
+          <% faltasInjustificadasEmpleado = supervisor.transcriptions.where(labor_id: Labor.where(code: "990").first.id).count %>
+          <% licenciasSoatEmpleado = supervisor.transcriptions.where(labor_id: Labor.where(code: "940").first.id).count %>
+          <% recargoNoctunoEmpleado = supervisor.transcriptions.where(labor_id: Labor.where(code: "919").first.id).count %>
+          <% recargoFestivoDiurnoEmpleado = supervisor.transcriptions.where(labor_id: Labor.where(code: "920").first.id).count %>
+          <% recargoFestivoNocturnoEmpleado = supervisor.transcriptions.where(labor_id: Labor.where(code: "921").first.id).count %>
+          <% extraOrdinariaDiurnaEmpleado = supervisor.transcriptions.where(labor_id: Labor.where(code: "922").first.id).count %>
+          <% extraOrdinariaNocturnaEmpleado = supervisor.transcriptions.where(labor_id: Labor.where(code: "923").first.id).count %>
+          <% extraFestivaDiurnaEmpleado = supervisor.transcriptions.where(labor_id: Labor.where(code: "924").first.id).count %>
+          <% extraFestivaNocturnaEmpleado = supervisor.transcriptions.where(labor_id: Labor.where(code: "925").first.id).count %>
+
           <td><%= number_to_currency(supervisor.transcriptions.map { |e| e.subtotal }.reduce(0, :+)) %></td>
-          <td><%= supervisor.cc %></td>
-          <td><%= supervisor.cc %></td>
-          <td><%= supervisor.cc %></td>
-          <td><%= supervisor.cc %></td>
-          <td><%= supervisor.cc %></td>
-          <td><%= supervisor.cc %></td>
-          <td><%= supervisor.cc %></td>
-          <td><%= supervisor.cc %></td>
-          <td><%= supervisor.cc %></td>
-          <td><%= supervisor.cc %></td>
-          <td><%= supervisor.cc %></td>
-          <td><%= supervisor.cc %></td>
-          <td><%= supervisor.cc %></td>
-          <td><%= supervisor.cc %></td>
-          <td><%= supervisor.cc %></td>
-          <td><%= supervisor.cc %></td>
+          <td><%= 30 - licenciasRemuneradasEmpleado - licenciasNoRemuneradasEmpleado - licenciasAmbulatoriasEmpleado - licenciasARLEmpleado - faltasInjustificadasEmpleado - licenciasSoatEmpleado %></td>
+          <td><%= "" %></td>
+          <td><%= licenciasRemuneradasEmpleado %></td>
+          <td><%= licenciasNoRemuneradasEmpleado %></td>
+          <td><%= licenciasAmbulatoriasEmpleado %></td>
+          <td><%= licenciasARLEmpleado + licenciasSoatEmpleado %></td>
+          <td><%= faltasInjustificadasEmpleado %></td>
+          <td><%= recargoNoctunoEmpleado %></td>
+          <td><%= recargoFestivoDiurnoEmpleado %></td>
+          <td><%= recargoFestivoNocturnoEmpleado %></td>
+          <td></td>
+          <td></td>
+          <td><%= extraOrdinariaDiurnaEmpleado %></td>
+          <td><%= extraOrdinariaNocturnaEmpleado %></td>
+          <td><%= extraFestivaDiurnaEmpleado %></td>
+          <td><%= extraFestivaNocturnaEmpleado %></td>
           <td><%= supervisor.cc %></td>
           <td><%= supervisor.cc %></td>
           <td><%= supervisor.cc %></td>
@@ -215,7 +235,6 @@
             <% end %>
           <% end %>
 
-          <td><%= supervisor.cc %></td>
 
 
         </tr>
