@@ -26,25 +26,18 @@
 <br>
 <br>
 <br>
-<br>
-<br>
 
 <div class=" form-group col-md-12 field">
-  <div style="overflow-x:scroll; overflow-y:hidden" >
       <table class="table table-bordered"  cellspacing="0" >
         <thead>
           <tr>
-            <th width="400">Cédula</th>
-            <th width="400">Empleado</th>
-            <th width="200">Auxilio de Rodamiento No Prestacional</th>
+            <th width="80">Cédula</th>
+            <th width="150">Empleado</th>
+            <th width="100">Auxilio de Rodamiento No Prestacional</th>
             <th width="100">Auxilio de Vivienda No Prestacional</th>
             <th width="100">Auxilio de Alimentación No Prestacional</th>
             <th width="100">Sanción</th>
-            <th width="100">Licencia Materna/Paterna</th>
-            <th width="100">Auxilio Extra Legal Fijo</th>
-            <th width="100">Comisión Venta Fijo</th>
-            <th width="100">Auxilio de Alimentacion</th>
-            <th width="100">Descuento Cliente</th>
+            <th width="220">Licencia Materna/Paterna</th>
             <th width="100">Subsidio de transporte</th>
           </tr>
         </thead>
@@ -67,25 +60,17 @@
               <%= f.text_field :sanction , class:"form-control"%>          
             </td>
             <td>
-              <%= f.label :childrenLicenseSince , "Desde" %>
-              <%= f.text_field :childrenLicenseSince , class:"form-control"%>
-              <%= f.label :childrenLicenseUntil , "Hasta" %>
-              <%= f.text_field :childrenLicenseUntil , class:"form-control"%>          
+              <div class=" form-group row">
+                <div class="col-xs-6">
+                  <%= f.text_field :childrenLicenseSince , class:"form-control" , placeholder: "Desde"%>
+                </div>
+                <div class="col-xs-6">
+                  <%= f.text_field :childrenLicenseUntil , class:"form-control" , placeholder: "Hasta"%>
+                </div>
+              </div>
             </td>
             <td>
-              <%= f.text_field :extraLegalAllowance , class:"form-control"%>          
-            </td>
-            <td>
-              <%= f.text_field :salesCommision , class:"form-control"%>          
-            </td>
-            <td>
-              <%= f.text_field :feedingAllowance , class:"form-control"%>          
-            </td>
-            <td>
-              <%= f.text_field :customerDiscount , class:"form-control"%>          
-            </td>
-            <td>
-              <%= f.text_field :transportAllowance , class:"form-control"%>          
+              <%= f.select :transportAllowance, ["Si","No","Mitad"], {prompt: ""},class:"form-control"%>          
             </td>
           </tr>
         <% end %>
@@ -107,25 +92,17 @@
               <%= f.text_field :sanction , class:"form-control"%>          
             </td>
             <td>
-              <%= f.label :childrenLicenseSince , "Desde" %>
-              <%= f.text_field :childrenLicenseSince , class:"form-control"%>
-              <%= f.label :childrenLicenseUntil , "Hasta" %>
-              <%= f.text_field :childrenLicenseUntil , class:"form-control"%>           
+              <div class=" form-group row">
+                <div class="col-xs-6">
+                  <%= f.text_field :childrenLicenseSince , class:"form-control" , placeholder: "Desde"%>
+                </div>
+                <div class="col-xs-6">
+                  <%= f.text_field :childrenLicenseUntil , class:"form-control" , placeholder: "Hasta"%>
+                </div>
+              </div>       
             </td>
             <td>
-              <%= f.text_field :extraLegalAllowance , class:"form-control"%>          
-            </td>
-            <td>
-              <%= f.text_field :salesCommision , class:"form-control"%>          
-            </td>
-            <td>
-              <%= f.text_field :feedingAllowance , class:"form-control"%>          
-            </td>
-            <td>
-              <%= f.text_field :customerDiscount , class:"form-control"%>          
-            </td>
-            <td>
-              <%= f.text_field :transportAllowance , class:"form-control"%>          
+              <%= f.select :transportAllowance, ["Si","No","Mitad"], {prompt: ""},class:"form-control"%>          
             </td>
           </tr>
         <% end %>
@@ -134,10 +111,11 @@
 
     <% end %>
 
-  </div>
 </div>
 
 <script type="text/javascript">
 $('#register_registerDate').datepicker({ dateFormat:'yy-mm-dd'});
+$('#register_childrenLicenseSince').datepicker({ dateFormat:'yy-mm-dd'});
+$('#register_childrenLicenseUntil').datepicker({ dateFormat:'yy-mm-dd'});
 </script>
 
