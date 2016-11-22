@@ -38,7 +38,7 @@
             <th width="100">Auxilio de Alimentación No Prestacional</th>
             <th width="100">Sanción</th>
             <th width="220">Licencia Materna/Paterna</th>
-            <th width="100">Subsidio de transporte</th>
+            <th width="130">Subsidio de transporte</th>
           </tr>
         </thead>
 
@@ -70,7 +70,7 @@
               </div>
             </td>
             <td>
-              <%= f.select :transportAllowance, ["Si","No","Mitad"], {prompt: ""},class:"form-control"%>          
+              <%= f.select :transportAllowance, ["Completo","Mitad","No aplica"], {prompt: ""},class:"form-control"%>          
             </td>
           </tr>
         <% end %>
@@ -102,7 +102,7 @@
               </div>       
             </td>
             <td>
-              <%= f.select :transportAllowance, ["Si","No","Mitad"], {prompt: ""},class:"form-control"%>          
+              <%= f.select :transportAllowance, ["Completo","Mitad","No aplica"], {prompt: ""},class:"form-control"%>          
             </td>
           </tr>
         <% end %>
