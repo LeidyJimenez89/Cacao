@@ -21,6 +21,7 @@ class Admin::SupervisorsController < ApplicationController
   def create
     @supervisor = Supervisor.new(supervisor_params)
     @supervisor[:state] = "Activo"
+    @supervisor[:falg] = 1
 
     if @supervisor.save
 
@@ -158,9 +159,12 @@ class Admin::SupervisorsController < ApplicationController
   end
 
   def destroy
-    @supervisor.destroy
+    @supervisor = Supervisor.where(id: params[:id]).first
+    @supervisor[:flag] = 0
+    @supervisor.save
+
     respond_to do |format|
-      format.html { redirect_to admin_supervisors_path, notice: 'Supervisor was successfully destroyed.' }
+      format.html { redirect_to admin_supervisors_path, notice: 'Supervisor eliminado satisfactoriamente' }
     end
   end
 
@@ -172,6 +176,6 @@ class Admin::SupervisorsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def supervisor_params
-      params.require(:supervisor).permit(:user_id, :name, :lastname, :cc, :state, :job_id, :dateadmission, :retirementdate, :description, :gender, :transportaid)
+      params.require(:supervisor).permit(:user_id, :name, :lastname, :cc, :state, :job_id, :dateadmission, :retirementdate, :description, :gender, :transportAllowance, :feedingAllowance, :vehicleAllowance, :housingAllowance, :childrenLicenseSince, :childrenLicenseUntil, :childrenLicenseUntil, :sanction, :flag)
     end
 end

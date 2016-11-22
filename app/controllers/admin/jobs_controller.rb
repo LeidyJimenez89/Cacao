@@ -45,6 +45,8 @@ class Admin::JobsController < ApplicationController
   def create
     @job = Job.new(job_params)
     @job.state="Activo"
+    @job[:state]= 1
+
     if @job.save
 
       params[:job][:labors2].each do |labor|
@@ -91,9 +93,18 @@ class Admin::JobsController < ApplicationController
   # DELETE /jobs/1
   # DELETE /jobs/1.json
   def destroy
-    @job.destroy
-    respond_to do |format|
-      format.html { redirect_to admin_jobs_path, notice: 'Cargo eliminado satisfactoriamente' }
+    @job = Job.where(id: params[:id]).first
+
+    if JobOperator.where(job_id: params[:id]).first.present?     
+      respond_to do |format|
+        format.html { redirect_to admin_jobs_path, alert: 'Este operador no se puede eliminar, tiene registros en el sistema' }
+      end
+    else
+      @job[:flag] = 0
+      @job.save
+      respond_to do |format|
+        format.html { redirect_to admin_jobs_path, notice: 'Operador eliminado satisfactoriamente' }
+      end
     end
   end
 

@@ -26,62 +26,64 @@
 
   <tbody>
     <% @operators.each do |operator| %>
-      <tr>
-        <td><%= operator.cc %></td>
-        <td><%= operator.name.to_s + " " + operator.lastname.to_s%></td>
-        <td><%= operator.jobs.map { |e| e.name }.join("<br>").html_safe %></td>
-        <td><%= operator.dateadmission %></td>
-        <% retire = operator.records.where(state: "Retirado").order("id desc").first %>
-        <% if retire.present? %>
-          <td><%= operator.records.where(state: "Retirado").order("id desc").first.retirementdate %></td>
-        <% else %>
-          <td></td>
-        <% end %>
-        <td><%= operator.state %></td>
-        <td>
-        <%= link_to admin_operator_path(operator),:class =>"btn btn-default btn-sm" do %>
-          <span class="glyphicon glyphicon-eye-open"></span>
-          Ver
-        <% end %>
-
-        <%= link_to edit_admin_operator_path(operator) ,:class =>"btn btn-default btn-sm" do %>
-          <span class="glyphicon glyphicon-pencil"></span>
-          Editar
-        <% end %>
-
-        <%= link_to admin_operator_path(operator),:class =>"btn btn-default btn-sm", method: :delete, data: { confirm: 'Are you sure?' } do %>
-          <span class="glyphicon glyphicon-trash"></span>
-          Eliminar
-        <% end %>
-
-        <%if operator.state=="Activo"%>
-          <%= link_to admin_retire_operator_path(operator),:class =>"btn btn-default btn-sm" do %>
-            <span class="glyphicon glyphicon-import"></span>
-            Retirar
+      <% if operator.flag == 1 %>
+        <tr>
+          <td><%= operator.cc %></td>
+          <td><%= operator.name.to_s + " " + operator.lastname.to_s%></td>
+          <td><%= operator.jobs.map { |e| e.name }.join("<br>").html_safe %></td>
+          <td><%= operator.dateadmission %></td>
+          <% retire = operator.records.where(state: "Retirado").order("id desc").first %>
+          <% if retire.present? %>
+            <td><%= operator.records.where(state: "Retirado").order("id desc").first.retirementdate %></td>
+          <% else %>
+            <td></td>
           <% end %>
-        <%end%>
-
-        <%if operator.state=="Retirado" and operator.retirementdate != " "%>
-          <%= link_to admin_reinstate_operator_path(operator),:class =>"btn btn-default btn-sm" do %>
-            <span class="glyphicon glyphicon-export"></span>
-            Reintegrar
+          <td><%= operator.state %></td>
+          <td>
+          <%= link_to admin_operator_path(operator),:class =>"btn btn-default btn-sm" do %>
+            <span class="glyphicon glyphicon-eye-open"></span>
+            Ver
           <% end %>
-        <%end%>
 
-        <%if operator.state=="Reintegrado" and operator.retirementdate != " "%>
-          <%= link_to admin_retire_operator_path(operator),:class =>"btn btn-default btn-sm" do %>
-            <span class="glyphicon glyphicon-import"></span>
-            Retirar
+          <%= link_to edit_admin_operator_path(operator) ,:class =>"btn btn-default btn-sm" do %>
+            <span class="glyphicon glyphicon-pencil"></span>
+            Editar
           <% end %>
-        <%end%>
 
-        <%= link_to admin_changejob_operator_path(operator),:class =>"btn btn-default btn-sm" do %>
-          <span class="glyphicon glyphicon-retweet"></span>
-          Otrosi
-        <% end %>
+          <%= link_to admin_operator_path(operator),:class =>"btn btn-default btn-sm", method: :delete, data: { confirm: 'Are you sure?' } do %>
+            <span class="glyphicon glyphicon-trash"></span>
+            Eliminar
+          <% end %>
 
-        </td>
-      </tr>
+          <%if operator.state=="Activo"%>
+            <%= link_to admin_retire_operator_path(operator),:class =>"btn btn-default btn-sm" do %>
+              <span class="glyphicon glyphicon-import"></span>
+              Retirar
+            <% end %>
+          <%end%>
+
+          <%if operator.state=="Retirado" and operator.retirementdate != " "%>
+            <%= link_to admin_reinstate_operator_path(operator),:class =>"btn btn-default btn-sm" do %>
+              <span class="glyphicon glyphicon-export"></span>
+              Reintegrar
+            <% end %>
+          <%end%>
+
+          <%if operator.state=="Reintegrado" and operator.retirementdate != " "%>
+            <%= link_to admin_retire_operator_path(operator),:class =>"btn btn-default btn-sm" do %>
+              <span class="glyphicon glyphicon-import"></span>
+              Retirar
+            <% end %>
+          <%end%>
+
+          <%= link_to admin_changejob_operator_path(operator),:class =>"btn btn-default btn-sm" do %>
+            <span class="glyphicon glyphicon-retweet"></span>
+            Otrosi
+          <% end %>
+
+          </td>
+        </tr>
+      <% end %>
     <% end %>
   </tbody>
 </table>
