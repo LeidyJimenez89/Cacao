@@ -32,6 +32,7 @@ class Admin::OperatorsController < ApplicationController
   def create
     @operator = Operator.new(operator_params)
     @operator[:state] = "Activo"
+    @operator[:flag] = 1
 
     if @operator.save
 
@@ -157,7 +158,6 @@ class Admin::OperatorsController < ApplicationController
   end
 
   def changedjob
-
     @operator = Operator.where(id: params[:id]).first
 
     if @operator.jobs.present?
@@ -188,9 +188,18 @@ class Admin::OperatorsController < ApplicationController
   end
 
   def destroy
-    @operator.destroy
-    respond_to do |format|
-      format.html { redirect_to admin_operators_path, notice: 'Operador eliminado satisfactoriamente' }
+    @operator = Operator.where(id: params[:id]).first
+
+    if @operator.transcriptions.present?      
+      respond_to do |format|
+        format.html { redirect_to admin_operators_path, alert: 'Este operador no se puede eliminar, tiene registros en el sistema' }
+      end
+    else
+      @operator[:flag] = 0
+      @operator.save
+      respond_to do |format|
+        format.html { redirect_to admin_operators_path, notice: 'Operador eliminado satisfactoriamente' }
+      end
     end
   end
 
@@ -202,6 +211,6 @@ class Admin::OperatorsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def operator_params
-      params.require(:operator).permit(:cc, :name, :position, :dateadmission, :state , :job_id, :lastname, :retirementdate, :description, :gender, :transportaid)
+      params.require(:operator).permit(:cc, :name, :position, :dateadmission, :state , :job_id, :lastname, :retirementdate, :description, :gender, :transportAllowance, :feedingAllowance, :vehicleAllowance, :housingAllowance, :childrenLicenseSince, :childrenLicenseUntil, :sanction, :flag)
     end
 end
