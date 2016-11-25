@@ -51,100 +51,103 @@
 
   <tbody>
     <% @operators.each do |operator| %>
-        <tr>
-          <td><%= operator.cc %></td>
-          <td><%= operator.name  + " " + operator.lastname %></td>
-          <td><%= operator.jobs.map { |e| e.name }.join(", ").html_safe %></td>
-          <td><%= operator.jobs.map { |e| e.basepay }.join(", ").html_safe %></td>
-          <td><%= operator.state %></td>
+      <% if operator.flag == 1 %>
+          <tr>
+            <td><%= operator.cc %></td>
+            <td><%= operator.name  + " " + operator.lastname %></td>
+            <td><%= operator.jobs.map { |e| e.name }.join(", ").html_safe %></td>
+            <td><%= operator.jobs.map { |e| e.basepay }.join(", ").html_safe %></td>
+            <td><%= operator.state %></td>
 
-            <% if operator.state == "Activo" %>
-              <td><%= operator.dateadmission %></td>
-              <td><%=  %></td>
-            <% end %>
-
-            <% if operator.state == "Retirado" %>
-              <% if operator.records.where(state: "Reintegrado").order("id desc").first.present? %>
-                <td><%= operator.records.where(state: "Reintegrado").order("id desc").first.reinstatedate %></td>
-                <td><%= operator.records.where(state: "Retirado").order("id desc").first.retirementdate %></td>
-              <% else %>
+              <% if operator.state == "Activo" %>
                 <td><%= operator.dateadmission %></td>
-                <td><%= operator.records.where(state: "Retirado").order("id desc").first.retirementdate %></td>
+                <td><%=  %></td>
+              <% end %>
+
+              <% if operator.state == "Retirado" %>
+                <% if operator.records.where(state: "Reintegrado").order("id desc").first.present? %>
+                  <td><%= operator.records.where(state: "Reintegrado").order("id desc").first.reinstatedate %></td>
+                  <td><%= operator.records.where(state: "Retirado").order("id desc").first.retirementdate %></td>
+                <% else %>
+                  <td><%= operator.dateadmission %></td>
+                  <td><%= operator.records.where(state: "Retirado").order("id desc").first.retirementdate %></td>
+                <% end %>
+              <% end %>
+
+              <% if operator.state == "Reintegrado" %>
+                <td><%= operator.records.where(state: "Reintegrado").order("id desc").first.reinstatedate %></td>
+                <td><%=  %></td>
+              <% end %>
+              
+            <% licenciasRemuneradas = operator.transcriptions.where(labor_id: Labor.where(code: "950").first.id).count %>
+            <% licenciasNoRemuneradas = operator.transcriptions.where(labor_id: Labor.where(code: "960").first.id).count %>
+            <% licenciasAmbulatorias = operator.transcriptions.where(labor_id: Labor.where(code: "970").first.id).count %>
+            <% licenciasARL = operator.transcriptions.where(labor_id: Labor.where(code: "980").first.id).count %>
+            <% faltasInjustificadas = operator.transcriptions.where(labor_id: Labor.where(code: "990").first.id).count %>
+            <% licenciasSoat = operator.transcriptions.where(labor_id: Labor.where(code: "940").first.id).count %>
+            <% recargoNoctuno = operator.transcriptions.where(labor_id: Labor.where(code: "919").first.id).count %>
+            <% recargoFestivoDiurno = operator.transcriptions.where(labor_id: Labor.where(code: "920").first.id).count %>
+            <% recargoFestivoNocturno = operator.transcriptions.where(labor_id: Labor.where(code: "921").first.id).count %>
+            <% extraOrdinariaDiurna = operator.transcriptions.where(labor_id: Labor.where(code: "922").first.id).count %>
+            <% extraOrdinariaNocturna = operator.transcriptions.where(labor_id: Labor.where(code: "923").first.id).count %>
+            <% extraFestivaDiurna = operator.transcriptions.where(labor_id: Labor.where(code: "924").first.id).count %>
+            <% extraFestivaNocturna = operator.transcriptions.where(labor_id: Labor.where(code: "925").first.id).count %>
+
+            <td><%= number_to_currency(operator.transcriptions.map { |e| e.subtotal }.reduce(0, :+)) %></td>
+            <td><%= 30 - licenciasRemuneradas - licenciasNoRemuneradas - licenciasAmbulatorias - licenciasARL - faltasInjustificadas - licenciasSoat %></td>
+            <td><%= "" %></td>
+            <td><%= licenciasRemuneradas %></td>
+            <td><%= licenciasNoRemuneradas %></td>
+            <td><%= licenciasAmbulatorias %></td>
+            <td><%= licenciasARL + licenciasSoat %></td>
+            <td><%= faltasInjustificadas %></td>
+            <td><%= recargoNoctuno %></td>
+            <td><%= recargoFestivoDiurno %></td>
+            <td><%= recargoFestivoNocturno %></td>
+            <td></td>
+            <td></td>
+            <td><%= extraOrdinariaDiurna %></td>
+            <td><%= extraOrdinariaNocturna %></td>
+            <td><%= extraFestivaDiurna %></td>
+            <td><%= extraFestivaNocturna %></td>
+            <td><%= operator.vehicleAllowance %></td>
+            <td><%= operator.housingAllowance %></td>
+            <td><%= operator.feedingAllowance %></td>
+            <td><%= operator.sanction %></td>
+            <td><%= operator.cc %></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td><%= operator.transportAllowance %></td>
+
+            <% if operator.jobs.present? %>
+              <% if operator.jobs.first.name == "Obrero agrícola" %>
+                <td> A</td>
+              <% elsif operator.jobs.first.name == "b" %>
+                <td> B</td>
+              <% elsif operator.jobs.first.name == "c" %>
+                <td> C</td>
+              <% elsif operator.jobs.first.name == "d" %>
+                <td> D</td>
+              <% elsif operator.jobs.first.name == "e" %>
+                <td> E</td>
+              <% elsif operator.jobs.first.name == "f" %>
+                <td> F</td>
+              <% elsif operator.jobs.first.name == "g" %>
+                <td> G</td>
+              <% else %>
+                <td> G</td>
               <% end %>
             <% end %>
 
-            <% if operator.state == "Reintegrado" %>
-              <td><%= operator.records.where(state: "Reintegrado").order("id desc").first.reinstatedate %></td>
-              <td><%=  %></td>
-            <% end %>
-            
-          <% licenciasRemuneradas = operator.transcriptions.where(labor_id: Labor.where(code: "950").first.id).count %>
-          <% licenciasNoRemuneradas = operator.transcriptions.where(labor_id: Labor.where(code: "960").first.id).count %>
-          <% licenciasAmbulatorias = operator.transcriptions.where(labor_id: Labor.where(code: "970").first.id).count %>
-          <% licenciasARL = operator.transcriptions.where(labor_id: Labor.where(code: "980").first.id).count %>
-          <% faltasInjustificadas = operator.transcriptions.where(labor_id: Labor.where(code: "990").first.id).count %>
-          <% licenciasSoat = operator.transcriptions.where(labor_id: Labor.where(code: "940").first.id).count %>
-          <% recargoNoctuno = operator.transcriptions.where(labor_id: Labor.where(code: "919").first.id).count %>
-          <% recargoFestivoDiurno = operator.transcriptions.where(labor_id: Labor.where(code: "920").first.id).count %>
-          <% recargoFestivoNocturno = operator.transcriptions.where(labor_id: Labor.where(code: "921").first.id).count %>
-          <% extraOrdinariaDiurna = operator.transcriptions.where(labor_id: Labor.where(code: "922").first.id).count %>
-          <% extraOrdinariaNocturna = operator.transcriptions.where(labor_id: Labor.where(code: "923").first.id).count %>
-          <% extraFestivaDiurna = operator.transcriptions.where(labor_id: Labor.where(code: "924").first.id).count %>
-          <% extraFestivaNocturna = operator.transcriptions.where(labor_id: Labor.where(code: "925").first.id).count %>
-
-          <td><%= number_to_currency(operator.transcriptions.map { |e| e.subtotal }.reduce(0, :+)) %></td>
-          <td><%= 30 - licenciasRemuneradas - licenciasNoRemuneradas - licenciasAmbulatorias - licenciasARL - faltasInjustificadas - licenciasSoat %></td>
-          <td><%= "" %></td>
-          <td><%= licenciasRemuneradas %></td>
-          <td><%= licenciasNoRemuneradas %></td>
-          <td><%= licenciasAmbulatorias %></td>
-          <td><%= licenciasARL + licenciasSoat %></td>
-          <td><%= faltasInjustificadas %></td>
-          <td><%= recargoNoctuno %></td>
-          <td><%= recargoFestivoDiurno %></td>
-          <td><%= recargoFestivoNocturno %></td>
-          <td></td>
-          <td></td>
-          <td><%= extraOrdinariaDiurna %></td>
-          <td><%= extraOrdinariaNocturna %></td>
-          <td><%= extraFestivaDiurna %></td>
-          <td><%= extraFestivaNocturna %></td>
-          <td><%= operator.cc %></td>
-          <td><%= operator.cc %></td>
-          <td><%= operator.cc %></td>
-          <td><%= operator.cc %></td>
-          <td><%= operator.cc %></td>
-          <td><%= operator.cc %></td>
-          <td><%= operator.cc %></td>
-          <td><%= operator.cc %></td>
-          <td><%= operator.cc %></td>
-          <td><%= operator.cc %></td>
-
-          <% if operator.jobs.present? %>
-            <% if operator.jobs.first.name == "Obrero agrícola" %>
-              <td> A</td>
-            <% elsif operator.jobs.first.name == "b" %>
-              <td> B</td>
-            <% elsif operator.jobs.first.name == "c" %>
-              <td> C</td>
-            <% elsif operator.jobs.first.name == "d" %>
-              <td> D</td>
-            <% elsif operator.jobs.first.name == "e" %>
-              <td> E</td>
-            <% elsif operator.jobs.first.name == "f" %>
-              <td> F</td>
-            <% elsif operator.jobs.first.name == "g" %>
-              <td> G</td>
-            <% else %>
-              <td> G</td>
-            <% end %>
-          <% end %>
 
 
-
-        </tr>
+          </tr>
+      <% end %>
     <% end %>
     <% @supervisors.each do |supervisor| %>
+      <% if supervisor.flag == 1 %>
         <tr>
           <td><%= supervisor.cc %></td>
           <td><%= supervisor.name  + " " + supervisor.lastname %></td>
@@ -203,16 +206,16 @@
           <td><%= extraOrdinariaNocturnaEmpleado %></td>
           <td><%= extraFestivaDiurnaEmpleado %></td>
           <td><%= extraFestivaNocturnaEmpleado %></td>
+          <td><%= supervisor.vehicleAllowance %></td>
+          <td><%= supervisor.housingAllowance %></td>
+          <td><%= supervisor.feedingAllowance %></td>
+          <td><%= supervisor.sanction %></td>
           <td><%= supervisor.cc %></td>
-          <td><%= supervisor.cc %></td>
-          <td><%= supervisor.cc %></td>
-          <td><%= supervisor.cc %></td>
-          <td><%= supervisor.cc %></td>
-          <td><%= supervisor.cc %></td>
-          <td><%= supervisor.cc %></td>
-          <td><%= supervisor.cc %></td>
-          <td><%= supervisor.cc %></td>
-          <td><%= supervisor.cc %></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td><%= supervisor.transportAllowance %></td>
 
 
           <% if supervisor.jobs.present? %>
@@ -239,6 +242,7 @@
 
         </tr>
       <% end %>
+    <% end %>
   </tbody>
 </table>
 </div>

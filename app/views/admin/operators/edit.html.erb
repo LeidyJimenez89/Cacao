@@ -15,7 +15,6 @@
 	      </ul>
 	    </div>
 	  <% end %>
-
 	<div class="form-group col-md-12 field">
 		<div class="col-md-4">
 			<%= f.label :cc , "Cédula" %>
@@ -33,23 +32,46 @@
 
 	<div class="form-group col-md-12 field">
 		<div class="col-md-4">
-			<%= f.label :gender, "Estado" %>
-			<%= f.select :gender, ["Femenino","Masculino"], {},class:"form-control"%>
+			<%= f.label :gender, "Género" %>
+			<%= f.select :gender, ["Femenino","Masculino"], {prompt: ""},class:"form-control"%>
 		</div>
 		<div class="col-md-4">
 			<%= f.label :dateadmission, "Fecha de ingreso" %>
 			<%= f.text_field :dateadmission , class:"form-control"%>
 		</div>
-    	<div class="col-md-4">
-	      <%= f.label :transportaid, "Auxilio de transporte" %>
-	      <%= f.select :transportaid, ["Completo","Mitad","No aplica"], {},class:"form-control"%>
-	    </div>
+		<div class="col-md-4">
+			<%= f.label :jobs2, "Cargo" %>
+			<%= f.select :jobs2, Job.where(state: "Activo").map { |j|  [ j.name , j.id ]  } , {}, {:multiple => true, class:"form-control"} %>
+		</div>
 	</div>
 
 	<div class="form-group col-md-12 field">
-		<div class="col-md-12">
-			<%= f.label :jobs2, "Cargo" %>
-			<%= f.select :jobs2, Job.where(state: "Activo").map { |j|  [ j.name , j.id ]  } , {selected: @operator.jobs.map { |e| e.id }}, {:multiple => true, class:"form-control"} %>
+		<div class="col-md-4">
+			<%= f.label :transportAllowance, "Auxilio de transporte" %>
+	      	<%= f.select :transportAllowance, ["Completo","Mitad","No aplica"], {prompt: ""},class:"form-control"%>
+		</div>
+		<div class="col-md-4">
+			<%= f.label :feedingAllowance, "Auxilio de alimentación No Prestacional" %>
+			<%= f.text_field :feedingAllowance , class:"form-control"%>
+		</div>
+		<div class="col-md-4">
+			<%= f.label :vehicleAllowance, "Auxilio de rodamiento No Prestacional" %>
+			<%= f.text_field :vehicleAllowance, class:"form-control"%>
+		</div>
+	</div>
+
+	<div class="form-group col-md-12 field">
+		<div class="col-md-4">
+			<%= f.label :housingAllowance, "Auxilio de vivienda No Prestacional" %>
+			<%= f.text_field :housingAllowance, class:"form-control"%>
+		</div>
+		<div class="col-md-4">
+			<%= f.label :childrenLicenseSince, "Licencia maternidad/paternidad"%>
+			<%= f.text_field :childrenLicenseSince , class:"form-control" , placeholder: "Desde" %>
+		</div>
+		<div class="col-md-4">
+			<%= f.label :childrenLicenseUntil, "Licencia maternidad/paternidad" %>
+			<%= f.text_field :childrenLicenseUntil, class:"form-control" , placeholder: "Hasta" %>
 		</div>
 	</div>
 
@@ -69,5 +91,7 @@
 
 <script>
 $('#operator_dateadmission').datepicker({ dateFormat:'yy-mm-dd'});
+$('#operator_childrenLicenseSince').datepicker({ dateFormat:'yy-mm-dd'});
+$('#operator_childrenLicenseUntil').datepicker({ dateFormat:'yy-mm-dd'});
 $("#operator_jobs2").selectize({ plugins: ['remove_button'] });
 </script>
