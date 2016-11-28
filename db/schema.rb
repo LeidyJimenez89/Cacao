@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161122022258) do
+ActiveRecord::Schema.define(version: 20161128220558) do
 
   create_table "ar_internal_metadata", primary_key: "key", force: :cascade do |t|
     t.string   "value",      limit: 255
@@ -19,11 +19,19 @@ ActiveRecord::Schema.define(version: 20161122022258) do
     t.datetime "updated_at",             null: false
   end
 
+  create_table "billingcs", force: :cascade do |t|
+    t.string   "name",        limit: 255
+    t.string   "description", limit: 255
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
+
   create_table "configs", force: :cascade do |t|
-    t.integer  "basepay",    limit: 4
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
-    t.integer  "flag",       limit: 4
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.integer  "flag",               limit: 4
+    t.integer  "transportAllowance", limit: 4
+    t.integer  "basepay",            limit: 4
   end
 
   create_table "configurations", force: :cascade do |t|
@@ -134,6 +142,7 @@ ActiveRecord::Schema.define(version: 20161122022258) do
     t.integer  "flag",                 limit: 4
     t.integer  "vehicleAllowance",     limit: 4
     t.integer  "housingAllowance",     limit: 4
+    t.string   "costcenter",           limit: 255
   end
 
   create_table "record_jobs", force: :cascade do |t|
@@ -229,6 +238,7 @@ ActiveRecord::Schema.define(version: 20161122022258) do
     t.integer  "flag",                 limit: 4
     t.integer  "vehicleAllowance",     limit: 4
     t.integer  "housingAllowance",     limit: 4
+    t.string   "costcenter",           limit: 255
   end
 
   create_table "transcriptions", force: :cascade do |t|

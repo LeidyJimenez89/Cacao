@@ -16,7 +16,8 @@ class Admin::OperatorsController < ApplicationController
     @supervisors = Supervisor.all
 
     @transcriptions = Transcription.all
-    log(@transcriptions)
+    @configs = Config.first
+    log(@configs)
   end
 
   # GET /operators/1

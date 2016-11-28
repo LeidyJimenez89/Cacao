@@ -124,5 +124,7 @@ end
        
        resources :novelties
 
+       resources :billingcs
+
      end
 end

@@ -17,13 +17,17 @@
   </thead>
 
   <tbody>
-    <tr>
-		<td> Salario mínimo </td>
-    <% if @configurations.basepay.present? %>
-      <td>
-			 <%= @configurations.basepay %>
-      </td>
-    <% end %>
-    </tr>
+      <tr>
+    		<td>Salaro mínimo</td>
+        <td>
+    		  <%= @config.basepay %>
+        </td>
+      </tr>
+      <tr>
+        <td>Auxilio de transporte</td>
+        <td>
+          <%= @config.transportAllowance %>
+        </td>
+      </tr>
   </tbody>
 </table>
