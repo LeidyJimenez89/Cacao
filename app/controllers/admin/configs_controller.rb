@@ -1,7 +1,7 @@
 class Admin::ConfigsController < ApplicationController
 
   def index
-    @configurations = Config.first
+    @config = Config.first
   end
 
   def edit
@@ -9,9 +9,9 @@ class Admin::ConfigsController < ApplicationController
   end
 
   def update
-    @configuration = Config.first
+    @config = Config.first
 
-    if @configuration.update(config_params)
+    if @config.update(config_params)
       redirect_to admin_index_config_path, notice: 'Registro editado'
     else
       render :new , alert: 'Registro no esta editado' 
