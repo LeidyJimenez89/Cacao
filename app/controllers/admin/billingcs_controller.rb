@@ -10,7 +10,7 @@ class Admin::BillingcsController < ApplicationController
   end
 
   def create
-    @billingc = Billingc.new
+    @billingc = Billingc.new(billingc_params)
 
     if @billingc.save
       redirect_to admin_billingcs_path, notice: 'Centro de facturación creado satisfactoriamente'
@@ -26,8 +26,8 @@ class Admin::BillingcsController < ApplicationController
   def update
     @billingc = Billingc.find(params[:id])
 
-    if @billingc.update
-      redirect_to admin_billingcs_path, notice: 'Centro de facturación editado satisfactoriamente'
+    if @billingc.update(billingc_params)
+      redirect_to  admin_billingcs_path, notice: 'Centro de facturación editado satisfactoriamente'
     else
       render :new , alert: 'Centro de facturación no editado satisfactoriamente' 
     end
@@ -42,7 +42,7 @@ class Admin::BillingcsController < ApplicationController
 
   private
     # Never trust parameters from the scary internet, only allow the white list through.
-    def config_params
-      params.require(:config).permit(:name, :description)
+    def billingc_params
+      params.require(:billingc).permit(:name, :description)
     end
 end
