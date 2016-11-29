@@ -11,6 +11,8 @@ class Supervisor < ActiveRecord::Base
 
 	has_many :novelties
 
+	belongs_to :billingc
+
 	attr_accessor :operators2
 	attr_accessor :jobs2
 end

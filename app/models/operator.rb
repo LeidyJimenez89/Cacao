@@ -11,6 +11,8 @@ class Operator < ActiveRecord::Base
 
 	has_many :transcriptions
 
+	belongs_to :billingc
+
 	attr_accessor :records2
 	attr_accessor :jobs2
 end

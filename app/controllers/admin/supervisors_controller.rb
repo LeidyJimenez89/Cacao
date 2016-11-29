@@ -21,7 +21,7 @@ class Admin::SupervisorsController < ApplicationController
   def create
     @supervisor = Supervisor.new(supervisor_params)
     @supervisor[:state] = "Activo"
-    @supervisor[:falg] = 1
+    @supervisor[:flag] = 1
 
     if @supervisor.save
 
@@ -176,6 +176,6 @@ class Admin::SupervisorsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def supervisor_params
-      params.require(:supervisor).permit(:user_id, :name, :lastname, :cc, :state, :job_id, :dateadmission, :retirementdate, :description, :gender, :transportAllowance, :feedingAllowance, :vehicleAllowance, :housingAllowance, :childrenLicenseSince, :childrenLicenseUntil, :childrenLicenseUntil, :sanction, :flag)
+      params.require(:supervisor).permit(:user_id, :name, :lastname, :cc, :state, :job_id, :dateadmission, :retirementdate, :description, :gender, :transportAllowance, :feedingAllowance, :vehicleAllowance, :housingAllowance, :childrenLicenseSince, :childrenLicenseUntil, :childrenLicenseUntil, :sanction, :flag, :costcenter)
     end
 end
