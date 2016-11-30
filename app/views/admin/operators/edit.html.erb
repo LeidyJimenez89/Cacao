@@ -15,6 +15,7 @@
 	      </ul>
 	    </div>
 	  <% end %>
+
 	<div class="form-group col-md-12 field">
 		<div class="col-md-4">
 			<%= f.label :cc , "Cédula" %>
@@ -41,11 +42,15 @@
 		</div>
 		<div class="col-md-4">
 			<%= f.label :jobs2, "Cargo" %>
-			<%= f.select :jobs2, Job.where(state: "Activo").map { |j|  [ j.name , j.id ]  } , {}, {:multiple => true, class:"form-control"} %>
+			<%= f.select :jobs2, Job.where(state: "Activo").map { |j|  [ j.name , j.id ]  } , {selected: @operator.jobs.map { |e| e.id }}, {:multiple => true, class:"form-control"} %>
 		</div>
 	</div>
 
 	<div class="form-group col-md-12 field">
+		<div class="col-md-4">
+			<%= f.label :basepay, "Básico" %>
+			<%= f.text_field :basepay , class:"form-control"%>
+		</div>
 		<div class="col-md-4">
 			<%= f.label :transportAllowance, "Auxilio de transporte" %>
 	      	<%= f.select :transportAllowance, ["Completo","Mitad","No aplica"], {prompt: ""},class:"form-control"%>
@@ -54,28 +59,21 @@
 			<%= f.label :feedingAllowance, "Auxilio de alimentación No Prestacional" %>
 			<%= f.text_field :feedingAllowance , class:"form-control"%>
 		</div>
+
+	</div>
+
+	<div class="form-group col-md-12 field">
 		<div class="col-md-4">
 			<%= f.label :vehicleAllowance, "Auxilio de rodamiento No Prestacional" %>
 			<%= f.text_field :vehicleAllowance, class:"form-control"%>
 		</div>
-	</div>
-
-	<div class="form-group col-md-12 field">
-		<div class="col-md-3">
+		<div class="col-md-4">
 			<%= f.label :housingAllowance, "Auxilio de vivienda No Prestacional" %>
 			<%= f.text_field :housingAllowance, class:"form-control"%>
 		</div>
-		<div class="col-md-3">
+		<div class="col-md-4">
 	    	<%= f.label :costcenter, "Centro de facturación"%>
-    		<%= f.select :costcenter , Billingc.all.map { |j|  [ j.name , j.id ]  } , {prompt: ""}, class:"form-control"%>
-		</div>
-		<div class="col-md-3">
-			<%= f.label :childrenLicenseSince, "Licencia maternidad/paternidad"%>
-			<%= f.text_field :childrenLicenseSince , class:"form-control" , placeholder: "Desde" %>
-		</div>
-		<div class="col-md-3">
-			<%= f.label :childrenLicenseUntil, "Licencia maternidad/paternidad" %>
-			<%= f.text_field :childrenLicenseUntil, class:"form-control" , placeholder: "Hasta" %>
+    		<%= f.select :costcenter , Billingc.all.map { |j|  [ j.name , j.name ]  } , {prompt: ""}, class:"form-control"%>
 		</div>
 	</div>
 

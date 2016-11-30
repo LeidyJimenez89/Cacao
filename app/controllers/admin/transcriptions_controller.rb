@@ -91,6 +91,6 @@ class Admin::TranscriptionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def transcription_params
-      params.require(:transcription).permit(:supervisor_id, :operator_id, :costc_id, :sublot_id, :labor_id, :wageamount, :laboramount)
+      params.require(:transcription).permit(:supervisor_id, :operator_id, :costc_id, :sublot_id, :labor_id, :wageamount, :laboramount, :registerdate)
     end
 end

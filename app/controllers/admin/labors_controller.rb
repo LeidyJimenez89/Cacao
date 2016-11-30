@@ -86,6 +86,6 @@ class Admin::LaborsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def labor_params
       params[:labor][:name]=params[:labor][:name].capitalize
-      params.require(:labor).permit(:user_id, :code, :name, :paymentunit, :rate)
+      params.require(:labor).permit(:user_id, :code, :name, :paymentunit, :rate, :assistance)
     end
 end

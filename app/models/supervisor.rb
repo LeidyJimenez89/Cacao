@@ -15,4 +15,15 @@ class Supervisor < ActiveRecord::Base
 
 	attr_accessor :operators2
 	attr_accessor :jobs2
+
+	def asistance
+		real = Hash.new
+		laboresSinContarAsistencia = Labor.where(assistance: "No")
+		self.novelties.where.not(labor_id: laboresSinContarAsistencia).each do |t|
+			real[t.registerdate] = 1
+		end
+
+		return real.length
+
+	end
 end
