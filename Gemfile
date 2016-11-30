@@ -31,7 +31,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise'
 gem 'cancancan'
 gem 'rolify'
-
+gem 'holidays'
 
 gem 'jquery-datatables-rails', '~> 3.3.0'
 # Use ActiveModel has_secure_password

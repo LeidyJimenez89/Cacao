@@ -11,6 +11,7 @@
 <table class="table table-bordered"  cellspacing="0" >
   <thead>
     <tr>
+      <th class="active">Prueba</th>
       <th class="active">Cédula</th>
       <th class="active">Nombre</th>
       <th class="active">Cargo</th>
@@ -53,6 +54,10 @@
     <% @operators.each do |operator| %>
       <% if operator.flag == 1 %>
           <tr>
+            <td>
+              <%= operator.asistance %>
+              <%= Operator.asiste %>
+            </td>
             <td><%= operator.cc %></td>
             <td><%= operator.name  + " " + operator.lastname %></td>
             <td><%= operator.jobs.map { |e| e.name }.join(", ").html_safe %></td>
