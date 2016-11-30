@@ -1,4 +1,4 @@
 class Billingc < ActiveRecord::Base
-	belongs_to :operator
-	belongs_to :supervisor
+	has_many :operator
+	has_many :supervisor
 end

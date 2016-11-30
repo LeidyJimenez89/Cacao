@@ -70,8 +70,8 @@
 
                 <li><a><i class="fa fa-female fa fa-male"></i> Operarios <span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu" style="display: none">
-                    <li><%= link_to 'Listar operadores', admin_operators_path%></li>
-                    <li><%= link_to 'Crear operador', new_admin_operator_path%></li>
+                    <li><%= link_to 'Listar operarios', admin_operators_path%></li>
+                    <li><%= link_to 'Crear operario', new_admin_operator_path%></li>
                   </ul>
                 </li>
 
@@ -116,7 +116,7 @@
                   </ul>
                 </li>
 
-                <li><a><i class="fa fa-th-large"></i> Centro de facturación <span class="fa fa-chevron-down"></span></a>
+                <li><a><i class="fa fa-archive"></i> Centro de facturación <span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu" style="display: none">
                     <li><%= link_to 'Listar centros de costos', admin_billingcs_path%></li>
                     <li><%= link_to 'Crear centro de costos', new_admin_billingc_path%></li>
@@ -155,7 +155,13 @@
               <h3>Informes</h3>
               <ul class="nav side-menu">
 
-                <li><a><i class="fa fa-file-text"></i> Nómina CCC <span class="fa fa-chevron-down"></span></a>
+                <li><a><i class="fa fa-file-text"></i> Liquidación de labores <span class="fa fa-chevron-down"></span></a>
+                  <ul class="nav child_menu" style="display: none">
+                    <li><%= link_to 'Ver historial', admin_operators_paysheet_path %></li>
+                  </ul>
+                </li>
+
+                <li><a><i class="fa fa-file-text"></i> Prefactura <span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu" style="display: none">
                     <li><%= link_to 'Ver historial', admin_operators_paysheet_path %></li>
                   </ul>
