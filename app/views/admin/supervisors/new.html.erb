@@ -72,8 +72,8 @@
       <%= f.text_field :housingAllowance, class:"form-control"%>
     </div>
     <div class="col-md-3">
-        <%= f.label :costcenter, "Centro de facturación"%>
-        <%= f.select :costcenter , Billingc.all.map { |j|  [ j.name , j.id ]  } , {prompt: ""}, class:"form-control"%>
+        <%= f.label :billingc_id, "Centro de facturación"%>
+        <%= f.select :billingc_id , Billingc.all.map { |j|  [ j.name , j.id ]  } , {prompt: ""}, class:"form-control"%>
     </div>
   </div>
 

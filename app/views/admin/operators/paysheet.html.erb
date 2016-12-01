@@ -98,10 +98,24 @@
               <%= operator.asistance %>
             </td>
             <td>
+            <%= operator.asistance %>
             </td>
             <td><%= number_to_currency(operator.transcriptions.map { |e| e.subtotal }.reduce(0, :+)) %></td>
-            <td><%= 30 - licenciasRemuneradas - licenciasNoRemuneradas - licenciasAmbulatorias - licenciasARL - faltasInjustificadas - licenciasSoat %></td>
-            <td><%= "" %></td>
+
+            <td>
+              <% if operator.transcriptions.map { |e| e.subtotal }.reduce(0, :+).to_i != 0 %>
+                <% if 25 == 25 %>
+                  <%= 30 - licenciasRemuneradas - licenciasNoRemuneradas - licenciasAmbulatorias - licenciasARL - faltasInjustificadas - licenciasSoat %>
+                <% end %>
+              <% end %>
+            </td>
+
+            <td>
+              <% t=operator.dateadmission  %>
+              <%= t.day.to_s + " " + t.strftime("%A") %>
+              <%= t.strftime("%Y") %>
+            </td>
+
             <td><%= licenciasRemuneradas %></td>
             <td><%= licenciasNoRemuneradas %></td>
             <td><%= licenciasAmbulatorias %></td>
@@ -136,8 +150,8 @@
               <% end %>
             <% end %>
 
-            <% if operator.costcenter.present? %>
-              <td><%= operator.costcenter %></td>
+            <% if operator.billingc.present? %>
+              <td><%= operator.billingc.name %></td>
             <% end %>
 
 
@@ -195,7 +209,11 @@
           </td>
           <td><%= number_to_currency(supervisor.novelties.map { |e| e.subtotal }.reduce(0, :+)) %></td>
           <td><%= 30 - licenciasRemuneradasEmpleado - licenciasNoRemuneradasEmpleado - licenciasAmbulatoriasEmpleado - licenciasARLEmpleado - faltasInjustificadasEmpleado - licenciasSoatEmpleado %></td>
-          <td><%= "" %></td>
+            <td>
+              <% t=supervisor.dateadmission  %>
+              <%= t.day.to_s + " " + t.strftime("%A") %>
+              <%= t.strftime("%Y") %>
+            </td>
           <td><%= licenciasRemuneradasEmpleado %></td>
           <td><%= licenciasNoRemuneradasEmpleado %></td>
           <td><%= licenciasAmbulatoriasEmpleado %></td>
@@ -244,6 +262,9 @@
 </div>
 
 <script>
+$('#paysheet_fromdate').datepicker({ dateFormat:'yy-mm-dd'});
+$('#paysheet_todate').datepicker({ dateFormat:'yy-mm-dd'});
+
 $('#datatable').DataTable({
               "language": {
                 "url": "../files/spanish"
@@ -258,4 +279,5 @@ $('#datatable').DataTable({
   // Check dataTables documentation to learn more about available options.
   // http://datatables.net/reference/option/pagingType
 });
+
 </script>

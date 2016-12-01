@@ -123,10 +123,10 @@ class Admin::OperatorsController < ApplicationController
       nuevo[:description] = params[:record][:description]
       nuevo[:retirementdate] = params[:record][:retirementdate]
       nuevo.save
-      
-      redirect_to admin_operators_path, notice: 'Estado inhabilitado satisfactoriamente'
+
+      redirect_to admin_operators_path, notice: 'Persona retirada satisfactoriamente'
     else
-      render :retire , alert: 'Estado no inhabilitado satisfactoriamente' 
+      render :retire , alert: 'Persona no retirada satisfactoriamente' 
     end
   end
 
@@ -147,9 +147,9 @@ class Admin::OperatorsController < ApplicationController
       nuevo[:reinstatedate] = params[:record][:reinstatedate]
       nuevo.save
 
-      redirect_to admin_operators_path, notice: 'Estado inhabilitado satisfactoriamente'
+      redirect_to admin_operators_path, notice: 'Persona ingresada satisfactoriamente'
     else
-      render :reinstate , alert: 'Estado no inhabilitado satisfactoriamente' 
+      render :reinstate , alert: 'Persona no ingresada satisfactoriamente' 
     end
   end
 

@@ -31,13 +31,30 @@
           <td><%= operator.cc %></td>
           <td><%= operator.name.to_s + " " + operator.lastname.to_s%></td>
           <td><%= operator.jobs.map { |e| e.name }.join("<br>").html_safe %></td>
-          <td><%= operator.dateadmission %></td>
+
           <% retire = operator.records.where(state: "Retirado").order("id desc").first %>
-          <% if retire.present? %>
-            <td><%= operator.records.where(state: "Retirado").order("id desc").first.retirementdate %></td>
-          <% else %>
-            <td></td>
-          <% end %>
+          <% reinstate = operator.records.where(state: "Reintegrado").order("id desc").first %>
+
+              <% if operator.state == "Activo" %>
+                <td><%= operator.dateadmission %></td>
+                <td><%=  %></td>
+              <% end %>
+
+              <% if operator.state == "Retirado" %>
+                <% if operator.records.where(state: "Reintegrado").order("id desc").first.present? %>
+                  <td><%= operator.records.where(state: "Reintegrado").order("id desc").first.reinstatedate %></td>
+                  <td><%= operator.records.where(state: "Retirado").order("id desc").first.retirementdate %></td>
+                <% else %>
+                  <td><%= operator.dateadmission %></td>
+                  <td><%= operator.records.where(state: "Retirado").order("id desc").first.retirementdate %></td>
+                <% end %>
+              <% end %>
+
+              <% if operator.state == "Reintegrado" %>
+                <td><%= operator.records.where(state: "Reintegrado").order("id desc").first.reinstatedate %></td>
+                <td><%=  %></td>
+              <% end %>
+
           <td><%= operator.state %></td>
           <td>
           <%= link_to admin_operator_path(operator),:class =>"btn btn-default btn-sm" do %>

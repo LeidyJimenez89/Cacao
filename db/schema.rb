@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161130201020) do
+ActiveRecord::Schema.define(version: 20161201193810) do
 
   create_table "ar_internal_metadata", primary_key: "key", force: :cascade do |t|
     t.string   "value",      limit: 255
@@ -49,6 +49,14 @@ ActiveRecord::Schema.define(version: 20161130201020) do
     t.datetime "updated_at",              null: false
     t.string   "labors",      limit: 255
     t.integer  "flag",        limit: 4
+  end
+
+  create_table "holidays", force: :cascade do |t|
+    t.integer  "numberday",   limit: 4
+    t.integer  "numbermonth", limit: 4
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+    t.integer  "numberyear",  limit: 4
   end
 
   create_table "job_operators", force: :cascade do |t|
@@ -143,8 +151,8 @@ ActiveRecord::Schema.define(version: 20161130201020) do
     t.integer  "flag",                 limit: 4
     t.integer  "vehicleAllowance",     limit: 4
     t.integer  "housingAllowance",     limit: 4
-    t.string   "costcenter",           limit: 255
     t.integer  "basepay",              limit: 4
+    t.integer  "billingc_id",          limit: 4
   end
 
   create_table "record_jobs", force: :cascade do |t|
@@ -240,8 +248,8 @@ ActiveRecord::Schema.define(version: 20161130201020) do
     t.integer  "flag",                 limit: 4
     t.integer  "vehicleAllowance",     limit: 4
     t.integer  "housingAllowance",     limit: 4
-    t.string   "costcenter",           limit: 255
     t.integer  "basepay",              limit: 4
+    t.integer  "billingc_id",          limit: 4
   end
 
   create_table "transcriptions", force: :cascade do |t|
