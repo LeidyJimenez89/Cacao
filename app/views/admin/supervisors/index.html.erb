@@ -32,14 +32,26 @@
           <td><%= supervisor.name.to_s + " " + supervisor.lastname %></td>
           <td><%= supervisor.jobs.map { |e| e.name }.join("<br>").html_safe %></td>
           <td><%= supervisor.state %></td>
-          <td><%= supervisor.dateadmission %></td>
 
-          <% retire = supervisor.records.where(state: "Retirado").order("id desc").first %>
-          <% if retire.present? %>
-            <td><%= supervisor.records.where(state: "Retirado").order("id desc").first.retirementdate %></td>
-          <% else %>
-            <td></td>
-          <% end %>
+              <% if supervisor.state == "Activo" %>
+                <td><%= supervisor.dateadmission %></td>
+                <td><%=  %></td>
+              <% end %>
+
+              <% if supervisor.state == "Retirado" %>
+                <% if supervisor.records.where(state: "Reintegrado").order("id desc").first.present? %>
+                  <td><%= supervisor.records.where(state: "Reintegrado").order("id desc").first.reinstatedate %></td>
+                  <td><%= supervisor.records.where(state: "Retirado").order("id desc").first.retirementdate %></td>
+                <% else %>
+                  <td><%= supervisor.dateadmission %></td>
+                  <td><%= supervisor.records.where(state: "Retirado").order("id desc").first.retirementdate %></td>
+                <% end %>
+              <% end %>
+
+              <% if supervisor.state == "Reintegrado" %>
+                <td><%= supervisor.records.where(state: "Reintegrado").order("id desc").first.reinstatedate %></td>
+                <td><%=  %></td>
+              <% end %>
           
           <td>
           <%= link_to admin_supervisor_path(supervisor),:class =>"btn btn-default btn-sm" do %>
