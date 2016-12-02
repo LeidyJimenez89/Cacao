@@ -3,6 +3,18 @@
   Nómina
 </h1>
 
+<%= form_for @operator, url:{action: "paysheet_post"} do |f| %>
+    <div class="col-md-4">
+      <%= f.label :fromdate , "Dedse" %>
+      <%= f.text_field :fromdate , class:"form-control"%>
+    </div>
+    <div class="col-md-4">
+      <%= f.label :todate , "Hasta" %>
+      <%= f.text_field :todate , class:"form-control"%>
+    </div>
+    <%= f.submit "Consultar", :class =>"btn btn-dark"%>
+<% end %>
+
 <h4 class="pull-right">Descargar Excel</h4>
 <br>
 <br>
@@ -52,7 +64,8 @@
   </thead>
 
   <tbody>
-    <% @operators.each do |operator| %>
+    <% @operators.each do |op| %>
+      <% operator = op[1] %>
       <% if operator.flag == 1 %>
           <tr>
             <td><%= operator.cc %></td>
@@ -80,8 +93,7 @@
                 <td><%= operator.records.where(state: "Reintegrado").order("id desc").first.reinstatedate %></td>
                 <td><%=  %></td>
               <% end %>
-              
-            <% licenciasRemuneradas = operator.transcriptions.where(labor_id: Labor.where(code: "950").first.id).map { |e| e.laboramount }.reduce(:+).to_i %>
+            <% licenciasRemuneradas = operator.transcriptions.where(labor_id: Labor.where(code: "950").first.id).where("registerdate > '" + params[:from_date].to_s + "' AND registerdate < '" + params[:to_date].to_s + " 23:59:59'").map { |e| e.laboramount }.reduce(0,:+).to_i %>
             <% licenciasNoRemuneradas = operator.transcriptions.where(labor_id: Labor.where(code: "960").first.id).map { |e| e.laboramount }.reduce(:+).to_i %>
             <% licenciasAmbulatorias = operator.transcriptions.where(labor_id: Labor.where(code: "970").first.id).map { |e| e.laboramount }.reduce(:+).to_i %>
             <% licenciasARL = operator.transcriptions.where(labor_id: Labor.where(code: "980").first.id).map { |e| e.laboramount }.reduce(:+).to_i %>

@@ -80,7 +80,8 @@ end
        get 'operators/activate/:id', to: 'operators#activate', as: 'activate_operator'
        get 'operators/changejob/:id', to: 'operators#changejob', as: 'changejob_operator'
        get 'operators/savehistory'
-       get 'operators/paysheet'
+       get 'operators/paysheet/:from_date/:to_date', to: 'operators#paysheet', as: 'operators_paysheet'
+       post 'operators/paysheet_post', to: 'operators#paysheet_post', as: 'paysheet_post'
        resources :operators
 
        resources :jobs
