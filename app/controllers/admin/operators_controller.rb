@@ -18,16 +18,17 @@ class Admin::OperatorsController < ApplicationController
     end
 
     @operator    = Operator.new
-    @supervisors = Supervisor.all
+    @supervisors = Supervisor.where("registerdate > '" + params[:from_date].to_s + "' AND registerdate < '" + params[:to_date].to_s + " 23:59:59'")
 
     transcriptions = Transcription.where("registerdate > '" + params[:from_date].to_s + "' AND registerdate < '" + params[:to_date].to_s + " 23:59:59'")
+    novelties = Supervisor.where("registerdate > '" + params[:from_date].to_s + "' AND registerdate < '" + params[:to_date].to_s + " 23:59:59'")
 
     @operators   = Hash.new
     transcriptions.each do |t|
       @operators[t.operator_id] = t.operator 
     end
 
-    @configs        = Config.first
+    @configs = Config.first
   end
 
   def paysheet_post

@@ -4,15 +4,19 @@
 </h1>
 
 <%= form_for @operator, url:{action: "paysheet_post"} do |f| %>
-    <div class="col-md-4">
-      <%= f.label :fromdate , "Dedse" %>
+  <div class="form-group col-md-9 field">
+    <div class="col-md-3">
+      <%= f.label :fromdate , "Desde" %>
       <%= f.text_field :fromdate , class:"form-control"%>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-3">
       <%= f.label :todate , "Hasta" %>
       <%= f.text_field :todate , class:"form-control"%>
     </div>
-    <%= f.submit "Consultar", :class =>"btn btn-dark"%>
+    <div class="col-md-3">
+      <%= f.submit "Consultar", :class =>"btn btn-dark"%>
+    </div>
+  </div>
 <% end %>
 
 <h4 class="pull-right">Descargar Excel</h4>
@@ -171,7 +175,8 @@
           </tr>
       <% end %>
     <% end %>
-    <% @supervisors.each do |supervisor| %>
+    <% @supervisors.each do |su| %>
+      <% supervisor = su[1] %>
       <% if supervisor.flag == 1 %>
         <tr>
           <td><%= supervisor.cc %></td>
@@ -274,8 +279,8 @@
 </div>
 
 <script>
-$('#paysheet_fromdate').datepicker({ dateFormat:'yy-mm-dd'});
-$('#paysheet_todate').datepicker({ dateFormat:'yy-mm-dd'});
+$('#operator_fromdate').datepicker({ dateFormat:'yy-mm-dd'});
+$('#operator_todate').datepicker({ dateFormat:'yy-mm-dd'});
 
 $('#datatable').DataTable({
               "language": {
