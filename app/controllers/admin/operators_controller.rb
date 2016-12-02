@@ -12,12 +12,26 @@ class Admin::OperatorsController < ApplicationController
   end
 
   def paysheet
-    @operators = Operator.all
+    if params[:from_date] == 0
+      params[:from_date] = Date.now
+      params[:to_date]   = Date.now
+    end
+
+    @operator    = Operator.new
     @supervisors = Supervisor.all
 
-    @transcriptions = Transcription.all
-    @configs = Config.first
-    log(@configs)
+    transcriptions = Transcription.where("registerdate > '" + params[:from_date].to_s + "' AND registerdate < '" + params[:to_date].to_s + " 23:59:59'")
+
+    @operators   = Hash.new
+    transcriptions.each do |t|
+      @operators[t.operator_id] = t.operator 
+    end
+
+    @configs        = Config.first
+  end
+
+  def paysheet_post
+    redirect_to admin_operators_paysheet_path(params[:operator][:fromdate],params[:operator][:todate])
   end
 
   # GET /operators/1
