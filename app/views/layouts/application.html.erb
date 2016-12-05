@@ -123,6 +123,13 @@
                   </ul>
                 </li>
 
+                <li><a><i class="fa fa-tags"></i> Empresas temporales <span class="fa fa-chevron-down"></span></a>
+                  <ul class="nav child_menu" style="display: none">
+                    <li><%= link_to 'Listar empresas prestadoras', admin_companies_path%></li>
+                    <li><%= link_to 'Crear empresa prestadora', new_admin_company_path%></li>
+                  </ul>
+                </li>
+
               </ul>
             </div>
 
@@ -157,13 +164,13 @@
 
                 <li><a><i class="fa fa-file-text"></i> Liquidación de labores <span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu" style="display: none">
-                    <li><%= link_to 'Ver historial', admin_operators_paysheet_path(0,0) %></li>
+                    <li><%= link_to 'Ver historial', admin_operators_paysheet_path(0,0,0) %></li>
                   </ul>
                 </li>
 
                 <li><a><i class="fa fa-file-text"></i> Prefactura <span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu" style="display: none">
-                    <li><%= link_to 'Ver historial', admin_operators_paysheet_path(0,0) %></li>
+                    <li><%= link_to 'Ver historial', admin_operators_paysheet_path(0,0,0) %></li>
                   </ul>
                 </li>
 

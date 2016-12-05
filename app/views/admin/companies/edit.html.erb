@@ -1,0 +1,62 @@
+<%= stylesheet_link_tag    'selectize.bootstrap3', media: 'all', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag 'selectize', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag 'plugin', 'data-turbolinks-track' => true %>
+
+<h1 class="x_title">
+  <i class="glyphicon glyphicon-leaf titleicon"></i>
+  Editar empresa prestadora de servicios
+</h1>
+
+<%= form_for @company , url:{action: "update"} do |f| %>
+  <% if @company.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@company.errors.count, "error") %> prohibited this company from being saved:</h2>
+      <ul>
+        <% @company.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="form-group col-md-12">
+    <div class="col-md-4">
+      <%= f.label :nit, "Nit" %>
+      <%= f.text_field :nit ,class:"form-control"%>
+    </div>
+    <div class="col-md-8">
+      <%= f.label :name , "Nombre"%>
+      <%= f.text_field :name , class:"form-control"%>
+    </div>
+  </div>
+
+  <div class="form-group col-md-12">
+    <div class="col-md-6">
+        <%= f.label :phone, "Teléfono" %>
+        <%= f.text_field :phone,class:"form-control"%>
+    </div>
+    <div class="col-md-6">
+      <%= f.label :address , "Dirección"%>
+      <%= f.text_field :address , class:"form-control"%>
+    </div>
+  </div>
+
+  <div class="form-group col-md-12">
+    <div class="col-md-12">
+      <%= f.label :description , "Descripción" %>
+      <%= f.text_area :description , class:"form-control"%>
+    </div>
+  </div>
+
+  <div class="form-group col-md-12"> 
+    <div class="col-md-12">
+      <%= button_tag(:type => 'submit', :class => 'btn btn-dark') do %>
+        <i class="glyphicon glyphicon-floppy-disk"></i>
+        Crear empresa prestadora de servicio 
+      <% end %>
+      <%= link_to admin_companies_path ,:class =>"btn btn-danger" do %>
+          <span class="glyphicon glyphicon-remove"></span>
+          Cancelar
+      <% end %>
+    </div>
+  </div>
+<% end %>

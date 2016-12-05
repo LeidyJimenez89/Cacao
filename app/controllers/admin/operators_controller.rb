@@ -12,27 +12,33 @@ class Admin::OperatorsController < ApplicationController
   end
 
   def paysheet
-    if params[:from_date] == 0
-      params[:from_date] = Date.now
-      params[:to_date]   = Date.now
+    if params[:fromdate] == 0
+      params[:fromdate] = Date.now
+      params[:todate]   = Date.now
+      params[:companytype]   = "Todos"
     end
 
     @operator    = Operator.new
-    @supervisors = Supervisor.where("registerdate > '" + params[:from_date].to_s + "' AND registerdate < '" + params[:to_date].to_s + " 23:59:59'")
+    @supervisors = Supervisor.all
 
-    transcriptions = Transcription.where("registerdate > '" + params[:from_date].to_s + "' AND registerdate < '" + params[:to_date].to_s + " 23:59:59'")
-    novelties = Supervisor.where("registerdate > '" + params[:from_date].to_s + "' AND registerdate < '" + params[:to_date].to_s + " 23:59:59'")
-
+    #transcriptions = Transcription.where("registerdate > '" + params[:from_date].to_s + "' AND registerdate < '" + params[:to_date].to_s + " 23:59:59'" + "' AND transcription.operator.company_id == < '" + params[:companytype] )
+    transcriptions = Transcription.where(registerdate: params[:fromdate].to_s + " 00:00:00" .. params[:todate].to_s + "23:59:59" )
+    #log(Transcription.where(registerdate: params[:from_date].to_s + " 00:00:00" .. params[:to_date].to_s + " 23:59:59" ).to_sql)
+    log(transcriptions)
     @operators   = Hash.new
     transcriptions.each do |t|
-      @operators[t.operator_id] = t.operator 
+      log(t.operator.company_id)
+      log(params[:companytype])
+      if t.operator.company_id== params[:companytype].to_i
+        @operators[t.operator_id] = t.operator
+      end
     end
 
     @configs = Config.first
   end
 
   def paysheet_post
-    redirect_to admin_operators_paysheet_path(params[:operator][:fromdate],params[:operator][:todate])
+    redirect_to admin_operators_paysheet_path(params[:operator][:fromdate],params[:operator][:todate], params[:operator][:companytype])
   end
 
   # GET /operators/1
@@ -227,6 +233,6 @@ class Admin::OperatorsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def operator_params
-      params.require(:operator).permit(:cc, :name, :position, :dateadmission, :state , :job_id, :lastname, :retirementdate, :description, :gender, :transportAllowance, :feedingAllowance, :vehicleAllowance, :housingAllowance, :childrenLicenseSince, :childrenLicenseUntil, :sanction, :flag, :costcenter, :basepay)
+      params.require(:operator).permit(:cc, :name, :position, :dateadmission, :state , :job_id, :lastname, :retirementdate, :description, :gender, :transportAllowance, :feedingAllowance, :vehicleAllowance, :housingAllowance, :childrenLicenseSince, :childrenLicenseUntil, :sanction, :flag, :costcenter, :basepay, :company_id)
     end
 end

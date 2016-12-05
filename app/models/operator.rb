@@ -13,11 +13,14 @@ class Operator < ActiveRecord::Base
 
 	belongs_to :billingc
 
+	belongs_to :company
+
 	attr_accessor :records2
 	attr_accessor :jobs2
 	
 	attr_accessor :fromdate
 	attr_accessor :todate
+	attr_accessor :companytype
 
 	def asistance
 		real = Hash.new

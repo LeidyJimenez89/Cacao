@@ -13,6 +13,8 @@ class Supervisor < ActiveRecord::Base
 
 	belongs_to :billingc
 
+	belongs_to :company
+
 	attr_accessor :operators2
 	attr_accessor :jobs2
 
