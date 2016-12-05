@@ -16,22 +16,22 @@
   <% end %>
   <div class="form-group col-md-12">
     <div class="col-md-4">
-        <%= f.label :costc_id, "Centro de costo", class:"subtitle"%>
+        <%= f.label :costc_id, "Centro de costo" %>
         <%= f.select :costc_id, Costc.all.map { |j|  [ j.name , j.id ]  } , {prompt: ""} ,class:"form-control"%>
     </div>
     <div class="col-md-4">
-      <%= f.label :code , "Código"%><br>
+      <%= f.label :code , "Código"%>
       <%= f.text_field :code , class:"form-control"%>
     </div>
     <div class="col-md-4">
-      <%= f.label :name , "Nombre"%><br>
+      <%= f.label :name , "Nombre"%>
       <%= f.text_field :name , class:"form-control"%>
     </div>
   </div>
 
   <div class="form-group col-md-12">
     <div class="col-md-12">
-      <%= f.label :description , "Descripción"%><br>
+      <%= f.label :description , "Descripción"%>
       <%= f.text_area :description , class:"form-control"%>
     </div>
   </div>

@@ -8,7 +8,7 @@ class Holiday < ActiveRecord::Base
 		contsunday=0
 
 		for i in initdate.strftime("%d")..finaldate.strftime("%d")
-			if i.strftime(“%A”) =="Sunday"
+			if (i + finaldate.strftime("%m") + finaldate.strftime("%Y"))to_date.strftime("%A") == Sunday
 				contsunday = contsunday +1
 			end
 		end

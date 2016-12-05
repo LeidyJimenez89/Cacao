@@ -1,0 +1,37 @@
+<div class="x_panel">
+
+  <h1 class="x_title">
+    <i class="glyphicon glyphicon-leaf titleicon"></i>
+    Empresa prestadora de servicio: <%= @company.name %>
+  </h1>
+
+  <p>
+    <strong>Nit:</strong>
+    <%= @company.nit %>
+  </p>
+
+  <p>
+    <strong>Teléfono:</strong>
+    <%= @company.phone %>
+  </p>
+
+  <p>
+    <strong>Dirección:</strong>
+    <%= @company.address %>
+  </p>
+
+  <p>
+    <strong>Descripción:</strong>
+    <%= @company.description %>
+  </p>
+
+  <%= link_to edit_admin_company_path(@company),:class =>"btn btn-dark" do %>
+    <span class="glyphicon glyphicon-pencil"></span>
+    Editar empresa prestadora de servicio
+  <% end %>
+  <%= link_to admin_companies_path,:class =>"btn btn-danger" do %>
+    <span class="glyphicon glyphicon-remove"></span>
+    Cancelar
+  <% end %>
+
+</div>

@@ -4,7 +4,7 @@
 </h1>
 
 <%= form_for @operator, url:{action: "paysheet_post"} do |f| %>
-  <div class="form-group col-md-9 field">
+  <div class="form-group col-md-12 field">
     <div class="col-md-3">
       <%= f.label :fromdate , "Desde" %>
       <%= f.text_field :fromdate , class:"form-control"%>
@@ -12,6 +12,10 @@
     <div class="col-md-3">
       <%= f.label :todate , "Hasta" %>
       <%= f.text_field :todate , class:"form-control"%>
+    </div>
+    <div class="col-md-3">
+      <%= f.label :companytype , "Empresa prestadora de servicio" %>
+      <%= f.select :companytype, Company.all.map { |j|  [ j.name , j.id ]  } , {prompt: ""}, class:"form-control"%>
     </div>
     <div class="col-md-3">
       <%= f.submit "Consultar", :class =>"btn btn-dark"%>
@@ -114,7 +118,7 @@
               <%= operator.asistance %>
             </td>
             <td>
-            <%= operator.asistance %>
+            <%= Holiday.effectydays(params[:fromdate].to_date, params[:todate].to_date, operator[:dateadmission]) %>
             </td>
             <td><%= number_to_currency(operator.transcriptions.map { |e| e.subtotal }.reduce(0, :+)) %></td>
 
@@ -175,9 +179,8 @@
           </tr>
       <% end %>
     <% end %>
-    <% @supervisors.each do |su| %>
-      <% supervisor = su[1] %>
-      <% if supervisor.flag == 1 %>
+    <% @supervisors.each do |supervisor| %>
+      <% if supervisor.flag == 1 and supervisor.state!= "Retirado" %>
         <tr>
           <td><%= supervisor.cc %></td>
           <td><%= supervisor.name  + " " + supervisor.lastname %></td>
