@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161205164731) do
+ActiveRecord::Schema.define(version: 20161207194420) do
 
   create_table "ar_internal_metadata", primary_key: "key", force: :cascade do |t|
     t.string   "value",      limit: 255
@@ -62,11 +62,12 @@ ActiveRecord::Schema.define(version: 20161205164731) do
   end
 
   create_table "holidays", force: :cascade do |t|
-    t.integer  "numberday",   limit: 4
-    t.integer  "numbermonth", limit: 4
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
-    t.integer  "numberyear",  limit: 4
+    t.integer  "numberday",    limit: 4
+    t.integer  "numbermonth",  limit: 4
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.integer  "numberyear",   limit: 4
+    t.string   "completedate", limit: 255
   end
 
   create_table "job_operators", force: :cascade do |t|
