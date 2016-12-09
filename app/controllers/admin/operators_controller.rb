@@ -15,6 +15,7 @@ class Admin::OperatorsController < ApplicationController
     if params[:fromdate] == 0
       params[:fromdate] = Date.now
       params[:todate]   = Date.now
+      params[:paydate]   = Date.now
       params[:companytype]   = "Todos"
     end
 
@@ -24,11 +25,8 @@ class Admin::OperatorsController < ApplicationController
     #transcriptions = Transcription.where("registerdate > '" + params[:from_date].to_s + "' AND registerdate < '" + params[:to_date].to_s + " 23:59:59'" + "' AND transcription.operator.company_id == < '" + params[:companytype] )
     transcriptions = Transcription.where(registerdate: params[:fromdate].to_s + " 00:00:00" .. params[:todate].to_s + "23:59:59" )
     #log(Transcription.where(registerdate: params[:from_date].to_s + " 00:00:00" .. params[:to_date].to_s + " 23:59:59" ).to_sql)
-    log(transcriptions)
     @operators   = Hash.new
     transcriptions.each do |t|
-      log(t.operator.company_id)
-      log(params[:companytype])
       if t.operator.company_id== params[:companytype].to_i
         @operators[t.operator_id] = t.operator
       end
@@ -38,7 +36,7 @@ class Admin::OperatorsController < ApplicationController
   end
 
   def paysheet_post
-    redirect_to admin_operators_paysheet_path(params[:operator][:fromdate],params[:operator][:todate], params[:operator][:companytype])
+    redirect_to admin_operators_paysheet_path(params[:operator][:fromdate],params[:operator][:todate],params[:operator][:paydate], params[:operator][:companytype])
   end
 
   # GET /operators/1

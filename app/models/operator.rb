@@ -21,6 +21,7 @@ class Operator < ActiveRecord::Base
 	attr_accessor :fromdate
 	attr_accessor :todate
 	attr_accessor :companytype
+	attr_accessor :paydate
 
 	def asistance
 		real = Hash.new
