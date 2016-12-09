@@ -4,23 +4,32 @@
 </h1>
 
 <%= form_for @operator, url:{action: "paysheet_post"} do |f| %>
+
   <div class="form-group col-md-12 field">
-    <div class="col-md-3">
+    <div class="col-md-6">
       <%= f.label :fromdate , "Desde" %>
       <%= f.text_field :fromdate , class:"form-control"%>
     </div>
-    <div class="col-md-3">
+    <div class="col-md-6">
       <%= f.label :todate , "Hasta" %>
       <%= f.text_field :todate , class:"form-control"%>
     </div>
-    <div class="col-md-3">
+  </div>
+
+  <div class="form-group col-md-12 field">
+    <div class="col-md-4">
       <%= f.label :companytype , "Empresa prestadora de servicio" %>
       <%= f.select :companytype, Company.all.map { |j|  [ j.name , j.id ]  } , {prompt: ""}, class:"form-control"%>
     </div>
-    <div class="col-md-3">
+    <div class="col-md-4">
+      <%= f.label :paydate , "Día de pago" %>
+      <%= f.text_field :paydate , class:"form-control"%>
+    </div>
+    <div class="col-md-4">
       <%= f.submit "Consultar", :class =>"btn btn-dark"%>
     </div>
   </div>
+
 <% end %>
 
 <h4 class="pull-right">Descargar Excel</h4>
@@ -101,31 +110,33 @@
                 <td><%= operator.records.where(state: "Reintegrado").order("id desc").first.reinstatedate %></td>
                 <td><%=  %></td>
               <% end %>
-            <% licenciasRemuneradas = operator.transcriptions.where(labor_id: Labor.where(code: "950").first.id).where("registerdate > '" + params[:from_date].to_s + "' AND registerdate < '" + params[:to_date].to_s + " 23:59:59'").map { |e| e.laboramount }.reduce(0,:+).to_i %>
-            <% licenciasNoRemuneradas = operator.transcriptions.where(labor_id: Labor.where(code: "960").first.id).map { |e| e.laboramount }.reduce(:+).to_i %>
-            <% licenciasAmbulatorias = operator.transcriptions.where(labor_id: Labor.where(code: "970").first.id).map { |e| e.laboramount }.reduce(:+).to_i %>
-            <% licenciasARL = operator.transcriptions.where(labor_id: Labor.where(code: "980").first.id).map { |e| e.laboramount }.reduce(:+).to_i %>
-            <% faltasInjustificadas = operator.transcriptions.where(labor_id: Labor.where(code: "990").first.id).map { |e| e.laboramount }.reduce(:+).to_i %>
-            <% licenciasSoat = operator.transcriptions.where(labor_id: Labor.where(code: "940").first.id).map { |e| e.laboramount }.reduce(:+).to_i %>
-            <% recargoNoctuno = operator.transcriptions.where(labor_id: Labor.where(code: "919").first.id).map { |e| e.laboramount }.reduce(:+).to_i %>
-            <% recargoFestivoDiurno = operator.transcriptions.where(labor_id: Labor.where(code: "920").first.id).map { |e| e.laboramount }.reduce(:+).to_i %>
-            <% recargoFestivoNocturno = operator.transcriptions.where(labor_id: Labor.where(code: "921").first.id).map { |e| e.laboramount }.reduce(:+).to_i %>
-            <% extraOrdinariaDiurna = operator.transcriptions.where(labor_id: Labor.where(code: "922").first.id).map { |e| e.laboramount }.reduce(:+).to_i %>
-            <% extraOrdinariaNocturna = operator.transcriptions.where(labor_id: Labor.where(code: "923").first.id).map { |e| e.laboramount }.reduce(:+).to_i %>
-            <% extraFestivaDiurna = operator.transcriptions.where(labor_id: Labor.where(code: "924").first.id).map { |e| e.laboramount }.reduce(:+).to_i %>
-            <% extraFestivaNocturna = operator.transcriptions.where(labor_id: Labor.where(code: "925").first.id).map { |e| e.laboramount }.reduce(:+).to_i %>
+            <% licenciasRemuneradas = operator.transcriptions.where(labor_id: Labor.where(code: "950").first.id).where("registerdate > '" + params[:fromdate].to_s + "' AND registerdate < '" + params[:todate].to_s + " 23:59:59'").map { |e| e.laboramount }.reduce(0,:+).to_i %>
+            <% licenciasNoRemuneradas = operator.transcriptions.where(labor_id: Labor.where(code: "960").first.id).where("registerdate > '" + params[:fromdate].to_s + "' AND registerdate < '" + params[:todate].to_s + " 23:59:59'").map { |e| e.laboramount }.reduce(0,:+).to_i %>
+            <% licenciasAmbulatorias = operator.transcriptions.where(labor_id: Labor.where(code: "970").first.id).where("registerdate > '" + params[:fromdate].to_s + "' AND registerdate < '" + params[:todate].to_s + " 23:59:59'").map { |e| e.laboramount }.reduce(0,:+).to_i %>
+            <% licenciasARL = operator.transcriptions.where(labor_id: Labor.where(code: "980").first.id).where("registerdate > '" + params[:fromdate].to_s + "' AND registerdate < '" + params[:todate].to_s + " 23:59:59'").map { |e| e.laboramount }.reduce(0,:+).to_i %>
+            <% faltasInjustificadas = operator.transcriptions.where(labor_id: Labor.where(code: "990").first.id).where("registerdate > '" + params[:fromdate].to_s + "' AND registerdate < '" + params[:todate].to_s + " 23:59:59'").map { |e| e.laboramount }.reduce(0,:+).to_i %>
+            <% licenciasSoat = operator.transcriptions.where(labor_id: Labor.where(code: "940").first.id).where("registerdate > '" + params[:fromdate].to_s + "' AND registerdate < '" + params[:todate].to_s + " 23:59:59'").map { |e| e.laboramount }.reduce(0,:+).to_i %>
+            <% recargoNoctuno = operator.transcriptions.where(labor_id: Labor.where(code: "919").first.id).where("registerdate > '" + params[:fromdate].to_s + "' AND registerdate < '" + params[:todate].to_s + " 23:59:59'").map { |e| e.laboramount }.reduce(0,:+).to_i %>
+            <% recargoFestivoDiurno = operator.transcriptions.where(labor_id: Labor.where(code: "920").first.id).where("registerdate > '" + params[:fromdate].to_s + "' AND registerdate < '" + params[:todate].to_s + " 23:59:59'").map { |e| e.laboramount }.reduce(0,:+).to_i %>
+            <% recargoFestivoNocturno = operator.transcriptions.where(labor_id: Labor.where(code: "921").first.id).where("registerdate > '" + params[:fromdate].to_s + "' AND registerdate < '" + params[:todate].to_s + " 23:59:59'").map { |e| e.laboramount }.reduce(0,:+).to_i %>
+            <% extraOrdinariaDiurna = operator.transcriptions.where(labor_id: Labor.where(code: "922").first.id).where("registerdate > '" + params[:fromdate].to_s + "' AND registerdate < '" + params[:todate].to_s + " 23:59:59'").map { |e| e.laboramount }.reduce(0,:+).to_i %>
+            <% extraOrdinariaNocturna = operator.transcriptions.where(labor_id: Labor.where(code: "923").first.id).where("registerdate > '" + params[:fromdate].to_s + "' AND registerdate < '" + params[:todate].to_s + " 23:59:59'").map { |e| e.laboramount }.reduce(0,:+).to_i %>
+            <% extraFestivaDiurna = operator.transcriptions.where(labor_id: Labor.where(code: "924").first.id).where("registerdate > '" + params[:fromdate].to_s + "' AND registerdate < '" + params[:todate].to_s + " 23:59:59'").map { |e| e.laboramount }.reduce(0,:+).to_i %>
+            <% extraFestivaNocturna = operator.transcriptions.where(labor_id: Labor.where(code: "925").first.id).where("registerdate > '" + params[:fromdate].to_s + "' AND registerdate < '" + params[:todate].to_s + " 23:59:59'").map { |e| e.laboramount }.reduce(0,:+).to_i %>
             <td>
               <%= operator.asistance %>
             </td>
             <td>
-            <%= Holiday.effectydays(params[:fromdate].to_date, params[:todate].to_date, operator[:dateadmission]) %>
+            <%= Holiday.effectydays(params[:fromdate].to_date, params[:todate].to_date, params[:paydate].to_date, operator[:dateadmission]) %>
             </td>
             <td><%= number_to_currency(operator.transcriptions.map { |e| e.subtotal }.reduce(0, :+)) %></td>
+            
+            <% fechaMax = params[:todate].to_date %>
 
             <td>
               <% if operator.transcriptions.map { |e| e.subtotal }.reduce(0, :+).to_i != 0 %>
                 <% if 25 == 25 %>
-                  <%= 30 - licenciasRemuneradas - licenciasNoRemuneradas - licenciasAmbulatorias - licenciasARL - faltasInjustificadas - licenciasSoat %>
+                  <%= fechaMax.strftime("%d").to_i - licenciasRemuneradas - licenciasNoRemuneradas - licenciasAmbulatorias - licenciasARL - faltasInjustificadas - licenciasSoat %>
                 <% end %>
               <% end %>
             </td>
@@ -286,6 +297,7 @@
 <script>
 $('#operator_fromdate').datepicker({ dateFormat:'yy-mm-dd'});
 $('#operator_todate').datepicker({ dateFormat:'yy-mm-dd'});
+$('#operator_paydate').datepicker({ dateFormat:'yy-mm-dd'});
 
 $('#datatable').DataTable({
               "language": {
