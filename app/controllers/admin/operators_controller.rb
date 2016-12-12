@@ -12,15 +12,18 @@ class Admin::OperatorsController < ApplicationController
   end
 
   def paysheet
+
+    @supervisors    = Supervisor.all
+
     if params[:fromdate] == 0
-      params[:fromdate] = Date.now
-      params[:todate]   = Date.now
-      params[:paydate]   = Date.now
+      params[:fromdate] = Date.now.strftime("%Y-%m-%d")
+      params[:todate]   = Date.now.strftime("%Y-%m-%d")
+      params[:paydate]   = Date.now.strftime("%Y-%m-%d")
       params[:companytype]   = "Todos"
+      @supervisors = []
     end
 
     @operator    = Operator.new
-    @supervisors = Supervisor.all
 
     #transcriptions = Transcription.where("registerdate > '" + params[:from_date].to_s + "' AND registerdate < '" + params[:to_date].to_s + " 23:59:59'" + "' AND transcription.operator.company_id == < '" + params[:companytype] )
     transcriptions = Transcription.where(registerdate: params[:fromdate].to_s + " 00:00:00" .. params[:todate].to_s + "23:59:59" )
@@ -133,6 +136,7 @@ class Admin::OperatorsController < ApplicationController
   def retired
     @operator = Operator.find(params[:id])
     @operator[:state] = "Retirado"
+      @operator[:retirementdate] = params[:record][:retirementdate]
 
     if @operator.save
 

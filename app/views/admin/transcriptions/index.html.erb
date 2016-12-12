@@ -14,6 +14,7 @@ Listar Novedades de nómina
 <table id="datatable" class="display datatable" cellspacing="0" width="100%">
   <thead>
     <tr>
+      <th>Fecha</th>
       <th>Operario</th>
       <th>Cargo</th>
       <th>Centro de costos</th>
@@ -28,6 +29,7 @@ Listar Novedades de nómina
     <% @transcriptions.each do |transcription| %>
       <tr>
 
+        <td><%= transcription.registerdate %></td>
         <td><%= transcription.operator.cc + " " + transcription.operator.name + " " + transcription.operator.lastname %></td>
         <td><%= transcription.operator.jobs.first.name %></td>
         <% if transcription.costc.present? %>

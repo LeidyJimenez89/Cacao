@@ -93,7 +93,7 @@
 
               <% if operator.state == "Activo" %>
                 <td><%= operator.dateadmission %></td>
-                <td><%=  %></td>
+                <td></td>
               <% end %>
 
               <% if operator.state == "Retirado" %>
@@ -108,7 +108,7 @@
 
               <% if operator.state == "Reintegrado" %>
                 <td><%= operator.records.where(state: "Reintegrado").order("id desc").first.reinstatedate %></td>
-                <td><%=  %></td>
+                <td></td>
               <% end %>
             <% licenciasRemuneradas = operator.transcriptions.where(labor_id: Labor.where(code: "950").first.id).where("registerdate > '" + params[:fromdate].to_s + "' AND registerdate < '" + params[:todate].to_s + " 23:59:59'").map { |e| e.laboramount }.reduce(0,:+).to_i %>
             <% licenciasNoRemuneradas = operator.transcriptions.where(labor_id: Labor.where(code: "960").first.id).where("registerdate > '" + params[:fromdate].to_s + "' AND registerdate < '" + params[:todate].to_s + " 23:59:59'").map { |e| e.laboramount }.reduce(0,:+).to_i %>
@@ -127,21 +127,29 @@
               <%= operator.asistance %>
             </td>
             <td>
-            <%= Holiday.effectydays(params[:fromdate].to_date, params[:todate].to_date, params[:paydate].to_date, operator[:dateadmission]) %>
+              <%= Holiday.effectydays(params[:fromdate].to_date, params[:todate].to_date, params[:paydate].to_date, operator) %>
             </td>
             <td><%= number_to_currency(operator.transcriptions.map { |e| e.subtotal }.reduce(0, :+)) %></td>
             
             <% fechaMax = params[:todate].to_date %>
 
-            <td>
+            
               <% if operator.transcriptions.map { |e| e.subtotal }.reduce(0, :+).to_i != 0 %>
                 <% if 25 == 25 %>
-                  <%= fechaMax.strftime("%d").to_i - licenciasRemuneradas - licenciasNoRemuneradas - licenciasAmbulatorias - licenciasARL - faltasInjustificadas - licenciasSoat %>
+                  <td><%= fechaMax.strftime("%d").to_i - licenciasRemuneradas - licenciasNoRemuneradas - licenciasAmbulatorias - licenciasARL - faltasInjustificadas - licenciasSoat %>
+                  </td>
                 <% end %>
+              <% else %>
+                <td>"El subtotal de la persona es cero"</td>
               <% end %>
-            </td>
 
             <td>
+            <%if (operator.records.where(state: "Reintegrado").order("id desc").first.present?)%>
+              <%= operator.records.where(state: "Reintegrado").order("id desc").first.reinstatedate  %>
+            <%end%>
+            <%if operator.records.where(state: "Retirado").order("id desc").first.present?%>
+              <%= operator.records.where(state: "Retirado").order("id desc").first.retirementdate  %>
+            <%end%>
               <% t=operator.dateadmission  %>
               <%= t.day.to_s + " " + t.strftime("%A") %>
               <%= t.strftime("%Y") %>
@@ -203,7 +211,7 @@
 
             <% if supervisor.state == "Activo" %>
               <td><%= supervisor.dateadmission %></td>
-              <td><%=  %></td>
+              <td></td>
             <% end %>
 
             <% if supervisor.state == "Retirado" %>
@@ -218,35 +226,39 @@
 
             <% if supervisor.state == "Reintegrado" %>
               <td><%= supervisor.records.where(state: "Reintegrado").order("id desc").first.reinstatedate %></td>
-              <td><%=  %></td>
+              <td></td>
             <% end %>
 
-          <% licenciasRemuneradasEmpleado = supervisor.novelties.where(labor_id: Labor.where(code: "950").first.id).map { |e| e.laboramount }.reduce(:+).to_i %>
-          <% licenciasNoRemuneradasEmpleado = supervisor.novelties.where(labor_id: Labor.where(code: "960").first.id).map { |e| e.laboramount }.reduce(:+).to_i %>
-          <% licenciasAmbulatoriasEmpleado = supervisor.novelties.where(labor_id: Labor.where(code: "970").first.id).map { |e| e.laboramount }.reduce(:+).to_i %>
-          <% licenciasARLEmpleado = supervisor.novelties.where(labor_id: Labor.where(code: "980").first.id).map { |e| e.laboramount }.reduce(:+).to_i %>
-          <% faltasInjustificadasEmpleado = supervisor.novelties.where(labor_id: Labor.where(code: "990").first.id).map { |e| e.laboramount }.reduce(:+).to_i %>
-          <% licenciasSoatEmpleado = supervisor.novelties.where(labor_id: Labor.where(code: "940").first.id).map { |e| e.laboramount }.reduce(:+).to_i %>
-          <% recargoNoctunoEmpleado = supervisor.novelties.where(labor_id: Labor.where(code: "919").first.id).map { |e| e.laboramount }.reduce(:+).to_i %>
-          <% recargoFestivoDiurnoEmpleado = supervisor.novelties.where(labor_id: Labor.where(code: "920").first.id).map { |e| e.laboramount }.reduce(:+).to_i %>
-          <% recargoFestivoNocturnoEmpleado = supervisor.novelties.where(labor_id: Labor.where(code: "921").first.id).map { |e| e.laboramount }.reduce(:+).to_i %>
-          <% extraOrdinariaDiurnaEmpleado = supervisor.novelties.where(labor_id: Labor.where(code: "922").first.id).map { |e| e.laboramount }.reduce(:+).to_i %>
-          <% extraOrdinariaNocturnaEmpleado = supervisor.novelties.where(labor_id: Labor.where(code: "923").first.id).map { |e| e.laboramount }.reduce(:+).to_i %>
-          <% extraFestivaDiurnaEmpleado = supervisor.novelties.where(labor_id: Labor.where(code: "924").first.id).map { |e| e.laboramount }.reduce(:+).to_i %>
-          <% extraFestivaNocturnaEmpleado = supervisor.novelties.where(labor_id: Labor.where(code: "925").first.id).map { |e| e.laboramount }.reduce(:+).to_i %>
+          <% licenciasRemuneradasEmpleado = supervisor.novelties.where(labor_id: Labor.where(code: "950").first.id).where("registerdate > '" + params[:fromdate].to_s + "' AND registerdate < '" + params[:todate].to_s + " 23:59:59'").map { |e| e.laboramount }.reduce(0,:+).to_i %>
+          <% licenciasNoRemuneradasEmpleado = supervisor.novelties.where(labor_id: Labor.where(code: "960").first.id).where("registerdate > '" + params[:fromdate].to_s + "' AND registerdate < '" + params[:todate].to_s + " 23:59:59'").map { |e| e.laboramount }.reduce(0,:+).to_i %>
+          <% licenciasAmbulatoriasEmpleado = supervisor.novelties.where(labor_id: Labor.where(code: "970").first.id).where("registerdate > '" + params[:fromdate].to_s + "' AND registerdate < '" + params[:todate].to_s + " 23:59:59'").map { |e| e.laboramount }.reduce(0,:+).to_i %>
+          <% licenciasARLEmpleado = supervisor.novelties.where(labor_id: Labor.where(code: "980").first.id).where("registerdate > '" + params[:fromdate].to_s + "' AND registerdate < '" + params[:todate].to_s + " 23:59:59'").map { |e| e.laboramount }.reduce(0,:+).to_i %>
+          <% faltasInjustificadasEmpleado = supervisor.novelties.where(labor_id: Labor.where(code: "990").first.id).where("registerdate > '" + params[:fromdate].to_s + "' AND registerdate < '" + params[:todate].to_s + " 23:59:59'").map { |e| e.laboramount }.reduce(0,:+).to_i %>
+          <% licenciasSoatEmpleado = supervisor.novelties.where(labor_id: Labor.where(code: "940").first.id).where("registerdate > '" + params[:fromdate].to_s + "' AND registerdate < '" + params[:todate].to_s + " 23:59:59'").map { |e| e.laboramount }.reduce(0,:+).to_i %>
+          <% recargoNoctunoEmpleado = supervisor.novelties.where(labor_id: Labor.where(code: "919").first.id).where("registerdate > '" + params[:fromdate].to_s + "' AND registerdate < '" + params[:todate].to_s + " 23:59:59'").map { |e| e.laboramount }.reduce(0,:+).to_i %>
+          <% recargoFestivoDiurnoEmpleado = supervisor.novelties.where(labor_id: Labor.where(code: "920").first.id).where("registerdate > '" + params[:fromdate].to_s + "' AND registerdate < '" + params[:todate].to_s + " 23:59:59'").map { |e| e.laboramount }.reduce(0,:+).to_i %>
+          <% recargoFestivoNocturnoEmpleado = supervisor.novelties.where(labor_id: Labor.where(code: "921").first.id).where("registerdate > '" + params[:fromdate].to_s + "' AND registerdate < '" + params[:todate].to_s + " 23:59:59'").map { |e| e.laboramount }.reduce(0,:+).to_i %>
+          <% extraOrdinariaDiurnaEmpleado = supervisor.novelties.where(labor_id: Labor.where(code: "922").first.id).where("registerdate > '" + params[:fromdate].to_s + "' AND registerdate < '" + params[:todate].to_s + " 23:59:59'").map { |e| e.laboramount }.reduce(0,:+).to_i %>
+          <% extraOrdinariaNocturnaEmpleado = supervisor.novelties.where(labor_id: Labor.where(code: "923").first.id).where("registerdate > '" + params[:fromdate].to_s + "' AND registerdate < '" + params[:todate].to_s + " 23:59:59'").map { |e| e.laboramount }.reduce(0,:+).to_i %>
+          <% extraFestivaDiurnaEmpleado = supervisor.novelties.where(labor_id: Labor.where(code: "924").first.id).where("registerdate > '" + params[:fromdate].to_s + "' AND registerdate < '" + params[:todate].to_s + " 23:59:59'").map { |e| e.laboramount }.reduce(0,:+).to_i %>
+          <% extraFestivaNocturnaEmpleado = supervisor.novelties.where(labor_id: Labor.where(code: "925").first.id).where("registerdate > '" + params[:fromdate].to_s + "' AND registerdate < '" + params[:todate].to_s + " 23:59:59'").map { |e| e.laboramount }.reduce(0,:+).to_i %>
 
-          <td>
-            <%= supervisor.asistance %>
-          </td>
-          <td>
-          </td>
+          <td></td>
+          <td></td>
+
           <td><%= number_to_currency(supervisor.novelties.map { |e| e.subtotal }.reduce(0, :+)) %></td>
-          <td><%= 30 - licenciasRemuneradasEmpleado - licenciasNoRemuneradasEmpleado - licenciasAmbulatoriasEmpleado - licenciasARLEmpleado - faltasInjustificadasEmpleado - licenciasSoatEmpleado %></td>
+
+          <% countdays= %>
+          <td>
+            <%= 30 - licenciasRemuneradasEmpleado - licenciasNoRemuneradasEmpleado - licenciasAmbulatoriasEmpleado - licenciasARLEmpleado - faltasInjustificadasEmpleado - licenciasSoatEmpleado %>
+          </td>
+
             <td>
               <% t=supervisor.dateadmission  %>
               <%= t.day.to_s + " " + t.strftime("%A") %>
               <%= t.strftime("%Y") %>
             </td>
+
           <td><%= licenciasRemuneradasEmpleado %></td>
           <td><%= licenciasNoRemuneradasEmpleado %></td>
           <td><%= licenciasAmbulatoriasEmpleado %></td>
