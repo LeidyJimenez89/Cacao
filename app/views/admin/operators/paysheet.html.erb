@@ -124,24 +124,19 @@
             <% extraFestivaDiurna = operator.transcriptions.where(labor_id: Labor.where(code: "924").first.id).where("registerdate > '" + params[:fromdate].to_s + "' AND registerdate < '" + params[:todate].to_s + " 23:59:59'").map { |e| e.laboramount }.reduce(0,:+).to_i %>
             <% extraFestivaNocturna = operator.transcriptions.where(labor_id: Labor.where(code: "925").first.id).where("registerdate > '" + params[:fromdate].to_s + "' AND registerdate < '" + params[:todate].to_s + " 23:59:59'").map { |e| e.laboramount }.reduce(0,:+).to_i %>
             <td>
-              <%= operator.asistance %>
+              <%= operator.asistance(params[:fromdate].to_s, params[:todate].to_s) %>
             </td>
             <td>
               <%= Holiday.effectydays(params[:fromdate].to_date, params[:todate].to_date, params[:paydate].to_date, operator) %>
             </td>
+
             <td><%= number_to_currency(operator.transcriptions.map { |e| e.subtotal }.reduce(0, :+)) %></td>
             
-            <% fechaMax = params[:todate].to_date %>
-
-            
-              <% if operator.transcriptions.map { |e| e.subtotal }.reduce(0, :+).to_i != 0 %>
-                <% if 25 == 25 %>
-                  <td><%= fechaMax.strftime("%d").to_i - licenciasRemuneradas - licenciasNoRemuneradas - licenciasAmbulatorias - licenciasARL - faltasInjustificadas - licenciasSoat %>
-                  </td>
-                <% end %>
-              <% else %>
-                <td>"El subtotal de la persona es cero"</td>
-              <% end %>
+            <% if operator.transcriptions.map { |e| e.subtotal } != 0 %>
+              <td>
+                <%= Holiday.paydays(params[:fromdate].to_date, params[:todate].to_date, params[:paydate].to_date, operator)- licenciasRemuneradas - licenciasNoRemuneradas - licenciasAmbulatorias - licenciasARL - faltasInjustificadas - licenciasSoat %>
+              </td>
+            <% end %>
 
             <td>
             <%if (operator.records.where(state: "Reintegrado").order("id desc").first.present?)%>

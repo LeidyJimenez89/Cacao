@@ -14,32 +14,19 @@ class Holiday < ActiveRecord::Base
 	end
 
 	def self.effectydays (initdate, finaldate, paydate, person)
+		ultimo = person.records.order("id desc").first
+		ultimaTranscripcion= person.transcriptions.order("id desc").first
+
+		if ultimo.state == "Retirado"
+			retirementdate= ultimo.retirementdate
+		elsif ultimo.state =="Reintegrado"
+			admissiondate= ultimo.reinstatedate
+			retirementdate=ultimaTranscripcion.registerdate
+		elsif ultimo.state=="Activo"
+			admissiondate= ultimo.dateadmission
+			retirementdate=ultimaTranscripcion.registerdate
+		end
 		
-		record = person.records.order("id desc").first
-
-		if record.state=="Retirado"
-			if person.records.where(state: "Reintegrado").order("id desc").first.present?
-				admissiondate = person.records.where(state: "Reintegrado").order("id desc").first.reinstatedate
-			else
-				admissiondate = person[:admissiondate]
-			end
-		elsif record.state=="Reintegrado"
-			if person.records.where(state: "Reintegrado").order("id desc").first.present?
-				admissiondate = person.records.where(state: "Reintegrado").order("id desc").first.reinstatedate
-			else
-				admissiondate = person[:admissiondate]
-			end
-		else
-			admissiondate = person[:admissiondate]
-		end
-
-		if person.records.where(state: "Retirado").order("id desc").first.present?
-			retirementdate = person.records.where(state: "Retirado").order("id desc").first.retirementdate
-		end
-
-		log(admissiondate)
-		log(retirementdate)
-
 		if initdate < admissiondate.to_date
 			initdate=admissiondate.to_date
 		end
@@ -47,8 +34,6 @@ class Holiday < ActiveRecord::Base
 		if finaldate > retirementdate.to_date
 			finaldate=retirementdate.to_date
 		end
-
-
 
 		diasFestivos = Holiday.where(:completedate => initdate..finaldate).map { |e| e.completedate }
 		diaPago = paydate.strftime("%Y-%m-%d")
@@ -62,7 +47,51 @@ class Holiday < ActiveRecord::Base
 		end
 
 		return cont
-
 	end
 
+	def self.paydays (initdate, finaldate, paydate, person)
+		ultimo = person.records.order("id desc").first
+		ultimaTranscripcion= person.transcriptions.order("id desc").first
+
+		if ultimo.state == "Retirado"
+			retirementdate= ultimo.retirementdate
+		elsif ultimo.state =="Reintegrado"
+			admissiondate= ultimo.reinstatedate
+			retirementdate=ultimaTranscripcion.registerdate
+		elsif ultimo.state=="Activo"
+			admissiondate= ultimo.dateadmission
+			retirementdate=ultimaTranscripcion.registerdate
+		end
+
+		if initdate < admissiondate.to_date
+			initdate=admissiondate.to_date
+		end
+
+		if finaldate > retirementdate.to_date
+			finaldate=retirementdate.to_date
+		end
+
+		diasFestivos = Holiday.where(:completedate => initdate..finaldate).map { |e| e.completedate }
+		diaPago = paydate.strftime("%Y-%m-%d")
+
+		cont=0
+
+		(initdate..finaldate).each do |day|
+		  if day.strftime("%Y-%m-%d")!=diaPago
+		  	if diasFestivos.include?(day.strftime("%Y-%m-%d"))
+			  	if day.strftime("%A") == "Sunday"
+			  		cont = cont+1
+			  	end
+			else
+			  	cont = cont+1
+		  	end
+		  end
+		end
+
+		if ultimaTranscripcion.registerdate.to_date.strftime("%d") == 31
+			return cont -1
+		else
+			return cont
+		end
+	end
 end
