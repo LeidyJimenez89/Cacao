@@ -23,12 +23,33 @@ class Operator < ActiveRecord::Base
 	attr_accessor :companytype
 	attr_accessor :paydate
 
-	def asistance
+
+
+
+	def self.log(var)
+		time = Time.new
+		values = time.to_s
+
+		data = pp var.inspect.encode "UTF-8"
+		path = "public/errorlog.txt"
+		File.open(path, "a+") do |f|
+		  f.write("*****************************************"+values+"*****************************************\n")
+		  f.write("** "+data)
+		  f.write("\n***********************************************************************************************************\n\n")
+		end
+	end
+
+
+
+
+	def asistance (fromdate, todate)
 		real = Hash.new
 		laboresSinContarAsistencia = Labor.where(assistance: "No")
-		self.transcriptions.where.not(labor_id: laboresSinContarAsistencia).each do |t|			
+		Operator.log(self.transcriptions.where(registerdate: fromdate + " 00:00:00" .. todate + " 23:59:59" ).where.not(labor_id: laboresSinContarAsistencia).to_sql)
+		self.transcriptions.where(registerdate: fromdate + "00:00:00" .. todate + "23:59:59" ).where.not(labor_id: laboresSinContarAsistencia).each do |t|			
 			real[t.registerdate] = 1
 		end
+			Operator.log(real)
 
 		return real.length
 
