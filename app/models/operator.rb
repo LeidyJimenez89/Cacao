@@ -42,15 +42,39 @@ class Operator < ActiveRecord::Base
 
 
 
-	def asistance (fromdate, todate)
+	def asistance (initdate, finaldate, person)
+
 		real = Hash.new
 		laboresSinContarAsistencia = Labor.where(assistance: "No")
-		Operator.log(self.transcriptions.where(registerdate: fromdate..todate).where.not(labor_id: laboresSinContarAsistencia).to_sql)
-		self.transcriptions.where(registerdate: fromdate..todate).where.not(labor_id: laboresSinContarAsistencia).each do |t|			
+		ultimaTranscripcion= person.transcriptions.where(:registerdate => initdate..finaldate).order("registerdate desc").first
+
+
+		ultimo = person.records.order("id desc").first
+
+		if ultimo.state == "Retirado"
+			retirementdate= ultimo.retirementdate
+		elsif ultimo.state =="Reintegrado"
+			admissiondate= ultimo.reinstatedate
+			retirementdate=ultimaTranscripcion.registerdate
+		elsif ultimo.state=="Activo"
+			admissiondate= ultimo.dateadmission
+			retirementdate=ultimaTranscripcion.registerdate
+		end
+
+		if initdate < admissiondate.to_date
+			initdate=admissiondate.to_date
+		end
+
+		if finaldate > retirementdate.to_date
+			finaldate=retirementdate.to_date
+		end
+
+		self.transcriptions.where(registerdate: initdate..finaldate).where.not(labor_id: laboresSinContarAsistencia).each do |t|			
 			real[t.registerdate] = 1
 		end
-			Operator.log(real)
 
+		Operator.log(real)
+		Operator.log(real.length)
 		return real.length
 
 	end
