@@ -45,8 +45,8 @@ class Operator < ActiveRecord::Base
 	def asistance (fromdate, todate)
 		real = Hash.new
 		laboresSinContarAsistencia = Labor.where(assistance: "No")
-		Operator.log(self.transcriptions.where(registerdate: fromdate + " 00:00:00" .. todate + " 23:59:59" ).where.not(labor_id: laboresSinContarAsistencia).to_sql)
-		self.transcriptions.where(registerdate: fromdate + "00:00:00" .. todate + "23:59:59" ).where.not(labor_id: laboresSinContarAsistencia).each do |t|			
+		Operator.log(self.transcriptions.where(registerdate: fromdate..todate).where.not(labor_id: laboresSinContarAsistencia).to_sql)
+		self.transcriptions.where(registerdate: fromdate..todate).where.not(labor_id: laboresSinContarAsistencia).each do |t|			
 			real[t.registerdate] = 1
 		end
 			Operator.log(real)
