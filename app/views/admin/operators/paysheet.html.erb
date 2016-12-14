@@ -124,13 +124,15 @@
             <% extraFestivaDiurna = operator.transcriptions.where(labor_id: Labor.where(code: "924").first.id).where("registerdate > '" + params[:fromdate].to_s + "' AND registerdate < '" + params[:todate].to_s + " 23:59:59'").map { |e| e.laboramount }.reduce(0,:+).to_i %>
             <% extraFestivaNocturna = operator.transcriptions.where(labor_id: Labor.where(code: "925").first.id).where("registerdate > '" + params[:fromdate].to_s + "' AND registerdate < '" + params[:todate].to_s + " 23:59:59'").map { |e| e.laboramount }.reduce(0,:+).to_i %>
             <td>
-              <%= operator.asistance(params[:fromdate].to_s, params[:todate].to_s) %>
+              <%= operator.asistance(params[:fromdate].to_s, params[:todate].to_s, operator) %>
             </td>
             <td>
               <%= Holiday.effectydays(params[:fromdate].to_date, params[:todate].to_date, params[:paydate].to_date, operator) %>
             </td>
 
-            <td><%= number_to_currency(operator.transcriptions.map { |e| e.subtotal }.reduce(0, :+)) %></td>
+            <td>
+              <%= number_to_currency(operator.transcriptions.where(:registerdate => params[:fromdate]..params[:todate]).map { |e| e.subtotal }.reduce(0, :+)) %>
+            </td>
             
             <% if operator.transcriptions.map { |e| e.subtotal } != 0 %>
               <td>

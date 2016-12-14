@@ -15,7 +15,7 @@ class Holiday < ActiveRecord::Base
 
 	def self.effectydays (initdate, finaldate, paydate, person)
 		ultimo = person.records.order("id desc").first
-		ultimaTranscripcion= person.transcriptions.order("id desc").first
+		ultimaTranscripcion= person.transcriptions.where(:registerdate => initdate..finaldate).order("registerdate desc").first
 
 		if ultimo.state == "Retirado"
 			retirementdate= ultimo.retirementdate
@@ -51,7 +51,7 @@ class Holiday < ActiveRecord::Base
 
 	def self.paydays (initdate, finaldate, paydate, person)
 		ultimo = person.records.order("id desc").first
-		ultimaTranscripcion= person.transcriptions.order("id desc").first
+		ultimaTranscripcion= person.transcriptions.where(:registerdate => initdate..finaldate).order("registerdate desc").first
 
 		if ultimo.state == "Retirado"
 			retirementdate= ultimo.retirementdate
@@ -77,16 +77,14 @@ class Holiday < ActiveRecord::Base
 		cont=0
 
 		(initdate..finaldate).each do |day|
-		  if day.strftime("%Y-%m-%d")!=diaPago
-		  	if diasFestivos.include?(day.strftime("%Y-%m-%d"))
-			  	if day.strftime("%A") == "Sunday"
-			  		cont = cont+1
-			  	end
-			else
-			  	cont = cont+1
+	  	if diasFestivos.include?(day.strftime("%Y-%m-%d"))
+		  	if day.strftime("%A") == "Sunday"
+		  		cont = cont+1
 		  	end
-		  end
-		end
+		else
+		  	cont = cont+1
+	  	end
+	  end
 
 		if ultimaTranscripcion.registerdate.to_date.strftime("%d") == 31
 			return cont -1
