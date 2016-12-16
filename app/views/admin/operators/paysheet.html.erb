@@ -124,10 +124,10 @@
             <% extraFestivaDiurna = operator.transcriptions.where(labor_id: Labor.where(code: "924").first.id).where("registerdate > '" + params[:fromdate].to_s + "' AND registerdate < '" + params[:todate].to_s + " 23:59:59'").map { |e| e.laboramount }.reduce(0,:+).to_i %>
             <% extraFestivaNocturna = operator.transcriptions.where(labor_id: Labor.where(code: "925").first.id).where("registerdate > '" + params[:fromdate].to_s + "' AND registerdate < '" + params[:todate].to_s + " 23:59:59'").map { |e| e.laboramount }.reduce(0,:+).to_i %>
             <td>
-              <%= operator.asistance(params[:fromdate].to_s, params[:todate].to_s, operator) %>
+              <%= operator.asistance(params[:fromdate].to_date, params[:todate].to_date, operator) %>
             </td>
             <td>
-              <%= Holiday.effectydays(params[:fromdate].to_date, params[:todate].to_date, params[:paydate].to_date, operator) %>
+              <%= Holiday.effectydays(params[:fromdate].to_date, params[:todate].to_date, params[:paydate].to_date, operator, licenciasRemuneradas, licenciasNoRemuneradas, licenciasAmbulatorias, licenciasARL, faltasInjustificadas, licenciasSoat) %>
             </td>
 
             <td>
@@ -136,7 +136,7 @@
             
             <% if operator.transcriptions.map { |e| e.subtotal } != 0 %>
               <td>
-                <%= Holiday.paydays(params[:fromdate].to_date, params[:todate].to_date, params[:paydate].to_date, operator)- licenciasRemuneradas - licenciasNoRemuneradas - licenciasAmbulatorias - licenciasARL - faltasInjustificadas - licenciasSoat %>
+                <%= Holiday.paydays(params[:fromdate].to_date, params[:todate].to_date, params[:paydate].to_date, operator, licenciasRemuneradas, licenciasNoRemuneradas, licenciasAmbulatorias, licenciasARL, faltasInjustificadas, licenciasSoat) %>
               </td>
             <% end %>
 

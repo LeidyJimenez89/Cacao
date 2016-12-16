@@ -13,12 +13,19 @@ class Holiday < ActiveRecord::Base
 		end
 	end
 
-	def self.effectydays (initdate, finaldate, paydate, person)
+	def self.effectydays (initdate, finaldate, paydate, person, licenciasRemuneradas, licenciasNoRemuneradas, licenciasAmbulatorias, licenciasARL, faltasInjustificadas, licenciasSoat)
 		ultimo = person.records.order("id desc").first
 		ultimaTranscripcion= person.transcriptions.where(:registerdate => initdate..finaldate).order("registerdate desc").first
 
 		if ultimo.state == "Retirado"
-			retirementdate= ultimo.retirementdate
+			retirementdate= ultimaTranscripcion.registerdate
+
+			if person.records.where({state: "Reintegrado", :reinstatedate => initdate..finaldate}).first.present?
+				admissiondate= ultimo.reinstatedate
+			else
+				admissiondate= person.dateadmission
+			end
+
 		elsif ultimo.state =="Reintegrado"
 			admissiondate= ultimo.reinstatedate
 			retirementdate=ultimaTranscripcion.registerdate
@@ -49,12 +56,19 @@ class Holiday < ActiveRecord::Base
 		return cont
 	end
 
-	def self.paydays (initdate, finaldate, paydate, person)
+	def self.paydays (initdate, finaldate, paydate, person, licenciasRemuneradas, licenciasNoRemuneradas, licenciasAmbulatorias, licenciasARL, faltasInjustificadas, licenciasSoat)
 		ultimo = person.records.order("id desc").first
 		ultimaTranscripcion= person.transcriptions.where(:registerdate => initdate..finaldate).order("registerdate desc").first
 
 		if ultimo.state == "Retirado"
-			retirementdate= ultimo.retirementdate
+			retirementdate= ultimaTranscripcion.registerdate
+
+			if person.records.where({state: "Reintegrado", :reinstatedate => initdate..finaldate}).first.present?
+				admissiondate= ultimo.reinstatedate
+			else
+				admissiondate= person.dateadmission
+			end
+
 		elsif ultimo.state =="Reintegrado"
 			admissiondate= ultimo.reinstatedate
 			retirementdate=ultimaTranscripcion.registerdate
@@ -69,6 +83,10 @@ class Holiday < ActiveRecord::Base
 
 		if finaldate > retirementdate.to_date
 			finaldate=retirementdate.to_date
+		end
+
+		if licenciasRemuneradas.present?
+			finaldate= finaldate + licenciasRemuneradas.day.to_i
 		end
 
 		diasFestivos = Holiday.where(:completedate => initdate..finaldate).map { |e| e.completedate }
