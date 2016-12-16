@@ -48,11 +48,18 @@ class Operator < ActiveRecord::Base
 		laboresSinContarAsistencia = Labor.where(assistance: "No")
 		ultimaTranscripcion= person.transcriptions.where(:registerdate => initdate..finaldate).order("registerdate desc").first
 
-
 		ultimo = person.records.order("id desc").first
 
 		if ultimo.state == "Retirado"
+
 			retirementdate= ultimo.retirementdate
+
+			if person.records.where({state: "Reintegrado", :reinstatedate => initdate..finaldate}).first.present?
+				admissiondate= ultimo.reinstatedate
+			else
+				admissiondate= person.dateadmission
+			end
+
 		elsif ultimo.state =="Reintegrado"
 			admissiondate= ultimo.reinstatedate
 			retirementdate=ultimaTranscripcion.registerdate
@@ -73,8 +80,6 @@ class Operator < ActiveRecord::Base
 			real[t.registerdate] = 1
 		end
 
-		Operator.log(real)
-		Operator.log(real.length)
 		return real.length
 
 	end
