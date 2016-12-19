@@ -14,6 +14,7 @@ class Holiday < ActiveRecord::Base
 	end
 
 	def self.effectydays (initdate, finaldate, paydate, person, licenciasRemuneradas, licenciasNoRemuneradas, licenciasAmbulatorias, licenciasARL, faltasInjustificadas, licenciasSoat)
+		ultimodia = finaldate
 		ultimo = person.records.order("id desc").first
 		ultimaTranscripcion= person.transcriptions.where(:registerdate => initdate..finaldate).order("registerdate desc").first
 
@@ -42,6 +43,32 @@ class Holiday < ActiveRecord::Base
 			finaldate=retirementdate.to_date
 		end
 
+		wageamount950 = person.transcriptions.where(:registerdate => initdate..finaldate).order("registerdate desc").first
+		wageamount960 = person.transcriptions.where(:registerdate => initdate..finaldate).order("registerdate desc").first
+		wageamount970 = person.transcriptions.where(:registerdate => initdate..finaldate).order("registerdate desc").first
+		wageamount980 = person.transcriptions.where(:registerdate => initdate..finaldate).order("registerdate desc").first
+		wageamount990 = person.transcriptions.where(:registerdate => initdate..finaldate).order("registerdate desc").first
+
+		if wageamount950.labor_id == Labor.where(code: "950").first.id
+			finaldate= finaldate + (wageamount950.wageamount).days - 1.day
+
+		elsif wageamount960.labor_id == Labor.where(code: "960").first.id
+			finaldate= finaldate + (wageamount960.wageamount).days - 1.day
+
+		elsif wageamount970.labor_id == Labor.where(code: "970").first.id
+			finaldate= finaldate + (wageamount970.wageamount).days - 1.day
+
+		elsif wageamount980.labor_id == Labor.where(code: "980").first.id
+			finaldate= finaldate + (wageamount980.wageamount).days - 1.day
+
+		elsif wageamount990.labor_id == Labor.where(code: "990").first.id
+			finaldate= finaldate + (wageamount990.wageamount).days - 1.day
+		end
+
+		if finaldate>ultimodia
+			finaldate=ultimodia
+		end
+
 		diasFestivos = Holiday.where(:completedate => initdate..finaldate).map { |e| e.completedate }
 		diaPago = paydate.strftime("%Y-%m-%d")
 
@@ -57,6 +84,8 @@ class Holiday < ActiveRecord::Base
 	end
 
 	def self.paydays (initdate, finaldate, paydate, person, licenciasRemuneradas, licenciasNoRemuneradas, licenciasAmbulatorias, licenciasARL, faltasInjustificadas, licenciasSoat)
+		Holiday.log(licenciasRemuneradas)
+		ultimodia = finaldate
 		ultimo = person.records.order("id desc").first
 		ultimaTranscripcion= person.transcriptions.where(:registerdate => initdate..finaldate).order("registerdate desc").first
 
@@ -85,8 +114,30 @@ class Holiday < ActiveRecord::Base
 			finaldate=retirementdate.to_date
 		end
 
-		if licenciasRemuneradas.present?
-			finaldate= finaldate + licenciasRemuneradas.day.to_i
+		wageamount950 = person.transcriptions.where(:registerdate => initdate..finaldate).order("registerdate desc").first
+		wageamount960 = person.transcriptions.where(:registerdate => initdate..finaldate).order("registerdate desc").first
+		wageamount970 = person.transcriptions.where(:registerdate => initdate..finaldate).order("registerdate desc").first
+		wageamount980 = person.transcriptions.where(:registerdate => initdate..finaldate).order("registerdate desc").first
+		wageamount990 = person.transcriptions.where(:registerdate => initdate..finaldate).order("registerdate desc").first
+
+		if wageamount950.labor_id == Labor.where(code: "950").first.id
+			finaldate= finaldate + (wageamount950.wageamount).days - 1.day
+
+		elsif wageamount960.labor_id == Labor.where(code: "960").first.id
+			finaldate= finaldate + (wageamount960.wageamount).days - 1.day
+
+		elsif wageamount970.labor_id == Labor.where(code: "970").first.id
+			finaldate= finaldate + (wageamount970.wageamount).days - 1.day
+
+		elsif wageamount980.labor_id == Labor.where(code: "980").first.id
+			finaldate= finaldate + (wageamount980.wageamount).days - 1.day
+
+		elsif wageamount990.labor_id == Labor.where(code: "990").first.id
+			finaldate= finaldate + (wageamount990.wageamount).days - 1.day
+		end
+
+		if finaldate>ultimodia
+			finaldate=ultimodia
 		end
 
 		diasFestivos = Holiday.where(:completedate => initdate..finaldate).map { |e| e.completedate }
@@ -105,9 +156,9 @@ class Holiday < ActiveRecord::Base
 	  end
 
 		if ultimaTranscripcion.registerdate.to_date.strftime("%d") == 31
-			return cont -1
+			return cont -1 - licenciasRemuneradas - licenciasNoRemuneradas - licenciasAmbulatorias -licenciasARL - faltasInjustificadas - licenciasSoat
 		else
-			return cont
+			return cont - licenciasRemuneradas - licenciasNoRemuneradas - licenciasAmbulatorias -licenciasARL - faltasInjustificadas - licenciasSoat
 		end
 	end
 end
