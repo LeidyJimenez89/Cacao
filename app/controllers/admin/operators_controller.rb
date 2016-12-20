@@ -26,7 +26,7 @@ class Admin::OperatorsController < ApplicationController
     @operator    = Operator.new
 
     #transcriptions = Transcription.where("registerdate > '" + params[:from_date].to_s + "' AND registerdate < '" + params[:to_date].to_s + " 23:59:59'" + "' AND transcription.operator.company_id == < '" + params[:companytype] )
-    transcriptions = Transcription.where(registerdate: params[:fromdate].to_s + " 00:00:00" .. params[:todate].to_s + "23:59:59" )
+    transcriptions = Transcription.where(registerdate: params[:fromdate].to_s..params[:todate].to_s)
     #log(Transcription.where(registerdate: params[:from_date].to_s + " 00:00:00" .. params[:to_date].to_s + " 23:59:59" ).to_sql)
     @operators   = Hash.new
     transcriptions.each do |t|
