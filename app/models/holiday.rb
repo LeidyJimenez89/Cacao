@@ -179,7 +179,7 @@ class Holiday < ActiveRecord::Base
 
 		if ultimo.state == "Retirado"
 
-			retirementdate= ultimo.retirementdate
+			retirementdate= ultimaTranscripcion.registerdate
 
 			if person.records.where({state: "Reintegrado", :reinstatedate => initdate..finaldate}).first.present?
 				admissiondate= ultimo.reinstatedate
@@ -205,18 +205,33 @@ class Holiday < ActiveRecord::Base
 			end
 
 			diasFestivos = Holiday.where(:completedate => initdate..finaldate).map { |e| e.completedate }
-			diaPago = paydate.strftime("%Y-%m-%d")
 
-			person.transcriptions.where(registerdate: initdate..finaldate).each do |t|	
-				
-				if diasFestivos.include?((t.registerdate.to_date).strftime("%Y-%m-%d"))
-				  	if (t.registerdate.to_date).strftime("%A") == "Sunday"
-				  		mensualidad[t.registerdate] = 1
-				  	end
-				else
-				  	mensualidad[t.registerdate] = 1
-			  	end
+			diasDomingos=0
+			diaPago = paydate.strftime("%Y-%m-%d")
+			diasPago = 0
+
+
+
+
+
+
+
+
+
+
+
+			(initdate..finaldate).each do |t|	
+
+				mensualidad [t.strftime("%Y-%m-%d")] = person.licencias(t)
+
 			end
+
+
+
+
+
+
+Holiday.log(mensualidad)
 
 			return mensualidad.length
 		else
