@@ -90,13 +90,12 @@ class Operator < ActiveRecord::Base
 	def licencias (day)
 		laboresSinContarAsistencia = Labor.where(assistance: "No")
 		registers= self.transcriptions.where(labor_id: laboresSinContarAsistencia)
-		flag=0
+		flag=1
 
 		registers.each do |register|
-			range = register.registerdate.to_date..register.registerdate.to_date+(register.wageamount).days
-			Holiday.log(registerdate.to_date+(register.wageamount).days)
-			if range.include?(day) and flag==false
-				flag= 1
+			range = register.registerdate.to_date..register.registerdate.to_date + (register.wageamount).days - 1.day
+			if range.include?(day) and flag==1
+				flag= 0
 			end
 		end
 		return flag
