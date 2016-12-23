@@ -1,38 +1,113 @@
+<%= stylesheet_link_tag    'selectize.bootstrap3', media: 'all', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag 'selectize', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag 'plugin', 'data-turbolinks-track' => true %>
+
 <h1 class="x_title">
   <i class="glyphicon glyphicon-leaf titleicon"></i>
-  Editar configuraciones básicas
+  Novedades mensuales
 </h1>
 
-<%= form_for @config, url:{action: "update"} do |f| %>
-  <% if @config.errors.any? %>
-  <div id="error_explanation">
-    <h2><%= pluralize(@config.errors.count, "error") %> prohibited this config from being saved:</h2>
-    <ul>
-      <% @config.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
+<%= form_for @registration , url:{action: "update"} do |f| %>
+
+<div class=" form-group col-md-12 field">
+  <div class="col-md-4">
+    <%= f.label :registerDate, "Fecha de registro" %>
+    <%= f.text_field :registerDate , class:"form-control"%>
+  </div>
+  <div class="col-md-4">
+  </div>
+  <div class="col-md-4 ">
+    <%= link_to admin_edit_config_path , :class =>"btn btn-dark pull-right" do%>
+      <span class="glyphicon glyphicon-pencil"></span>
+      Editar novedades
     <% end %>
-    </ul>
   </div>
-  <% end %>
+</div>
+<br>
+<br>
+<br>
 
-  <div class="form-group col-md-12 field">
-    <div class="col-md-6">
-      <%= f.label :basepay , "Salario mínimo" %>
-      <%= f.text_field :basepay, class:"form-control" %>
-    </div>
-  </div>
+<div class=" form-group col-md-12 field">
+      <table class="table table-bordered"  cellspacing="0" >
+        <thead>
+          <tr>
+            <th width="80">Cédula</th>
+            <th width="150">Empleado</th>
+            <th width="100">Auxilio de Rodamiento No Prestacional</th>
+            <th width="100">Auxilio de Vivienda No Prestacional</th>
+            <th width="100">Auxilio de Alimentación No Prestacional</th>
+            <th width="100">Sanción</th>
+            <th width="220">Licencia Materna/Paterna</th>
+            <th width="130">Subsidio de transporte</th>
+          </tr>
+        </thead>
 
-  <div class="form-group col-md-12 field">
-    <div class="col-md-12">
-      <%= button_tag(:type => 'submit', :class => 'btn btn-dark') do %>
-        <i class="glyphicon glyphicon-floppy-disk"></i>
-        Editar configuraciones 
-      <% end %>
-      <%= link_to admin_index_config_path ,:class =>"btn btn-danger" do %>
-        <span class="glyphicon glyphicon-remove"></span>
-        Cancelar
-      <% end %>
-    </div>
-  </div>
+        <tbody>
+          <% @operators.each do |operator| %>
+          <tr>
+            <td><%= operator.cc %></td>
+            <td><%= operator.name + " " + operator.lastname %></td>
+            <td><%= f.text_field :vehicleAllowance , class:"form-control"%></td>
+            <td><%= f.text_field :housingAllowance , class:"form-control"%></td>
+            <td><%= f.text_field :feedingAllowancen , class:"form-control"%></td>
+            <td><%= f.text_field :sanction , class:"form-control"%></td>
+            <td>
+              <div class=" form-group row">
+                <div class="col-xs-6">
+                  <%= f.text_field :childrenLicenseSince , class:"form-control" , placeholder: "Desde"%>
+                </div>
+                <div class="col-xs-6">
+                  <%= f.text_field :childrenLicenseUntil , class:"form-control" , placeholder: "Hasta"%>
+                </div>
+              </div>
+            </td>
+            <td>
+              <%= f.select :transportAllowance, ["Completo","Mitad","No aplica"], {prompt: ""},class:"form-control"%>          
+            </td>
+          </tr>
+        <% end %>
 
-<% end %>
+        <% @supervisors.each do |supervisor| %>
+          <tr>
+            <td><%= supervisor.cc %></td>
+            <td><%= supervisor.name + " " + supervisor.lastname %></td>
+            <td>
+              <%= f.text_field :vehicleAllowance , class:"form-control"%>
+            </td>
+            <td>
+              <%= f.text_field :housingAllowance , class:"form-control"%>
+            </td>
+            <td>
+              <%= f.text_field :feedingAllowance , class:"form-control"%>
+            </td>
+            <td>
+              <%= f.text_field :sanction , class:"form-control"%>          
+            </td>
+            <td>
+              <div class=" form-group row">
+                <div class="col-xs-6">
+                  <%= f.text_field :childrenLicenseSince , class:"form-control" , placeholder: "Desde"%>
+                </div>
+                <div class="col-xs-6">
+                  <%= f.text_field :childrenLicenseUntil , class:"form-control" , placeholder: "Hasta"%>
+                </div>
+              </div>       
+            </td>
+            <td>
+              <%= f.select :transportAllowance, ["Completo","Mitad","No aplica"], {prompt: ""},class:"form-control"%>          
+            </td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+
+    <% end %>
+
+</div>
+
+<script type="text/javascript">
+$('#register_registerDate').datepicker({ dateFormat:'yy-mm-dd'});
+$('#register_childrenLicenseSince').datepicker({ dateFormat:'yy-mm-dd'});
+$('#register_childrenLicenseUntil').datepicker({ dateFormat:'yy-mm-dd'});
+</script>
+

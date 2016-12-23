@@ -38,7 +38,7 @@
 	<div class="form-group col-md-12 field">
 		<div class="col-md-4">
 			<%= f.label :gender, "Género" %>
-			<%= f.select :gender, ["Femenino","Masculino"], {prompt: ""},class:"form-control"%>
+			<%= f.select :gender, ["Femenino","Masculino"], {prompt: " "},class:"form-control"%>
 		</div>
 		<div class="col-md-4">
 			<%= f.label :dateadmission, "Fecha de ingreso" %>
@@ -51,25 +51,25 @@
 	</div>
 
 	<div class="form-group col-md-12 field">
-		<div class="col-md-2">
+		<div class="col-md-4">
 			<%= f.label :basepay, "Básico" %>
 			<%= f.text_field :basepay , class:"form-control"%>
 		</div>
-		<div class="col-md-2">
-			<%= f.label :transportAllowance, "Auxilio de transporte" %>
-	      	<%= f.select :transportAllowance, ["Completo","Mitad","No aplica"], {prompt: ""},class:"form-control"%>
-		</div>
 		<div class="col-md-4">
-			<%= f.label :feedingAllowance, "Auxilio de alimentación No Prestacional" %>
-			<%= f.text_field :feedingAllowance , class:"form-control"%>
+			<%= f.label :transportAllowance, "Auxilio de transporte" %>
+	      	<%= f.select :transportAllowance, ["Completo","Mitad","No aplica"], {prompt: " "},class:"form-control"%>
 		</div>
 		<div class="col-md-4">
 	    	<%= f.label :company_id, "Empresa prestadora de servicio asociada"%>
-    		<%= f.select :company_id , Company.all.map { |j|  [ j.name , j.id ]  } , {prompt: ""}, class:"form-control"%>
+    		<%= f.select :company_id , Company.all.map { |j|  [ j.name , j.id ]  } , {prompt: " "}, class:"form-control"%>
 		</div>
 	</div>
 
 	<div class="form-group col-md-12 field">
+		<div class="col-md-4">
+			<%= f.label :feedingAllowance, "Auxilio de alimentación No Prestacional" %>
+			<%= f.text_field :feedingAllowance , class:"form-control"%>
+		</div>
 		<div class="col-md-4">
 			<%= f.label :vehicleAllowance, "Auxilio de rodamiento No Prestacional" %>
 			<%= f.text_field :vehicleAllowance, class:"form-control"%>
@@ -78,9 +78,16 @@
 			<%= f.label :housingAllowance, "Auxilio de vivienda No Prestacional" %>
 			<%= f.text_field :housingAllowance, class:"form-control"%>
 		</div>
-		<div class="col-md-4">
+	</div>
+
+	<div class="form-group col-md-12 field">
+		<div class="col-md-6">
 	    	<%= f.label :billingc_id, "Centro de facturación"%>
     		<%= f.select :billingc_id , Billingc.all.map { |j|  [ j.name , j.id ]  } , {prompt: " "}, class:"form-control"%>
+		</div>
+		<div class="col-md-6">
+	    	<%= f.label :liquidated, "Liquidado"%>
+    		<%= f.select :liquidated, ["Si","No"], {prompt: " "},class:"form-control"%>
 		</div>
 	</div>
 
@@ -103,6 +110,10 @@ $('#operator_dateadmission').datepicker({ dateFormat:'yy-mm-dd'});
 $('#operator_childrenLicenseSince').datepicker({ dateFormat:'yy-mm-dd'});
 $('#operator_childrenLicenseUntil').datepicker({ dateFormat:'yy-mm-dd'});
 $("#operator_jobs2").selectize({ plugins: ['remove_button'] });
-$("#operator_transportaid").selectize({ plugins: ['remove_button'] });
+$("#operator_billingc_id").selectize({ plugins: ['remove_button'] });
 $("#operator_gender").selectize({ plugins: ['remove_button'] });
+$("#operator_transportAllowance").selectize({ plugins: ['remove_button'] });
+$("#operator_company_id").selectize({ plugins: ['remove_button'] });
+$("#operator_liquidated").selectize({ plugins: ['remove_button'] });
+
 </script>

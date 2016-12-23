@@ -88,9 +88,9 @@ class Operator < ActiveRecord::Base
 
 
 	def licencias (day)
-		laboresSinContarAsistencia = Labor.where(assistance: "No")
-		registers= self.transcriptions.where(labor_id: laboresSinContarAsistencia)
 		flag=1
+		laboresSinContarAsistencia = Labor.where(assistance: "No").map { |e| e.id }
+		registers= self.transcriptions.where(labor_id: laboresSinContarAsistencia)
 
 		registers.each do |register|
 			range = register.registerdate.to_date..register.registerdate.to_date + (register.wageamount).days - 1.day
