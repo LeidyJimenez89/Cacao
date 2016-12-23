@@ -111,31 +111,18 @@
                 <td></td>
               <% end %>
 
-
             <% licenciasRemuneradas = operator.transcriptions.where(labor_id: Labor.where(code: "950").first.id).where(:registerdate => params[:fromdate]..params[:todate]).map { |e| e.laboramount }.reduce(0,:+).to_i %>
-
             <% licenciasNoRemuneradas = operator.transcriptions.where(labor_id: Labor.where(code: "960").first.id).where(:registerdate => params[:fromdate]..params[:todate]).map { |e| e.laboramount }.reduce(0,:+).to_i %>
-
             <% licenciasAmbulatorias = operator.transcriptions.where(labor_id: Labor.where(code: "970").first.id).where(:registerdate => params[:fromdate]..params[:todate]).map { |e| e.laboramount }.reduce(0,:+).to_i %>
-
             <% licenciasARL = operator.transcriptions.where(labor_id: Labor.where(code: "980").first.id).where(:registerdate => params[:fromdate]..params[:todate]).map { |e| e.laboramount }.reduce(0,:+).to_i %>
-
             <% faltasInjustificadas = operator.transcriptions.where(labor_id: Labor.where(code: "990").first.id).where(:registerdate => params[:fromdate]..params[:todate]).map { |e| e.laboramount }.reduce(0,:+).to_i %>
-
             <% licenciasSoat = operator.transcriptions.where(labor_id: Labor.where(code: "940").first.id).where(:registerdate => params[:fromdate]..params[:todate]).map { |e| e.laboramount }.reduce(0,:+).to_i %>
-
             <% recargoNoctuno = operator.transcriptions.where(labor_id: Labor.where(code: "919").first.id).where(:registerdate => params[:fromdate]..params[:todate]).map { |e| e.laboramount }.reduce(0,:+).to_i %>
-
             <% recargoFestivoDiurno = operator.transcriptions.where(labor_id: Labor.where(code: "920").first.id).where(:registerdate => params[:fromdate]..params[:todate]).map { |e| e.laboramount }.reduce(0,:+).to_i %>
-
             <% recargoFestivoNocturno = operator.transcriptions.where(labor_id: Labor.where(code: "921").first.id).where(:registerdate => params[:fromdate]..params[:todate]).map { |e| e.laboramount }.reduce(0,:+).to_i %>
-
             <% extraOrdinariaDiurna = operator.transcriptions.where(labor_id: Labor.where(code: "922").first.id).where(:registerdate => params[:fromdate]..params[:todate]).map { |e| e.laboramount }.reduce(0,:+).to_i %>
-
             <% extraOrdinariaNocturna = operator.transcriptions.where(labor_id: Labor.where(code: "923").first.id).where(:registerdate => params[:fromdate]..params[:todate]).map { |e| e.laboramount }.reduce(0,:+).to_i %>
-
             <% extraFestivaDiurna = operator.transcriptions.where(labor_id: Labor.where(code: "924").first.id).where(:registerdate => params[:fromdate]..params[:todate]).map { |e| e.laboramount }.reduce(0,:+).to_i %>
-
             <% extraFestivaNocturna = operator.transcriptions.where(labor_id: Labor.where(code: "925").first.id).where(:registerdate => params[:fromdate]..params[:todate]).map { |e| e.laboramount }.reduce(0,:+).to_i %>
 
             <td>

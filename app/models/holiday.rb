@@ -211,10 +211,10 @@ class Holiday < ActiveRecord::Base
 
 
 
-			(initdate..finaldate).each do |t|	
+
+			(initdate..finaldate).each do |t|
 				mensualidad [t.strftime("%Y-%m-%d")] = person.licencias(t)
 			end
-Holiday.log(mensualidad)
 
 			mensualidad.each do |day|
 				if day[1]==1
@@ -222,7 +222,11 @@ Holiday.log(mensualidad)
 
 						mensualidad[day[0]]=1
 
-					elsif day[0].to_date.strftime("%A")== "Sunday" or day[0].to_date.strftime("%A")== diaPago
+					elsif day[0].to_date.strftime("%A")== "Sunday" 
+						mensualidad[day[0]]=1
+
+
+					elsif day[0].to_date.strftime("%Y-%m-%d")== diaPago
 
 						mensualidad[day[0]]=1
 
@@ -243,8 +247,6 @@ Holiday.log(mensualidad)
 					cont=cont+1
 				end
 			end
-
-Holiday.log(mensualidad)
 			if cont==31
 				return cont -1
 			else
