@@ -30,10 +30,10 @@ class Holiday < ActiveRecord::Base
 
 		elsif ultimo.state =="Reintegrado"
 			admissiondate= ultimo.reinstatedate
-			retirementdate=ultimaTranscripcion.registerdate
+			retirementdate=ultimaTranscripcion.present? ? ultimaTranscripcion.registerdate : finaldate
 		elsif ultimo.state=="Activo"
 			admissiondate= ultimo.dateadmission
-			retirementdate=ultimaTranscripcion.registerdate
+			retirementdate=ultimaTranscripcion.present? ? ultimaTranscripcion.registerdate : finaldate
 		end
 
 		if admissiondate.to_date<=finaldate
@@ -45,27 +45,7 @@ class Holiday < ActiveRecord::Base
 				finaldate=retirementdate.to_date
 			end
 
-			wageamount950 = person.transcriptions.where(:registerdate => initdate..finaldate).order("registerdate desc").first
-			wageamount960 = person.transcriptions.where(:registerdate => initdate..finaldate).order("registerdate desc").first
-			wageamount970 = person.transcriptions.where(:registerdate => initdate..finaldate).order("registerdate desc").first
-			wageamount980 = person.transcriptions.where(:registerdate => initdate..finaldate).order("registerdate desc").first
-			wageamount990 = person.transcriptions.where(:registerdate => initdate..finaldate).order("registerdate desc").first
-
-			if wageamount950.labor_id == Labor.where(code: "950").first.id
-				finaldate= finaldate + (wageamount950.wageamount).days - 1.day
-
-			elsif wageamount960.labor_id == Labor.where(code: "960").first.id
-				finaldate= finaldate + (wageamount960.wageamount).days - 1.day
-
-			elsif wageamount970.labor_id == Labor.where(code: "970").first.id
-				finaldate= finaldate + (wageamount970.wageamount).days - 1.day
-
-			elsif wageamount980.labor_id == Labor.where(code: "980").first.id
-				finaldate= finaldate + (wageamount980.wageamount).days - 1.day
-
-			elsif wageamount990.labor_id == Labor.where(code: "990").first.id
-				finaldate= finaldate + (wageamount990.wageamount).days - 1.day
-			end
+			
 
 			if finaldate>=ultimodia
 				finaldate=ultimodia
@@ -189,10 +169,10 @@ class Holiday < ActiveRecord::Base
 
 		elsif ultimo.state =="Reintegrado"
 			admissiondate= ultimo.reinstatedate
-			retirementdate=ultimaTranscripcion.registerdate
+			retirementdate=ultimaTranscripcion.present? ? ultimaTranscripcion.registerdate : finaldate
 		elsif ultimo.state=="Activo"
 			admissiondate= ultimo.dateadmission
-			retirementdate=ultimaTranscripcion.registerdate
+			retirementdate=ultimaTranscripcion.present? ? ultimaTranscripcion.registerdate : finaldate
 		end
 
 		if admissiondate.to_date<=finaldate
@@ -213,7 +193,7 @@ class Holiday < ActiveRecord::Base
 
 
 			(initdate..finaldate).each do |t|
-				mensualidad [t.strftime("%Y-%m-%d")] = person.licencias(t)
+				mensualidad [t.strftime("%Y-%m-%d")] = person.licencias(t, [])
 			end
 
 			mensualidad.each do |day|
@@ -232,7 +212,7 @@ class Holiday < ActiveRecord::Base
 
 					elsif diasFestivos.include?(day[0].to_date.strftime("%Y-%m-%d")) and day[0].to_date.strftime("%Y-%m-%d")!= "Sunday"
 						
-						mensualidad[day[0]]=0
+						mensualidad[day[0]]=1
 
 					else
 

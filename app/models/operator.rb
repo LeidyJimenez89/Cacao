@@ -62,10 +62,10 @@ class Operator < ActiveRecord::Base
 
 		elsif ultimo.state =="Reintegrado"
 			admissiondate= ultimo.reinstatedate
-			retirementdate=ultimaTranscripcion.registerdate
+			retirementdate=ultimaTranscripcion.present? ? ultimaTranscripcion.registerdate : finaldate
 		elsif ultimo.state=="Activo"
 			admissiondate= ultimo.dateadmission
-			retirementdate=ultimaTranscripcion.registerdate
+			retirementdate=ultimaTranscripcion.present? ? ultimaTranscripcion.registerdate : finaldate
 		end
 
 		if initdate < admissiondate.to_date
@@ -87,17 +87,20 @@ class Operator < ActiveRecord::Base
 
 
 
-	def licencias (day)
-		flag=1
-		laboresSinContarAsistencia = Labor.where(assistance: "No").map { |e| e.id }
-		registers= self.transcriptions.where(labor_id: laboresSinContarAsistencia)
+	def licencias (dayToCheck , conditions)
+		flag = 1
+		day = dayToCheck.to_date
+		laboresSinContarAsistencia = Labor.where(assistance: "No").where(conditions).map { |e| e.id }
+
+		registers = self.transcriptions.where(labor_id: laboresSinContarAsistencia)
 
 		registers.each do |register|
-			range = register.registerdate.to_date..register.registerdate.to_date + (register.wageamount).days - 1.day
-			if range.include?(day) and flag==1
-				flag= 0
+			range = register.registerdate.to_date..register.registerdate.to_date + (register.laboramount).days - 1.day
+			if range.include?(day) and flag == 1
+				flag = 0
 			end
 		end
+
 		return flag
 	end 
 
