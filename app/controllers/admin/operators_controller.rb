@@ -23,17 +23,42 @@ class Admin::OperatorsController < ApplicationController
       @supervisors = []
     end
 
+
     @operator    = Operator.new
 
     #transcriptions = Transcription.where("registerdate > '" + params[:from_date].to_s + "' AND registerdate < '" + params[:to_date].to_s + " 23:59:59'" + "' AND transcription.operator.company_id == < '" + params[:companytype] )
     transcriptions = Transcription.where(registerdate: params[:fromdate].to_s..params[:todate].to_s)
     #log(Transcription.where(registerdate: params[:from_date].to_s + " 00:00:00" .. params[:to_date].to_s + " 23:59:59" ).to_sql)
     @operators   = Hash.new
-    transcriptions.each do |t|
-      if t.operator.company_id== params[:companytype].to_i
-        @operators[t.operator_id] = t.operator
+
+    Operator.where(flag: 1).each do |operator|
+
+      remuneradas = 0
+      noRemuneradas = 0
+
+      (params[:fromdate]..params[:todate]).each do |day|
+
+        checkDay = operator.licencias(day , {code: 950} )
+        if checkDay == 0
+          remuneradas = remuneradas + 1
+        end
+
+        checkDay960 = operator.licencias(day , {code: 960} )
+        if checkDay960 == 0
+          noRemuneradas = noRemuneradas + 1
+        end
+
       end
+
+      @operators[operator.id] = Hash.new
+      @operators[operator.id][:operator] = operator
+      @operators[operator.id][:remuneradas] = remuneradas
+      @operators[operator.id][:noRemuneradas] = noRemuneradas
+
     end
+
+
+
 
     @configs = Config.first
   end

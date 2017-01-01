@@ -82,7 +82,7 @@
 
   <tbody>
     <% @operators.each do |op| %>
-      <% operator = op[1] %>
+      <% operator = op[1][:operator] %>
       <% if operator.flag == 1 %>
           <tr>
             <td><%= operator.cc %></td>
@@ -111,8 +111,9 @@
                 <td></td>
               <% end %>
 
-            <% licenciasRemuneradas = operator.transcriptions.where(labor_id: Labor.where(code: "950").first.id).where(:registerdate => params[:fromdate]..params[:todate]).map { |e| e.laboramount }.reduce(0,:+).to_i %>
-            <% licenciasNoRemuneradas = operator.transcriptions.where(labor_id: Labor.where(code: "960").first.id).where(:registerdate => params[:fromdate]..params[:todate]).map { |e| e.laboramount }.reduce(0,:+).to_i %>
+            <% licenciasRemuneradas = op[1][:remuneradas] %>
+            <% licenciasNoRemuneradas = op[1][:noRemuneradas] %>
+
             <% licenciasAmbulatorias = operator.transcriptions.where(labor_id: Labor.where(code: "970").first.id).where(:registerdate => params[:fromdate]..params[:todate]).map { |e| e.laboramount }.reduce(0,:+).to_i %>
             <% licenciasARL = operator.transcriptions.where(labor_id: Labor.where(code: "980").first.id).where(:registerdate => params[:fromdate]..params[:todate]).map { |e| e.laboramount }.reduce(0,:+).to_i %>
             <% faltasInjustificadas = operator.transcriptions.where(labor_id: Labor.where(code: "990").first.id).where(:registerdate => params[:fromdate]..params[:todate]).map { |e| e.laboramount }.reduce(0,:+).to_i %>
