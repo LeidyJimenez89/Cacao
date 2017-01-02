@@ -89,7 +89,8 @@ class Operator < ActiveRecord::Base
 
 	def licencias (dayToCheck , conditions)
 		flag = 1
-		day = dayToCheck
+
+		day = dayToCheck.to_date
 		laboresSinContarAsistencia = Labor.where(assistance: "No").where(conditions).map { |e| e.id }
 
 		registers = self.transcriptions.where(labor_id: laboresSinContarAsistencia)
@@ -100,7 +101,6 @@ class Operator < ActiveRecord::Base
 				flag = 0
 			end
 		end
-
 
 		return flag
 	end 

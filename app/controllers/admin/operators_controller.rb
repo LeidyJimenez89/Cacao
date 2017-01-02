@@ -26,6 +26,19 @@ class Admin::OperatorsController < ApplicationController
 
     @operator = Operator.new
 
+    @supervisors    = Supervisor.all
+
+    if params[:fromdate] == 0
+      params[:fromdate] = Date.now.strftime("%Y-%m-%d")
+      params[:todate]   = Date.now.strftime("%Y-%m-%d")
+      params[:paydate]   = Date.now.strftime("%Y-%m-%d")
+      params[:companytype]   = "Todos"
+      @supervisors = []
+    end
+
+
+    @operator    = Operator.new
+
     #transcriptions = Transcription.where("registerdate > '" + params[:from_date].to_s + "' AND registerdate < '" + params[:to_date].to_s + " 23:59:59'" + "' AND transcription.operator.company_id == < '" + params[:companytype] )
     transcriptions = Transcription.where(registerdate: params[:fromdate].to_s..params[:todate].to_s)
     #log(Transcription.where(registerdate: params[:from_date].to_s + " 00:00:00" .. params[:to_date].to_s + " 23:59:59" ).to_sql)
@@ -41,6 +54,11 @@ class Admin::OperatorsController < ApplicationController
       arl = 0
       faltasInjustificadas = 0
       
+    Operator.where(flag: 1).each do |operator|
+
+      remuneradas = 0
+      noRemuneradas = 0
+
       (params[:fromdate]..params[:todate]).each do |day|
 
         checkDay = operator.licencias(day , {code: 950} )
@@ -116,6 +134,19 @@ class Admin::OperatorsController < ApplicationController
 
       end
     end
+      end
+
+      @operators[operator.id] = Hash.new
+      @operators[operator.id][:operator] = operator
+      @operators[operator.id][:remuneradas] = remuneradas
+      @operators[operator.id][:noRemuneradas] = noRemuneradas
+
+    end
+
+
+
+
+    @configs = Config.first
   end
 
   def paysheet_post
