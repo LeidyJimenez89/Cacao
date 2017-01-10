@@ -82,6 +82,8 @@ end
        get 'operators/savehistory'
        get 'operators/paysheet/:fromdate/:todate/:paydate/:companytype', to: 'operators#paysheet', as: 'operators_paysheet'
        post 'operators/paysheet_post', to: 'operators#paysheet_post', as: 'paysheet_post'
+       get 'operators/liquidate/:fromdate/:todate/:paydate/:companytype', to: 'operators#liquidate', as: 'operators_liquidate'
+       post 'operators/liquidate_post', to: 'operators#liquidate_post', as: 'liquidate_post'
 
        resources :operators
 

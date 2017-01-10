@@ -16,11 +16,6 @@
     <div class="col-md-6">
       <%= f.label :todate , "Hasta" %>
       <%= f.text_field :todate , class:"form-control", value: params[:todate]%>
-      <%= f.text_field :fromdate , class:"form-control"%>
-    </div>
-    <div class="col-md-6">
-      <%= f.label :todate , "Hasta" %>
-      <%= f.text_field :todate , class:"form-control"%>
     </div>
   </div>
 
@@ -32,11 +27,6 @@
     <div class="col-md-4">
       <%= f.label :paydate , "Día de pago" %>
       <%= f.text_field :paydate , class:"form-control", value: params[:paydate] %>
-      <%= f.select :companytype, Company.all.map { |j|  [ j.name , j.id ]  } , {prompt: ""}, class:"form-control"%>
-    </div>
-    <div class="col-md-4">
-      <%= f.label :paydate , "Día de pago" %>
-      <%= f.text_field :paydate , class:"form-control"%>
     </div>
     <div class="col-md-4">
       <%= f.submit "Consultar", :class =>"btn btn-dark"%>
@@ -90,7 +80,6 @@
       <th class="active">Descuento Cliente</th>
       <th class="active">Subsidio de transporte</th>
       <th class="active">Centro de costos</th>
-      <th class="active">Días faltantes</th>
     </tr>
   </thead>
 
@@ -103,7 +92,6 @@
             <td><%= operator.name  + " " + operator.lastname %></td>
             <td><%= operator.jobs.map { |e| e.name }.join(", ").html_safe %></td>
             <td><%= operator.basepay %></td>
-            <td><%= operator.jobs.map { |e| e.basepay }.join(", ").html_safe %></td>
             <td><%= operator.state %></td>
 
               <% if operator.state == "Activo" %>
@@ -131,10 +119,7 @@
             <% licenciasAmbulatorias = op[1][:ambulatorias] %>
             <% licenciasARL = op[1][:arl] %>
             <% faltasInjustificadas = op[1][:faltasInjustificadas] %>
-            <% licenciasAmbulatorias = operator.transcriptions.where(labor_id: Labor.where(code: "970").first.id).where(:registerdate => params[:fromdate]..params[:todate]).map { |e| e.laboramount }.reduce(0,:+).to_i %>
-            <% licenciasARL = operator.transcriptions.where(labor_id: Labor.where(code: "980").first.id).where(:registerdate => params[:fromdate]..params[:todate]).map { |e| e.laboramount }.reduce(0,:+).to_i %>
-            <% faltasInjustificadas = operator.transcriptions.where(labor_id: Labor.where(code: "990").first.id).where(:registerdate => params[:fromdate]..params[:todate]).map { |e| e.laboramount }.reduce(0,:+).to_i %>
-            <% licenciasSoat = operator.transcriptions.where(labor_id: Labor.where(code: "940").first.id).where(:registerdate => params[:fromdate]..params[:todate]).map { |e| e.laboramount }.reduce(0,:+).to_i %>
+
             <% recargoNoctuno = operator.transcriptions.where(labor_id: Labor.where(code: "919").first.id).where(:registerdate => params[:fromdate]..params[:todate]).map { |e| e.laboramount }.reduce(0,:+).to_i %>
             <% recargoFestivoDiurno = operator.transcriptions.where(labor_id: Labor.where(code: "920").first.id).where(:registerdate => params[:fromdate]..params[:todate]).map { |e| e.laboramount }.reduce(0,:+).to_i %>
             <% recargoFestivoNocturno = operator.transcriptions.where(labor_id: Labor.where(code: "921").first.id).where(:registerdate => params[:fromdate]..params[:todate]).map { |e| e.laboramount }.reduce(0,:+).to_i %>
@@ -143,45 +128,16 @@
             <% extraFestivaDiurna = operator.transcriptions.where(labor_id: Labor.where(code: "924").first.id).where(:registerdate => params[:fromdate]..params[:todate]).map { |e| e.laboramount }.reduce(0,:+).to_i %>
             <% extraFestivaNocturna = operator.transcriptions.where(labor_id: Labor.where(code: "925").first.id).where(:registerdate => params[:fromdate]..params[:todate]).map { |e| e.laboramount }.reduce(0,:+).to_i %>
 
-            <td>
-              <%= operator.asistance(params[:fromdate].to_date, params[:todate].to_date, operator) %>
-            </td>
+            <td><%= op[1][:asistence] %></td>
             <td><%= op[1][:daysEffecty] %></td>
             <td><%= number_to_currency(op[1][:subtotal]) %></td>
             <td><%= op[1][:daysPays] %></td>
             <td><%= number_to_currency(op[1][:extra]) %></td>
-            <td>
-              <%= Holiday.effectydays(params[:fromdate].to_date, params[:todate].to_date, params[:paydate].to_date, operator, licenciasRemuneradas, licenciasNoRemuneradas, licenciasAmbulatorias, licenciasARL, faltasInjustificadas, licenciasSoat) %>
-            </td>
-
-            <td>
-              <%= number_to_currency(operator.transcriptions.where(:registerdate => params[:fromdate]..params[:todate]).map { |e| e.subtotal }.reduce(0, :+)) %>
-            </td>
-            
-            <% if operator.transcriptions.map { |e| e.subtotal } != 0 %>
-              <td>
-                <%= Holiday.paydays(params[:fromdate].to_date, params[:todate].to_date, params[:paydate].to_date, operator, licenciasRemuneradas, licenciasNoRemuneradas, licenciasAmbulatorias, licenciasARL, faltasInjustificadas, licenciasSoat) %>
-              </td>
-            <% end %>
-
-            <td>
-            <%if (operator.records.where(state: "Reintegrado").order("id desc").first.present?)%>
-              <%= operator.records.where(state: "Reintegrado").order("id desc").first.reinstatedate  %>
-            <%end%>
-            <%if operator.records.where(state: "Retirado").order("id desc").first.present?%>
-              <%= operator.records.where(state: "Retirado").order("id desc").first.retirementdate  %>
-            <%end%>
-              <% t=operator.dateadmission  %>
-              <%= t.day.to_s + " " + t.strftime("%A") %>
-              <%= t.strftime("%Y") %>
-            </td>
 
             <td><%= licenciasRemuneradas %></td>
             <td><%= licenciasNoRemuneradas %></td>
             <td><%= licenciasAmbulatorias %></td>
             <td><%= licenciasARL %></td>
-            <td><%= faltasInjustificadas %></td>
-            <td><%= licenciasARL + licenciasSoat %></td>
             <td><%= faltasInjustificadas %></td>
             <td><%= recargoNoctuno %></td>
             <td><%= recargoFestivoDiurno %></td>
@@ -204,23 +160,11 @@
 
             <td><%= op[1][:transport] %></td>
 
-            <% if operator.transportAllowance.present? %>
-              <% if operator.transportAllowance == "Completo" %>
-                <td><%= @configs[:transportAllowance] %></td>
-              <% elsif operator.transportAllowance == "Mitad" %>
-                <td><%= @configs[:transportAllowance] / 2 %></td>
-              <% elsif operator.transportAllowance == "No aplica" %>
-                <td><%= @configs[:transportAllowance] *0 %></td>
-              <% end %>
-            <% end %>
-
             <% if operator.billingc.present? %>
               <td><%= operator.billingc.name %></td>
             <% else %>
               <td></td>
             <% end %>
-
-            <td><%= op[1][:missingDays].join(", ").html_safe %></td>
 
 
           </tr>

@@ -6,7 +6,7 @@
   Nómina
 </h1>
 
-<%= form_for @operator, url:{action: "liquidated_post"} do |f| %>
+<%= form_for @operator, url:{action: "liquidate_post"} do |f| %>
 
   <div class="form-group col-md-12 field">
     <div class="col-md-6">
@@ -80,7 +80,6 @@
       <th class="active">Descuento Cliente</th>
       <th class="active">Subsidio de transporte</th>
       <th class="active">Centro de costos</th>
-      <th class="active">Días faltantes</th>
     </tr>
   </thead>
 
@@ -129,9 +128,7 @@
             <% extraFestivaDiurna = operator.transcriptions.where(labor_id: Labor.where(code: "924").first.id).where(:registerdate => params[:fromdate]..params[:todate]).map { |e| e.laboramount }.reduce(0,:+).to_i %>
             <% extraFestivaNocturna = operator.transcriptions.where(labor_id: Labor.where(code: "925").first.id).where(:registerdate => params[:fromdate]..params[:todate]).map { |e| e.laboramount }.reduce(0,:+).to_i %>
 
-            <td>
-              <%= operator.asistance(params[:fromdate].to_date, params[:todate].to_date, operator) %>
-            </td>
+            <td><%= op[1][:asistence] %></td>
             <td><%= op[1][:daysEffecty] %></td>
             <td><%= number_to_currency(op[1][:subtotal]) %></td>
             <td><%= op[1][:daysPays] %></td>
@@ -170,8 +167,6 @@
             <% else %>
               <td></td>
             <% end %>
-
-            <td><%= op[1][:missingDays].join(", ").html_safe %></td>
 
 
           </tr>

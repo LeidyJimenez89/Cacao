@@ -26,38 +26,21 @@ class Admin::OperatorsController < ApplicationController
 
     @operator = Operator.new
 
-    @supervisors    = Supervisor.all
-
-    if params[:fromdate] == 0
-      params[:fromdate] = Date.now.strftime("%Y-%m-%d")
-      params[:todate]   = Date.now.strftime("%Y-%m-%d")
-      params[:paydate]   = Date.now.strftime("%Y-%m-%d")
-      params[:companytype]   = "Todos"
-      @supervisors = []
-    end
-
-
-    @operator    = Operator.new
-
     #transcriptions = Transcription.where("registerdate > '" + params[:from_date].to_s + "' AND registerdate < '" + params[:to_date].to_s + " 23:59:59'" + "' AND transcription.operator.company_id == < '" + params[:companytype] )
     transcriptions = Transcription.where(registerdate: params[:fromdate].to_s..params[:todate].to_s)
     #log(Transcription.where(registerdate: params[:from_date].to_s + " 00:00:00" .. params[:to_date].to_s + " 23:59:59" ).to_sql)
     @operators   = Hash.new
 
     Operator.where({ flag: 1 , company_id: params[:companytype]}).where.not(state: "Retirado").each do |operator|
-      daysPays = Holiday.paydays(params[:fromdate].to_date, params[:todate].to_date, params[:paydate].to_date, operator)
-      
+    asistence = operator.asistance(params[:fromdate].to_date, params[:todate].to_date, operator)
+    daysPays = Holiday.paydays(params[:fromdate].to_date, params[:todate].to_date, params[:paydate].to_date, operator)
+
       remuneradas = 0
       noRemuneradas = 0
       soat = 0
       ambulatoria = 0
       arl = 0
       faltasInjustificadas = 0
-      
-    Operator.where(flag: 1).each do |operator|
-
-      remuneradas = 0
-      noRemuneradas = 0
 
       (params[:fromdate]..params[:todate]).each do |day|
 
@@ -92,9 +75,14 @@ class Admin::OperatorsController < ApplicationController
         end
       end
 
-      sumaLicencias = remuneradas + noRemuneradas + soat + ambulatoria + arl + faltasInjustificadas
+      sumaLicencias = remuneradas + noRemuneradas + ambulatoria + arl + faltasInjustificadas
 
       if daysPays[:cont] != 0 || sumaLicencias > 0
+
+        if asistence ==0
+          daysPays[:cont]=0
+        end
+
         daysEffecty= Holiday.effectydays(params[:fromdate].to_date, params[:todate].to_date, params[:paydate].to_date, operator)
         subtotal = operator.transcriptions.where(:registerdate => params[:fromdate]..params[:todate]).map { |e| e.subtotal }.reduce(0, :+)
         
@@ -104,8 +92,6 @@ class Admin::OperatorsController < ApplicationController
           extra = 0
         end
         
-
-
         if operator.transportAllowance.present?
           if operator.transportAllowance == "Completo"
             transport=Config.first.transportAllowance / 30 * daysPays[:cont]
@@ -131,22 +117,10 @@ class Admin::OperatorsController < ApplicationController
         @operators[operator.id][:transport] = transport
         @operators[operator.id][:daysEffecty] = daysEffecty
         @operators[operator.id][:missingDays] = missingDays
+        @operators[operator.id][:asistence] = asistence
 
       end
     end
-      end
-
-      @operators[operator.id] = Hash.new
-      @operators[operator.id][:operator] = operator
-      @operators[operator.id][:remuneradas] = remuneradas
-      @operators[operator.id][:noRemuneradas] = noRemuneradas
-
-    end
-
-
-
-
-    @configs = Config.first
   end
 
   def paysheet_post
@@ -174,6 +148,7 @@ class Admin::OperatorsController < ApplicationController
     @operators   = Hash.new
 
     Operator.where({ flag: 1 , company_id: params[:companytype]}).where(state: "Retirado").each do |operator|
+      asistence = operator.asistance(params[:fromdate].to_date, params[:todate].to_date, operator)
       daysPays = Holiday.paydays(params[:fromdate].to_date, params[:todate].to_date, params[:paydate].to_date, operator)
       
       remuneradas = 0
@@ -216,9 +191,13 @@ class Admin::OperatorsController < ApplicationController
         end
       end
 
-      sumaLicencias = remuneradas + noRemuneradas + soat + ambulatoria + arl + faltasInjustificadas
-
+      sumaLicencias = remuneradas + noRemuneradas + ambulatoria + arl + faltasInjustificadas
       if daysPays[:cont] != 0 || sumaLicencias > 0
+
+        if asistence ==0
+          daysPays[:cont]=0
+        end
+
         daysEffecty= Holiday.effectydays(params[:fromdate].to_date, params[:todate].to_date, params[:paydate].to_date, operator)
         subtotal = operator.transcriptions.where(:registerdate => params[:fromdate]..params[:todate]).map { |e| e.subtotal }.reduce(0, :+)
         
@@ -255,12 +234,13 @@ class Admin::OperatorsController < ApplicationController
         @operators[operator.id][:transport] = transport
         @operators[operator.id][:daysEffecty] = daysEffecty
         @operators[operator.id][:missingDays] = missingDays
+        @operators[operator.id][:asistence] = asistence
 
       end
     end
   end
 
-  def liquidated_post
+  def liquidate_post
     redirect_to admin_operators_liquidate_path(params[:operator][:fromdate],params[:operator][:todate],params[:operator][:paydate], params[:operator][:companytype])
   end
 
