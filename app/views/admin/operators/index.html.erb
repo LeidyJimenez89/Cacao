@@ -6,6 +6,10 @@
   Listar Operadores
 </h1>
 
+
+<%= link_to 'Download as .xlsx', admin_operators_path(format: :xlsx) %>
+
+
 <%= link_to new_admin_operator_path , :class =>"btn btn-dark pull-right" do %>
   <span class="glyphicon glyphicon-plus"></span>
   Crear operador

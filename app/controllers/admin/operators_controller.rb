@@ -5,6 +5,12 @@ class Admin::OperatorsController < ApplicationController
   # GET /operators.json
   def index
     @operators = Operator.all
+      respond_to do |format|
+        format.html
+        format.xlsx{
+          response.headers['Content-Disposition'] = 'attachment; filename="formato.xlsx"'
+        }
+      end
   end
 
   def savehistory
@@ -16,7 +22,7 @@ class Admin::OperatorsController < ApplicationController
 
     if params[:fromdate].to_s == "0"
       params[:fromdate] = Time.new.strftime("%Y-%m-01")
-      params[:todate]   = (Time.new + 1.month - 1.day).strftime("%Y-%m-%d")
+      params[:todate]   = (Time.now.utc.end_of_month).strftime("%Y-%m-%d")
       params[:paydate]   = Time.new.strftime("%Y-%m-01")
       params[:companytype] = Company.all.map { |e| e.id }
       @supervisors = []
@@ -132,7 +138,7 @@ class Admin::OperatorsController < ApplicationController
 
     if params[:fromdate].to_s == "0"
       params[:fromdate] = Time.new.strftime("%Y-%m-01")
-      params[:todate]   = (Time.new + 1.month - 1.day).strftime("%Y-%m-%d")
+      params[:todate]   = (Time.now.utc.end_of_month).strftime("%Y-%m-%d")
       params[:paydate]   = Time.new.strftime("%Y-%m-01")
       params[:companytype] = Company.all.map { |e| e.id }
       @supervisors = []
