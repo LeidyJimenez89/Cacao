@@ -1,4 +1,5 @@
 class Operator < ActiveRecord::Base
+
 	has_many :jobs, through: :job_operators
 	has_many :job_operators
 

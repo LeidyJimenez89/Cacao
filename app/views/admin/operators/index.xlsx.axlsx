@@ -1,7 +1,7 @@
 wb = xlsx_package.workbook
-render xlsx: 'products', template: 'my/template', filename: "my_products.xlsx", disposition: 'inline',
-  xlsx_created_at: 3.days.ago, xlsx_author: "Elmer Fudd"
+
 wb.add_worksheet(name: "Operators") do |sheet|
+  sheet.add_row ["CC", "Nombre"]
   @operators.each do |operator|
     sheet.add_row [operator.cc, operator.name]
   end

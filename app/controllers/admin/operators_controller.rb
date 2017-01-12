@@ -5,12 +5,9 @@ class Admin::OperatorsController < ApplicationController
   # GET /operators.json
   def index
     @operators = Operator.all
-      respond_to do |format|
-        format.html
-        format.xlsx{
-          response.headers['Content-Disposition'] = 'attachment; filename="formato.xlsx"'
-        }
-      end
+    respond_to do |format|
+      format.xlsx
+    end
   end
 
   def savehistory
@@ -123,7 +120,7 @@ class Admin::OperatorsController < ApplicationController
         @operators[operator.id][:transport] = transport
         @operators[operator.id][:daysEffecty] = daysEffecty
         @operators[operator.id][:missingDays] = missingDays
-        @operators[operator.id][:asistence] = asistence
+        @operators[operator.id][:asistence] = asistence    
 
       end
     end
